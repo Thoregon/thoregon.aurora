@@ -1,0 +1,26 @@
+{
+  "name": "thoregon.aurora",
+  "version": "1.0.0",
+  "description": "higher level UI components based on evolux.ui",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thoregon/thoregon.ui.git"
+  },
+  "keywords": [],
+  "author": "Bernhard Lukassen <bl@bernhard-lukassen.com> (http://www.bernhard-lukassen.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Thoregon/thoregon.ui/issues"
+  },
+  "homepage": "https://github.com/Thoregon/thoregon.ui#readme",
+  "dependencies": {
+    "dot": "^1.1.3"
+  }
+}
