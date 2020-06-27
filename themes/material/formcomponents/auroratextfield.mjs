@@ -10,6 +10,13 @@ export default class AuroraTextField extends ThemeBehavior {
 
     attach(jar) {
         this.jar = jar;
-        console.log("AuroraFextField.attach()");
+        this.auroraelement = this.jar.shadowRoot;
+
+        var elements = this.auroraelement.getElementsByClassName("aurora-text-field");
+        elements[0].addEventListener('click', () => myfunction, false);
+    }
+
+    myfunction () {
+        alert ('hab dich...');
     }
 }
