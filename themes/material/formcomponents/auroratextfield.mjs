@@ -22,8 +22,15 @@ export default class AuroraTextField extends ThemeBehavior {
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
         var inputfield = this.auroraelement.querySelectorAll("input");
 
-        //--- Variante 1: wo ich versuchte habe das Element zu übergeben
-        var typing     = (event) => this.inputFieldKeyup(event, this.auroraelement);
+        //--- Variante 1: Die 'fat arrow' Funktionen binden this an das aktuelle Object in dem die Funktion definiert ist.
+        // mit event.target bekommst du das richtige element
+        var typing     = (event) => this.inputFieldKeyup(event, event.target);
+        inputfield[0].addEventListener('keyup', typing, false);
+
+        //--- Variante 3: Die standard Funktionen können an andere objekte gebunden sein. In diesem Fall ist es das target (input feld)
+        typing = function(event) {
+            console.log(this);
+        }
         inputfield[0].addEventListener('keyup', typing, false);
 
         //--- Variante 2: der Klasiker
