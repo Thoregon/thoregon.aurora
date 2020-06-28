@@ -21,9 +21,12 @@ export default class AuroraTextField extends ThemeBehavior {
 
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
         var inputfield = this.auroraelement.querySelectorAll("input");
+
+        //--- Variante 1: wo ich versuchte habe das Element zu übergeben
         var typing     = (event) => this.inputFieldKeyup(event, this.auroraelement);
         inputfield[0].addEventListener('keyup', typing, false);
 
+        //--- Variante 2: der Klasiker
         inputfield[0].addEventListener('keyup', this.inputFieldKeyup2, false);
     }
 
