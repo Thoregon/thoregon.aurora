@@ -12,45 +12,37 @@ export default class AuroraTextField extends ThemeBehavior {
 
     attach(jar) {
         this.jar = jar;
-        this.auroraelement = this.jar.container;
-        this.rootElement   = 'martin';
+        this.container = this.jar.container;
 
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
-        var textfield = this.auroraelement.getElementsByClassName("aurora-text-field");
-        textfield[0].addEventListener('click', this.textFieldClicked, false);
+        var textfield = this.container.getElementsByClassName("aurora-text-field");
+        textfield[0].addEventListener('click', this.callbackClicked, false);
 
+
+        var inputfield = this.container.querySelectorAll("input");
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
-        var inputfield = this.auroraelement.querySelectorAll("input");
-
-        //--- Variante 1: Die 'fat arrow' Funktionen binden this an das aktuelle Object in dem die Funktion definiert ist.
-        // mit event.target bekommst du das richtige element
-        var typing     = (event) => this.inputFieldKeyup(event, event.target);
+        var typing     = (event) => this.callbackKeyup( event, this.container );
         inputfield[0].addEventListener('keyup', typing, false);
 
-        //--- Variante 3: Die standard Funktionen können an andere objekte gebunden sein. In diesem Fall ist es das target (input feld)
-        typing = function(event) {
-            console.log(this);
-        }
-        inputfield[0].addEventListener('keyup', typing, false);
+        var leaving     = (event) => this.callbackFocusout( event, this.container );
+        inputfield[0].addEventListener('focusout', leaving, false);
 
-        //--- Variante 2: der Klasiker
-        inputfield[0].addEventListener('keyup', this.inputFieldKeyup2, false);
     }
 
-    textFieldClicked () {
+    callbackClicked ( event ) {
         this.classList.add('focused');
         this.parentElement.querySelectorAll("label")[0].classList.add('mdc-floating-label--float-above');
+        event.stopPropagation();
     }
-    inputFieldKeyup(event, auroraelement ) {
-        console.log(this);
-        if (this && this.value) {
-            alert("My input has a value!");
+    callbackKeyup( event, container ) {
+        event.stopPropagation();
+    }
+    callbackFocusout ( event, container  ) {
+        if (! (event.target && event.target.value)) {
+            event.target.parentElement.querySelectorAll("label")[0].classList.remove('mdc-floating-label--float-above');
         }
+        this.container.getElementsByClassName("aurora-text-field")[0].classList.remove('focused');
+        event.stopPropagation();
     }
-    inputFieldKeyup2() {
-        console.log(this);
-        if (this && this.value) {
-            alert("My input has a value!");
-        }
-    }
+
 }
