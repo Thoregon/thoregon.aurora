@@ -31,7 +31,7 @@ export default class AuroraTextField extends ThemeBehavior {
 
     callbackClicked ( event ) {
         this.classList.add('focused');
-        this.parentElement.querySelectorAll("label")[0].classList.add('mdc-floating-label--float-above');
+        this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
         event.stopPropagation();
     }
     callbackKeyup( event, container ) {
@@ -39,7 +39,7 @@ export default class AuroraTextField extends ThemeBehavior {
     }
     callbackFocusout ( event, container  ) {
         if (! (event.target && event.target.value)) {
-            event.target.parentElement.querySelectorAll("label")[0].classList.remove('mdc-floating-label--float-above');
+            event.target.parentElement.querySelectorAll("label")[0].classList.remove('aurora-floating-label--float-above');
         }
         this.container.getElementsByClassName("aurora-text-field")[0].classList.remove('focused');
         event.stopPropagation();

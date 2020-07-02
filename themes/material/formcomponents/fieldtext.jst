@@ -1,28 +1,30 @@
 <div class="inline-text-field-container">
 
-    <div  class="aurora-text-field {{= it.classes}}
-    mdc-text-field
-                mdc-text-field--with-leading-icon
-                mdc-text-field--with-trailing-icon
-                mdc-ripple-upgraded"
-          style="--mdc-ripple-fg-size:166px; --mdc-ripple-fg-scale:1.76858; --mdc-ripple-fg-translate-start:62.5px, -60.5px; --mdc-ripple-fg-translate-end:56px, -55px;">
+    <div  class="aurora-text-field {{= it.classes}}">
+
         {{? it.usesleadingicon }}
-        <i aria-hidden="true" class="material-icons aurora-leading-icon">
-            <!---->favorite
-            <!----></i>
+            <i aria-hidden="true" class="material-icons aurora-leading-icon"> {{= it.leading_icon}} </i>
         {{?}}
+
         {{? it.usestrailingicon }}
-        <i aria-hidden="true" class="material-icons aurora-trailing-icon">
-            <!---->visibility
-            <!----></i>
+            <i aria-hidden="true" class="material-icons aurora-trailing-icon"> {{= it.trailing_icon}} </i>
         {{?}}
-        <input type="text" class="mdc-text-field__input" autocorrect="off" autocomplete="off" spellcheck="false" id="demo-mdc-text-field" maxlength="20" {{? it.isrequered}}required{{?}} >
+        <input type="text"
+               id="{{=it.name}}"
+               name="{{=it.name}}"
+               class="aurora-text-field-input"
+               autocorrect="off"
+               autocomplete="off"
+               spellcheck="false"
+               maxlength="20"
+               {{? it.readonly}} readonly="readonly" {{?}}
+               {{? it.isrequered}} required {{?}}
+        >
 
         <div class="mdc-line-ripple" style="transform-origin: 145px center;"></div>
 
-        <label for="demo-mdc-text-field" class="mdc-floating-label">
-            <!---->{{=it.label}}
-            <!----></label>
+        <label for="{{=it.name}}" class="aurora-floating-label"> {{=it.label}} </label>
+
     </div>
     <div class="mdc-text-field-helper-line">
         <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent">
