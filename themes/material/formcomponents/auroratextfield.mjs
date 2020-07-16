@@ -29,7 +29,11 @@ export default class AuroraTextField extends ThemeBehavior {
         var leaving     = (event) => this.callbackFocusout( event, this.container );
         inputfield.addEventListener('focusout', leaving, false);
 
-        MDC.MDCRipple.attachTo(inputfield);
+        // MDC.MDCRipple.attachTo(inputfield);
+    }
+
+    valueChanged() {
+        alert("hab dich..");
     }
 
     callbackClicked ( event ) {
