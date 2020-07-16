@@ -22,6 +22,7 @@ export default class AuroraTextField extends ThemeBehavior {
 
 
         var inputfield = this.container.querySelector("input");
+
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
         var typing     = (event) => this.callbackKeyup( event, this.container );
         inputfield.addEventListener('keyup', typing, false);
@@ -33,7 +34,7 @@ export default class AuroraTextField extends ThemeBehavior {
     }
 
     valueChanged() {
-        alert("hab dich..");
+        this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
     }
 
     callbackClicked ( event ) {

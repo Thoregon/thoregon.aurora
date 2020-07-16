@@ -6,7 +6,7 @@
 
 import ThemeBehavior            from "../../themebehavior.mjs";
 
-import MDC                      from '/@material/ripple';
+import Ripple                   from '../ripple.mjs';
 
 export default class AuroraButton extends ThemeBehavior {
 
@@ -16,7 +16,7 @@ export default class AuroraButton extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
-        MDC.MDCRipple.attachTo(this.container.querySelector('.mdc-button__ripple'));
+        new Ripple( this.container.querySelector('.mdc-button__ripple'));
     }
 
 }
