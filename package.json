@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Thoregon/thoregon.ui#readme",
   "dependencies": {
+    "@material/ripple": "^7.0.0",
     "dot": "^1.1.3"
   }
 }
