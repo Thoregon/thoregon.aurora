@@ -6,6 +6,8 @@
 
 import ThemeBehavior            from "../../themebehavior.mjs";
 
+import MDC                      from '/@material/ripple';
+
 export default class AuroraTextField extends ThemeBehavior {
 
     rootElement = '';
@@ -19,14 +21,15 @@ export default class AuroraTextField extends ThemeBehavior {
         textfield[0].addEventListener('click', this.callbackClicked, false);
 
 
-        var inputfield = this.container.querySelectorAll("input");
+        var inputfield = this.container.querySelector("input");
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
         var typing     = (event) => this.callbackKeyup( event, this.container );
-        inputfield[0].addEventListener('keyup', typing, false);
+        inputfield.addEventListener('keyup', typing, false);
 
         var leaving     = (event) => this.callbackFocusout( event, this.container );
-        inputfield[0].addEventListener('focusout', leaving, false);
+        inputfield.addEventListener('focusout', leaving, false);
 
+        MDC.MDCRipple.attachTo(inputfield);
     }
 
     callbackClicked ( event ) {
