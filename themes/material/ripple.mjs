@@ -1,5 +1,12 @@
+/**
+ * Simple ripple replica
+ * todo [REFACTOR]: exchange with better (more original) ripple effect
+ *
+ * @author: Martin Neitz
+ */
 
 export default class Ripple {
+
     constructor( rippleElement ) {
         rippleElement.addEventListener("click", (event)=>{
             let X = event.pageX - rippleElement.offsetLeft;
@@ -15,4 +22,5 @@ export default class Ripple {
             }, 900);
         } )
     }
+
 }
