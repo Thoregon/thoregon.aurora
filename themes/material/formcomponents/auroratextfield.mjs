@@ -6,8 +6,6 @@
 
 import ThemeBehavior            from "../../themebehavior.mjs";
 
-// import MDC                      from '/@material/ripple';
-
 export default class AuroraTextField extends ThemeBehavior {
 
     rootElement = '';
