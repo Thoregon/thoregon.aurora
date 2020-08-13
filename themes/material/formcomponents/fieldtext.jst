@@ -19,7 +19,7 @@
                spellcheck="false"
                maxlength="20"
                {{? it.readonly}} readonly="readonly" {{?}}
-               {{? it.isrequered}} required {{?}}
+               {{? it.isrequired}} required {{?}}
         >
 
         <div class="aurora-line-ripple" style="transform-origin: 145px center;"></div>
@@ -36,6 +36,8 @@
             <!---->Error message
             <!---->
         </div>
-        <div class="mdc-text-field-character-counter">0 / 20</div>
+        {{? it.usecharactercounter}}
+          <div class="mdc-text-field-character-counter">0 / 20</div>
+        {{?}}
     </div>
 </div>
