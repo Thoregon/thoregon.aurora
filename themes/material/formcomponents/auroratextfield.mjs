@@ -18,31 +18,46 @@ export default class AuroraTextField extends ThemeBehavior {
         var textfield = this.container.getElementsByClassName("aurora-text-field");
         textfield[0].addEventListener('click', this.callbackClicked, false);
 
-
-        var inputfield = this.container.querySelector("input");
+        var inputfield = this.container.getElementsByClassName("aurora-text-field-input");
 
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
         var typing     = (event) => this.callbackKeyup( event, this.container );
-        inputfield.addEventListener('keyup', typing, false);
+        inputfield[0].addEventListener('keyup', this.callbackKeyup, false);
 
         var leaving     = (event) => this.callbackFocusout( event, this.container );
-        inputfield.addEventListener('focusout', leaving, false);
+        inputfield[0].addEventListener('focusout', leaving, false);
 
+        inputfield[0].addEventListener( 'focus', this.callbackClicked );
         // MDC.MDCRipple.attachTo(inputfield);
     }
 
-    valueChanged() {
+    valueChanged( event ) {
         this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
+        let charactercounter = this.container.querySelectorAll(".mdc-text-field-character-counter");
+        if ( charactercounter.length > 0 ) {
+            this.container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = this.jar.value.length;
+        }
     }
+
 
     callbackClicked ( event ) {
         this.classList.add('focused');
         this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
         event.stopPropagation();
     }
-    callbackKeyup( event, container ) {
+    callbackKeyup( event ) {
+        let container = event.target.parentElement.parentElement;
+        let charactercounter = container.querySelectorAll(".mdc-text-field-character-counter");
+        if ( charactercounter.length > 0 ) {
+            container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = event.target.value.length;
+        }
         event.stopPropagation();
     }
+
+    callbackFocusIn ( event ) {
+        console.log('focus event');
+    }
+
     callbackFocusout ( event, container  ) {
         if (! (event.target && event.target.value)) {
             event.target.parentElement.querySelectorAll("label")[0].classList.remove('aurora-floating-label--float-above');
