@@ -1,6 +1,5 @@
-<div class="inline-text-field-container">
-
-    <div  class="aurora-text-field {{= it.classes}}">
+<div class="aurora-text-field-container {{= it.classes}}">
+    <div  class="aurora-text-field">
 
         {{? it.usesleadingicon }}
             <i aria-hidden="true" class="material-icons aurora-leading-icon"> {{= it.leading_icon}} </i>
@@ -28,12 +27,13 @@
 
     </div>
     <div class="mdc-text-field-helper-line">
+        {{? it.hashint}}
         <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent">
-            <!---->Helper message
-            <!---->
+            {{= it.hint}}
         </div>
+        {{?}}
         <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg" role="alert">
-            <!---->Error message
+            <!--Error message-->
             <!---->
         </div>
         {{? it.usecharactercounter}}
