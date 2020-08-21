@@ -59,6 +59,7 @@ export default class AuroraTextField extends ThemeBehavior {
     }
 
     callbackFocusout ( event, container  ) {
+        console.log("focus out...");
         if (! (event.target && event.target.value)) {
             event.target.parentElement.querySelectorAll("label")[0].classList.remove('aurora-floating-label--float-above');
         }

@@ -278,8 +278,7 @@
     vertical-align: 0;
 }
 
-.aurora-text-field-input:required~.aurora-floating-label::after,
-.aurora-text-field-input:required~.mdc-notched-outline .aurora-floating-label::after {
+.aurora-text-field-container.required .aurora-floating-label::after {
     margin-left: 1px;
     content: "*";
 }
