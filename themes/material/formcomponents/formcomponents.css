@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     --aurora-focused-col: #1a75d2;
+    --aurora-error-col: #b00020;
 }
 
 .aurora-text-field-container:not(.disabled) .aurora-text-field {
@@ -151,6 +152,10 @@
     border-bottom-color: rgba(0,0,0,.42);
 }
 
+.aurora-text-field-container:not(.disabled).error .aurora-text-field .aurora-text-field-input {
+    border-bottom-color: var(--aurora-error-col, #cc0b0f);
+}
+
 .aurora-text-field .aurora-text-field-input {
     caret-color: var(--aurora-focused-col, #1a75d2);
 }
@@ -191,6 +196,10 @@
     background-color: var(--aurora-focused-col, #1a75d2);
 }
 
+.error .aurora-text-field .aurora-line-ripple {
+    background-color: var(--aurora-error-col, #cc0b0f);
+}
+
 .aurora-line-ripple {
     position: absolute;
     bottom: 0;
@@ -223,9 +232,14 @@
     caret-color: var(--aurora-focused-col, #1a75d2);
 }
 .aurora-text-field:not(.disabled) .aurora-floating-label { color: rgba(0,0,0,.6); }
+.error .aurora-text-field:not(.disabled) .aurora-floating-label { color: var(--aurora-error-col, #cc0b0f) }
+
 .aurora-text-field.focused:not(.disabled) .aurora-floating-label {
-    color: rgba(98,0,238,.87);
     color: var(--aurora-focused-col, #1a75d2);
+}
+
+.error .aurora-text-field.focused:not(.disabled) .aurora-floating-label {
+    color: var(--aurora-error-col, #1a75d2);
 }
 
 /* HELP TEXT  ------ */
@@ -274,8 +288,12 @@
     display: inline-block;
     width: 0;
     height: 16px;
-    content: "";
+    content: '';
     vertical-align: 0;
+}
+
+.mdc-text-field-helper-text.aurora-text-field-error-text {
+    color: var(--aurora-error-col, #cc0b0f) !important;
 }
 
 .aurora-text-field-container.required .aurora-floating-label::after {
@@ -283,7 +301,10 @@
     content: "*";
 }
 
-/* Character counter  ------ */
+.error .mdc-text-field-helper-text.aurora-text-field-error-text  { display: block; opacity: 1; }
+.error .mdc-text-field-helper-text.aurora-text-field-helper-text { display: none; opacity: 0; }
+
+    /* Character counter  ------ */
 
 .mdc-text-field-character-counter {
     font-family: Roboto, sans-serif;

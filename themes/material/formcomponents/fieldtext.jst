@@ -28,12 +28,11 @@
     </div>
     <div class="mdc-text-field-helper-line">
         {{? it.hashint}}
-        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent">
-            {{= it.hint}}
-        </div>
+        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent aurora-text-field-helper-text">{{= it.hint}}</div>
         {{?}}
-        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg" role="alert">
+        <div class="mdc-text-field-helper-text aurora-text-field-error-text" role="alert">
             <!--Error message-->
+            Föhla
             <!---->
         </div>
         {{? it.usecharactercounter}}
