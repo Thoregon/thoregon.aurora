@@ -9,8 +9,10 @@ export default class Ripple {
 
     constructor( rippleElement ) {
         rippleElement.addEventListener("click", (event)=>{
-            let X = event.pageX - rippleElement.offsetLeft;
-            let Y = event.pageY - rippleElement.offsetTop;
+            let rect = rippleElement.getBoundingClientRect();
+            let X = event.clientX - rect.left;
+            let Y = event.clientY - rect.top;
+
             let rippleDiv = document.createElement("div");
             rippleDiv.classList.add('ripple');
             rippleDiv.setAttribute("style","top:"+Y+"px; left:"+X+"px;");

@@ -16,7 +16,7 @@ export default class AuroraButton extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
-        new Ripple( this.container.querySelector('.mdc-button__ripple'));
+        new Ripple( this.container.querySelector('.aurora-button-ripple'));
     }
 
 }
