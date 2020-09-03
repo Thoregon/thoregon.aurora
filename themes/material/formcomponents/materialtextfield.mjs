@@ -6,7 +6,7 @@
 
 import ThemeBehavior            from "../../themebehavior.mjs";
 
-export default class AuroraTextField extends ThemeBehavior {
+export default class MaterialTextField extends ThemeBehavior {
 
     rootElement = '';
 

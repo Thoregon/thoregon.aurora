@@ -8,7 +8,7 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 
 import Ripple                   from '../ripple.mjs';
 
-export default class AuroraButton extends ThemeBehavior {
+export default class MaterialButton extends ThemeBehavior {
 
     rootElement = '';
 
