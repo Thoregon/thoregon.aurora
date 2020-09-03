@@ -5,6 +5,7 @@
  */
 
 import ThemeBehavior            from "../../themebehavior.mjs";
+import { validationLevel }      from "../../../lib/common.mjs";
 
 export default class MaterialTextField extends ThemeBehavior {
 
@@ -65,6 +66,12 @@ export default class MaterialTextField extends ThemeBehavior {
         }
         this.container.getElementsByClassName("aurora-text-field")[0].classList.remove('focused');
         event.stopPropagation();
+        //--- validation level: CHANGE
+        this.jar.isValid( validationLevel.change );
+    }
+
+    reportError() {
+        console.log("ERRORS FOUND AND NEED TO BE DISPLAYED...");
     }
 
 }
