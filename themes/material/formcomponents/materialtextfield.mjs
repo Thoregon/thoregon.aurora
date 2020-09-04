@@ -42,7 +42,6 @@ export default class MaterialTextField extends ThemeBehavior {
 
 
     callbackClicked ( event ) {
-        this.classList.add('focused');
         this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
         event.stopPropagation();
     }
@@ -53,6 +52,12 @@ export default class MaterialTextField extends ThemeBehavior {
             container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = event.target.value.length;
         }
         event.stopPropagation();
+/*
+        this.removeError();
+        //--- validation level: immediate
+        this.jar.isValid( validationLevel.immediate );
+
+ */
     }
 
     callbackFocusIn ( event ) {
@@ -70,8 +75,17 @@ export default class MaterialTextField extends ThemeBehavior {
         this.jar.isValid( validationLevel.change );
     }
 
+    removeError() {
+        this.container.classList.remove('error');
+        this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = "";
+
+    }
     reportError() {
-        console.log("ERRORS FOUND AND NEED TO BE DISPLAYED...");
+        let errormsg = this.jar.validation.getError();
+        this.container.classList.add('error');
+        this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = errormsg;
+
+        console.log(this.jar);
     }
 
 }
