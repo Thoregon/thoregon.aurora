@@ -80,8 +80,7 @@ export default class MaterialTextField extends ThemeBehavior {
         this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = "";
 
     }
-    reportError() {
-        let errormsg = this.jar.validation.getError();
+    reportError(errormsg) {
         this.container.classList.add('error');
         this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = errormsg;
 
