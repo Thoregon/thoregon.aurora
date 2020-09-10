@@ -24,6 +24,7 @@ export default class MaterialTextField extends ThemeBehavior {
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
         var typing     = (event) => this.callbackKeyup( event, this.container );
         inputfield[0].addEventListener('keyup', this.callbackKeyup, false);
+        inputfield[0].addEventListener('keyup', () => this.cleanErrors(), false);
 
         var leaving     = (event) => this.callbackFocusout( event, this.container );
         inputfield[0].addEventListener('focusout', leaving, false);
@@ -40,6 +41,11 @@ export default class MaterialTextField extends ThemeBehavior {
         }
     }
 
+    cleanErrors() {
+        this.removeError();
+        //--- validation level: immediate
+        this.jar.isValid( validationLevel.immediate );
+    }
 
     callbackClicked ( event ) {
         this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
@@ -52,12 +58,6 @@ export default class MaterialTextField extends ThemeBehavior {
             container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = event.target.value.length;
         }
         event.stopPropagation();
-/*
-        this.removeError();
-        //--- validation level: immediate
-        this.jar.isValid( validationLevel.immediate );
-
- */
     }
 
     callbackFocusIn ( event ) {
