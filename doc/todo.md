@@ -1,6 +1,11 @@
 ToDo
 ====
 
+- dev overlays (mode)
+    - help developers
+    - display component id's an path
+    - display origin (path) of displayed data
+
 - collaboration featues
     - selected by other
     - edited by other
@@ -10,5 +15,5 @@ ToDo
     
     - conflict resolution
         - last wins
-        - editors consens
+        - editors consens. negotiation between users
  
