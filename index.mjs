@@ -27,6 +27,8 @@ export { default as ComponentBehavior }     from './lib/blueprint/componentbehav
 export { default as ViewModel }             from './lib/viewmodel/viewmodel.mjs';
 // export { default as ViewModelBuilder }      from './lib/viewmodel/viewmodelbuilder.mjs';
 
+// Blueprint
+export { default as ThoregonApp }           from './lib/blueprint/thoregonapp.mjs';
 
 // aurora service
 export default new Aurora();

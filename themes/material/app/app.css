@@ -1,0 +1,9 @@
+/**
+ * styles for the top app element in the UI
+ */
+
+thoregon-app {
+    box-sizing : border-box;
+    margin     : 0;
+    padding    : 0;
+}
