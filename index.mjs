@@ -13,6 +13,7 @@ import ModelCollection                      from "./lib/viewmodel/delegate/model
 export { default as AuroraAppElement }      from './lib/blueprint/appelement.mjs';
 export { default as AuroraTextField }       from './lib/formcomponents/auroratextfield.mjs';
 export { default as AuroraButton }          from './lib/formcomponents/aurorabutton.mjs';
+//export { default as AuroraChatMessage }     from './lib/formcomponents/aurorachatmessage.mjs';
 
 export { default as AuroraValidationIndicator }      from './lib/indicators/auroravalidationindicator.mjs';
 
