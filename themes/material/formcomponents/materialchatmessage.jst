@@ -1,3 +1,17 @@
-<div class="aurora-chat-message-container {{= it.classes}}">
-MARTIN
+<div class="aurora-chat-message {{= it.classes}}" style="text-align: left;">
+    <div class="aurora-chat-message-label">{{=it.label}}</div>
+    <div class="aurora-chat-message-container">
+        <img src="{{=it.avatar}}" aria-hidden="true" class="aurora-chat-message-avatar">
+
+        <div class="">
+        <div class="aurora-chat-message-name">{{=it.name}}</div>
+            {{~it.messages :value:index}}
+
+            <div class="aurora-chat-message-text">{{=value}}
+                <div class="aurora-chat-message-stamp">{{=it.stamp}}</div>
+            </div>
+
+            {{~}}
+        </div>
+    </div>
 </div>
