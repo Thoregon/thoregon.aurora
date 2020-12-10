@@ -15,6 +15,7 @@ export { default as AuroraElement }             from './lib/auroraelement.mjs';
 export { default as AuroraTextField }           from './lib/formcomponents/auroratextfield.mjs';
 export { default as AuroraButton }              from './lib/formcomponents/aurorabutton.mjs';
 export { default as AuroraChatMessage }         from './lib/formcomponents/aurorachatmessage.mjs';
+export { default as AuroraChatEntryBox }        from './lib/formcomponents/aurorachatentrybox.mjs';
 export { default as AuroraValidationIndicator } from './lib/indicators/auroravalidationindicator.mjs';
 export { default as AuroraQRScanner }           from './lib/cameracomponents/auroraqrscanner.mjs';
 
