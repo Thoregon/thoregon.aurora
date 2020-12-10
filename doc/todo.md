@@ -1,6 +1,9 @@
 ToDo
 ====
 
+- views specifies requirements
+    - defines which interceptors used
+
 - dev overlays (mode)
     - help developers
     - display component id's an path
