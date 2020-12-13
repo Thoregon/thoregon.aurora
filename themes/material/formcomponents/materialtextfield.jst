@@ -9,7 +9,7 @@
         {{? it.usestrailingicon }}
             <i aria-hidden="true" class="material-icons aurora-trailing-icon"> {{= it.trailing_icon}} </i>
         {{?}}
-        <input type="text"
+        <input type="{{=it.type}}"
                id="{{=it.name}}"
                name="{{=it.name}}"
                aurora-name="{{=it.name}}"

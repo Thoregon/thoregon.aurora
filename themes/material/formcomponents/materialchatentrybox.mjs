@@ -14,12 +14,17 @@ export default class MaterialChatEntryBox extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
-        var inputfield = this.container.getElementsByClassName("aurora-chat-entrybox-textarea");
+        let textarea = this.container.getElementsByClassName("aurora-chat-entrybox-textarea");
+        let actions  = this.container.querySelector ( ".aurora-chat-entrybox-action");
 
-        //---  KEYUP event for the input field  ------------------------------------------------------------------------
-        var typing     = (event) => this.callbackKeyup( event, this.container );
-        inputfield[0].addEventListener('keyup', this.callbackKeyup, false);
-//        inputfield[0].addEventListener('keyup', () => this.cleanErrors(), false);
+        //---  Actions clicked  ------------------------------------------------------------------------
+        this.container.querySelectorAll('.aurora-chat-entrybox-action').forEach(item => {
+            item.addEventListener('click', this.callbackClicked, false);
+        })
+
+        //---  KEYUP event for the message field  ------------------------------------------------------------------------
+        textarea[0].addEventListener('keyup', this.callbackKeyup, false);
+
 
     }
 
@@ -40,16 +45,30 @@ export default class MaterialChatEntryBox extends ThemeBehavior {
     }
 
     callbackClicked ( event ) {
-        this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
+        //--- Send Text Message
+        if ( event.target.classList.contains('type-text') ) {
+            alert("Message sent...");
+        }
         event.stopPropagation();
     }
     callbackKeyup( event ) {
         let container = event.target.parentElement.parentElement;
+        let enteredText = event.target.value;
+
+        if ( event.keyCode === 13 && !event.shiftKey )  {
+            // fire event to submit new message to the backend
+            if ( enteredText.length > 1 ) {
+                alert("message sent...");
+            }
+            event.target.value = "";
+            enteredText = "";
+        }
+        event.target.parentNode.dataset.value = enteredText;
 
         if ( event.target.value.length > 0 ) {
-            container.getElementsByClassName("aurora-chat-entrybox-message-types")[0].setAttribute("class", "aurora-chat-entrybox-message-types type-text");
+            container.getElementsByClassName("aurora-chat-entrybox-action switcher")[0].setAttribute("class", "aurora-chat-entrybox-action switcher type-text");
         } else {
-            container.getElementsByClassName("aurora-chat-entrybox-message-types")[0].setAttribute("class", "aurora-chat-entrybox-message-types type-audio");
+            container.getElementsByClassName("aurora-chat-entrybox-action switcher")[0].setAttribute("class", "aurora-chat-entrybox-action switcher type-audio");
         }
 
         event.stopPropagation();

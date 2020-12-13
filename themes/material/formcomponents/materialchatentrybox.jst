@@ -2,7 +2,9 @@
     {{? it.usestrailingicon }}
     <i aria-hidden="true" class="material-icons aurora-trailing-icon"> {{= it.trailing_icon}} </i>
     {{?}}
-    <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i>
+    <div class="aurora-chat-entrybox-action type-attach">
+        <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i>
+    </div>
     <label class="aurora-chat-entrybox-input-sizer stacked">
     <textarea
            id="{{=it.name}}"
@@ -10,13 +12,15 @@
            aurora-name="{{=it.name}}"
            class="aurora-chat-entrybox-textarea"
            {{? it.readonly}} readonly="readonly" {{?}}
-           onInput="this.parentNode.dataset.value = this.value"
+
            rows="1"
            placeholder="sag was..."
     ></textarea>
     </label>
-    <i aria-hidden="true" class="material-icons aurora-trailing-icon">tag_faces</i>
-    <div class="aurora-chat-entrybox-message-types type-audio">
+    <div class="aurora-chat-entrybox-action type-emoji">
+        <i aria-hidden="true" class="material-icons aurora-trailing-icon">tag_faces</i>
+    </div>
+    <div class="aurora-chat-entrybox-action switcher type-audio">
         <i aria-hidden="true" class="material-icons aurora-trailing-icon type-audio">mic_none</i>
         <i aria-hidden="true" class="material-icons aurora-trailing-icon type-video">camera_alt</i>
         <i aria-hidden="true" class="material-icons aurora-trailing-icon type-text">send</i>

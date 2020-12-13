@@ -663,21 +663,26 @@
 .aurora-chat-entrybox-input-sizer:focus-within textarea:focus {
     outline: none;
 }
-.aurora-chat-entrybox-message-types {
+.aurora-chat-entrybox-action {
     position: relative;
-    width: 1.5em;
+    width: 3em;
     height: 1.5em;
+    color: #848484;
+    cursor: pointer;
+}
+.aurora-chat-entrybox-action.type-attach i {
+    transform: rotate(45deg);
 }
 
-.aurora-chat-entrybox-message-types .type-audio,
-.aurora-chat-entrybox-message-types .type-video,
-.aurora-chat-entrybox-message-types .type-text {
+.aurora-chat-entrybox-action .type-audio,
+.aurora-chat-entrybox-action .type-video,
+.aurora-chat-entrybox-action .type-text {
     position: absolute;
     top: 0px;
     transition: opacity .3s, transform .3s;
     opacity: 0;
 }
 
-.aurora-chat-entrybox-message-types.type-audio .type-audio { opacity: 1; }
-.aurora-chat-entrybox-message-types.type-video .type-video { opacity: 1; }
-.aurora-chat-entrybox-message-types.type-text  .type-text  { opacity: 1; color: #e30614; }
+.aurora-chat-entrybox-action.type-audio .type-audio { opacity: 1; }
+.aurora-chat-entrybox-action.type-video .type-video { opacity: 1; }
+.aurora-chat-entrybox-action.type-text  .type-text  { opacity: 1; color: #e30614; }
