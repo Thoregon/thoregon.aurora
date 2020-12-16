@@ -23,7 +23,7 @@ export default class MaterialChatEntryBox extends ThemeBehavior {
         })
 
         //---  KEYUP event for the message field  ------------------------------------------------------------------------
-        textarea[0].addEventListener('keyup', this.callbackKeyup, false);
+        textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
 
 
     }
@@ -58,7 +58,8 @@ export default class MaterialChatEntryBox extends ThemeBehavior {
         if ( event.keyCode === 13 && !event.shiftKey )  {
             // fire event to submit new message to the backend
             if ( enteredText.length > 1 ) {
-                alert("message sent...");
+                // alert("message sent...");
+                this.jar.triggerClick(enteredText);
             }
             event.target.value = "";
             enteredText = "";
