@@ -3,8 +3,8 @@
     <div class="aurora-chat-message-container">
         <img src="{{=it.avatar}}" aria-hidden="true" class="aurora-chat-message-avatar">
 
-        <div class="">
-        <div class="aurora-chat-message-name">{{=it.name}}</div>
+        <div class="aurora-chat-message-msg">
+            <div class="aurora-chat-message-name">{{=it.name}}</div>
             {{~it.messages :value:index}}
 
             <div class="aurora-chat-message-text" style="width: {{=it.size}}%">{{=value}}
