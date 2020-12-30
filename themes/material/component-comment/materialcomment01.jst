@@ -1,0 +1,82 @@
+
+<!--
+todo: change creation-date -> label to timestamp | stamp
+-->
+
+<div class="aurora-comment-level-wrapper {{= it.classes}}" style="text-align: left;" data-level="{{=it.level}}">
+    <div class="aurora-comment-header">
+        <div class="aurora-comment-avatar"><a href="{member_profile_url}"><img src="{{=it.avatar}}"></a></div>
+        <div class="aurora-comment-meta-wrapper">
+            <div class="aurora-comment-creator-name"><a href="{member_profile_url}">{{=it.name}}</a></div>
+            <div class="aurora-comment-creation-date">{{=it.label}}</div>
+        </div> <!-- end: aurora-comment-meta-wrapper -->
+    </div>
+    <!--- end: aurora-comment-header -->
+    <div class="mesu-cl1-content mesu-comment-content aurora-comment-content">
+        {{~it.messages :value:index}}
+           {{=value}}
+        {{~}}
+    </div>
+    <!--- end: aurora-comment-conten" -->
+
+    <div class="aurora-comment-feedback-summary {{=it.feedback_summary_display_class}}">
+        <div class="aurora-comment-feedback-likes {{=it.feedback_likes_display_class}}">
+            {{=it.feedback_likes}} </div>
+        <div class="aurora-comment-feedback-comments aurora-comment-action-toggle-comments {{=it.feedback_comments_display_class}}">
+            <span>{{=it.feedback_comments}}</span><div class="comments-arrow open" ></div>
+        </div>
+    </div> <!-- end: aurora-comment-feedback-summary -->
+
+    {{? it.actions_available}}
+    <div class="aurora-comment-actions">
+        <div class="aurora-comment-action-like   {{=it.given_a_like}}">
+            <i aria-hidden="true" class="material-icons">thumb_up</i>
+            {{=it.txt_action_like}}
+        </div>
+        <div class="aurora-comment-action-comment">
+            <i aria-hidden="true" class="material-icons">add_comment</i>
+            {{=it.txt_action_comment}}
+        </div>
+    </div>
+    {{?}}
+
+    <div class="aurora-comment-response-wrapper">
+        <div class="mesu-new-reply-content-row">
+            <div class="mesu-cl{next_level}-avatar">
+                <img src="{{=it.avatar}}">
+            </div>
+            <div class="mesu-new-reply">
+                <!-- begin: image upload area -->
+                <div class="mesu-reply-upload-pic" data-comment-id="{comment_id}">
+                    <label for="mesu-image-upload-{comment_id}">
+          <span class="mbtn mbtn-primary mbtn-xs mbtn-icon-left">
+            <i class="fa fa-picture-o" aria-hidden="true"></i>{txt_upload_image}
+          </span>
+                    </label>
+                    <input id="mesu-image-upload-{comment_id}" class="mesu-comment-image-file" data-edit="false" type="file" accept="image/*" data-comment-id="{comment_id}">
+                </div>
+                <textarea data-comment-id="{comment_id}" data-edit="false" data-comment-level="{next_level}" data-post-id="{post_id}" data-circle-id="{circle_id}" data-circle-sensitive="{circle_sensitive}" rows="4" cols="50"></textarea>
+                <p class="comment-post-response" data-comment-id="{comment_id}" data-edit="false"></p>
+                <div class="mesu-reply-image-section hidden" data-comment-id="{comment_id}" data-edit="false">
+                    <div class="mesu-reply-close-image">
+                        <a data-close-popup="true" href="#" data-comment-id="{comment_id}" data-edit="false">
+                            <i class="fa fa-times" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="mesu-reply-image"><img src="" alt="" valign="bottom" /></div>
+                </div><!-- end: image upload area -->
+            </div> <!-- end: mesu-new-reply -->
+        </div> <!-- end:mesu-cl1-new-reply-content-row -->
+        <div class="mesu-new-reply-action-row">
+            <div style="display: table-cell;"></div>
+            <div style="display: table-cell;">
+      <span style="float: left; margin-top: .5em;">
+        <label><input class="immediate_notification" type="checkbox" data-comment-id="{comment_id}" data-edit="false" value="1"> {txt_immediate_notification}</label>
+      </span>
+                <span data-comment-id="{comment_id}"
+                      data-cgpi="{cgpi}"
+                      class="reply-comment mbtn mbtn-primary mbtn-sm" style="float: right; margin-top: .5em;" data-txt-loading="{txt_loading}">{txt_submit_comment}</span>
+            </div>
+        </div> <!-- end: mesu-cl1-reply-action-row -->
+    </div>
+</div>
+

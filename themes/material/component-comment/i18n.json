@@ -1,0 +1,9 @@
+{
+  "feedback_likes": "{n} gefällt mir",
+  "feedback_comments": {
+    "s": "{n} Kommentar",
+    "p": "{n} Kommentare"
+  },
+  "txt_action_like": "Gefällt mir",
+  "txt_action_comment": "Kommentieren"
+}
