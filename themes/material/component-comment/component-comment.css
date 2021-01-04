@@ -11,7 +11,7 @@
 
 .aurora-comment-wrapper,
 .aurora-comment-level1-wrapper {
-
+ overflow: visible;
 }
 
 /*  need to be defined on comment-wrapper and just refined on levels....*/
@@ -35,11 +35,23 @@
     float: left;
 }
 
+.aurora-comment-cl2-avatar {
+    display: table-cell;
+    vertical-align: top;
+    width: 65px;
+}
+
+.aurora-comment-cl2-avatar img,
 .aurora-comment-avatar img {
     width: 70px;
+    width: 60px;
     border-radius: 6px;
     border-style: none;
     float:left;
+}
+.aurora-comment-cl2-avatar img {
+    width: 40px;
+    margin-left: 15px
 }
 
 .aurora-comment-meta-wrapper {
@@ -127,6 +139,8 @@
     overflow: hidden;
     padding: 5px;
     border-top: 1px solid #dddfe2;
+    border-bottom: 1px solid #dddfe2;
+    margin-bottom: 1em;
 }
 
 .aurora-comment-action-like,
@@ -176,12 +190,23 @@
 .aurora-comment-action-comment:hover { background-color: #e4e4e4; }
 
 .aurora-comment-response-wrapper {
-    border: 1px solid red;
     display: none;
+    width: 100%;
+    margin-bottom: .5em;
 }
 .aurora-comment-response-wrapper.open {
-    display: initial;
+    display: table;;
 }
+
+.aurora-comment-new-reply-content-row {
+    display: table-row;
+}
+
+.aurora-comment-cl2-reply-actions { display: table-cell; overflow: visible; }
+
+.aurora-comment-cl2-action.type-attach { display: inline-block; cursor: pointer; }
+.aurora-comment-cl2-action.type-attach i { transform: rotate(45deg); }
+.aurora-comment-cl2-action.type-submit { float: right; }
 
 .mesu-cl1-edit-actions { display: none;  float: right;}
 .mesu-cl1-content:hover .mesu-cl1-edit-actions {
