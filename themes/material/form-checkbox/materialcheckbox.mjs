@@ -9,13 +9,12 @@ import { validationLevel }      from "../../../lib/common.mjs";
 
 export default class Materialcheckbox extends ThemeBehavior {
 
-    rootElement = '';
-
     attach(jar) {
         this.jar = jar;
         this.container = this.jar.container;
 
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
+/*
         var textfield = this.container.getElementsByClassName("aurora-text-field");
         textfield[0].addEventListener('click', this.callbackClicked, false);
 
@@ -30,6 +29,7 @@ export default class Materialcheckbox extends ThemeBehavior {
         inputfield[0].addEventListener('focusout', leaving, false);
 
         inputfield[0].addEventListener( 'focus', this.callbackClicked );
+*/
         // MDC.MDCRipple.attachTo(inputfield);
     }
 
