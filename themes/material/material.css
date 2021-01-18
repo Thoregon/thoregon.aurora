@@ -229,7 +229,36 @@
     transform: translateY(-106%) scale(0.75);
 }
 
+.aurora-text-field-input::-webkit-input-placeholder {
+    color: transparent;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+}
+.aurora-text-field-input:-moz-placeholder {
+    /* Firefox 18- */
+    color: transparent;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+}
+.aurora-text-field-input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: transparent;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+}
+.aurora-text-field-input:-ms-input-placeholder {
+    color: transparent;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+}
 
+.aurora-text-field-input::placeholder {
+    color: transparent;
+    transition: color 0.2s ease;
+}
+.aurora-text-field-input:focus::placeholder {
+    color: rgba(0,0,0,.42);
+}
 
 .focused .aurora-text-field-input,
 .aurora-text-field .aurora-text-field-input {

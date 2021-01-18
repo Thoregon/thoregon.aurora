@@ -1,0 +1,13 @@
+<button class="aurora-listitem aurora-listitem-container {{= it.classes}}" >
+
+    <span class="aurora-listitem-grafic">icon</span>
+    <span class="aurora-listitem-text">
+        <span class="aurora-listitem-primary-text">{{=it.primarytext}}</span>
+        <span class="aurora-listitem-secondary-text">{{=it.secondarytext}}</span>
+    </span>
+    <span class="aurora-listitem-meta">icon</span>
+    {{? it.usesleadingicon }}
+        <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.leading_icon}}<!----></i>
+    {{?}}
+    <div class="aurora-listitem-ripple"></div>
+</button>
