@@ -10,7 +10,38 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 
 export default class Materialcomment01 extends ThemeBehavior {
 
+    actions() {
+  //      this.jar.viewModel.viewmodeltest();
+        let actions = {
+            'edit'       : '.aurora-comment-action-like',
+            'delete'     : 'selectore',
+            'attach_file': 'selectore',
+            'add_comment': '.aurora-comment-action-comment',
+            'react'      : 'aurora-comment-action-like'
+        };
+
+        // add comment
+        // react
+        // edit
+        // delete
+        // attach file
+
+    }
+    elementVisibility() {
+        this.elementActionLike();
+        /*
+        this.elementActionAddComment();
+        this.elementActionEdit();
+        this.elementActionDelete();
+        this.actionAttachFile();
+*/
+
+    }
+
     attach(jar) {
+        // --- attach to UI Actions
+        // --- attach DOM Elements Visibility
+
         this.jar = jar;
         this.container = this.jar.container;
 
@@ -26,7 +57,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         //---  KEYUP event for the message field  ------------------------------------------------------------------------
  //       textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
 
-
+        this.elementVisibility();
     }
 
     callbackClickeToggleShowComments ( event, action_toggle_comments ) {
@@ -44,5 +75,30 @@ export default class Materialcomment01 extends ThemeBehavior {
         alert("I like this comment...");
         event.stopPropagation();
     }
+
+    elementActionLike() {
+        let elements = this.container.querySelectorAll(".aurora-comment-action-like");
+        let visible  = true;
+
+        //--- SSI check if available and which kind of
+        //--- Changes in authorization
+
+        //--- Content changes
+        //--- - Likes added from DB
+        //--- - Comments added from DB  ( as an reply to an existing Comment )
+
+        for ( let i in elements ) {
+            this.switchElementVisibility( elements[i] ,visible );
+        }
+    }
+
+    switchElementVisibility ( element, visible ) {
+        if ( visible ) {
+            element.style.display = "initial";
+        } else {
+            element.style.display = "none";
+        }
+    }
+
 
 }
