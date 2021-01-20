@@ -100,5 +100,16 @@ export default class Materialcomment01 extends ThemeBehavior {
         }
     }
 
+    /*
+     * Event handlers
+     */
+    ownerChanged(identity) {
+        // todo [MN]: implement
+        if (this.jar.getAttribute('name') === identity.alias) {
+            // display allowed controls and content
+        } else {
+            // hide allowed controls and content
+        }
+    }
 
 }
