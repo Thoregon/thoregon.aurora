@@ -10,38 +10,30 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 
 export default class Materialcomment01 extends ThemeBehavior {
 
-    actions() {
-  //      this.jar.viewModel.viewmodeltest();
-        let actions = {
-            'edit'       : '.aurora-comment-action-like',
-            'delete'     : 'selectore',
-            'attach_file': 'selectore',
-            'add_comment': '.aurora-comment-action-comment',
-            'react'      : 'aurora-comment-action-like'
-        };
-
-        // add comment
-        // react
-        // edit
-        // delete
-        // attach file
-
-    }
     elementVisibility() {
-        this.elementActionLike();
-        /*
-        this.elementActionAddComment();
-        this.elementActionEdit();
-        this.elementActionDelete();
-        this.actionAttachFile();
-*/
+        this.visElemPermCommentActions();
+        this.visElemPermActionReaction();
+        this.visElemPermActionAddComment();
 
+        this.visElemContReactions();
+        /*
+
+        this.visElemPermActionEdit();
+        this.visElemPermActionDelete();
+
+        this.visElemPermActionAttachFile();
+
+        this.visElemContFeedbackSummary();
+        this.visElemContReactions();
+        this.visElemContComments();
+*/
     }
 
-    attach(jar) {
+    async attach(jar) {
         // --- attach to UI Actions
         // --- attach DOM Elements Visibility
 
+        this.identity = await universe.Identity.saveIdentity();
         this.jar = jar;
         this.container = this.jar.container;
 
@@ -56,8 +48,6 @@ export default class Materialcomment01 extends ThemeBehavior {
 
         //---  KEYUP event for the message field  ------------------------------------------------------------------------
  //       textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
-
-        this.elementVisibility();
     }
 
     callbackClickeToggleShowComments ( event, action_toggle_comments ) {
@@ -76,40 +66,53 @@ export default class Materialcomment01 extends ThemeBehavior {
         event.stopPropagation();
     }
 
-    elementActionLike() {
-        let elements = this.container.querySelectorAll(".aurora-comment-action-like");
-        let visible  = true;
+    /**
+     * Visibility protocol
+     */
 
-        //--- SSI check if available and which kind of
-        //--- Changes in authorization
+    visElemPermCommentActions() {
+        let elements = this.container.querySelectorAll(".aurora-comment-actions");
+        let visible  = ! this.identity.isGhost();
 
-        //--- Content changes
-        //--- - Likes added from DB
-        //--- - Comments added from DB  ( as an reply to an existing Comment )
-
-        for ( let i in elements ) {
-            this.switchElementVisibility( elements[i] ,visible );
-        }
+        this.switchElementVisibility( elements ,visible, 'block' );
     }
 
-    switchElementVisibility ( element, visible ) {
-        if ( visible ) {
-            element.style.display = "initial";
-        } else {
-            element.style.display = "none";
-        }
+    visElemPermActionReaction() {
+        let elements = this.container.querySelectorAll(".aurora-comment-action-like");
+        let visible  = ! this.identity.isGhost();
+
+        this.switchElementVisibility( elements ,visible, 'flex' );
+    }
+    visElemPermActionAddComment() {
+        let elements = this.container.querySelectorAll(".aurora-comment-action-comment");
+        let visible  = ! this.identity.isGhost();
+
+        this.switchElementVisibility( elements ,visible, 'flex' );
+    }
+
+    visElemContReactions() {
+        let reactions = this.jar.viewModel.reactions;
+    }
+
+    switchElementVisibility ( elements, visible, displayValue = 'block' ) {
+        elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );
     }
 
     /*
      * Event handlers
      */
-    ownerChanged(identity) {
-        // todo [MN]: implement
-        if (this.jar.getAttribute('name') === identity.alias) {
-            // display allowed controls and content
-        } else {
-            // hide allowed controls and content
-        }
+    async ownerChanged(identity) {
+        this.identity = await universe.Identity.saveIdentity();
+        this.visElemPermCommentActions();
+ //       this.visElemPermActionReaction();
+ //       this.visElemPermActionAddComment();
+    }
+    async reactionChanged() {
+        let reactions = this.jar.viewModel.reactions;
+        let size = reactions.length;
+        this.visElemPermCommentActions();
+        //       this.visElemPermActionReaction();
+        //       this.visElemPermActionAddComment();
     }
 
 }
