@@ -15,7 +15,9 @@ export default class Materialcomment01 extends ThemeBehavior {
         this.visElemPermActionReaction();
         this.visElemPermActionAddComment();
 
+        this.visElemContFeedbackSummary();
         this.visElemContReactions();
+        this.visElemContComments();
         /*
 
         this.visElemPermActionEdit();
@@ -23,9 +25,6 @@ export default class Materialcomment01 extends ThemeBehavior {
 
         this.visElemPermActionAttachFile();
 
-        this.visElemContFeedbackSummary();
-        this.visElemContReactions();
-        this.visElemContComments();
 */
     }
 
@@ -90,13 +89,49 @@ export default class Materialcomment01 extends ThemeBehavior {
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
 
+    visElemContFeedbackSummary() {
+        let elements = this.container.querySelectorAll(".aurora-comment-feedback-summary");
+        let reactions = this.jar.viewModel.reactions;
+        let replies   = this.jar.viewModel.replies;
+        let visible =  reactions.length + replies.length > 0;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
+
     visElemContReactions() {
         let reactions = this.jar.viewModel.reactions;
+        let elements = this.container.querySelectorAll(".aurora-comment-feedback-likes");
+        let visible  = reactions.length > 0;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+        if ( visible ) {
+            let txtElements = this.container.querySelectorAll(".aurora-comment-feedback-likes");
+            let content     = this.jar.i18n('feedback_likes', reactions.length);
+            this.setElementContent ( txtElements, content );
+        }
+    }
+    visElemContComments() {
+
+        let replies  = this.jar.viewModel.replies;
+        let elements = this.container.querySelectorAll(".aurora-comment-feedback-likes");
+        let visible  = replies.length > 0;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+        if ( visible ) {
+            let txtElements = this.container.querySelectorAll(".aurora-comment-feedback-comments span");
+            let content     = this.jar.i18n('feedback_comments', replies.length);
+            this.setElementContent ( txtElements, content );
+        }
     }
 
     switchElementVisibility ( elements, visible, displayValue = 'block' ) {
         elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );
     }
+
+    setElementContent ( elements, content ) {
+        elements.forEach( (element) => element.innerHTML = content );
+    }
+
 
     /*
      * Event handlers
