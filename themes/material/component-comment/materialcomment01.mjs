@@ -50,8 +50,11 @@ export default class Materialcomment01 extends ThemeBehavior {
     }
 
     callbackClickeToggleShowComments ( event, action_toggle_comments ) {
+        let status = true;
         action_toggle_comments.classList.toggle('open');
         event.stopPropagation();
+        //-- Todo: MN check status of the toggle.... to show the comments
+        this.jar.showComments( status );
     }
 
     callbackClickedAddComment (event, comment ) {
@@ -119,7 +122,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         this.switchElementVisibility( elements ,visible, 'block' );
         if ( visible ) {
             let txtElements = this.container.querySelectorAll(".aurora-comment-feedback-comments span");
-            let content     = this.jar.i18n('feedback_comments', replies.length);
+            let content     = this.jar.i18n('feedback_comments', this.jar.viewModel.totalReplies() );
             this.setElementContent ( txtElements, content );
         }
     }
@@ -130,6 +133,11 @@ export default class Materialcomment01 extends ThemeBehavior {
 
     setElementContent ( elements, content ) {
         elements.forEach( (element) => element.innerHTML = content );
+    }
+
+    addReply( element ) {
+        let replies = this.container.querySelectorAll(" .test-replies")[0];
+        replies.appendChild(element);
     }
 
 

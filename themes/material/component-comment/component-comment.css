@@ -208,6 +208,15 @@
 .aurora-comment-cl2-action.type-attach i { transform: rotate(45deg); }
 .aurora-comment-cl2-action.type-submit { float: right; }
 
+.aurora-comment-entrybox-textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #dddfe2;
+    resize: vertical;
+    padding: .5em;
+}
+
+
 .mesu-cl1-edit-actions { display: none;  float: right;}
 .mesu-cl1-content:hover .mesu-cl1-edit-actions {
     display: inline-block;

@@ -6,5 +6,6 @@
   },
   "txt_action_like": "Gefällt mir",
   "txt_action_comment": "Kommentieren",
-  "txt_action_submit_comment": "Kommentar abschicken"
+  "txt_action_submit_comment": "Kommentar abschicken",
+  "txt_action_new_comment": "Kommentar abschicken"
 }
