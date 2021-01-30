@@ -28,7 +28,7 @@ todo: change creation-date -> label to timestamp | stamp
     </div> <!-- end: aurora-comment-feedback-summary -->
 
     <div class="aurora-comment-actions">
-        <div class="aurora-comment-action-like   {{=it.given_a_like}}">
+        <div aurora-action="commitReaction" class="aurora-comment-action-like   {{=it.given_a_like}}">
             <i aria-hidden="true" class="material-icons">thumb_up</i>
             {{=it.txt_action_like}}
         </div>
@@ -44,14 +44,14 @@ todo: change creation-date -> label to timestamp | stamp
                 <img src="{{=it.current_user.avatar}}">
             </div>
             <div class="mesu-new-reply">
-                <textarea data-comment-id="{comment_id}" data-edit="false" data-comment-level="{next_level}" data-post-id="{post_id}" data-circle-id="{circle_id}" data-circle-sensitive="{circle_sensitive}" rows="4" cols="50"></textarea>
+                <textarea aurora-name="reply" aurora-options="input_only" data-comment-id="{comment_id}" data-edit="false" data-comment-level="{next_level}" data-post-id="{post_id}" data-circle-id="{circle_id}" data-circle-sensitive="{circle_sensitive}" rows="4" cols="50"></textarea>
             </div> <!-- end: mesu-new-reply -->
         </div> <!-- end:mesu-cl1-new-reply-content-row -->
         <div class="mesu-new-reply-action-row">
             <div style="display: table-cell;"></div>
             <div class="aurora-comment-cl2-reply-actions">
                 <div class="aurora-comment-cl2-action type-attach"> <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i> </div>
-                <span class="aurora-comment-cl2-action type-submit aurora-button small" >{{=it.txt_action_submit_comment}}</span>
+                <span aurora-action="commitReply" class="aurora-comment-cl2-action type-submit aurora-button small" >{{=it.txt_action_submit_comment}}</span>
             </div>
         </div> <!-- end: mesu-cl1-reply-action-row -->
     </div>
