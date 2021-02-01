@@ -1,10 +1,6 @@
 
 /*
- * Copyright (c) 2021. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright (c) 2021.
  */
 
 /**
@@ -38,9 +34,8 @@ export default class Materialcomment02 extends ThemeBehavior {
     /*
      * Event handlers
      */
-    async ownerChanged(identity) {
+    async identityChanged(identity) {
         this.identity = await universe.Identity.saveIdentity();
-        debugger;
         this.visElemPermCommentActions();
         this.visElemPermActionReaction();
     }
@@ -51,7 +46,7 @@ export default class Materialcomment02 extends ThemeBehavior {
     }
 
     updateAge() {
-        debugger;
+        this.visElemContAgeFormated()
     }
 
     /**
@@ -70,14 +65,12 @@ export default class Materialcomment02 extends ThemeBehavior {
         }
     }
     visElemPermCommentActions() {
-        let elements = this.container.querySelectorAll(".aurora-comment-action-reply");
-        let visible  = ! this.identity.isGhost();
+        let elements   = this.container.querySelectorAll(".aurora-comment-action-reply");
+        let seperators = this.container.querySelectorAll(".aurora-comment-action-separator");
+        let visible    = !this.identity.isGhost();
 
-        if  ( visible ) {
-            elements.forEach( (element) =>  element.classList.add("active") );
-        } else {
-            elements.forEach( (element) =>  element.classList.remove("active") );
-        }
+        this.switchElementVisibility( elements ,visible, 'inline-block' );
+        this.switchElementVisibility( seperators ,visible, 'inline-block' );
     }
 
     visElemContReactions() {

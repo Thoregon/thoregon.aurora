@@ -102,9 +102,11 @@ export default class Materialcomment01 extends ThemeBehavior {
     }
 
     visElemContReactions() {
-        let reactions = this.jar.viewModel.reactions;
-        let elements = this.container.querySelectorAll(".aurora-comment-feedback-likes");
-        let visible  = reactions.length > 0;
+
+        let reactions     = this.jar.viewModel.reactions;
+        let givenreaction = this.jar.viewModel.containsReaction(universe.identity, 'like');
+        let elements      = this.container.querySelectorAll(".aurora-comment-feedback-likes");
+        let visible       = reactions.length > 0;
 
         this.switchElementVisibility( elements ,visible, 'block' );
         if ( visible ) {
@@ -112,6 +114,13 @@ export default class Materialcomment01 extends ThemeBehavior {
             let content     = this.jar.i18n('feedback_likes', reactions.length);
             this.setElementContent ( txtElements, content );
         }
+
+        if ( givenreaction ) {
+            this.container.querySelectorAll(".aurora-comment-action-like")[0].classList.add('liked');
+        } else {
+            this.container.querySelectorAll(".aurora-comment-action-like")[0].classList.remove('liked');
+        }
+
     }
     visElemContComments() {
 
@@ -143,7 +152,7 @@ export default class Materialcomment01 extends ThemeBehavior {
     /*
      * Event handlers
      */
-    async ownerChanged(identity) {
+    async identityChanged(identity) {
         this.identity = await universe.Identity.saveIdentity();
         this.visElemPermCommentActions();
  //       this.visElemPermActionReaction();

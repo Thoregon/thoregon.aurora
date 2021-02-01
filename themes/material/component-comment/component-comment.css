@@ -239,6 +239,7 @@
 .aurora-comment-action-reply.active:hover,
 .aurora-comment-action-like.active:hover { text-decoration: underline; }
 
+.aurora-comment-action-like.liked { color: #1a75d2; }
 
 .lvl_2 .aurora-comment-likes,
 .lvl_2 .aurora-comment-action-reply,
