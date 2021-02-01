@@ -1,5 +1,7 @@
 This is a PINCODE
-
-{{ for(var pins in it) { }}
-<div>martin</div>
-{{ } }}
+<div class="aurora-pincode-input pins-{{=it.inputs}}">
+    {{~it.pins :value:index}}
+    <input type="text" maxlength="1" autocomplete="off" placeholder="0"
+           class="aurora-pin-digit">
+    {{~}}
+</div>

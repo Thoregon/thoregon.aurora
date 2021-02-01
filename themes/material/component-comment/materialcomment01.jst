@@ -3,7 +3,7 @@
         <div class="aurora-comment-avatar"><a href="{member_profile_url}"><img src="{{=it.avatar}}"></a></div>
         <div class="aurora-comment-meta-wrapper">
             <div class="aurora-comment-creator-name"><a href="{member_profile_url}">{{=it.name}}</a></div>
-            <div class="aurora-comment-creation-date">{{=it.label}}</div>
+            <div class="aurora-comment-creation-date">{{=it.stamp}}</div>
         </div> <!-- end: aurora-comment-meta-wrapper -->
     </div>
     <!--- end: aurora-comment-header -->
@@ -34,8 +34,8 @@
     </div>
 
     <div class="aurora-comment-response-wrapper">
-        <div class="aurora-comment-new-reply-content-row">
-            <div class="aurora-comment-cl2-avatar">
+        <div class="aurora-comment-new-reply-content-row  mesu-new-reply-content-row">
+            <div class="aurora-comment-cl2-avatar mesu-cl2-avatar">
                 <img src="{{=it.current_user.avatar}}">
             </div>
             <div class="mesu-new-reply">

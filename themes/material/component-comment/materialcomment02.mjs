@@ -23,7 +23,6 @@ export default class Materialcomment02 extends ThemeBehavior {
         this.visElemPermCommentActions();
         this.visElemContReactions();
         this.visElemContAgeFormated();
-
     }
 
     ageFormated() {
@@ -49,6 +48,10 @@ export default class Materialcomment02 extends ThemeBehavior {
     showReply( element ) {
         let replies = this.container.querySelectorAll(".aurora-comment-replies")[0];
         replies.appendChild(element);
+    }
+
+    updateAge() {
+        debugger;
     }
 
     /**

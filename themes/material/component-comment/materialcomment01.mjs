@@ -116,7 +116,7 @@ export default class Materialcomment01 extends ThemeBehavior {
     visElemContComments() {
 
         let replies  = this.jar.viewModel.replies;
-        let elements = this.container.querySelectorAll(".aurora-comment-feedback-likes");
+        let elements = this.container.querySelectorAll(".aurora-comment-feedback-comments");
         let visible  = replies.length > 0;
 
         this.switchElementVisibility( elements ,visible, 'block' );
@@ -156,5 +156,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         //       this.visElemPermActionReaction();
         //       this.visElemPermActionAddComment();
     }
+
+    updateAge() {}
 
 }
