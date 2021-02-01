@@ -1,9 +1,4 @@
-
-<!--
-todo: change creation-date -> label to timestamp | stamp
--->
-
-<div class="aurora-comment-level-wrapper {{= it.classes}}" style="text-align: left;" data-level="{{=it.level}}">
+<div class="aurora-comment lvl_{{=it.level}} {{=it.classes}}" style="text-align: left;" data-level="{{=it.level}}">
     <div class="aurora-comment-header">
         <div class="aurora-comment-avatar"><a href="{member_profile_url}"><img src="{{=it.avatar}}"></a></div>
         <div class="aurora-comment-meta-wrapper">
@@ -55,6 +50,7 @@ todo: change creation-date -> label to timestamp | stamp
             </div>
         </div> <!-- end: mesu-cl1-reply-action-row -->
     </div>
+    <div class="aurora-comment-replies"></div>
 </div>
-<div class="test-replies" style="margin-left: 50px;">MARTIN</div>
+
 

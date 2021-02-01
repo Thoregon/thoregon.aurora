@@ -136,7 +136,7 @@ export default class Materialcomment01 extends ThemeBehavior {
     }
 
     addReply( element ) {
-        let replies = this.container.querySelectorAll(" .test-replies")[0];
+        let replies = this.container.querySelectorAll(".aurora-comment-replies")[0];
         replies.appendChild(element);
     }
 

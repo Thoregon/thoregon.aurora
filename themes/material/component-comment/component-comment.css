@@ -1,8 +1,3 @@
-
-#comments {
-    margin-left: 17%;
-    margin-right: 17%;
-}
 .hidden { display: none; }
 
 .aurora-comment-wrapper {
@@ -14,8 +9,10 @@
  overflow: visible;
 }
 
+
+
 /*  need to be defined on comment-wrapper and just refined on levels....*/
-.aurora-comment-wrapper {
+.aurora-comment.lvl_1 {
     border: 1px solid #dddfe2;
     border-radius: 3px;
     margin-bottom: .5em;
@@ -35,13 +32,6 @@
     float: left;
 }
 
-.aurora-comment-cl2-avatar {
-    display: table-cell;
-    vertical-align: top;
-    width: 65px;
-}
-
-.aurora-comment-cl2-avatar img,
 .aurora-comment-avatar img {
     width: 70px;
     width: 60px;
@@ -49,9 +39,51 @@
     border-style: none;
     float:left;
 }
-.aurora-comment-cl2-avatar img {
+
+/*
+*   LEVEL 2
+*/
+
+.aurora-comment.lvl_2 {
+
+}
+
+.lvl_2 .aurora-comment-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.lvl_2 .aurora-comment-avatar {
+    width: 65px;
+}
+
+.lvl_2 .aurora-content-wrapper {
+    background-color: #f1f0f0;
+    border-radius: 6px;
+    padding: .5em 1em .5em 1em;
+}
+
+.lvl_2 .aurora-comment-right-column {
+    width: 100%;
+}
+
+.lvl_2 .aurora-comment-avatar img {
     width: 40px;
-    margin-left: 15px
+    margin-left: 15px;
+}
+
+.lvl_2 .aurora-comment-creator-name {
+    background-color: initial;
+    font-size: initial;
+    text-decoration: underline;
+    padding: initial;
+}
+.lvl_2 .aurora-comment-creator-name a {
+    text-decoration: none;
+    background-color: initial;
+    border-color: initial;
+    color: initial;
 }
 
 .aurora-comment-meta-wrapper {
@@ -143,8 +175,8 @@
     margin-bottom: 1em;
 }
 
-.aurora-comment-action-like,
-.aurora-comment-action-comment {
+.lvl_1 .aurora-comment-action-like,
+.lvl_1 .aurora-comment-action-comment {
     border: 1px solid transparent;
     background-image: none;
     background-color: transparent;
@@ -171,8 +203,8 @@
     justify-content: center;
 }
 
-.aurora-comment-action-comment,
-.aurora-comment-action-like {
+.lvl_1 .aurora-comment-action-comment,
+.lvl_1 .aurora-comment-action-like {
     width: 50%;
     float: left;
     background-color: #fff;
@@ -186,8 +218,8 @@
     font-size: 1.2em;
 }
 
-.aurora-comment-action-like:hover,
-.aurora-comment-action-comment:hover { background-color: #e4e4e4; }
+.lvl_1 .aurora-comment-action-like:hover,
+.lvl_1 .aurora-comment-action-comment:hover { background-color: #e4e4e4; }
 
 .aurora-comment-response-wrapper {
     display: none;
@@ -202,8 +234,21 @@
     display: table-row;
 }
 
-.aurora-comment-cl2-reply-actions { display: table-cell; overflow: visible; }
+.aurora-comment-action-reply.active,
+.aurora-comment-action-like.active { cursor: pointer; }
+.aurora-comment-action-reply.active:hover,
+.aurora-comment-action-like.active:hover { text-decoration: underline; }
 
+
+.lvl_2 .aurora-comment-likes,
+.lvl_2 .aurora-comment-action-reply,
+.lvl_2 .aurora-comment-age-formated,
+.aurora-comment-action-separator {
+    display: inline-block;
+}
+
+.aurora-comment-cl2-reply-actions { display: table-cell; overflow: visible; }
+.aurora-comment-age-formated { float: right; }
 .aurora-comment-cl2-action.type-attach { display: inline-block; cursor: pointer; }
 .aurora-comment-cl2-action.type-attach i { transform: rotate(45deg); }
 .aurora-comment-cl2-action.type-submit { float: right; }
