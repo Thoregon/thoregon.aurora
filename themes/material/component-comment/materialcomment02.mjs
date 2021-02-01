@@ -46,7 +46,7 @@ export default class Materialcomment02 extends ThemeBehavior {
         this.visElemPermActionReaction();
     }
 
-    addReply( element ) {
+    showReply( element ) {
         let replies = this.container.querySelectorAll(".aurora-comment-replies")[0];
         replies.appendChild(element);
     }

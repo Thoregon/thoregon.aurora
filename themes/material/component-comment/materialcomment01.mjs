@@ -43,7 +43,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         //---  Actions clicked  ------------------------------------------------------------------------this.container.querySelectorAll('.aurora-chat-entrybox-action').forEach(item => {
         action_like[0].addEventListener('click', this.callbackClickedLike, false);
         action_add_comment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
-        action_toggle_comments.addEventListener('click', (event) => this.callbackClickeToggleShowComments(event, action_toggle_comments), false);
+        action_toggle_comments.addEventListener('click', (event) => this.callbackClickedToggleShowComments(event, action_toggle_comments), false);
 
         //---  KEYUP event for the message field  ------------------------------------------------------------------------
  //       textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
@@ -135,11 +135,10 @@ export default class Materialcomment01 extends ThemeBehavior {
         elements.forEach( (element) => element.innerHTML = content );
     }
 
-    addReply( element ) {
+    showReply( element ) {
         let replies = this.container.querySelectorAll(".aurora-comment-replies")[0];
         replies.appendChild(element);
     }
-
 
     /*
      * Event handlers
