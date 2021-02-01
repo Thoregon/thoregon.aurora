@@ -49,7 +49,7 @@ export default class Materialcomment01 extends ThemeBehavior {
  //       textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
     }
 
-    callbackClickeToggleShowComments ( event, action_toggle_comments ) {
+    callbackClickedToggleShowComments ( event, action_toggle_comments ) {
         let status = true;
         action_toggle_comments.classList.toggle('open');
         event.stopPropagation();
@@ -64,7 +64,7 @@ export default class Materialcomment01 extends ThemeBehavior {
     }
 
     callbackClickedLike ( event ) {
-        alert("I like this comment...");
+        // alert("I like this comment...");
         event.stopPropagation();
     }
 

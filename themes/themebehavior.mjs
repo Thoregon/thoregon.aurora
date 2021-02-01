@@ -14,4 +14,25 @@ export default class ThemeBehavior {
         throw ErrNotImplemented(`${className(this)}.attach()`);
     }
 
+    attachValue(selector, handler) {
+        let elem = this.getElement(selector);
+        if (elem) {}
+    }
+
+    attachAction(selector, handler) {
+
+    }
+
+    attachHandle(selector, handler) {
+
+    }
+
+    getElement(selector) {
+        let elements = this.container.querySelectorAll(selector);
+        return elements.length > 0 ? elements[0] : undefined;
+    }
+
+    getAllElements(selector) {
+        return this.container.querySelectorAll(selector);
+    }
 }
