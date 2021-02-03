@@ -44,41 +44,43 @@
 *   LEVEL 2
 */
 
-.aurora-comment.lvl_2 {
-
-}
-
+.lvl_3 .aurora-comment-row,
 .lvl_2 .aurora-comment-row {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
-
+.lvl_3 .aurora-comment-avatar,
 .lvl_2 .aurora-comment-avatar {
     width: 65px;
 }
 
+.lvl_3 .aurora-content-wrapper,
 .lvl_2 .aurora-content-wrapper {
     background-color: #f1f0f0;
     border-radius: 6px;
     padding: .5em 1em .5em 1em;
 }
 
+.lvl_3 .aurora-comment-right-column,
 .lvl_2 .aurora-comment-right-column {
     width: 100%;
 }
 
+.lvl_3 .aurora-comment-avatar img,
 .lvl_2 .aurora-comment-avatar img {
     width: 40px;
     margin-left: 15px;
 }
 
+.lvl_3 .aurora-comment-creator-name,
 .lvl_2 .aurora-comment-creator-name {
     background-color: initial;
     font-size: initial;
     text-decoration: underline;
     padding: initial;
 }
+.lvl_3 .aurora-comment-creator-name a,
 .lvl_2 .aurora-comment-creator-name a {
     text-decoration: none;
     background-color: initial;
@@ -232,6 +234,7 @@
 .aurora-comment-response-wrapper.open {
     display: table;
 }
+.lvl_3 .aurora-comment-response-wrapper,
 .lvl_2 .aurora-comment-response-wrapper {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -276,12 +279,17 @@
 .aurora-comment-action-like.liked { color: #1a75d2; }
 
 
+.lvl_3 .aurora-comment-actions,
 .lvl_2 .aurora-comment-actions {
     border-top: none;
     border-bottom: none;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
-
+.lvl_3 .aurora-comment-likes,
+.lvl_3 .aurora-comment-action-reply,
+.lvl_3 .aurora-comment-age-formated,
 .lvl_2 .aurora-comment-likes,
 .lvl_2 .aurora-comment-action-reply,
 .lvl_2 .aurora-comment-age-formated,
