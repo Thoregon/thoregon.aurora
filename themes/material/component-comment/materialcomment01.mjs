@@ -14,6 +14,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         this.visElemPermCommentActions();
         this.visElemPermActionReaction();
         this.visElemPermActionAddComment();
+        this.visElemPermActionAttach();
 
         this.visElemContFeedbackSummary();
         this.visElemContReactions();
@@ -51,7 +52,11 @@ export default class Materialcomment01 extends ThemeBehavior {
 
     callbackClickedToggleShowComments ( event, action_toggle_comments ) {
         let status = true;
+        let replies = this.container.getElementsByClassName("aurora-comment-replies")[0];
+
         action_toggle_comments.classList.toggle('open');
+        replies.classList.toggle('open');
+
         event.stopPropagation();
         //-- Todo: MN check status of the toggle.... to show the comments
         this.jar.showComments( status );
@@ -91,6 +96,14 @@ export default class Materialcomment01 extends ThemeBehavior {
 
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
+
+    visElemPermActionAttach() {
+        let elements = this.container.querySelectorAll(".aurora-comment-response-action.type-attach");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'inline-block' );
+    }
+
 
     visElemContFeedbackSummary() {
         let elements = this.container.querySelectorAll(".aurora-comment-feedback-summary");

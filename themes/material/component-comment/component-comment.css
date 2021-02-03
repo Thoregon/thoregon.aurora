@@ -221,6 +221,9 @@
 .lvl_1 .aurora-comment-action-like:hover,
 .lvl_1 .aurora-comment-action-comment:hover { background-color: #e4e4e4; }
 
+.aurora-comment-replies { display: none; }
+.aurora-comment-replies.open { display: block;}
+
 .aurora-comment-response-wrapper {
     display: none;
     width: 100%;
@@ -229,9 +232,40 @@
 .aurora-comment-response-wrapper.open {
     display: table;
 }
+.lvl_2 .aurora-comment-response-wrapper {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: 1px solid #dddfe2;
+}
 
-.aurora-comment-new-reply-content-row {
+.aurora-comment-response-content-row {
     display: table-row;
+}
+
+.aurora-comment-response-avatar {
+    display: table-cell;
+    vertical-align: top;
+    width: 65px;
+}
+
+.aurora-comment-response-avatar img {
+    width: 40px;
+    border-radius: 6px;
+    border-style: none;
+    float: left;
+    margin-left: 15px;
+}
+
+.aurora-comment-response {
+    display: table-cell;
+    vertical-align: top;
+}
+.aurora-comment-response textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #dddfe2;
+    resize: vertical;
+    padding: .5em;
 }
 
 .aurora-comment-action-reply.active,
@@ -241,6 +275,13 @@
 
 .aurora-comment-action-like.liked { color: #1a75d2; }
 
+
+.lvl_2 .aurora-comment-actions {
+    border-top: none;
+    border-bottom: none;
+}
+
+
 .lvl_2 .aurora-comment-likes,
 .lvl_2 .aurora-comment-action-reply,
 .lvl_2 .aurora-comment-age-formated,
@@ -248,11 +289,11 @@
     display: inline-block;
 }
 
-.aurora-comment-cl2-reply-actions { display: table-cell; overflow: visible; }
+.aurora-comment-response-actions { display: table-cell; overflow: visible; }
 .aurora-comment-age-formated { float: right; }
-.aurora-comment-cl2-action.type-attach { display: inline-block; cursor: pointer; }
-.aurora-comment-cl2-action.type-attach i { transform: rotate(45deg); }
-.aurora-comment-cl2-action.type-submit { float: right; }
+.aurora-comment-response-action.type-attach { display: inline-block; cursor: pointer; user-select: none;}
+.aurora-comment-response-action.type-attach i { transform: rotate(45deg); }
+.aurora-comment-response-action.type-submit { float: right; }
 
 .aurora-comment-entrybox-textarea {
     width: 100%;
@@ -332,7 +373,7 @@
 .mesu-new-reply-content-row,
 .mesu-cl2-new-reply-content-row,
 .mesu-cl3-new-reply-content-row,
-.mesu-new-reply-action-row,
+.mesu-response-action-row,
 .mesu-content-row,
 .mesu-edit-content-row,
 .mesu-cl2-new-reply-action-row { display: table-row; }

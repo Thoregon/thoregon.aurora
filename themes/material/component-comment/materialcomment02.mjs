@@ -19,6 +19,7 @@ export default class Materialcomment02 extends ThemeBehavior {
         this.visElemPermCommentActions();
         this.visElemContReactions();
         this.visElemContAgeFormated();
+        this.visElemPermActionAttach();
     }
 
     ageFormated() {
@@ -29,7 +30,18 @@ export default class Materialcomment02 extends ThemeBehavior {
         this.identity = await universe.Identity.saveIdentity();
         this.jar = jar;
         this.container = this.jar.container;
+
+        let action_add_comment     = this.container.getElementsByClassName("aurora-comment-action-reply")[0];
+        action_add_comment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
+
     }
+
+    callbackClickedAddComment (event, comment ) {
+        let response = comment.getElementsByClassName("aurora-comment-response-wrapper")[0];
+        response.classList.toggle('open');
+        event.stopPropagation();
+    }
+
 
     /*
      * Event handlers
@@ -72,6 +84,14 @@ export default class Materialcomment02 extends ThemeBehavior {
         this.switchElementVisibility( elements ,visible, 'inline-block' );
         this.switchElementVisibility( seperators ,visible, 'inline-block' );
     }
+
+    visElemPermActionAttach() {
+        let elements = this.container.querySelectorAll(".aurora-comment-response-action.type-attach");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'inline-block' );
+    }
+
 
     visElemContReactions() {
         let reactions = this.jar.viewModel.reactions;
