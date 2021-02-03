@@ -43,6 +43,13 @@ export default class Materialcomment02 extends ThemeBehavior {
     }
 
 
+    repliesVisible() {
+        // let action_toggle_comments = this.container.getElementsByClassName("aurora-comment-action-toggle-comments")[0];
+        let replies = this.container.getElementsByClassName("aurora-comment-replies")[0];
+        // action_toggle_comments.classList.add('open');
+        replies.classList.add('open');
+    }
+
     /*
      * Event handlers
      */

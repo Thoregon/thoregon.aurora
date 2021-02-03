@@ -1,6 +1,14 @@
 ToDo
 ====
 
+- ViewModel
+    - PropertyItem
+        - non input fields -> text content or specified attribute
+    - connect (custom) item attributes
+    
+- CollectionViewModel
+    - connect collection property from model
+
 - views specifies requirements
     - defines which interceptors used
 
