@@ -48,3 +48,5 @@ E.g. on a map view show marks or (little) information tags.
 Indicators:
 e.g. payment expires, grace period expires, approaching limit of ...
 
+## Collections
+connect to queries
