@@ -20,6 +20,12 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
 
     elementVisibility() {
         this.visElemContEntryBox();
+        this.visElemPermActionAttach();
+        this.visElemPermActionEmoji();
+        this.visElemPermActionAudio();
+        this.visElemPermActionVideo();
+        this.visElemPermActionEditorText();
+        this.visElemPermActionEditorHTML();
     }
 
     async attach(jar) {
@@ -30,10 +36,12 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
+        let textarea     = this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
+        textarea.addEventListener('focus', (event)     => this.callbackFocusTextarea(event, textarea ), false);
     }
 
-    callbackClickedToggleShowComments ( event, action_toggle_comments ) {
-        action_toggle_comments.classList.toggle('open');
+    callbackFocusTextarea ( event, messagebox  ) {
+        messagebox.classList.add('focused');
         event.stopPropagation();
     }
 
@@ -55,6 +63,44 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
     visElemContEntryBox() {
         let elements = this.container.querySelectorAll(".aurora-comment-entrybox");
         let visible  = ! this.identity.isGhost();
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
+
+    visElemPermActionAttach() {
+        let elements = this.container.querySelectorAll(".aurora-comment-entrybox-action.type-attach");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
+    visElemPermActionEmoji() {
+        let elements = this.container.querySelectorAll(".aurora-comment-entrybox-action.type-emoji");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
+
+    visElemPermActionAudio() {
+        let elements = this.container.querySelectorAll(".aurora-comment-entrybox-action.type-audio");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
+    visElemPermActionVideo() {
+        let elements = this.container.querySelectorAll(".aurora-comment-entrybox-action.type-video");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
+    visElemPermActionEditorText() {
+        let elements = this.container.querySelectorAll(".aurora-comment-entrybox-action.type-editor-text");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
+    visElemPermActionEditorHTML() {
+        let elements = this.container.querySelectorAll(".aurora-comment-entrybox-action.type-editor-html");
+        let visible  = false;
 
         this.switchElementVisibility( elements ,visible, 'block' );
     }

@@ -1,13 +1,39 @@
-<button class="aurora-listitem aurora-listitem-container {{= it.classes}}" >
+<div class="aurora-listitem aurora-listitem-container {{= it.classes}} {{=it.graphictype}}" >
 
-    <span class="aurora-listitem-grafic">icon</span>
-    <span class="aurora-listitem-text">
-        <span class="aurora-listitem-primary-text">{{=it.primarytext}}</span>
-        <span class="aurora-listitem-secondary-text">{{=it.secondarytext}}</span>
-    </span>
-    <span class="aurora-listitem-meta">icon</span>
-    {{? it.usesleadingicon }}
-        <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.leading_icon}}<!----></i>
-    {{?}}
+    <div class="aurora-listitem-left">
+
+        {{? it.graphictype === "icon" }}
+            <div class="aurora-listitem-graphictype icon">
+                <i aria-hidden="true" class="material-icons"><!---->{{=it.graphiccontent}}<!----></i>
+            </div>
+
+        {{?? it.graphictype === "icon-avatar" }}
+            <div class="aurora-listitem-graphictype icon-avatar {{=it.graphicstyle}}">
+                <i aria-hidden="true" class="material-icons"><!---->{{=it.graphiccontent}}<!----></i>
+            </div>
+
+        {{?? it.graphictype === "image-avatar" }}
+            <div class="aurora-listitem-graphictype image-avatar {{=it.graphicstyle}}" style="background-image: url('{{=it.graphiccontent}}');"></div>
+
+        {{?? it.graphictype === "letter-avatar" }}
+            <div class="aurora-listitem-graphictype letter-avatar">letter-avatar</div>
+
+        {{?? it.graphictype === "thumbnail" }}
+        <div class="aurora-listitem-graphictype thumbnail {{=it.graphicstyle}}" style="background-image: url('{{=it.graphiccontent}}');"></div>
+
+        {{??}}
+
+        {{?}}
+    </div>
+    <div class="aurora-listitem-middle">
+        <div class="aurora-listitem-text">
+            <span class="aurora-listitem-primary-text">{{=it.primarytext}}</span>
+            <span class="aurora-listitem-secondary-text">{{=it.secondarytext}}</span>
+        </div>
+    </div>
+
+    <div class="aurora-listitem-right">right</div>
+
     <div class="aurora-listitem-ripple"></div>
-</button>
+</div>
+<div class="aurora-listitem-separation-line {{= it.classes}} {{=it.graphictype}}" ></div>
