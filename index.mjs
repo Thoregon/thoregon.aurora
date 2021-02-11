@@ -28,6 +28,8 @@ export { default as AuroraListItem }            from './lib/formcomponents/auror
 export { default as AuroraQRScanner }           from './lib/cameracomponents/auroraqrscanner.mjs';
 
 export { default as AuroraBlueprint }           from './lib/blueprint/layout/blueprint.mjs';
+export { default as AuroraToolbar }             from './lib/formcomponents/auroratoolbar.mjs';
+
 // App Classes
 export { default as AuroraApp }                 from './lib/blueprint/auroraapp.mjs';
 export { default as AppWidget }                 from './lib/blueprint/appwidget.mjs';
