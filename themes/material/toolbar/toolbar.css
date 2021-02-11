@@ -1,3 +1,39 @@
 .aurora-toolbar {
-    border: 5px solid green;
+    color: #575546;
 }
+
+.aurora-toolbar-top {
+    background-color: #9d9b95;
+    height: 22px;
+    display: flex;
+    justify-content: flex-end;
+}
+.aurora-toolbar-top,
+.aurora-toolbar-middle,
+.aurora-toolbar-bottom {
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.aurora-toolbar-indicators { display: flex; align-items: center; }
+.aurora-toolbar-indicators i { font-size: 1em; }
+
+.aurora-toolbar-middle,
+.aurora-toolbar-bottom { background-color: #ceccc5; }
+
+.aurora-toolbar-middle {
+    display: flex;
+    height: 57px;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.aurora-toolbar-logo {
+    height: 2em;
+    margin-right: .5em;
+}
+.aurora-toolbar-logo img {
+    height: 2em;
+    width: auto;
+}
+

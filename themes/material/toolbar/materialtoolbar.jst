@@ -1,3 +1,16 @@
 <div class="aurora-toolbar {{= it.classes}}">
-...ich bin der schöne Toolbar...
+    <div class="aurora-toolbar-top">
+        <div class="aurora-toolbar-indicators">
+            <i aria-hidden="true" title="your are Connected" class="material-icons aurora-toolbar-icon connected">circle</i>
+            <i aria-hidden="true" title="you are secure" class="material-icons aurora-toolbar-icon logged-in">verified_user</i>
+        </div>
+    </div>
+    <div class="aurora-toolbar-middle">
+        <div class="aurora-toolbar-logo">
+            <img src="https://thatsme.plus/wp-content/uploads/2020/12/logo.png">
+        </div>
+        <div class="aurora-toolbar-title">{{=it.title}}</div>
+        <div class="aurora-toolbar-user"></div>
+    </div>
+    <div class="aurora-toolbar-bottom"></div>
 </div>
