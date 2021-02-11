@@ -30,6 +30,8 @@ export { default as AuroraQRScanner }           from './lib/cameracomponents/aur
 export { default as AuroraBlueprint }           from './lib/blueprint/layout/blueprint.mjs';
 export { default as AuroraHeader }              from './lib/blueprint/layout/header.mjs';
 export { default as AuroraDrawer }              from './lib/blueprint/layout/drawer.mjs';
+export { default as AuroraBlueprintContainer }  from './lib/blueprint/layout/aurorablueprintcontainer.mjs';
+export { default as AuroraBlueprint }           from './lib/blueprint/layout/blueprint.mjs';
 
 export { default as AuroraToolbar }             from './lib/formcomponents/auroratoolbar.mjs';
 
