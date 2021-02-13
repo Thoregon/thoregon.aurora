@@ -13,6 +13,11 @@ export default class MaterialLink extends ThemeBehavior {
     attach(jar) {
         this.jar       = jar;
         this.container = this.jar.container;
+        this.container.addEventListener('click', (event) => this.trigger(event));
+    }
+
+    async trigger(event) {
+        if (await this.jar.trigger(event)) event.stopPropagation();
     }
 
 }

@@ -24,6 +24,7 @@ export { default as AuroraCommentMessageBox }   from './lib/formcomponents/auror
 export { default as AuroraValidationIndicator } from './lib/indicators/auroravalidationindicator.mjs';
 export { default as AuroraCollection }          from './lib/collection/auroracollection.mjs';
 export { default as AuroraListItem }            from './lib/formcomponents/auroralistitem.mjs';
+export { default as AuroraLink }                from './lib/routes/auroralink.mjs';
 
 export { default as AuroraQRScanner }           from './lib/cameracomponents/auroraqrscanner.mjs';
 

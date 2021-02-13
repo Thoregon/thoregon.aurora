@@ -74,7 +74,7 @@
 }
 
 .aurora-listitem-primary-text {
-    font-weight: bold;
+    font-weight: 200 /*bold*/;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
