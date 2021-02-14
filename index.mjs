@@ -48,5 +48,7 @@ export { ValidationMethodRequired }             from './lib/validation/validatio
 // Views
 export { default as ViewModel }                 from './lib/viewmodel/viewmodel.mjs';
 
+export { default as UIRouter }                  from './lib/routes/uirouter.mjs';
+
 // aurora service
 export default new Aurora();

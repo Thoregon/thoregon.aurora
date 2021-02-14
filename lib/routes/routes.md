@@ -32,13 +32,19 @@ If none is declared, the app envelop will be the target.
 ## Link params
 
 If the link should reference to an entity, e.g. in a list, placeholders
-can be defined in the route. The 
+can be defined in the route. 
+Placeholders can be attributes of the references entity but also the list index.
 
 ## Route adresses
 The route can refer to entities (model) or to the viewmodel.
 If the route references an item win a list without a key, the index can be used.
 For persistent entities instead the index, the 'soul' (key, id) of the entity
 will be referenced.  
+
+A route consists of
+- r ... reference to the entity. if omitted, no entity will be available. e.g. 'create' command or a command with just params
+- t ... target (element) where to display. if omitted the first <aurora-blueprint-container> is used
+- v ... view which to display. May be overruled by the viewmodel (or model). if omitted, the defined default view is used.
 
 ### Hierarchically referenced enties 
 specify a route to an entity/view deep in a hierarchy.
