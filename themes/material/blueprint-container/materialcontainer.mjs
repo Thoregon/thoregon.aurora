@@ -8,7 +8,7 @@
 
 import ThemeBehavior from "../../themebehavior.mjs";
 
-export default class MaterialBlueprintContainer extends ThemeBehavior {
+export default class MaterialContainer extends ThemeBehavior {
 
     attach(jar) {
         this.jar       = jar;
