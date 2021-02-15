@@ -35,4 +35,6 @@ export default class ThemeBehavior {
     getAllElements(selector) {
         return this.container.querySelectorAll(selector);
     }
+
+    asColorCSS(colorDefs) {}
 }
