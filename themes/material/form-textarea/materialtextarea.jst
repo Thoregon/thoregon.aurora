@@ -1,0 +1,46 @@
+<div class="aurora-textarea-container {{= it.classes}}">
+
+    <div  class="aurora-textarea">
+
+        {{? it.usesleadingicon }}
+            <i aria-hidden="true" class="material-icons aurora-leading-icon"> {{= it.leading_icon}} </i>
+        {{?}}
+
+        {{? it.usestrailingicon }}
+            <i aria-hidden="true" class="material-icons aurora-trailing-icon"> {{= it.trailing_icon}} </i>
+        {{?}}
+        <textarea
+                rows="5"
+                cols="50"
+                id="{{=it.name}}"
+                name="{{=it.name}}"
+                aurora-name="{{=it.name}}"
+                class="aurora-textarea-input"
+                autocorrect="off"
+                autocomplete="off"
+                spellcheck="false"
+                maxlength="20"
+                {{? it.readonly}} readonly="readonly" {{?}}
+                {{? it.isrequired}} required {{?}}
+                placeholder="{{=it.placeholder}}"
+        ></textarea>
+
+        <div class="aurora-line-ripple" style="transform-origin: 145px center;"></div>
+
+        <label for="{{=it.name}}" class="aurora-floating-label"> {{=it.label}} </label>
+
+    </div>
+    <div class="mdc-textarea-helper-line">
+        {{? it.hashint}}
+        <div class="mdc-textarea-helper-text mdc-textarea-helper-text--persistent aurora-textarea-helper-text">{{= it.hint}}</div>
+        {{?}}
+        <div class="mdc-textarea-helper-text aurora-textarea-error-text" role="alert">
+            <!--Error message-->
+            Föhla
+            <!---->
+        </div>
+        {{? it.usecharactercounter}}
+          <div class="mdc-textarea-character-counter">0 / 20</div>
+        {{?}}
+    </div>
+</div>

@@ -1,0 +1,103 @@
+:host {
+    overflow: visible !important;
+}
+
+.aurora-floatingactionbutton {
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+                0px 6px 10px 0px rgb(0 0 0 / 14%),
+                0px 1px 18px 0px rgb(0 0 0 / 12%);
+
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: none;
+    fill: currentColor;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    overflow: hidden;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear 30ms, transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1);
+    background-color: #018786;
+    color: #fff;
+    color: var(--mdc-theme-on-secondary, #fff);
+    border-radius: 50%;
+}
+
+.aurora-floatingactionbutton .aurora-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    transition-duration: .2s;
+}
+
+.aurora-floatingactionbutton:active,
+.aurora-floatingactionbutton:focus {
+    outline: none;
+}
+
+.aurora-floatingactionbutton:active {
+    box-shadow: 0px 7px 8px -4px rgb(0 0 0 / 20%),
+    0px 12px 17px 2px rgb(0 0 0 / 14%),
+    0px 5px 22px 4px rgb(0 0 0 / 12%);
+}
+
+
+.aurora-floatingactionbutton .aurora-button-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.aurora-floatingactionbutton .aurora-button-ripple::before,
+.aurora-floatingactionbutton .aurora-button-ripple::after {
+    background-color: #fff;
+
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    content: "";
+
+
+    top: calc(50% - 100%);
+    left: calc(50% - 100%);
+    width: 200%;
+    height: 200%;
+}
+
+
+
+aurora-floatingactionbutton:hover,
+.aurora-floatingactionbutton:focus {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0,0,0,.12);
+}
+
+.aurora-floatingactionbutton:disabled {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0,0,0,.12);
+}
+
+.aurora-floatingactionbutton:disabled {
+    background-color: rgba(0,0,0,.12);
+    color: rgba(0,0,0,.37);
+    cursor: default;
+    pointer-events: none;
+}
+
+.aurora-floatingactionbutton:hover .aurora-button-ripple::before {
+    opacity: .08;
+}
+
+.aurora-floatingactionbutton.open .aurora-icon {
+    transform: rotate(45deg);
+    transition-duration: .2s;
+}

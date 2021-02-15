@@ -1,4 +1,4 @@
-<div class="aurora-listitem aurora-listitem-container {{= it.classes}} {{=it.graphictype}}" >
+<div class="aurora-listitem aurora-listitem-container {{= it.classes}} {{=it.graphictype}}" tabindex="100">
 
     <div class="aurora-listitem-left">
 
@@ -32,8 +32,14 @@
         </div>
     </div>
 
-    <div class="aurora-listitem-right">right</div>
+    <div class="aurora-listitem-right">
+
+
+    </div>
 
     <div class="aurora-listitem-ripple"></div>
 </div>
+
+{{? it.useseparator }}
 <div class="aurora-listitem-separation-line {{= it.classes}} {{=it.graphictype}}" ></div>
+{{?}}

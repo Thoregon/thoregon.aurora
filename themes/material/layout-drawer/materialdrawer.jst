@@ -1,5 +1,9 @@
 <!--
   Copyright (c) 2021.
   -->
-<div class="aurora-drawer {{= it.classes}}" aurora-slot="main">
-</div>
+<aside class="aurora-drawer {{= it.classes}}  {{? it.dense }} dense {{?}}" aurora-slot="main"
+     data-width="{{= it.width}}"
+     style="width: {{= it.width}};"
+>
+</aside>
+

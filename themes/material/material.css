@@ -203,6 +203,10 @@
     opacity: .04;
 }
 
+.aurora-text-field.focused .aurora-line-ripple {
+    opacity: 1;
+    background-color: var(--aurora-focused-col, #1a75d2);
+}
 
 .aurora-line-ripple {
     position: absolute;

@@ -3,4 +3,16 @@
  */
 
 .aurora-header {
+    z-index: 2000;
+}
+
+.aurora-header.position-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.aurora-header.bordered {
+    border-bottom: 1px solid rgba(0,0,0,0.3);
 }
