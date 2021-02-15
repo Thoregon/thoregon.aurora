@@ -12,6 +12,7 @@
 
 .aurora-listitem:hover {
     background-color: #f5f5f5;
+    cursor: pointer;
 }
 
 .aurora-listitem.focused {

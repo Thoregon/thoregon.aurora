@@ -1,9 +1,9 @@
 .aurora-toolbar {
-    color: #575546;
+    color: var( --primaryTextColor );
 }
 
 .aurora-toolbar-top {
-    background-color: #9d9b95;
+    background-color: var( --primaryDarkColor );
     height: 22px;
     display: flex;
     justify-content: flex-end;
@@ -19,7 +19,7 @@
 .aurora-toolbar-indicators i { font-size: 1em; }
 
 .aurora-toolbar-middle,
-.aurora-toolbar-bottom { background-color: #ceccc5; }
+.aurora-toolbar-bottom { background-color: var( --primaryColor ); }
 
 .aurora-toolbar-middle {
     display: flex;

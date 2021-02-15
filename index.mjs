@@ -34,6 +34,8 @@ export { default as AuroraBlueprint }           from './lib/blueprint/layout/aur
 export { default as AuroraHeader }              from './lib/blueprint/layout/auroraheader.mjs';
 export { default as AuroraDrawer }              from './lib/blueprint/layout/auroradrawer.mjs';
 export { default as AuroraBlueprintContainer }  from './lib/blueprint/layout/aurorablueprintcontainer.mjs';
+export { default as AuroraSectionSticky }       from './lib/blueprint/layout/aurorasectionsticky.mjs';
+
 
 export { default as AuroraToolbar }             from './lib/formcomponents/auroratoolbar.mjs';
 

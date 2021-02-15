@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+.aurora-section-sticky {
+    transform: translate(0px, 0px);
+    margin: 18px;
+    overflow: visible;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aurora-section-sticky.bottom-right {
+    bottom: 0px;
+    right: 0;
+}
+
+.aurora-section-sticky.bottom-center {
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+}
