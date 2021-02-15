@@ -6,6 +6,16 @@
     flex-direction: row;
     padding-top: 16px;
     padding-bottom: 16px;
+    padding-right: 16px;
+    outline: none;
+}
+
+.aurora-listitem:hover {
+    background-color: #f5f5f5;
+}
+
+.aurora-listitem.focused {
+    background-color: #e1e1e1;
 }
 
 .aurora-listitem.thumbnail {
@@ -24,6 +34,12 @@
 .icon-avatar .aurora-listitem-left,
 .image-avatar .aurora-listitem-left { min-width: 48px; }
 .thumbnail .aurora-listitem-left { min-width: 100px; }
+
+.aurora-listitem.image-avatar,
+.aurora-listitem.icon-avatar {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
 
 .aurora-listitem-graphictype.image-avatar,
 .aurora-listitem-graphictype.icon-avatar {
@@ -78,6 +94,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    line-height: 1em;
 }
 
 .aurora-listitem-separation-line {

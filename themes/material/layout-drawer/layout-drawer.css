@@ -10,3 +10,16 @@
     min-height: calc(100vh - 79px);
     box-shadow: 0 1px 1px 0 rgb(66 66 66 / 8%), 0 1px 3px 1px rgb(66 66 66 / 16%);
 }
+
+.aurora-drawer.dense {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.aurora-drawer {
+    position: absolute;
+    background: #fff;
+    top: 80px;
+    bottom: 50px;
+    transform: translateX(0px);
+}

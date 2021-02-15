@@ -7,7 +7,7 @@
 import ThemeBehavior            from "../../themebehavior.mjs";
 import { validationLevel }      from "../../../lib/common.mjs";
 
-export default class MaterialTextField extends ThemeBehavior {
+export default class MaterialTextarea extends ThemeBehavior {
 
     rootElement = '';
 
@@ -16,10 +16,10 @@ export default class MaterialTextField extends ThemeBehavior {
         this.container = this.jar.container;
 
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
-        var textfield = this.container.getElementsByClassName("aurora-text-field");
+        var textfield = this.container.getElementsByClassName("aurora-textarea");
         textfield[0].addEventListener('click', this.callbackClicked, false);
 
-        var inputfield = this.container.getElementsByClassName("aurora-text-field-input");
+        var inputfield = this.container.getElementsByClassName("aurora-textarea-input");
 
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
         var typing     = (event) => this.callbackKeyup( event, this.container );
@@ -34,10 +34,10 @@ export default class MaterialTextField extends ThemeBehavior {
     }
 
     valueChanged( event ) {
-        let charactercounter = this.container.querySelectorAll(".mdc-text-field-character-counter");
+        let charactercounter = this.container.querySelectorAll(".mdc-textarea-character-counter");
         if (charactercounter.length > 0 && charactercounter[0].length > 0 ) {
             this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
-            this.container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = this.jar.value.length;
+            this.container.querySelectorAll(".mdc-textarea-character-counter")[0].innerHTML = this.jar.value.length;
         }
     }
 
@@ -49,15 +49,14 @@ export default class MaterialTextField extends ThemeBehavior {
 
     callbackClicked ( event ) {
         this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
-        this.parentElement.querySelectorAll(".aurora-text-field")[0].classList.add('focused');
-
+        this.parentElement.querySelectorAll(".aurora-textarea")[0].classList.add('focused');
         event.stopPropagation();
     }
     callbackKeyup( event ) {
         let container = event.target.parentElement.parentElement;
-        let charactercounter = container.querySelectorAll(".mdc-text-field-character-counter");
+        let charactercounter = container.querySelectorAll(".mdc-textarea-character-counter");
         if ( charactercounter.length > 0 ) {
-            container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = event.target.value.length;
+            container.querySelectorAll(".mdc-textarea-character-counter")[0].innerHTML = event.target.value.length;
         }
         event.stopPropagation();
     }
@@ -71,7 +70,7 @@ export default class MaterialTextField extends ThemeBehavior {
         if (! (event.target && event.target.value)) {
             event.target.parentElement.querySelectorAll("label")[0].classList.remove('aurora-floating-label--float-above');
         }
-        this.container.getElementsByClassName("aurora-text-field")[0].classList.remove('focused');
+        this.container.getElementsByClassName("aurora-textarea")[0].classList.remove('focused');
         event.stopPropagation();
         //--- validation level: CHANGE
         this.jar.isValid( validationLevel.change );
@@ -79,12 +78,12 @@ export default class MaterialTextField extends ThemeBehavior {
 
     removeError() {
         this.container.classList.remove('error');
-        this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = "";
+        this.container.getElementsByClassName("aurora-textarea-error-text")[0].innerHTML = "";
 
     }
     reportError(errormsg) {
         this.container.classList.add('error');
-        this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = errormsg;
+        this.container.getElementsByClassName("aurora-textarea-error-text")[0].innerHTML = errormsg;
 
         console.log(this.jar);
     }

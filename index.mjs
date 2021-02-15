@@ -13,7 +13,9 @@ import ModelCollection                      from "./lib/viewmodel/delegate/model
 export { default as ThemeBehavior }             from './themes/themebehavior.mjs';
 export { default as AuroraElement }             from './lib/auroraelement.mjs';
 export { default as AuroraTextField }           from './lib/formcomponents/auroratextfield.mjs';
+export { default as AuroraTextarea }            from './lib/formcomponents/auroratextarea.mjs';
 export { default as AuroraButton }              from './lib/formcomponents/aurorabutton.mjs';
+export { default as AuroraFloatingActionButton }from './lib/formcomponents/aurorafloatingactionbutton.mjs';
 export { default as AuroraCheckbox }            from './lib/formcomponents/auroracheckbox.mjs';
 export { default as AuroraSwitch }              from './lib/formcomponents/auroraswitch.mjs';
 export { default as AuroraPinCode }             from './lib/formcomponents/aurorapincode.mjs';
