@@ -24,6 +24,8 @@ export { default as AuroraChatEntryBox }        from './lib/formcomponents/auror
 export { default as AuroraComment }             from './lib/formcomponents/auroracomment.mjs';
 export { default as AuroraCommentMessageBox }   from './lib/formcomponents/auroracommentmessagebox.mjs';
 export { default as AuroraValidationIndicator } from './lib/indicators/auroravalidationindicator.mjs';
+export { default as AuroraImageCropper }        from './lib/formcomponents/auroraimagecropper.mjs';
+
 export { default as AuroraCollection }          from './lib/collection/auroracollection.mjs';
 export { default as AuroraListItem }            from './lib/formcomponents/auroralistitem.mjs';
 export { default as AuroraLink }                from './lib/routes/auroralink.mjs';
