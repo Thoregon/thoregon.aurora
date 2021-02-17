@@ -17,6 +17,10 @@ export default class MaterialImageCropper {
         this.attachSlim();
     }
 
+    destroy() {
+        if (this.slim) this.slim.destroy();
+    }
+
     attachSlim() {
         let elem = this.container.querySelector('.slim');
         let ratio = elem.getAttribute('data-ratio') || "1:1";
