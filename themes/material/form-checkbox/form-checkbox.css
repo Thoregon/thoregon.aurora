@@ -80,18 +80,18 @@
 /* Checked, Indeterminate */
 .aurora-checkbox > input:checked,
 .aurora-checkbox > input:indeterminate {
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color: var(--secondaryColor);
 }
 
 .aurora-checkbox > input:checked + span::before,
 .aurora-checkbox > input:indeterminate + span::before {
-    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-color: var( --secondaryColor );
+    background-color: var( --secondaryColor );
 }
 
 .aurora-checkbox > input:checked + span::after,
 .aurora-checkbox > input:indeterminate + span::after {
-    border-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+    border-color: var( --secondaryTextColor );
 }
 
 .aurora-checkbox > input:indeterminate + span::after {

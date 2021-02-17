@@ -496,12 +496,8 @@
 }
 
 .aurora-button:not(:disabled) {
-    color: #fff;
-/*    color: var(--mdc-theme-primary, #6200ee); */
-}
-
-.aurora-button:not(:disabled) {
-    background-color: #1a75d2;
+    background-color: var( --secondaryColor ,#1a75d2 );
+    color: var( --secondaryTextColor ,#fff );
 }
 
 .aurora-button .aurora-button-ripple {

@@ -1,9 +1,10 @@
 <div class="aurora-blueprint-container {{= it.classes}}"
      style= "
-        background-color: #007eb3;
         width: 100%;
-        height: 150px;
+        height: calc( 100vh - 79px);
         padding-top: 79px;
         padding-left: 30%;
         "
-><span>BLUEPRINT CONTAINER</span></div>
+>
+    <main aurora-slot="main"></main>
+</div>
