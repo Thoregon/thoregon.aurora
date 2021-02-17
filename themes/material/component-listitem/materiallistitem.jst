@@ -1,5 +1,7 @@
 <div class="aurora-listitem aurora-listitem-container {{= it.classes}} {{=it.graphictype}}" tabindex="100">
-    <div class="aurora-listitem-spacer-before" style="width: {{=it.spacebefore}}"></div>
+    {{? it.expandbefore }}
+    <div class="aurora-listitem-spacer-before"></div>
+    {{?}}
     <div class="aurora-listitem-left">
 
         {{? it.graphictype === "icon" }}
@@ -34,7 +36,10 @@
 
     <div class="aurora-listitem-right">
     </div>
-    <div class="aurora-listitem-spacer-after" style="width: {{=it.spaceafter}}"></div>
+
+    {{? it.expandafter }}
+    <div class="aurora-listitem-spacer-after"></div>
+    {{?}}
 
     <div class="aurora-listitem-ripple"></div>
 </div>
