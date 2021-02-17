@@ -2,7 +2,7 @@
  * Slim v5.3.1 - Image Cropping Made Easy
  * Copyright (c) 2020 Rik Schennink - https://pqina.nl/slim
  */
-:host { width: 300px; height: 300px; }
+:host { width: 300px; }
 
 .slim-file-hopper {position : absolute;left : 0;top : 0;right : 0;bottom : 0}
 
@@ -205,7 +205,8 @@ span.slim {display : block}
 
 .slim[data-ratio="10:16"] > img, .slim[data-ratio="10:16"] > input[type=file] {margin-bottom : 160%}
 
-.slim[data-ratio="16:9"] > img, .slim[data-ratio="16:9"] > input[type=file] {margin-bottom : 56.25%}
+.slim[data-ratio="16:9"] > img,
+.slim[data-ratio="16:9"] > input[type=file] {margin-bottom : 56.25%}
 
 .slim[data-ratio="9:16"] > img, .slim[data-ratio="9:16"] > input[type=file] {margin-bottom : 177.77778%}
 
@@ -229,7 +230,28 @@ span.slim {display : block}
 
 .slim-btn-group {padding : 1.5em 0;text-align : center}
 
-.slim-btn {position : relative;padding : 0;margin : 0 7.2px;font-size : 0;outline : none;width : 36px;height : 36px;border : none;color : #fff;background-color : rgba(0, 0, 0, .7);background-repeat : no-repeat;background-size : 50% 50%;background-position : 50%;border-radius : 50%}
+.slim-btn {
+    position: relative;
+    padding: 0;
+    margin: 0 7.2px;
+    font-size: 0;
+    outline: none;
+    width: 36px;
+    height: 36px;
+    border: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .7);
+    background-color: var( --secondaryColor );
+    opacity: .8 !important;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: 50%;
+    border-radius: 50%
+}
+
+.slim-btn:hover {
+    opacity: 1 !important;
+}
 
 .slim-btn:before {border-radius : inherit;position : absolute;box-sizing : border-box;left : -3px;right : -3px;bottom : -3px;top : -3px;border : 3px solid #fff;content : "";transform : scale(.95);opacity : 0;transition : all .25s;z-index : -1;pointer-events : none}
 
@@ -268,3 +290,10 @@ span.slim {display : block}
 .slim-upload-status[data-state=error] .slim-upload-status-icon:before {width : .66666666667em}
 
 .slim-upload-status[data-state=error] .slim-upload-status-icon:after {height : .66666666667em}
+
+.aurora-image-cropper.round,
+.aurora-image-cropper.round + .slim-popover .slim-crop-mask { border-radius: 50%; }
+
+.aurora-image-cropper.rounded,
+.aurora-image-cropper.rounded + .slim-popover .slim-crop-mask { border-radius: 5px; }
+

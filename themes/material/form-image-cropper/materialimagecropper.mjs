@@ -19,8 +19,14 @@ export default class MaterialImageCropper {
 
     attachSlim() {
         let elem = this.container.querySelector('.slim');
+        let ratio = elem.getAttribute('data-ratio') || "1:1";
+        let label = elem.getAttribute('data-label');
+
+        let size =  elem.getAttribute('data-size') || "100,100";
+        let dimension = size.split(',');
+
         this.slim = new Slim(elem, {
-            ratio: '1:1',
+            ratio: ratio,
             /*
                         minSize: {
                             width: 480,
@@ -30,17 +36,17 @@ export default class MaterialImageCropper {
             crop: {
                 x: 0,
                 y: 0,
-                width: 100,
-                height: 100
+                width:  dimension[0] || 100,
+                height: dimension[1] || 100
             },
             service: async () => await this.jar.save(),
             fetcher: async () => await this.jar.fetch(),
             download: false,
+     //       push: true,
             willSave: function(data, ready) {
-                alert('saving!');
                 ready(data);
             },
-            label: 'Drop your image here.',
+            label: label,
             buttonConfirmLabel: 'Ok',
             meta: {
                 userId:'1234'

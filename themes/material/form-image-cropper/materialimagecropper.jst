@@ -1,4 +1,9 @@
-<div class="slim">
+<div class="slim aurora-image-cropper {{= it.style}}"
+     data-label="{{= it.label }}"
+     data-ratio="{{= it.ratio }}"
+     data-size="{{= it.size}}"
+     data-style="{{= it.style }}"
+>
     {{? it.src }}
     <img src="{{= it.src }}"/>
     {{?}}
