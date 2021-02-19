@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+
+:host,
+.aurora-section-wrapper,
+.aurora-section { overflow: visible !important;}
+
+.aurora-section {
+    position: relative
+}
+
+.aurora-section.center {
+    display: block;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}

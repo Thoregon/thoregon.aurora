@@ -2,6 +2,11 @@
     overflow: visible;
 }
 
+.aurora-checkbox-wrapper {
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
+
 .aurora-checkbox-wrapper,
 .aurora-checkbox-container,
 .aurora-checkbox {
@@ -45,6 +50,7 @@
     display: inline-block;
     width: 100%;
     cursor: pointer;
+    font-weight: bolder;
 }
 
 /* Box */
