@@ -59,17 +59,23 @@ export default class MaterialImageCropper {
     }
 
     valueChanged( value ) {
+        if (!value || !this.slim) return ;
+        this.slim.load(value, (error, data) => {
 
-        this.destroy();
+        });
+        /*
+         this.destroy();
 
         let slim = this.container.querySelectorAll('.slim.aurora-image-cropper')[0];
 
-        let image = slim.querySelector('img[name="aurora-image-source"]') || document.createElement('img');
+        let image = slim.querySelector('img.aurora-image-source') || document.createElement('img');
 
         image.setAttribute('src', value);
-        image.setAttribute('name', "aurora-image-source");
+        image.classList.add('aurora-image-source');
+        // image.setAttribute('name', "aurora-image-source");
 
         slim.appendChild(image);
         this.attachSlim();
+         */
     }
 }
