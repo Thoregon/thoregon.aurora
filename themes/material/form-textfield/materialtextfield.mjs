@@ -35,11 +35,15 @@ export default class MaterialTextField extends ThemeBehavior {
 
     valueChanged( event ) {
         let charactercounter = this.container.querySelectorAll(".mdc-text-field-character-counter");
+        let value            = this.container.getElementsByClassName("aurora-text-field-input")[0].value
         if (charactercounter.length > 0 && charactercounter[0].length > 0 ) {
-            this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
             this.container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = this.jar.value.length;
         }
+        if ( value.length > 0 ) {
+            this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
+        }
     }
+
 
     cleanErrors() {
         this.removeError();

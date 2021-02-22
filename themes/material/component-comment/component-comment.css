@@ -28,7 +28,7 @@
     clear: both;
 }
 
-.aurora-comment-level1-wrapper .aurora-comment-header,{ width: 100%; position: relative; }
+.aurora-comment-level1-wrapper .aurora-comment-header { width: 100%; position: relative; }
 
 .aurora-comment-avatar {
     display: inline-block;
@@ -337,7 +337,7 @@
 .mesu-avatar.support img,
 .mesu-avatar.technician img
 {
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.3), 0 0 0 3px @btn-primary-bg-col, 0 0 0 3px #464e6057, 0 0 0px 0px @btn-primary-bg-col;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.3), 0 0 0 3px blue, 0 0 0 3px #464e6057, 0 0 0px 0px blue;
 }
 
 
@@ -481,8 +481,8 @@
     font-family:'FontAwesome';
     position: absolute;
     border-radius: 50px;
-    background: @btn-primary-bg-col;
-    color: @btn-primary-txt-col;
+    background: blue;
+    color: blue;
     /*  border: 1px solid @btn-primary-txt-col; */
     height: 2em;
     width: 2em;
@@ -500,7 +500,7 @@ a:hover .mesu-comment-image-overlay {
 }
 
 .mesu-comment-lightbox {
-    /** Default lightbox to hidden */
+    /* Default lightbox to hidden */
     display: none;
 
     /** Position and style */
@@ -541,9 +541,9 @@ a:hover .mesu-comment-image-overlay {
 .mesu-lbl-comment-user a:hover,
 .mesu-lbl-comment-user,
 .mesu-lbl-comment-user a {
-    background-color: @prod-lbl-comment-user-bg-col;
-    border-color: @prod-lbl-comment-user-bg-col;
-    color: @prod-lbl-comment-user-txt-col;
+    background-color: blue;
+    border-color: blue;
+    color: blue;
 }
 
 
