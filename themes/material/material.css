@@ -15,6 +15,7 @@
     flex-direction: column;
     --aurora-focused-col: #1a75d2;
     --aurora-error-col: #b00020;
+    margin-bottom: 1em;
 }
 
 .aurora-text-field-container:not(.disabled) .aurora-text-field {
