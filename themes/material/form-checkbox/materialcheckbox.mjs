@@ -33,11 +33,18 @@ export default class Materialcheckbox extends ThemeBehavior {
         // MDC.MDCRipple.attachTo(inputfield);
     }
 
-    valueChanged( event ) {
-        let charactercounter = this.container.querySelectorAll(".mdc-text-field-character-counter");
-        if ( charactercounter[0].length > 0 ) {
-            this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
-            this.container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = this.jar.value.length;
+    getValue () {
+        let checkbox = this.container.querySelectorAll("input")[0];
+        return checkbox.checked;
+    }
+
+    valueChanged( value ) {
+        let checkbox = this.container.querySelectorAll("input")[0];
+        checkbox.value = value;
+        if ( value ) {
+            checkbox.checked = true;
+        } else {
+            checkbox.checked = false;
         }
     }
 

@@ -57,4 +57,19 @@ export default class MaterialImageCropper {
             }
         });
     }
+
+    valueChanged( value ) {
+
+        this.destroy();
+
+        let slim = this.container.querySelectorAll('.slim.aurora-image-cropper')[0];
+
+        let image = slim.querySelector('img[name="aurora-image-source"]') || document.createElement('img');
+
+        image.setAttribute('src', value);
+        image.setAttribute('name', "aurora-image-source");
+
+        slim.appendChild(image);
+        this.attachSlim();
+    }
 }
