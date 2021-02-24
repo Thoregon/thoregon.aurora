@@ -19,6 +19,7 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 export default class MaterialCommentMessageBox extends ThemeBehavior {
 
     elementVisibility() {
+
         this.visElemContEntryBox();
         this.visElemPermActionAttach();
         this.visElemPermActionEmoji();
@@ -31,13 +32,14 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
     async attach(jar) {
         // --- attach to UI Actions
         // --- attach DOM Elements Visibility
-
         this.identity = await universe.Identity.saveIdentity();
         this.jar = jar;
         this.container = this.jar.container;
 
         let textarea     = this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
         textarea.addEventListener('focus', (event)     => this.callbackFocusTextarea(event, textarea ), false);
+
+        this.elementVisibility();
     }
 
     callbackFocusTextarea ( event, messagebox  ) {

@@ -1,7 +1,6 @@
 <div class="aurora-comment lvl_{{=it.level}} {{=it.classes}}" style="text-align: left;" data-level="{{=it.level}}">
     <div class="aurora-comment-header">
         <div class="aurora-comment-avatar"><a href="{member_profile_url}"><img src="{{=it.avatar}}"></a></div>
-        <span aurora-name="xyz"></span>
         <div class="aurora-comment-meta-wrapper">
             <div class="aurora-comment-creator-name"><a href="{member_profile_url}">{{=it.name}}</a></div>
             <div class="aurora-comment-creation-date">{{=it.stamp}}</div>
@@ -13,7 +12,7 @@
            {{=value}}
         {{~}}
     </div>
-    <!--- end: aurora-comment-conten" -->
+    <!--- end: aurora-comment-content" -->
 
     <div class="aurora-comment-feedback-summary">
         <div class="aurora-comment-feedback-likes">
@@ -43,7 +42,7 @@
                 <textarea aurora-name="reply" aurora-options="input_only" rows="4" cols="50"></textarea>
             </div> <!-- end: mesu-new-reply -->
         </div> <!-- end:mesu-cl1-new-reply-content-row -->
-        <div class="mesu-response-action-row">
+        <div class="aurora-response-action-row">
             <div style="display: table-cell;"></div>
             <div class="aurora-comment-response-actions">
                 <div class="aurora-comment-response-action type-attach"> <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i> </div>
