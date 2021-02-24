@@ -2,7 +2,11 @@
  * Slim v5.3.1 - Image Cropping Made Easy
  * Copyright (c) 2020 Rik Schennink - https://pqina.nl/slim
  */
-:host { width: 300px; }
+
+
+.aurora-imagecropper-wrapper.left   { margin-right: auto;}
+.aurora-imagecropper-wrapper.center { margin-left: auto; margin-right: auto; }
+.aurora-imagecropper-wrapper.right  { margin-left: auto;}
 
 .slim-file-hopper {position : absolute;left : 0;top : 0;right : 0;bottom : 0}
 

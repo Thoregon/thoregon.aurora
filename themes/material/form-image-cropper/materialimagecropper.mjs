@@ -14,6 +14,14 @@ export default class MaterialImageCropper {
     attach(jar) {
         this.jar       = jar;
         this.container = this.jar.container;
+        let elem = this.container.querySelector('.slim');
+
+        let width = elem.getAttribute('data-width') || '100%';
+        this.container.setAttribute('style', 'width:' + width  );
+
+        let align = elem.getAttribute('data-align') || 'center';
+        this.container.classList.add(align );
+
         this.attachSlim();
     }
 

@@ -41,6 +41,7 @@ export default class Materialcheckbox extends ThemeBehavior {
     valueChanged( value ) {
         let checkbox = this.container.querySelectorAll("input")[0];
         checkbox.value = value;
+
         if ( value ) {
             checkbox.checked = true;
         } else {
