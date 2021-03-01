@@ -108,3 +108,8 @@
 .aurora-listitem-separation-line.thumbnail {
     width: calc( 100% - 100px - 16px );
 }
+
+.aurora-listitem-right {
+    display: flex;
+    align-items: center;
+}

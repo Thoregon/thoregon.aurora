@@ -20,6 +20,7 @@
                 spellcheck="false"
                 {{? it.readonly}} readonly="readonly" {{?}}
                 {{? it.isrequired}} required {{?}}
+                {{? it.usemaxlength}}  maxlength="{{= it.maxlength}}" {{?}}
                 placeholder="{{=it.placeholder}}"
         ></textarea>
 
@@ -38,7 +39,7 @@
             <!---->
         </div>
         {{? it.usecharactercounter}}
-          <div class="mdc-textarea-character-counter">0 / 20</div>
+          <div class="mdc-textarea-character-counter aurora-textarea-character-counter"></div>
         {{?}}
     </div>
 </div>

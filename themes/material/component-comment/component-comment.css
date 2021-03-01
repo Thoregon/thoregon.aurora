@@ -268,7 +268,7 @@
 
 .aurora-comment-entrybox-textarea {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
     border: 1px solid #dddfe2;
     resize: vertical;
     padding: .5em;

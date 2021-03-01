@@ -15,6 +15,8 @@ export default class MaterialTextarea extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
+        this.updateCharacterCounter();
+
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
         var textfield = this.container.getElementsByClassName("aurora-textarea");
         textfield[0].addEventListener('click', this.callbackClicked, false);
@@ -27,6 +29,7 @@ export default class MaterialTextarea extends ThemeBehavior {
         inputfield[0].addEventListener('keyup', () => this.cleanErrors(), false);
 
         var leaving     = (event) => this.callbackFocusout( event, this.container );
+
         inputfield[0].addEventListener('focusout', leaving, false);
 
         inputfield[0].addEventListener( 'focus', this.callbackClicked );
@@ -34,6 +37,7 @@ export default class MaterialTextarea extends ThemeBehavior {
     }
 
     valueChanged( event ) {
+        this.updateCharacterCounter();
         let charactercounter = this.container.querySelectorAll(".mdc-textarea-field-character-counter");
         let value            = this.container.getElementsByClassName("aurora-textarea-input")[0].value
 
@@ -57,17 +61,30 @@ export default class MaterialTextarea extends ThemeBehavior {
         event.stopPropagation();
     }
     callbackKeyup( event ) {
-        let container = event.target.parentElement.parentElement;
-        let charactercounter = container.querySelectorAll(".mdc-textarea-character-counter");
-        if ( charactercounter.length > 0 ) {
-            container.querySelectorAll(".mdc-textarea-character-counter")[0].innerHTML = event.target.value.length;
-        }
+        let container        = event.target.parentElement.parentElement;
         event.stopPropagation();
     }
 
     callbackFocusIn ( event ) {
         console.log('focus event');
     }
+
+    updateCharacterCounter(  ) {
+        let container = this.container;
+        let textarea  = container.querySelector("textarea");
+        let charactercounter = container.querySelectorAll(".mdc-textarea-character-counter");
+
+        if ( charactercounter.length > 0 ) {
+            let maxlength      = textarea.getAttribute('maxlength') || false;
+            let counterDisplay = textarea.value.length;
+
+            if ( maxlength ) {
+                counterDisplay =  counterDisplay.toString() + ' / ' + maxlength;
+            }
+            container.querySelectorAll(".mdc-textarea-character-counter")[0].innerHTML = counterDisplay;
+        }
+    }
+
 
     callbackFocusout ( event, container  ) {
         console.log("focus out...");
