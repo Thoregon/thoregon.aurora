@@ -1,6 +1,9 @@
 ToDo
 ====
 
+- multiple slots
+    - move child elements to spcified slots not only to 'main'
+
 - ViewModel
     - PropertyItem
         - non input fields -> text content or specified attribute
