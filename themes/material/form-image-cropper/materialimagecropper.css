@@ -8,6 +8,8 @@
 .aurora-imagecropper-wrapper.center { margin-left: auto; margin-right: auto; }
 .aurora-imagecropper-wrapper.right  { margin-left: auto;}
 
+.aurora-imagecropper-wrapper { margin-bottom: 1em; }
+
 .slim-file-hopper {position : absolute;left : 0;top : 0;right : 0;bottom : 0}
 
 .slim-image-editor {position : relative;height : 100%;text-align : left;z-index : 1}
@@ -299,5 +301,5 @@ span.slim {display : block}
 .aurora-image-cropper.round + .slim-popover .slim-crop-mask { border-radius: 50%; }
 
 .aurora-image-cropper.rounded,
-.aurora-image-cropper.rounded + .slim-popover .slim-crop-mask { border-radius: 5px; }
+.aurora-image-cropper.rounded + .slim-popover .slim-crop-mask { border-radius: 4px; }
 

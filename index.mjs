@@ -30,6 +30,8 @@ export { default as AuroraCollection }          from './lib/collection/auroracol
 export { default as AuroraListItem }            from './lib/formcomponents/auroralistitem.mjs';
 export { default as AuroraLink }                from './lib/routes/auroralink.mjs';
 
+export { default as AuroraCard}                 from './lib/formcomponents/auroracard.mjs';
+
 export { default as AuroraQRScanner }           from './lib/cameracomponents/auroraqrscanner.mjs';
 
 export { default as AuroraBlueprint }           from './lib/blueprint/layout/aurorablueprint.mjs';

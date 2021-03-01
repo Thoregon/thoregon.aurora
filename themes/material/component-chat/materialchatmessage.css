@@ -1,0 +1,80 @@
+
+/**
+   CHAT MESSAGE ------------------------------------
+ */
+
+.aurora-chat-message {
+    background-color: #fdf6e6;
+    padding-top: .7em;
+}
+.aurora-chat-message-label {
+    color: #fff;
+    color: #fdf6e6;
+    background-color: rgba(136, 136, 136, .75);
+    margin: auto;
+    display: table;
+    font-size: small;
+    border-radius: 1em;
+    padding: 3px 10px 3px 10px;
+}
+
+.aurora-chat-message-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
+.aurora-chat-message-avatar {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+/* TODO: need to rework sent or recieved */
+    margin-right: .5em;
+}
+.aurora-chat-message-msg  { width: 100%;}
+.aurora-chat-message-name { font-size: small; color: #888888; }
+.aurora-chat-message-text {
+    margin-top: 3px;
+    padding: .8em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    font-size: small;
+    font-weight: bold;
+    border-radius: .8em;
+    word-break: break-word;
+    display: inline-block;
+    background-color: #fff;
+    color: #424242;
+}
+.aurora-chat-message-stamp { display: none; }
+.aurora-chat-message-text:last-child:not(:first-child) .aurora-chat-message-stamp {
+    display: inline-block;
+    font-style: italic;
+    font-size: smaller;
+    margin-top: .5em;
+    width: 100%;
+}
+
+.aurora-chat-message-text:last-child:not(:first-child) {
+    border-radius: .8em .8em .8em 0px;
+}
+
+/* changes to adapt to sent/receive  */
+
+.aurora-chat-message.sent .aurora-chat-message-container {
+    flex-direction: row-reverse;
+}
+.aurora-chat-message.sent .aurora-chat-message-text:last-child:not(:first-child) {
+    border-radius: .8em .8em 0px .8em;
+}
+.aurora-chat-message.sent .aurora-chat-message-avatar {
+    margin-right: 0px;
+    margin-left:  .5em;
+}
+.aurora-chat-message.sent .aurora-chat-message-name { text-align: right;}
+.aurora-chat-message.sent .aurora-chat-message-text {
+    float: right;
+    background-color: #1f3057;
+    color: #a7aebd;
+}

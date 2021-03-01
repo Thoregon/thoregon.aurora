@@ -35,6 +35,29 @@
     </div>
 
     <div class="aurora-listitem-right">
+
+        {{? it.rightgraphictype === "icon" }}
+        <div class="aurora-listitem-graphictype icon">
+            <i aria-hidden="true" class="material-icons"><!---->{{=it.rightgraphiccontent}}<!----></i>
+        </div>
+
+        {{?? it.rightgraphictype === "icon-avatar" }}
+        <div class="aurora-listitem-graphictype icon-avatar {{=it.rightgraphicstyle}}">
+            <i aria-hidden="true" class="material-icons"><!---->{{=it.rightgraphiccontent}}<!----></i>
+        </div>
+
+        {{?? it.rightgraphictype === "image-avatar" }}
+        <div class="aurora-listitem-graphictype image-avatar {{=it.rightgraphicstyle}}" style="background-image: url('{{=it.graphiccontent}}');"></div>
+
+        {{?? it.rightgraphictype === "letter-avatar" }}
+        <div class="aurora-listitem-graphictype letter-avatar">letter-avatar</div>
+
+        {{?? it.rightgraphictype === "thumbnail" }}
+        <div class="aurora-listitem-graphictype thumbnail {{=it.rightgraphicstyle}}" style="background-image: url('{{=it.graphiccontent}}');"></div>
+
+        {{??}}
+
+        {{?}}
     </div>
 
     {{? it.expandafter }}
