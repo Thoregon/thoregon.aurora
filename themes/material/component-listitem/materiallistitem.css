@@ -94,9 +94,8 @@
     font-weight: 200 /*bold*/;
     white-space: nowrap;
     text-overflow: ellipsis;
+    line-height: 1.1em;
     overflow: hidden;
-    line-height: 1em;
-
 }
 
 .aurora-listitem-separation-line {

@@ -16,19 +16,7 @@ export default class MaterialCard extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
-
-        let listitem = this.container.getElementsByClassName("aurora-listitem")[0];
-        listitem.addEventListener('focusin', (event) => this.callbackFocusInListItem(event, listitem), false);
-        listitem.addEventListener('focusout', (event) => this.callbackFocusOutListItem(event, listitem), false);
-
-
-        new Ripple( this.container.querySelector('.aurora-listitem-ripple'));
+  //      new Ripple( this.container.querySelector('.aurora-listitem-ripple'));
     }
 
-    callbackFocusInListItem( event, listitem ) {
-       listitem.classList.add('focused');
-    }
-    callbackFocusOutListItem( event, listitem ) {
-        listitem.classList.remove('focused');
-    }
 }

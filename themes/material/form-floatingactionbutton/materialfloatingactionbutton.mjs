@@ -20,7 +20,7 @@ export default class MaterialFloatingActionButton extends ThemeBehavior {
 
         let button = this.container.getElementsByClassName("aurora-floatingactionbutton")[0];
         button.addEventListener('click', (event) => this.callbackClickButton(event, button), false);
-
+debugger;
         new Ripple( this.container.querySelector('.aurora-button-ripple'));
     }
 
