@@ -39,5 +39,12 @@
 .aurora-card-actions {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    padding-left: .6em;
+}
+
+.aurora-card-action {
+    margin-right: .5em;
 }

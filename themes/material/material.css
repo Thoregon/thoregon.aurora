@@ -22,7 +22,7 @@
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
-
+/*  RIPPLE EFFECT */
 .ripple{
     position:absolute;
     background:#fff;
@@ -38,7 +38,129 @@
     100% {transform:scale(100); opacity:0;}
 }
 
+/*  CSS only Buttons  */
 
+.aurora-button-css-secondary.aurora-button-css-hover:hover,
+.aurora-button-css-secondary.aurora-button-css-hover:hover a {
+    background-color: ;
+    color: ;
+    border-color: ;
+}
+.aurora-button-css-secondary.aurora-button-css-hover:hover:hover,
+.aurora-button-css-secondary.aurora-button-css-hover:hover a:hover {
+    color: ;
+}
+.aurora-button-css-primary.aurora-button-css-hover:hover,
+.aurora-button-css-primary.aurora-button-css-hover:hover a {
+    background-color: ;
+    color: ;
+    border-color: ;
+}
+.aurora-button-css-primary.aurora-button-css-hover:hover:hover,
+.aurora-button-css-primary.aurora-button-css-hover:hover a:hover {
+    color: ;
+}
+.aurora-button-css {
+    border: 1px solid transparent;
+    background-image: none;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 8px 0 8px;
+
+    background-color: var( --secondaryColor );
+    color:  var( --secondaryTextColor );
+}
+.aurora-button-css {
+    font-size: .875em;
+    line-height: 2.25em;
+    font-weight: 400;
+    letter-spacing: .0892857143em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.aurora-button-css a {
+    text-decoration: none;
+}
+.aurora-button-css-shaddow {
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+    0px 6px 10px 0px rgb(0 0 0 / 14%),
+    0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+.aurora-button-css-block {
+    width: 100%;
+}
+.aurora-button-css-lg {
+    font-size: 1.5em;
+}
+.aurora-button-css-sm {
+    font-size: 1em;
+    padding: 4px 8px;
+}
+.aurora-button-css-xs {
+    font-size: .8em;
+    padding: 1px 7px;
+}
+
+.aurora-button-css-primary,
+.aurora-button-css-primary a {
+    background-color: ;
+    color: ;
+    border-color: ;
+}
+.aurora-button-css-primary:hover,
+.aurora-button-css-primary a:hover {
+
+}
+.aurora-button-css-secondary,
+.aurora-button-css-secondary a {
+    color: var( --secondaryColor );
+    background-color:  transparent;
+}
+.aurora-button-css-secondary:hover,
+.aurora-button-css-secondary a:hover {
+    background-color:  rgba(var(--secondaryColorRGB), .12 );
+}
+
+.aurora-button-css-secondary:focus{
+    background-color:  rgba(var(--secondaryColorRGB), .3 );
+    outline: none;
+}
+
+.aurora-button-css-neutral,
+.aurora-button-css-neutral a {
+    background-color: ;
+    color: ;
+    border-color: ;
+}
+.aurora-button-css-neutral:hover,
+.aurora-button-css-neutral a:hover {
+    color: ;
+}
+.aurora-button-css-negative,
+.aurora-button-css-negative a {
+    background-color: ;
+    color: ;
+    border-color: ;
+}
+.aurora-button-css-negative:hover,
+.aurora-button-css-negative a:hover {
+    color: ;
+}
+
+
+/*  ROW and Columns */
 
 /*! aurora-row CSS | MIT License | aurora-rowcss.com */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

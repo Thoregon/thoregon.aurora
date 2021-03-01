@@ -62,6 +62,7 @@ export default class MaterialTextarea extends ThemeBehavior {
     }
     callbackKeyup( event ) {
         let container        = event.target.parentElement.parentElement;
+        debugger;
         event.stopPropagation();
     }
 
