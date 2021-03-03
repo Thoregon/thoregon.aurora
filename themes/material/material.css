@@ -113,10 +113,10 @@
     padding: 1px 7px;
 }
 
-.aurora-button-css-primary,
-.aurora-button-css-primary a {
-    background-color: ;
-    color: ;
+.aurora-button-css.aurora-button-css-primary,
+.aurora-button-css.aurora-button-css-primary a {
+    background-color: var( --secondaryColor );
+    color: var( --secondaryTextColor );
     border-color: ;
 }
 .aurora-button-css-primary:hover,
