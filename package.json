@@ -22,6 +22,5 @@
   "homepage": "https://github.com/Thoregon/thoregon.ui#readme",
   "dependencies": {
     "@zxing/library": "^0.17.0",
-    "dot": "^2.0.0-beta.1"
   }
 }

@@ -1,6 +1,8 @@
 ViewModels
 ==========
 
+TODO: Rename ViewModel to Presenter and introduce ViewModel
+
 Sit between model and view.
 Enhance with 'Presenter' functionality
 Mirrors all properties and functions from the view
