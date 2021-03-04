@@ -40,13 +40,27 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
 
         let textarea     = this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
         textarea.addEventListener('focus', (event)     => this.callbackFocusTextarea(event, textarea ), false);
-        actionSubmit.addEventListener('click', this.callbackClicked, false);
+        actionSubmit.addEventListener('click', (event) => this.callbackClicked(event), false);
         this.elementVisibility();
     }
 
-    callbackClicked() {
-        alert("hab dich...");
+    get textarea() {
+        return this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
     }
+
+    get value() {
+        let textarea = this.textarea;
+        return textarea ? textarea.value : undefined;
+    }
+
+    callbackClicked(event) {
+        // alert("hab dich...");
+        let enteredText = this.value;
+        if (!enteredText) return ;
+        this.jar.triggerClick(enteredText);
+        event.stopPropagation();
+    }
+
     callbackFocusTextarea ( event, messagebox  ) {
         messagebox.classList.add('focused');
         event.stopPropagation();
@@ -60,6 +74,7 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
 
     callbackClickedLike ( event ) {
         alert("I like this comment...");
+        this.jar.triggerClick();
         event.stopPropagation();
     }
 
