@@ -36,12 +36,17 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
+        let actionSubmit = this.container.querySelector ( ".aurora-comment-entrybox-action.type-submit");
+
         let textarea     = this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
         textarea.addEventListener('focus', (event)     => this.callbackFocusTextarea(event, textarea ), false);
-
+        actionSubmit.addEventListener('click', this.callbackClicked, false);
         this.elementVisibility();
     }
 
+    callbackClicked() {
+        alert("hab dich...");
+    }
     callbackFocusTextarea ( event, messagebox  ) {
         messagebox.classList.add('focused');
         event.stopPropagation();

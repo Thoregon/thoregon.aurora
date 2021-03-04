@@ -11,6 +11,7 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 export default class Materialcomment01 extends ThemeBehavior {
 
     elementVisibility() {
+        this.visElemPermAdministrationActions();
         this.visElemPermCommentActions();
         this.visElemPermActionReaction();
         this.visElemPermActionAddComment();
@@ -38,14 +39,15 @@ export default class Materialcomment01 extends ThemeBehavior {
         this.container = this.jar.container;
 
         let action_add_comment     = this.container.getElementsByClassName("aurora-comment-action-comment")[0];
-        let action_like            = this.container.getElementsByClassName("aurora-comment-action-like");
+        let action_like            = this.container.getElementsByClassName("aurora-comment-action-like")[0];
         let action_toggle_comments = this.container.getElementsByClassName("aurora-comment-action-toggle-comments")[0];
 
+        let action_toggle_menu     = this.container.getElementsByClassName( "aurora-comment-administration-actions-trigger")[0];
         //---  Actions clicked  ------------------------------------------------------------------------this.container.querySelectorAll('.aurora-chat-entrybox-action').forEach(item => {
-        action_like[0].addEventListener('click', this.callbackClickedLike, false);
+        action_like.addEventListener('click', this.callbackClickedLike, false);
         action_add_comment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
         action_toggle_comments.addEventListener('click', (event) => this.callbackClickedToggleShowComments(event, action_toggle_comments), false);
-
+        action_toggle_menu.addEventListener('click', (event) => this.callbackClickedToggleMenu(event, action_toggle_menu), false);
         //---  KEYUP event for the message field  ------------------------------------------------------------------------
  //       textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
     }
@@ -74,9 +76,43 @@ export default class Materialcomment01 extends ThemeBehavior {
         event.stopPropagation();
     }
 
+    callbackClickedToggleMenu ( event, trigger ) {
+        let menu = this.container.getElementsByClassName("aurora-comment-administration-menu")[0];
+        menu.classList.toggle("hidden");
+    }
     /**
      * Visibility protocol
      */
+
+    visElemPermAdministrationActions() {
+        let elements = this.container.querySelectorAll(".aurora-comment-administration-actions");
+        let visible  = true;
+
+        if ( visible &&
+            ( this.visElemPermAdministrationActionEdit() ||
+                this.visElemPermAdministrationActionDelete() ) ) {
+            visible = true;
+        } else {
+            visible = false;
+        }
+
+        this.switchElementVisibility( elements ,visible, 'flex' );
+    }
+
+    visElemPermAdministrationActionEdit() {
+        let elements = this.container.querySelectorAll(".aurora-comment-action-edit");
+        let visible  = false;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+        return visible;
+    }
+    visElemPermAdministrationActionDelete() {
+        let elements = this.container.querySelectorAll(".aurora-comment-action-delete");
+        let visible  = true;
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+        return visible;
+    }
 
     visElemPermCommentActions() {
         let elements = this.container.querySelectorAll(".aurora-comment-actions");
