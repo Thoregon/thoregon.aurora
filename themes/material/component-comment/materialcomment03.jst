@@ -14,6 +14,24 @@
         <div class="aurora-comment-right-column">
             <div class="aurora-content-wrapper">
                 <div class="aurora-comment-creator-name"><a href="{member_profile_url}">{{=it.name}}</a></div>
+
+                /* --- MENU --------------*/
+
+                <div class="aurora-comment-administration-actions">
+                    <div class="aurora-comment-administration-actions-trigger">
+                        <span class="material-icons">more_horiz</span>
+                    </div>
+
+                    <div class="aurora-comment-administration-menu hidden">
+                        <ul>
+                            <li class="aurora-comment-action-edit"><span>   {{=it.txt_action_edit}}   </span></li>
+                            <li class="aurora-comment-action-delete"><span> {{=it.txt_action_delete}} </span> </li>
+                        </ul>
+                    </div>
+                </div>
+
+                /* --- END: MENU --------------*/
+
                 <div class="aurora-comment-content">
                     {{~it.transmute_messages :value:index}}
                     {{=value}}

@@ -48,6 +48,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         action_add_comment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
         action_toggle_comments.addEventListener('click', (event) => this.callbackClickedToggleShowComments(event, action_toggle_comments), false);
         action_toggle_menu.addEventListener('click', (event) => this.callbackClickedToggleMenu(event, action_toggle_menu), false);
+
         //---  KEYUP event for the message field  ------------------------------------------------------------------------
  //       textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
     }

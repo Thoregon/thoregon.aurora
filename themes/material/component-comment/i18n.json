@@ -12,6 +12,7 @@
   "txt_action_new_comment": "Kommentar abschicken",
   "txt_action_edit": "Bearbeiten",
   "txt_action_delete": "Löschen",
+  "txt_action_review": "Zur Überprüfung",
 
   "feedback_number_likes" : {
     "0": " ",

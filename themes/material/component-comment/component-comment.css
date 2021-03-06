@@ -180,8 +180,9 @@
 .aurora-comment-replies { display: none; }
 .aurora-comment-replies.open {
     display: block;
-    border-top: 1px solid #dddfe2;
-    padding: 1em;
+ /*   border-top: 1px solid #dddfe2;  */
+ /*  padding: 1em 0em 1em 0em; */
+    background-color: #fff;
 }
 
 .aurora-comment-response-wrapper {
@@ -191,7 +192,7 @@
 }
 .aurora-comment-response-wrapper.open {
     border-top: 1px solid #dddfe2;
-    padding: 1em;
+    padding: 1em 0em 1em 0em;
     display: table;
 }
 .lvl_3 .aurora-comment-response-wrapper,
@@ -238,14 +239,6 @@
 
 .aurora-comment-action-like.liked { color: var( --secondaryColor ); }
 
-
-.lvl_3 .aurora-comment-actions,
-.lvl_2 .aurora-comment-actions {
-    border-top: none;
-    border-bottom: none;
-    padding-left: 0px;
-    padding-right: 0px;
-}
 
 .lvl_3 .aurora-comment-likes,
 .lvl_3 .aurora-comment-action-reply,

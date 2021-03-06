@@ -3,6 +3,7 @@
     flex-direction: row;
     width: 100%;
     background-color: #fff;
+    padding-bottom: .5em;
 }
 .aurora-comment-avatar {
     width: 65px;
@@ -45,8 +46,9 @@
 .aurora-comment-actions {
     border-top: none;
     border-bottom: none;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: .5em;
 }
 
 .aurora-comment-likes,

@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+.aurora-comment-replies.open {
+    display: block;
+    border-top: 1px solid #dddfe2;
+    padding: 1em 0em 1em 0em;
+    background-color: #fff;
+}
