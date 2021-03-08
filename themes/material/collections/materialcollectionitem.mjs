@@ -8,7 +8,7 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 
 import Ripple                   from '../ripple.mjs';
 
-export default class MaterialCollection extends ThemeBehavior {
+export default class MaterialCollectionItem extends ThemeBehavior {
 
     attach(jar) {
         this.jar = jar;
