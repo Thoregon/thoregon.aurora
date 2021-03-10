@@ -53,6 +53,10 @@ export default class Materialcomment01 extends ThemeBehavior {
  //       textarea[0].addEventListener('keyup', (event) => this.callbackKeyup(event), false);
     }
 
+    resize ( ) {
+        this.jar.emitResize();
+    }
+
     callbackClickedToggleShowComments ( event, action_toggle_comments ) {
         let status = !action_toggle_comments.classList.contains('open');
         let replies = this.container.getElementsByClassName("aurora-comment-replies")[0];
@@ -70,6 +74,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         let response = comment.getElementsByClassName("aurora-comment-response-wrapper")[0];
         response.classList.toggle('open');
         event.stopPropagation();
+        this.resize();
     }
 
     callbackClickedLike ( event ) {

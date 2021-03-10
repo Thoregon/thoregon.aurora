@@ -13,7 +13,8 @@
  * @author: Bernhard Lukassen
  */
 
-import ThemeBehavior            from "../../themebehavior.mjs";
+import ThemeBehavior from "../../themebehavior.mjs";
+import { doAsync, timeout }   from "/evolux.universe";
 // import { validationLevel }      from "../../../lib/common.mjs";
 
 export default class MaterialCommentMessageBox extends ThemeBehavior {
@@ -27,6 +28,8 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.visElemPermActionVideo();
         this.visElemPermActionEditorText();
         this.visElemPermActionEditorHTML();
+
+        this.resize();
     }
 
     async attach(jar) {
@@ -39,7 +42,9 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         let actionSubmit = this.container.querySelector ( ".aurora-comment-entrybox-action.type-submit");
 
         let textarea     = this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
-        textarea.addEventListener('focus', (event)     => this.callbackFocusTextarea(event, textarea ), false);
+
+        textarea.addEventListener('focus', (event)  => this.callbackFocusTextarea(event, textarea ), false);
+        textarea.addEventListener('focus', (event)  => this.resize(), false);
         actionSubmit.addEventListener('click', (event) => this.callbackClicked(event), false);
         this.elementVisibility();
     }
@@ -64,6 +69,10 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
     callbackFocusTextarea ( event, messagebox  ) {
         messagebox.classList.add('focused');
         event.stopPropagation();
+    }
+
+    resize ( ) {
+        this.jar.emitResize();
     }
 
     callbackClickedAddComment (event, comment ) {
