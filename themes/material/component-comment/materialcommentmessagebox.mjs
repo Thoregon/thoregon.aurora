@@ -62,6 +62,34 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
     }
 
     callbackClicked(event) {
+        if ( this.needRegistration() ) {
+
+            let author  = this.container.querySelectorAll(".aurora-comment-guest-author input")[0].value;
+            let email   = this.container.querySelectorAll(".aurora-comment-guest-email input")[0].value;
+            let website = this.container.querySelectorAll(".aurora-comment-guest-url input")[0].value;
+
+            if ( website != '' ) {
+                event.stopPropagation();
+                return;
+            }
+
+            if ( author =='' || email == ''  ) {
+                alert( 'bitte beide Pflichtfelder ausfüllen!' )
+            } else {
+
+                let guest = {
+                    id: this.rnd(32),
+                    nickname: author,
+                    email: email };
+                localStorage.setItem("POCS21Guest", JSON.stringify(guest));
+
+//                debugger;
+            }
+        }
+
+        let guest =JSON.parse(localStorage.getItem("POCS21Guest"));
+        debugger;
+
         let enteredText = this.value;
         if (!enteredText) return ;
         this.jar.triggerClick(enteredText);
@@ -88,6 +116,7 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.jar.triggerClick();
         event.stopPropagation();
     }
+
 
     needRegistration() {
         return this.identity &&
@@ -166,4 +195,13 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.identity = await universe.Identity.saveIdentity();
         this.visElemContEntryBox();
     }
+
+    rnd (l, c) {
+        var s = '';
+        l = l || 24; // you are not going to make a 0 length random number, so no need to check type
+        c = c || '0123456789ABCDEFGHIJKLMNOPQRSTUVWXZabcdefghijklmnopqrstuvwxyz';
+        while(l > 0){ s += c.charAt(Math.floor(Math.random() * c.length)); l-- }
+        return s;
+    }
+
 }
