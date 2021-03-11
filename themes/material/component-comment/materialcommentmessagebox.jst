@@ -6,6 +6,39 @@ todo: change creation-date -> label to timestamp | stamp
 
 <div class="aurora-comment-entrybox">
     <textarea class="aurora-comment-entrybox-textarea" cols="45" rows="8" maxlength="65525" class=""></textarea>
+
+    <div class="aurora-guest-registration">
+        <div class="aurora-row">
+            <div class="col-md-1-2 pr-5">
+                <p class="aurora-comment-guest-form-author">
+                    <label for="author">Name <span class="required">*</span></label>
+                    <input id="author"
+                           name="author"
+                           type="text"
+                           value=""
+                           size="30"
+                           maxlength="245"
+                           required="required">
+                </p>
+            </div>
+            <div class="col-md-1-2 pl-5">
+                <p class="aurora-comment-guest-form-email">
+                    <label for="email">E-Mail <span class="required">*</span></label>
+                    <input id="email"
+                           name="email"
+                           type="text"
+                           value=""
+                           size="30"
+                           maxlength="100"
+                           aria-describedby="email-notes"
+                           required="required">
+                </p>
+            </div>
+        </div>
+        <p class="aurora-comment-guest-form-url"><label for="url">Website</label> <input id="url" name="url" type="text"
+                                                                                         value="" size="30"
+                                                                                         maxlength="200"></p>
+    </div>
     <div class="aurora-comment-entrybox-actions">
             <div class="aurora-comment-entrybox-actions-left">
             <div  class="aurora-comment-entrybox-action type-attach"> <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i> </div>

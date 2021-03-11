@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+.aurora-comment-replies.open {
+    display: block;
+    border-top: 1px solid #dddfe2;
+    padding: 1em 0em 1em 0em;
+    background-color: #fff;
+}
+
+.aurora-comment-meta-creator-channel {
+    display: flex;
+}
+
+.aurora-comment-admin-txt-from,
+.aurora-comment-admin-txt-on {
+    font-size: .8em;
+    font-weight: bolder;
+    display: inline-block;
+    margin-right: .8em;
+}
+
+.aurora-comment-admin-txt-on { margin-left: .8em; }
+
+
+.aurora-comment-channel-name {
+    vertical-align: top;
+
+    background-image: none;
+    text-transform: none;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    background-color: #474e60;
+    border-color: #474e60;
+    color: #fff;
+    font-size: .8em;
+    padding: 1px 7px;
+}
+.aurora-comment-channel-name a  {
+    text-decoration: none;
+    background-color: #474e60;
+    border-color: #474e60;
+    color: #fff;
+}

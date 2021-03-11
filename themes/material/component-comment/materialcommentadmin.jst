@@ -1,0 +1,84 @@
+<div class="aurora-comment lvl_{{=it.level}} {{=it.classes}}" style="text-align: left;" data-level="{{=it.level}}">
+    <div class="aurora-comment-header">
+        <div class="aurora-comment-avatar"><a href="{member_profile_url}"><img src="{{=it.avatar}}"></a></div>
+        <div class="aurora-comment-meta-wrapper">
+            <div class="aurora-comment-meta-creator-channel">
+                <div class="aurora-comment-admin-txt-from">{{=it.txt_admin_from}}</div>
+                <div class="aurora-comment-creator-name"><a href="{member_profile_url}">{{=it.name}}</a></div>
+                <div class="aurora-comment-admin-txt-on">{{=it.txt_admin_on}}</div>
+                <div class="aurora-comment-channel-name">JANE GOODALL</div>
+            </div>
+            <div class="aurora-comment-creation-date">{{=it.stamp}}</div>
+        </div> <!-- end: aurora-comment-meta-wrapper -->
+
+/* --- MENU --------------*/
+
+        <div class="aurora-comment-administration-actions">
+            <div class="aurora-comment-administration-actions-trigger">
+                <span class="material-icons">more_horiz</span>
+            </div>
+
+            <div class="aurora-comment-administration-menu hidden">
+                <ul>
+                    <li class="aurora-comment-action-delete"><span>    {{=it.txt_action_delete}}    </span> </li>
+                    <li class="aurora-comment-action-release"><span>   {{=it.txt_action_release}}   </span> </li>
+                    <li class="aurora-comment-action-blockuser"><span> {{=it.txt_action_blockuser}} </span> </li>
+                </ul>
+            </div>
+        </div>
+
+/* --- END: MENU --------------*/
+
+    </div>
+    <!--- end: aurora-comment-header -->
+    <div class="aurora-comment-content">
+        {{~it.transmute_messages :value:index}}
+           {{=value}}
+        {{~}}
+    </div>
+    <!--- end: aurora-comment-content" -->
+
+    <div class="aurora-comment-feedback-summary">
+        <div class="aurora-comment-feedback-likes">
+            {{=it.feedback_likes}} </div>
+        <div class="aurora-comment-feedback-comments aurora-comment-action-toggle-comments">
+            <span>{{=it.feedback_comments}}</span><div class="comments-arrow open" ></div>
+        </div>
+    </div> <!-- end: aurora-comment-feedback-summary -->
+
+    <div class="aurora-comment-actions">
+        <div aurora-action="commitReaction" class="aurora-comment-action-like">
+            <i aria-hidden="true" class="material-icons">thumb_up</i>
+            {{=it.txt_action_like}}
+        </div>
+        <div class="aurora-comment-action-comment">
+            <i aria-hidden="true" class="material-icons">add_comment</i>
+            {{=it.txt_action_comment}}
+        </div>
+    </div>
+<! -------------------------------------------------- -->
+    <div class="aurora-comment-response-wrapper">
+        <div class="aurora-comment-response-content-row">
+            <div class="aurora-comment-response-avatar">
+                <img src="{{=it.current_user.avatar}}">
+            </div>
+            <div class="aurora-comment-response">
+                <textarea aurora-name="reply" aurora-options="input_only" rows="4" cols="50"></textarea>
+            </div> <!-- end: mesu-new-reply -->
+        </div> <!-- end:mesu-cl1-new-reply-content-row -->
+        <div class="aurora-response-action-row">
+            <div style="display: table-cell;"></div>
+            <div class="aurora-comment-response-actions">
+                <div class="aurora-comment-response-action type-attach"> <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i> </div>
+                <span aurora-action="commitReply" class="aurora-comment-response-action type-submit aurora-button-css aurora-button-css-primary" >{{=it.txt_action_submit_comment}}</span>
+            </div>
+        </div> <!-- end: aurora-comment-response-content-row -->
+    </div> <!-- end: aurora-comment-response-wrapper -->
+
+    <!-- div class="aurora-comment-replies"></div-->
+    <aurora-collection aurora-name="replies" class="aurora-comment-replies">
+        <aurora-view></aurora-view>
+    </aurora-collection-->
+</div>
+
+

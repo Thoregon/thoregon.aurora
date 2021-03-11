@@ -1,0 +1,26 @@
+.aurora-comment-entrybox {
+    margin-bottom: 1em;
+}
+
+.aurora-guest-registration {
+    margin-top: .5em;
+    margin-bottom: 1em;
+}
+
+.aurora-comment-guest-form-email input,
+.aurora-comment-guest-form-author input {
+    width: 100%;
+    border: 1px solid #dddfe2;
+    padding: 14px 20px;
+    border-radius: 8px;
+}
+
+.aurora-comment-guest-form-email label,
+.aurora-comment-guest-form-author label {
+    margin-bottom: .3em;
+    margin-left: 5px;
+    display: block;
+    font-weight: bolder;
+}
+
+.aurora-comment-guest-form-url { display: none; }

@@ -29,6 +29,8 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.visElemPermActionEditorText();
         this.visElemPermActionEditorHTML();
 
+        this.visElemContGuestLogin();
+
         this.resize();
     }
 
@@ -49,6 +51,7 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.elementVisibility();
     }
 
+
     get textarea() {
         return this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
     }
@@ -59,7 +62,6 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
     }
 
     callbackClicked(event) {
-        // alert("hab dich...");
         let enteredText = this.value;
         if (!enteredText) return ;
         this.jar.triggerClick(enteredText);
@@ -87,9 +89,21 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         event.stopPropagation();
     }
 
+    needRegistration() {
+        return this.identity &&
+               ! localStorage.getItem('POCS21Guest');
+    }
+
     /**
      * Visibility protocol
      */
+
+    visElemContGuestLogin()  {
+        let elements = this.container.querySelectorAll(".aurora-guest-registration");
+        let visible  = this.needRegistration();
+
+        this.switchElementVisibility( elements ,visible, 'block' );
+    }
 
     visElemContEntryBox() {
         let elements = this.container.querySelectorAll(".aurora-comment-entrybox");

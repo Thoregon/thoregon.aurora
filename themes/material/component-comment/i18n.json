@@ -5,6 +5,8 @@
     "p": "{n} Kommentare"
   },
 
+  "txt_admin_from": "von",
+  "txt_admin_on": "zu",
 
   "txt_action_like": "Gefällt mir",
   "txt_action_comment": "Kommentieren",
@@ -13,6 +15,8 @@
   "txt_action_edit": "Bearbeiten",
   "txt_action_delete": "Löschen",
   "txt_action_review": "Zur Überprüfung",
+  "txt_action_release": "Freigeben",
+  "txt_action_blockuser": "User blockieren",
 
   "feedback_number_likes" : {
     "0": " ",
