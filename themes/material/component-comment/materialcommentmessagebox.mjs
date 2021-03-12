@@ -83,12 +83,10 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
                     email: email };
                 localStorage.setItem("POCS21Guest", JSON.stringify(guest));
 
-//                debugger;
             }
         }
 
-        let guest =JSON.parse(localStorage.getItem("POCS21Guest"));
-        debugger;
+//        let guest =JSON.parse(localStorage.getItem("POCS21Guest"));
 
         let enteredText = this.value;
         if (!enteredText) return ;
@@ -179,15 +177,6 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.switchElementVisibility( elements ,visible, 'block' );
     }
 
-    switchElementVisibility ( elements, visible, displayValue = 'block' ) {
-        elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );
-    }
-
-    setElementContent ( elements, content ) {
-        elements.forEach( (element) => element.innerHTML = content );
-    }
-
-
     /*
      * Event handlers
      */
@@ -203,5 +192,4 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         while(l > 0){ s += c.charAt(Math.floor(Math.random() * c.length)); l-- }
         return s;
     }
-
 }

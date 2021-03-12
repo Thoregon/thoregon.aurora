@@ -8,7 +8,7 @@
 import ThemeBehavior            from "../../themebehavior.mjs";
 // import { validationLevel }      from "../../../lib/common.mjs";
 
-export default class Materialcomment01 extends ThemeBehavior {
+export default class MaterialComment01 extends ThemeBehavior {
 
     elementVisibility() {
         this.visElemPermAdministrationActions();
@@ -20,14 +20,11 @@ export default class Materialcomment01 extends ThemeBehavior {
         this.visElemContFeedbackSummary();
         this.visElemContReactions();
         this.visElemContComments();
-        /*
-
+/*
         this.visElemPermActionEdit();
         this.visElemPermActionDelete();
+        */
 
-        this.visElemPermActionAttachFile();
-
-*/
     }
 
     async attach(jar) {
@@ -78,7 +75,8 @@ export default class Materialcomment01 extends ThemeBehavior {
     }
 
     callbackClickedLike ( event ) {
-        // alert("I like this comment...");
+        this.classList.remove('icon_animation');
+        this.classList.add('icon_animation');
         event.stopPropagation();
     }
 
@@ -92,7 +90,8 @@ export default class Materialcomment01 extends ThemeBehavior {
 
     visElemPermAdministrationActions() {
         let elements = this.container.querySelectorAll(".aurora-comment-administration-actions");
-        let visible  = true;
+        let visible  = this.isAdministrator();
+/*
 
         if ( visible &&
             ( this.visElemPermAdministrationActionEdit() ||
@@ -101,6 +100,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         } else {
             visible = false;
         }
+*/
 
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
@@ -114,7 +114,9 @@ export default class Materialcomment01 extends ThemeBehavior {
     }
     visElemPermAdministrationActionDelete() {
         let elements = this.container.querySelectorAll(".aurora-comment-action-delete");
-        let visible  = true;
+        let visible  = false;
+
+        this.isAdministrator();
 
         this.switchElementVisibility( elements ,visible, 'block' );
         return visible;
@@ -122,20 +124,20 @@ export default class Materialcomment01 extends ThemeBehavior {
 
     visElemPermCommentActions() {
         let elements = this.container.querySelectorAll(".aurora-comment-actions");
-        let visible  = ! this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         this.switchElementVisibility( elements ,visible, 'block' );
     }
 
     visElemPermActionReaction() {
         let elements = this.container.querySelectorAll(".aurora-comment-action-like");
-        let visible  = ! this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
     visElemPermActionAddComment() {
         let elements = this.container.querySelectorAll(".aurora-comment-action-comment");
-        let visible  = ! this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
@@ -178,6 +180,7 @@ export default class Materialcomment01 extends ThemeBehavior {
         }
 
     }
+
     visElemContComments() {
 
         let replies  = this.jar.viewModel.replies;
@@ -190,14 +193,6 @@ export default class Materialcomment01 extends ThemeBehavior {
             let content     = this.jar.i18n('feedback_comments', this.jar.viewModel.totalReplies() );
             this.setElementContent ( txtElements, content );
         }
-    }
-
-    switchElementVisibility ( elements, visible, displayValue = 'block' ) {
-        elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );
-    }
-
-    setElementContent ( elements, content ) {
-        elements.forEach( (element) => element.innerHTML = content );
     }
 
     showReply( element ) {
@@ -230,5 +225,14 @@ export default class Materialcomment01 extends ThemeBehavior {
     }
 
     updateAge() {}
+
+    needRegistration() {
+        return this.identity &&
+            ! localStorage.getItem('POCS21Guest');
+    }
+
+    isAdministrator() {
+        return universe.identity.alias === 'Theresa / Pioneers of Change';
+    }
 
 }

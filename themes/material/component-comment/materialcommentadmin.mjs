@@ -6,9 +6,10 @@
  */
 
 import ThemeBehavior            from "../../themebehavior.mjs";
+import MaterialComment01        from "./materialcomment01.mjs"
 // import { validationLevel }      from "../../../lib/common.mjs";
 
-export default class Materialcomment01 extends ThemeBehavior {
+export default class Materialcomment01 extends MaterialComment01 {
 
     elementVisibility() {
         this.visElemPermAdministrationActions();
@@ -190,14 +191,6 @@ export default class Materialcomment01 extends ThemeBehavior {
             let content     = this.jar.i18n('feedback_comments', this.jar.viewModel.totalReplies() );
             this.setElementContent ( txtElements, content );
         }
-    }
-
-    switchElementVisibility ( elements, visible, displayValue = 'block' ) {
-        elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );
-    }
-
-    setElementContent ( elements, content ) {
-        elements.forEach( (element) => element.innerHTML = content );
     }
 
     showReply( element ) {

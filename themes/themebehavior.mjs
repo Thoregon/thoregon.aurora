@@ -37,4 +37,12 @@ export default class ThemeBehavior {
     }
 
     asColorCSS(colorDefs) {}
+
+    switchElementVisibility ( elements, visible, displayValue = 'block' ) {
+        elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );
+    }
+
+    setElementContent ( elements, content ) {
+        elements.forEach( (element) => element.innerHTML = content );
+    }
 }

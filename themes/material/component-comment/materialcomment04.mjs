@@ -10,9 +10,10 @@
  */
 
 import ThemeBehavior            from "../../themebehavior.mjs";
+import MaterialComment01        from "./materialcomment01.mjs"
 // import { validationLevel }      from "../../../lib/common.mjs";
 
-export default class Materialcomment02 extends ThemeBehavior {
+export default class Materialcomment02  extends MaterialComment01 {
 
     elementVisibility() {
         this.visElemPermActionReaction();
@@ -75,7 +76,7 @@ export default class Materialcomment02 extends ThemeBehavior {
 
     visElemPermActionReaction() {
         let elements = this.container.querySelectorAll(".aurora-comment-action-like");
-        let visible  = ! this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         if  ( visible ) {
             elements.forEach( (element) =>  element.classList.add("active") );
@@ -86,7 +87,7 @@ export default class Materialcomment02 extends ThemeBehavior {
     visElemPermCommentActions() {
         let elements   = this.container.querySelectorAll(".aurora-comment-action-reply");
         let seperators = this.container.querySelectorAll(".aurora-comment-action-separator");
-        let visible    = !this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         this.switchElementVisibility( elements ,visible, 'inline-block' );
         this.switchElementVisibility( seperators ,visible, 'inline-block' );
@@ -119,12 +120,5 @@ export default class Materialcomment02 extends ThemeBehavior {
 
         this.setElementContent ( elements, content );
 
-    }
-
-    switchElementVisibility ( elements, visible, displayValue = 'block' ) {
-        elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );
-    }
-    setElementContent ( elements, content ) {
-        elements.forEach( (element) => element.innerHTML = content );
     }
 }
