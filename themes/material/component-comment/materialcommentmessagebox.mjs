@@ -21,7 +21,7 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
 
     elementVisibility() {
 
-        this.visElemContEntryBox();
+        // this.visElemContEntryBox();
         this.visElemPermActionAttach();
         this.visElemPermActionEmoji();
         this.visElemPermActionAudio();

@@ -9,7 +9,7 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 import MaterialComment01        from "./materialcomment01.mjs"
 // import { validationLevel }      from "../../../lib/common.mjs";
 
-export default class Materialcomment01 extends MaterialComment01 {
+export default class MaterialcommentAdmin extends MaterialComment01 {
 
     elementVisibility() {
         this.visElemPermAdministrationActions();

@@ -77,7 +77,7 @@ export default class MaterialComment01 extends ThemeBehavior {
     callbackClickedLike ( event ) {
         this.classList.remove('icon_animation');
         this.classList.add('icon_animation');
-        event.stopPropagation();
+        // event.stopPropagation();
     }
 
     callbackClickedToggleMenu ( event, trigger ) {
@@ -226,13 +226,18 @@ export default class MaterialComment01 extends ThemeBehavior {
 
     updateAge() {}
 
+    updateLikes() {
+        let elem = this.container.querySelector('.aurora-comment-feedback-likes');
+        elem.innerText = this.jar.numberOfLikes();
+    }
+
     needRegistration() {
         return this.identity &&
             ! localStorage.getItem('POCS21Guest');
     }
 
     isAdministrator() {
-        return universe.identity.alias === 'Theresa / Pioneers of Change';
+        return universe.identity && universe.identity.alias === 'Theresa / Pioneers of Change';
     }
 
 }
