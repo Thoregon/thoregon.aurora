@@ -1,3 +1,4 @@
+
 <div class="aurora-comment lvl_{{=it.level}} {{=it.classes}}" style="text-align: left;" data-level="{{=it.level}}">
     <div class="aurora-comment-header">
         <div class="aurora-comment-avatar"><a href="{member_profile_url}"><img src="{{=it.avatar}}"></a></div>
@@ -6,23 +7,9 @@
             <div class="aurora-comment-creation-date">{{=it.stamp}}</div>
         </div> <!-- end: aurora-comment-meta-wrapper -->
 
-/* --- MENU --------------*/
-
-        <div class="aurora-comment-administration-actions">
-            <div class="aurora-comment-administration-actions-trigger">
-                <span class="material-icons">more_horiz</span>
-            </div>
-
-            <div class="aurora-comment-administration-menu hidden">
-                <ul>
-                    <li class="aurora-comment-action-edit"><span>   {{=it.txt_action_edit}}   </span></li>
-                    <li class="aurora-comment-action-delete"><span> {{=it.txt_action_delete}} </span> </li>
-                    <li class="aurora-comment-action-review"><span> {{=it.txt_action_review}} </span> </li>
-                </ul>
-            </div>
-        </div>
-
-/* --- END: MENU --------------*/
+        <!--  actions template ---->
+        {{=it.tmpl_actions}}
+        <!--  end: actions template ---->
 
     </div>
     <!--- end: aurora-comment-header -->
@@ -51,24 +38,10 @@
             {{=it.txt_action_comment}}
         </div>
     </div>
-<! -------------------------------------------------- -->
-    <div class="aurora-comment-response-wrapper">
-        <div class="aurora-comment-response-content-row">
-            <div class="aurora-comment-response-avatar">
-                <img src="{{=it.current_user.avatar}}">
-            </div>
-            <div class="aurora-comment-response">
-                <textarea aurora-name="reply" aurora-options="input_only" rows="4" cols="50"></textarea>
-            </div> <!-- end: mesu-new-reply -->
-        </div> <!-- end:mesu-cl1-new-reply-content-row -->
-        <div class="aurora-response-action-row">
-            <div style="display: table-cell;"></div>
-            <div class="aurora-comment-response-actions">
-                <div class="aurora-comment-response-action type-attach"> <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i> </div>
-                <span aurora-action="commitReply" class="aurora-comment-response-action type-submit aurora-button-css aurora-button-css-primary" >{{=it.txt_action_submit_comment}}</span>
-            </div>
-        </div> <!-- end: aurora-comment-response-content-row -->
-    </div> <!-- end: aurora-comment-response-wrapper -->
+
+    <!--  end: response template ---->
+    {{=it.tmpl_response}}
+    <!--  end: response template ---->
 
     <!-- div class="aurora-comment-replies"></div-->
     <aurora-collection aurora-name="replies" class="aurora-comment-replies">

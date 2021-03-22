@@ -15,6 +15,7 @@
 
 import ThemeBehavior from "../../themebehavior.mjs";
 import { doAsync, timeout }   from "/evolux.universe";
+import Ripple from "../ripple.mjs";
 // import { validationLevel }      from "../../../lib/common.mjs";
 
 export default class MaterialCommentMessageBox extends ThemeBehavior {
@@ -29,8 +30,6 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.visElemPermActionEditorText();
         this.visElemPermActionEditorHTML();
 
-        this.visElemContGuestLogin();
-
         this.resize();
     }
 
@@ -42,13 +41,16 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
         this.container = this.jar.container;
 
         let actionSubmit = this.container.querySelector ( ".aurora-comment-entrybox-action.type-submit");
-
         let textarea     = this.container.getElementsByClassName("aurora-comment-entrybox-textarea")[0];
+        let bubblebutton = this.container.getElementsByClassName( "aurora-bubble-button")[0];
 
         textarea.addEventListener('focus', (event)  => this.callbackFocusTextarea(event, textarea ), false);
         textarea.addEventListener('focus', (event)  => this.resize(), false);
         actionSubmit.addEventListener('click', (event) => this.callbackClicked(event), false);
-        this.elementVisibility();
+        bubblebutton.addEventListener('click', (event) => this.callbackBubbleButtonClicked(event), false )
+        this.elementVisibility(  );
+
+        new Ripple( this.container.querySelector('.aurora-bubble-button-ripple'));
     }
 
 
@@ -59,6 +61,14 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
     get value() {
         let textarea = this.textarea;
         return textarea ? textarea.value : undefined;
+    }
+
+    callbackBubbleButtonClicked(event) {
+        this.textarea.scrollIntoView( {block: "start", behavior: "smooth"} );
+
+        setTimeout(() => {
+            this.textarea.focus();
+        }, 1000);
     }
 
     callbackClicked(event) {
@@ -96,6 +106,9 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
 
     callbackFocusTextarea ( event, messagebox  ) {
         messagebox.classList.add('focused');
+
+        this.visElemContGuestLogin();
+
         event.stopPropagation();
     }
 

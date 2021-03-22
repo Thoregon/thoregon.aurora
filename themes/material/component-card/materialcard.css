@@ -1,9 +1,11 @@
 :host {
     overflow: visible !important;
+    height: 100%;
 }
 
 .aurora-card-wrapper {
     width: 100%;
+    height: 100%;
     box-sizing: border-box;
     -webkit-box-flex: 0;
     flex: 0 0 auto;
@@ -12,6 +14,7 @@
 
 .aurora-card {
     display: flex;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;

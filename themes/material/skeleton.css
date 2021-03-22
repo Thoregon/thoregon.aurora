@@ -1,0 +1,249 @@
+/*
+https://www.cssscript.com/demo/animated-skeleton-loading-screen/
+ */
+
+
+@-webkit-keyframes aurora-skeleton-loading {
+    from {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+    to {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+}
+
+@keyframes aurora-skeleton-loading {
+    from {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+    to {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+}
+
+.aurora-skeleton-square, .aurora-skeleton-head-line, .aurora-skeleton-line, .aurora-skeleton-circle {
+    position: relative;
+    overflow: hidden
+}
+
+.aurora-skeleton-square:after, .aurora-skeleton-head-line:after, .aurora-skeleton-line:after, .aurora-skeleton-circle:after {
+    content: "";
+    -webkit-animation: aurora-skeleton-loading 1.3s infinite;
+    animation: aurora-skeleton-loading 1.3s infinite;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    z-index: 1;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(255, 255, 255, 0.3)), to(transparent));
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)
+}
+
+.aurora-skeleton {
+    cursor: progress;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.aurora-skeleton .mb {
+    margin-bottom: 16px
+}
+
+.aurora-skeleton .mt {
+    margin-top: 16px
+}
+
+.aurora-skeleton .mr {
+    margin-right: 16px
+}
+
+.aurora-skeleton .ml {
+    margin-left: 16px
+}
+
+.aurora-skeleton .mbs {
+    margin-bottom: 8px
+}
+
+.aurora-skeleton .mts {
+    margin-top: 8px
+}
+
+.aurora-skeleton .mrs {
+    margin-right: 8px
+}
+
+.aurora-skeleton .mls {
+    margin-left: 8px
+}
+
+.aurora-skeleton .w-10 {
+    width: 10%
+}
+
+.aurora-skeleton .w-20 {
+    width: 20%
+}
+
+.aurora-skeleton .w-30 {
+    width: 30%
+}
+
+.aurora-skeleton .w-40 {
+    width: 40%
+}
+
+.aurora-skeleton .w-50 {
+    width: 50%
+}
+
+.aurora-skeleton .w-60 {
+    width: 60%
+}
+
+.aurora-skeleton .w-70 {
+    width: 70%
+}
+
+.aurora-skeleton .w-80 {
+    width: 80%
+}
+
+.aurora-skeleton .w-90 {
+    width: 90%
+}
+
+.aurora-skeleton .w-100 {
+    width: 100%
+}
+
+.aurora-skeleton .flex {
+    display: -webkit-box;
+    display: flex
+}
+
+.aurora-skeleton .inline-flex {
+    display: -webkit-inline-box;
+    display: inline-flex
+}
+
+.aurora-skeleton .align-center {
+    -webkit-box-align: center;
+    align-items: center
+}
+
+.aurora-skeleton .align-start {
+    -webkit-box-align: start;
+    align-items: flex-start
+}
+
+.aurora-skeleton .align-end {
+    -webkit-box-align: end;
+    align-items: flex-end
+}
+
+.aurora-skeleton .align-stretch {
+    -webkit-box-align: stretch;
+    align-items: stretch
+}
+
+.aurora-skeleton .justify-start {
+    -webkit-box-pack: start;
+    justify-content: start
+}
+
+.aurora-skeleton .justify-end {
+    -webkit-box-pack: end;
+    justify-content: end
+}
+
+.aurora-skeleton .justify-between {
+    -webkit-box-pack: justify;
+    justify-content: space-between
+}
+
+.aurora-skeleton .justify-center {
+    -webkit-box-pack: center;
+    justify-content: center
+}
+
+.aurora-skeleton .justify-around {
+    justify-content: space-around
+}
+
+.aurora-skeleton-wrapper {
+    padding: 16px
+}
+
+.aurora-skeleton-wrapper.unpadded {
+    padding: 0px
+}
+
+.aurora-skeleton-card {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 20%), 0 2px 2px rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    background-color: #fff
+}
+
+.aurora-skeleton-circle {
+    display: block;
+    background-color: rgba(0, 0, 0, .17);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px
+}
+
+.aurora-skeleton-hr {
+    display: block;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .17);
+    height: 2px
+}
+
+.aurora-skeleton-line {
+    display: block;
+    background-color: rgba(0, 0, 0, .17);
+    border-radius: 15px;
+    margin-bottom: 8px;
+    width: 100%;
+    height: 12px
+}
+
+.aurora-skeleton-line:last-child {
+    margin-bottom: unset
+}
+
+.aurora-skeleton-head-line {
+    display: block;
+    background-color: rgba(0, 0, 0, .17);
+    border-radius: 15px;
+    width: 100%;
+    height: 24px
+}
+
+.aurora-skeleton-square {
+    display: block;
+    background-color: rgba(0, 0, 0, .17);
+    width: 100%;
+    height: 150px
+}
+
+.aurora-skeleton-button {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .17);
+    width: 100%;
+    height: 31px;
+    border-radius: 4px;
+}
