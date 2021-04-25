@@ -52,8 +52,10 @@ export default class MaterialTextField extends ThemeBehavior {
     }
 
     callbackClicked ( event ) {
-        this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
-        this.parentElement.querySelectorAll(".aurora-text-field")[0].classList.add('focused');
+        let label = this.parentElement.querySelectorAll("label");
+        if (label && label[0]) label[0].classList.add('aurora-floating-label--float-above');
+        let textfield = this.parentElement.querySelectorAll(".aurora-text-field");
+        if (textfield && textfield[0]) textfield[0].classList.add('focused');
 
         event.stopPropagation();
     }

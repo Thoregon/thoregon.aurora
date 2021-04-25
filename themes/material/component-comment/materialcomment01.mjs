@@ -152,24 +152,24 @@ export default class MaterialComment01 extends ThemeBehavior {
 
     visElemContFeedbackSummary() {
         let elements = this.container.querySelectorAll(".aurora-comment-feedback-summary");
-        let reactions = this.jar.viewModel.reactions;
-        let replies   = this.jar.viewModel.replies;
-        let visible =  reactions.length + replies.length > 0;
+        let reactions = this.jar.hasReactions();
+        let replies   = this.jar.hasReplies();
+        let visible =  reactions || replies;
 
         this.switchElementVisibility( elements ,visible, 'block' );
     }
 
     visElemContReactions() {
 
-        let reactions     = this.jar.viewModel.reactions;
+        let reactions     = this.jar.hasReactions();
         let givenreaction = this.jar.viewModel.containsReaction(universe.identity, 'like');
         let elements      = this.container.querySelectorAll(".aurora-comment-feedback-likes");
-        let visible       = reactions.length > 0;
+        let visible       = reactions;
 
         this.switchElementVisibility( elements ,visible, 'block' );
         if ( visible ) {
             let txtElements = this.container.querySelectorAll(".aurora-comment-feedback-likes");
-            let content     = this.jar.i18n('feedback_likes', reactions.length);
+            let content     = this.jar.i18n('feedback_likes', this.jar.totalReactions());
             this.setElementContent ( txtElements, content );
         }
 
@@ -183,14 +183,14 @@ export default class MaterialComment01 extends ThemeBehavior {
 
     visElemContComments() {
 
-        let replies  = this.jar.viewModel.replies;
+        // let replies  = this.jar.viewModel.replies;
         let elements = this.container.querySelectorAll(".aurora-comment-feedback-comments");
-        let visible  = replies.length > 0;
+        let visible  = this.jar.totalReplies() > 0; // replies.length > 0;
 
         this.switchElementVisibility( elements ,visible, 'block' );
         if ( visible ) {
             let txtElements = this.container.querySelectorAll(".aurora-comment-feedback-comments span");
-            let content     = this.jar.i18n('feedback_comments', this.jar.viewModel.totalReplies() );
+            let content     = this.jar.i18n('feedback_comments', this.jar.totalReplies() );
             this.setElementContent ( txtElements, content );
         }
     }
