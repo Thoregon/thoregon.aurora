@@ -11,8 +11,8 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 export default class MaterialComment01 extends ThemeBehavior {
 
     elementVisibility() {
-        this.visElemPermAdministrationActions();
-        this.visElemPermCommentActions();
+ //       this.visElemPermAdministrationActions();
+ //       this.visElemPermCommentActions();
         this.visElemPermActionReaction();
         this.visElemPermActionAddComment();
         this.visElemPermActionAttach();
@@ -20,29 +20,43 @@ export default class MaterialComment01 extends ThemeBehavior {
         this.visElemContFeedbackSummary();
         this.visElemContReactions();
         this.visElemContComments();
-/*
+
+        /*
         this.visElemPermActionEdit();
         this.visElemPermActionDelete();
         */
 
     }
 
+    registerPermission() {
+        return {
+            edit: {
+                element   : 'Change the content of an existing comment',
+                evaluation: 'CommentOwner | Administrator',
+                display   : 'block';
+            }
+        }
+    }
+
     async attach(jar) {
         // --- attach to UI Actions
         // --- attach DOM Elements Visibility
 
+        this.daf = registerPermission();
         this.identity = await universe.Identity.saveIdentity();
         this.jar = jar;
         this.container = this.jar.container;
 
-        let action_add_comment     = this.container.getElementsByClassName("aurora-comment-action-comment")[0];
-        let action_like            = this.container.getElementsByClassName("aurora-comment-action-like")[0];
+        this.dynContActions();
+
+        let actionReplyToComment = this.container.getElementsByClassName("aurora-comment-action-comment")[0];
+        let action_like          = this.container.getElementsByClassName("aurora-comment-action-like")[0];
         let action_toggle_comments = this.container.getElementsByClassName("aurora-comment-action-toggle-comments")[0];
 
         let action_toggle_menu     = this.container.getElementsByClassName( "aurora-comment-administration-actions-trigger")[0];
         //---  Actions clicked  ------------------------------------------------------------------------this.container.querySelectorAll('.aurora-chat-entrybox-action').forEach(item => {
         action_like.addEventListener('click', this.callbackClickedLike, false);
-        action_add_comment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
+        actionReplyToComment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
         action_toggle_comments.addEventListener('click', (event) => this.callbackClickedToggleShowComments(event, action_toggle_comments), false);
         action_toggle_menu.addEventListener('click', (event) => this.callbackClickedToggleMenu(event, action_toggle_menu), false);
 
@@ -67,7 +81,13 @@ export default class MaterialComment01 extends ThemeBehavior {
         this.jar.showComments( status );
     }
 
-    callbackClickedAddComment (event, comment ) {
+    async callbackClickedAddComment (event, comment ) {
+
+        //--- load the reply comment field in case it is not rendered
+        if( ! this.isSlotRendered ( 'response' ) ) {
+            await this.dynContResponse();
+        }
+
         let response = comment.getElementsByClassName("aurora-comment-response-wrapper")[0];
         response.classList.toggle('open');
         event.stopPropagation();
@@ -223,6 +243,23 @@ export default class MaterialComment01 extends ThemeBehavior {
         //       this.visElemPermActionReaction();
         //       this.visElemPermActionAddComment();
     }
+
+    async dynContResponse() {
+        let slot     = 'response';
+        let template = "commentsubreplay";
+        let visible  = true;
+
+        await this.dynamicContent(slot, template, visible);
+    }
+
+    async dynContActions() {
+        let slot     = 'actions';
+        let template = "commentsubactions";
+        let visible  = true;
+
+        await this.dynamicContent(slot, template, visible);
+    }
+
 
     updateAge() {}
 

@@ -1,4 +1,3 @@
-
 <div class="aurora-comment lvl_{{=it.level}} {{=it.classes}}" style="text-align: left;" data-level="{{=it.level}}">
     <div class="aurora-comment-header">
         <div class="aurora-comment-avatar"><a href="{member_profile_url}"><img src="{{=it.avatar}}"></a></div>
@@ -7,9 +6,9 @@
             <div class="aurora-comment-creation-date">{{=it.stamp}}</div>
         </div> <!-- end: aurora-comment-meta-wrapper -->
 
-        <!--  actions template ---->
-        {{=it.tmpl_actions}}
-        <!--  end: actions template ---->
+        <!--  start: dynamic actions template ---->
+        <div aurora-slot="actions"></div>
+        <!--  end: dynamic actions template ---->
 
     </div>
     <!--- end: aurora-comment-header -->
@@ -39,9 +38,9 @@
         </div>
     </div>
 
-    <!--  end: response template ---->
-    {{=it.tmpl_response}}
-    <!--  end: response template ---->
+    <!--  start: dynamic response template ---->
+    <div aurora-slot="response"></div>
+    <!--  end: dynamic response template ---->
 
     <!-- div class="aurora-comment-replies"></div-->
     <aurora-collection aurora-name="replies" class="aurora-comment-replies">

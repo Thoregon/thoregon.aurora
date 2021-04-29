@@ -45,4 +45,19 @@ export default class ThemeBehavior {
     setElementContent ( elements, content ) {
         elements.forEach( (element) => element.innerHTML = content );
     }
+
+    async dynamicContent( slot, templateName, visible) {
+        let elements = this.container.querySelectorAll("*[aurora-slot='" + slot + "']");
+        if ( ! visible ) {
+            elements.forEach( (element) => element.innerHTML = '' );
+        } else {
+            let content = await this.jar.renderTemplate( templateName );
+            elements.forEach( (element) => element.innerHTML = content );
+        }
+    }
+
+    isSlotRendered ( slot ) {
+        return ! this.container.querySelectorAll("*[aurora-slot='" + slot + "']")[0].innerHTML.length == 0;
+    }
+
 }

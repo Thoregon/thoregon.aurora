@@ -17,6 +17,7 @@
   "txt_action_review": "Zur Überprüfung",
   "txt_action_release": "Freigeben",
   "txt_action_blockuser": "User blockieren",
+  "txt_action_unblockuser": "User freigeben",
 
   "feedback_number_likes" : {
     "0": " ",

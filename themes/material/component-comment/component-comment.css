@@ -40,9 +40,9 @@
 }
 
 .aurora-comment-avatar img {
-    width: 70px;
     width: 60px;
     border-radius: 6px;
+    border-radius: 50%;
     border-style: none;
     float:left;
 }
