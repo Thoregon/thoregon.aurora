@@ -1,6 +1,13 @@
 ToDo
 ====
 
+- top level apps as dynamic custom elements
+    - placeholder not app: <thoregon-app/> -> <thoregon/>
+    - <my-app> create dynamically if it has no implementation
+    - override/refactor get templates and 
+- aurora-toolbar
+    - link to welcome/default view on logo/appname
+
 - multiple slots
     - move child elements to spcified slots not only to 'main'
 
