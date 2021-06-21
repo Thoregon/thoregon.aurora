@@ -1,10 +1,6 @@
 
 /*
- * Copyright (c) 2021. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
+ * Copyright (c) 2021.
  */
 
 /**
@@ -13,9 +9,9 @@
  * @author: Bernhard Lukassen
  */
 
-import ThemeBehavior from "../../themebehavior.mjs";
+import ThemeBehavior from "../../../themebehavior.mjs";
 import { doAsync, timeout }   from "/evolux.universe";
-import Ripple from "../ripple.mjs";
+import Ripple from "../../ripple.mjs";
 // import { validationLevel }      from "../../../lib/common.mjs";
 
 export default class MaterialCommentMessageBox extends ThemeBehavior {

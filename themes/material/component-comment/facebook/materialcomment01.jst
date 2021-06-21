@@ -21,8 +21,9 @@
 
     <div class="aurora-comment-feedback-summary">
         <div class="aurora-comment-feedback-likes">
-            {{=it.feedback_likes}} </div>
-        <div class="aurora-comment-feedback-comments aurora-comment-action-toggle-comments">
+            {{=it.feedback_likes}}
+        </div>
+        <div aurora-trigger="ClickedAddCommand" class="aurora-comment-feedback-comments aurora-comment-action-toggle-comments">
             <span>{{=it.feedback_comments}}</span><div class="comments-arrow open" ></div>
         </div>
     </div> <!-- end: aurora-comment-feedback-summary -->

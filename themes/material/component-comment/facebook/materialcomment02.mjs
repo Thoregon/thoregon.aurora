@@ -9,9 +9,8 @@
  * @author: Bernhard Lukassen
  */
 
-import ThemeBehavior            from "../../themebehavior.mjs";
 import MaterialComment01        from "./materialcomment01.mjs"
-// import { validationLevel }      from "../../../lib/common.mjs";
+// import { validationLevel }      from "../../../../lib/common.mjs";
 
 export default class MaterialComment02 extends MaterialComment01 {
 

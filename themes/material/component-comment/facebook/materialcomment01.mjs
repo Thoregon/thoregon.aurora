@@ -1,19 +1,22 @@
 
+/*
+ * Copyright (c) 2021.
+ */
+
 /**
  *
  *
  * @author: Bernhard Lukassen
  */
 
-import ThemeBehavior            from "../../themebehavior.mjs";
-import MaterialComment01        from "./materialcomment01.mjs"
-// import { validationLevel }      from "../../../lib/common.mjs";
+import ThemeBehavior            from "../../../themebehavior.mjs";
+// import { validationLevel }      from "../../../../lib/common.mjs";
 
-export default class MaterialcommentAdmin extends MaterialComment01 {
+export default class MaterialComment01 extends ThemeBehavior {
 
     elementVisibility() {
-        this.visElemPermAdministrationActions();
-        this.visElemPermCommentActions();
+ //       this.visElemPermAdministrationActions();
+ //       this.visElemPermCommentActions();
         this.visElemPermActionReaction();
         this.visElemPermActionAddComment();
         this.visElemPermActionAttach();
@@ -21,32 +24,43 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
         this.visElemContFeedbackSummary();
         this.visElemContReactions();
         this.visElemContComments();
-        /*
 
+        /*
         this.visElemPermActionEdit();
         this.visElemPermActionDelete();
+        */
 
-        this.visElemPermActionAttachFile();
+    }
 
-*/
+    registerPermission() {
+        return {
+            edit: {
+                element   : 'Change the content of an existing comment',
+                evaluation: 'CommentOwner | Administrator',
+                display   : 'block',
+            }
+        }
     }
 
     async attach(jar) {
         // --- attach to UI Actions
         // --- attach DOM Elements Visibility
 
+        this.daf = registerPermission();
         this.identity = await universe.Identity.saveIdentity();
         this.jar = jar;
         this.container = this.jar.container;
 
-        let action_add_comment     = this.container.getElementsByClassName("aurora-comment-action-comment")[0];
-        let action_like            = this.container.getElementsByClassName("aurora-comment-action-like")[0];
+        this.dynContActions();
+
+        let actionReplyToComment = this.container.getElementsByClassName("aurora-comment-action-comment")[0];
+        let action_like          = this.container.getElementsByClassName("aurora-comment-action-like")[0];
         let action_toggle_comments = this.container.getElementsByClassName("aurora-comment-action-toggle-comments")[0];
 
         let action_toggle_menu     = this.container.getElementsByClassName( "aurora-comment-administration-actions-trigger")[0];
         //---  Actions clicked  ------------------------------------------------------------------------this.container.querySelectorAll('.aurora-chat-entrybox-action').forEach(item => {
         action_like.addEventListener('click', this.callbackClickedLike, false);
-        action_add_comment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
+        actionReplyToComment.addEventListener('click', (event)     => this.callbackClickedAddComment(event, this.container ), false);
         action_toggle_comments.addEventListener('click', (event) => this.callbackClickedToggleShowComments(event, action_toggle_comments), false);
         action_toggle_menu.addEventListener('click', (event) => this.callbackClickedToggleMenu(event, action_toggle_menu), false);
 
@@ -71,7 +85,13 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
         this.jar.showComments( status );
     }
 
-    callbackClickedAddComment (event, comment ) {
+    async callbackClickedAddComment (event, comment ) {
+
+        //--- load the reply comment field in case it is not rendered
+        if( ! this.isSlotRendered ( 'response' ) ) {
+            await this.dynContResponse();
+        }
+
         let response = comment.getElementsByClassName("aurora-comment-response-wrapper")[0];
         response.classList.toggle('open');
         event.stopPropagation();
@@ -79,8 +99,9 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
     }
 
     callbackClickedLike ( event ) {
-        // alert("I like this comment...");
-        event.stopPropagation();
+        this.classList.remove('icon_animation');
+        this.classList.add('icon_animation');
+        // event.stopPropagation();
     }
 
     callbackClickedToggleMenu ( event, trigger ) {
@@ -93,7 +114,8 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
 
     visElemPermAdministrationActions() {
         let elements = this.container.querySelectorAll(".aurora-comment-administration-actions");
-        let visible  = true;
+        let visible  = this.isAdministrator();
+/*
 
         if ( visible &&
             ( this.visElemPermAdministrationActionEdit() ||
@@ -102,6 +124,7 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
         } else {
             visible = false;
         }
+*/
 
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
@@ -115,7 +138,9 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
     }
     visElemPermAdministrationActionDelete() {
         let elements = this.container.querySelectorAll(".aurora-comment-action-delete");
-        let visible  = true;
+        let visible  = false;
+
+        this.isAdministrator();
 
         this.switchElementVisibility( elements ,visible, 'block' );
         return visible;
@@ -123,20 +148,20 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
 
     visElemPermCommentActions() {
         let elements = this.container.querySelectorAll(".aurora-comment-actions");
-        let visible  = ! this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         this.switchElementVisibility( elements ,visible, 'block' );
     }
 
     visElemPermActionReaction() {
         let elements = this.container.querySelectorAll(".aurora-comment-action-like");
-        let visible  = ! this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
     visElemPermActionAddComment() {
         let elements = this.container.querySelectorAll(".aurora-comment-action-comment");
-        let visible  = ! this.identity.isGhost();
+        let visible  = ! this.needRegistration();
 
         this.switchElementVisibility( elements ,visible, 'flex' );
     }
@@ -151,24 +176,24 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
 
     visElemContFeedbackSummary() {
         let elements = this.container.querySelectorAll(".aurora-comment-feedback-summary");
-        let reactions = this.jar.viewModel.reactions;
-        let replies   = this.jar.viewModel.replies;
-        let visible =  reactions.length + replies.length > 0;
+        let reactions = this.jar.hasReactions();
+        let replies   = this.jar.hasReplies();
+        let visible =  reactions || replies;
 
         this.switchElementVisibility( elements ,visible, 'block' );
     }
 
     visElemContReactions() {
 
-        let reactions     = this.jar.viewModel.reactions;
+        let reactions     = this.jar.hasReactions();
         let givenreaction = this.jar.viewModel.containsReaction(universe.identity, 'like');
         let elements      = this.container.querySelectorAll(".aurora-comment-feedback-likes");
-        let visible       = reactions.length > 0;
+        let visible       = reactions;
 
         this.switchElementVisibility( elements ,visible, 'block' );
         if ( visible ) {
             let txtElements = this.container.querySelectorAll(".aurora-comment-feedback-likes");
-            let content     = this.jar.i18n('feedback_likes', reactions.length);
+            let content     = this.jar.i18n('feedback_likes', this.jar.totalReactions());
             this.setElementContent ( txtElements, content );
         }
 
@@ -179,16 +204,17 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
         }
 
     }
+
     visElemContComments() {
 
-        let replies  = this.jar.viewModel.replies;
+        // let replies  = this.jar.viewModel.replies;
         let elements = this.container.querySelectorAll(".aurora-comment-feedback-comments");
-        let visible  = replies.length > 0;
+        let visible  = this.jar.totalReplies() > 0; // replies.length > 0;
 
         this.switchElementVisibility( elements ,visible, 'block' );
         if ( visible ) {
             let txtElements = this.container.querySelectorAll(".aurora-comment-feedback-comments span");
-            let content     = this.jar.i18n('feedback_comments', this.jar.viewModel.totalReplies() );
+            let content     = this.jar.i18n('feedback_comments', this.jar.totalReplies() );
             this.setElementContent ( txtElements, content );
         }
     }
@@ -222,6 +248,37 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
         //       this.visElemPermActionAddComment();
     }
 
+    async dynContResponse() {
+        let slot     = 'response';
+        let template = "commentsubreplay";
+        let visible  = true;
+
+        await this.dynamicContent(slot, template, visible);
+    }
+
+    async dynContActions() {
+        let slot     = 'actions';
+        let template = "commentsubactions";
+        let visible  = true;
+
+        await this.dynamicContent(slot, template, visible);
+    }
+
+
     updateAge() {}
+
+    updateLikes() {
+        let elem = this.container.querySelector('.aurora-comment-feedback-likes');
+        elem.innerText = this.jar.numberOfLikes();
+    }
+
+    needRegistration() {
+        return this.identity &&
+            ! localStorage.getItem('POCS21Guest');
+    }
+
+    isAdministrator() {
+        return universe.identity && universe.identity.alias === 'Theresa / Pioneers of Change';
+    }
 
 }
