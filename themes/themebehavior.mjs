@@ -60,4 +60,10 @@ export default class ThemeBehavior {
         return ! this.container.querySelectorAll("*[aurora-slot='" + slot + "']")[0].innerHTML.length == 0;
     }
 
+    triggerClicked(name, evt) {
+        // console.log(">>> Trigger", name);
+        let fn = this['trigger' + name];
+        if (fn /*&& isFunction(fn)*/) fn(evt);
+    }
+
 }
