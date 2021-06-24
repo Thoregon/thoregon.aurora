@@ -19,12 +19,12 @@ export default class MaterialCommentMessageBox extends ThemeBehavior {
     elementVisibility() {
 
         // this.visElemContEntryBox();
-        this.visElemPermActionAttach();
-        this.visElemPermActionEmoji();
-        this.visElemPermActionAudio();
-        this.visElemPermActionVideo();
-        this.visElemPermActionEditorText();
-        this.visElemPermActionEditorHTML();
+        //this.visElemPermActionAttach();
+        //this.visElemPermActionEmoji();
+        //this.visElemPermActionAudio();
+        //this.visElemPermActionVideo();
+        //this.visElemPermActionEditorText();
+        //this.visElemPermActionEditorHTML();
 
         this.resize();
     }

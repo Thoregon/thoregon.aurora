@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2021.
+ */
+
 .aurora-comment-entrybox {
     margin-bottom: 1em;
 }
@@ -30,7 +34,11 @@
 *  ----- BUBBLE --------------------
  */
 
-.aurora-comment-bubble-wrapper.left {
+.aurora-comment-bubble-wrapper.none {
+    display: none !important;
+}
+
+.aurora-comment-bubble-wrapper.left_corner {
     position: fixed;
     left: 2em;
     bottom: 2em;
@@ -40,7 +48,7 @@
 }
 
 
-.aurora-comment-bubble-wrapper.left .aurora-icon { transform: rotateY(180deg); }
+.aurora-comment-bubble-wrapper.left_corner .aurora-icon { transform: rotateY(180deg); }
 .aurora-comment-bubble-wrapper .aurora-icon::before { content: "comment"; }
 .aurora-comment-bubble-wrapper:hover .aurora-icon::before { content: "add"; }
 
