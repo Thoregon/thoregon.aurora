@@ -1,0 +1,20 @@
+/* --- COMMENT RESPONSE --------------*/
+<div class="aurora-comment-response-wrapper">
+    <div class="aurora-comment-response-content-row">
+        <div class="aurora-comment-response-avatar">
+            <img src="{{=it.current_user.avatar}}">
+        </div>
+        <div class="aurora-comment-response">
+            <textarea aurora-name="reply" aurora-options="input_only" rows="4" cols="50"></textarea>
+        </div> <!-- end: mesu-new-reply -->
+    </div> <!-- end:mesu-cl1-new-reply-content-row -->
+    <div class="aurora-response-action-row">
+        <div style="display: table-cell;"></div>
+        <div class="aurora-comment-response-actions">
+            <div class="aurora-comment-response-action type-attach"> <i aria-hidden="true" class="material-icons aurora-trailing-icon">attach_file</i> </div>
+            <span aurora-action="commitReply" class="aurora-comment-response-action type-submit aurora-button-css aurora-button-css-primary" >{{=it.txt_action_submit_comment}}</span>
+        </div>
+    </div> <!-- end: aurora-comment-response-content-row -->
+</div> <!-- end: aurora-comment-response-wrapper -->
+
+/* --- END: COMMENT RESPONSE --------------*/

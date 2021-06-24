@@ -1,0 +1,193 @@
+.aurora-comment-entrybox {
+    margin-bottom: 1em;
+}
+
+.aurora-guest-registration {
+    margin-top: .5em;
+    margin-bottom: 1em;
+}
+
+.aurora-comment-guest-email input,
+.aurora-comment-guest-author input {
+    width: 100%;
+    border: 1px solid #dddfe2;
+    padding: 14px 20px;
+    border-radius: 8px;
+}
+
+.aurora-comment-guest-email label,
+.aurora-comment-guest-author label {
+    margin-bottom: .3em;
+    margin-left: 5px;
+    display: block;
+    font-weight: bolder;
+}
+
+.aurora-comment-guest-url { display: none; }
+
+
+/*
+*  ----- BUBBLE --------------------
+ */
+
+.aurora-comment-bubble-wrapper.left {
+    position: fixed;
+    left: 2em;
+    bottom: 2em;
+    z-index: 1000;
+    text-align: center;
+    opacity: 0.9;
+}
+
+
+.aurora-comment-bubble-wrapper.left .aurora-icon { transform: rotateY(180deg); }
+.aurora-comment-bubble-wrapper .aurora-icon::before { content: "comment"; }
+.aurora-comment-bubble-wrapper:hover .aurora-icon::before { content: "add"; }
+
+.aurora-comment-bubble-wrapper { overflow: visible; }
+.aurora-bubble-wrapper {
+    position: relative;
+}
+
+.aurora-bubble-button {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border: none;
+    fill: currentColor;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    overflow: hidden;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 15ms linear 30ms, transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1);
+    background-color: var( --secondaryColor );
+    color:  var( --secondaryTextColor );
+
+    border-radius: 50%;
+}
+
+.aurora-bubble-button.aurora-bubble-button-raised {
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+    0px 6px 10px 0px rgb(0 0 0 / 14%),
+    0px 1px 18px 0px rgb(0 0 0 / 12%);
+
+}
+
+.aurora-bubble-button .aurora-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    transition-duration: .2s;
+}
+
+.aurora-bubble-button:active,
+.aurora-bubble-button:focus {
+    outline: none;
+}
+
+.aurora-bubble-button:active {
+    box-shadow: 0px 7px 8px -4px rgb(0 0 0 / 20%),
+    0px 12px 17px 2px rgb(0 0 0 / 14%),
+    0px 5px 22px 4px rgb(0 0 0 / 12%);
+}
+
+
+.aurora-bubble-button .aurora-bubble-button-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.aurora-bubble-button .aurora-button-ripple::before,
+.aurora-bubble-button .aurora-button-ripple::after {
+    background-color: #fff;
+
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    content: "";
+
+
+    top: calc(50% - 100%);
+    left: calc(50% - 100%);
+    width: 200%;
+    height: 200%;
+}
+
+
+
+aurora-bubble-button:hover,
+.aurora-bubble-button:focus {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0,0,0,.12);
+}
+
+.aurora-bubble-button:disabled {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0,0,0,.12);
+}
+
+.aurora-bubble-button:disabled {
+    background-color: rgba(0,0,0,.12);
+    color: rgba(0,0,0,.37);
+    cursor: default;
+    pointer-events: none;
+}
+
+.aurora-bubble-button:hover .aurora-bubble-button-ripple::before {
+    opacity: .08;
+}
+
+.aurora-bubble-button.open .aurora-icon {
+    transform: rotate(45deg);
+    transition-duration: .2s;
+}
+
+.aurora-bubble-button-invite-message {
+    display: none;
+    width: 400px;
+    height: 46px;
+    position: absolute;
+    top: 50%;
+    left: 75px;
+    border-radius: 5px;
+    padding: 7px;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var( --secondaryTextColor );
+    background-color: var( --secondaryColor );
+}
+
+.aurora-bubble-button-invite-message::before {
+    content: '';
+    border: 9px solid transparent;
+    position: absolute;
+    top: 50%;
+    left: -9px;
+    transform: translateY(-50%);
+    border-left: none;
+
+    border-left-color: var( --secondaryColor );;
+    border-right-color: var( --secondaryColor );;
+}
+
+.aurora-comment-bubble-wrapper:hover .aurora-bubble-button-invite-message {
+    display: flex;
+}
+
+.aurora-bubble-total-counter {
+    font-weight: bolder;
+    margin-bottom: .2em;
+    color: var(--secondaryColor);
+}

@@ -1,0 +1,39 @@
+{
+  "feedback_likes": "{n} gefällt mir",
+  "feedback_comments": {
+    "s": "{n} Kommentar",
+    "p": "{n} Kommentare"
+  },
+
+  "txt_admin_from": "von",
+  "txt_admin_on": "zu",
+
+  "txt_action_like": "Gefällt mir",
+  "txt_action_comment": "Kommentieren",
+  "txt_action_submit_comment": "Kommentar abschicken",
+  "txt_action_new_comment": "Kommentar abschicken",
+  "txt_action_edit": "Bearbeiten",
+  "txt_action_delete": "Löschen",
+  "txt_action_review": "Zur Überprüfung",
+  "txt_action_release": "Freigeben",
+  "txt_action_blockuser": "User blockieren",
+  "txt_action_unblockuser": "User freigeben",
+
+  "feedback_number_likes" : {
+    "0": " ",
+    "n": "({n})"
+  },
+
+  "one_second_ago": "gerade erst",
+  "seconds_ago": "vor {n} Sekunden",
+  "a_minute_ago": "vor einer Minute",
+  "minutes_ago": "vor {n} Minuten",
+  "an_hour_ago": "vor einer Stunde",
+  "hours_ago": "vor {n} Stunden",
+  "yesterday": "Gestern",
+  "days_ago": "vor {n} Tagen",
+  "one_month_ago": "vor einem Monat",
+  "months_ago": "vor {n} Monaten",
+  "one_year_ago": "vor einem Jahr",
+  "years_ago": "vor {n} Jahren"
+}
