@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+:host(aurora-stepper) {
+    overflow: visible;
+}
+
+aurora-view {
+    overflow: visible;
+}

@@ -20,6 +20,9 @@ export { default as AuroraFloatingActionButton }from './lib/formcomponents/auror
 export { default as AuroraCheckbox }            from './lib/formcomponents/auroracheckbox.mjs';
 export { default as AuroraSwitch }              from './lib/formcomponents/auroraswitch.mjs';
 export { default as AuroraPinCode }             from './lib/formcomponents/aurorapincode.mjs';
+export { default as AuroraStepper }             from './lib/formcomponents/aurorastepper.mjs';
+export { default as AuroraStep }                from './lib/formcomponents/aurorastep.mjs';
+
 export { default as AuroraChatMessage }         from './lib/formcomponents/aurorachatmessage.mjs';
 export { default as AuroraChatEntryBox }        from './lib/formcomponents/aurorachatentrybox.mjs';
 export { default as AuroraComment }             from './lib/formcomponents/auroracomment.mjs';

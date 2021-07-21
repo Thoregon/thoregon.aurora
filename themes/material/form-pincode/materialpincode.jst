@@ -1,7 +1,9 @@
 This is a PINCODE
-<div class="aurora-pincode-input pins-{{=it.inputs}}">
+<div class="aurora-pincode-input pins-{{=it.digits}}">
     {{~it.pins :value:index}}
-    <input type="text" maxlength="1" autocomplete="off" placeholder="0"
+    <input type="text"
+           autocomplete="off"
+           required
            class="aurora-pin-digit">
     {{~}}
 </div>
