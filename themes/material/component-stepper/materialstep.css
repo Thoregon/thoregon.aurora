@@ -6,3 +6,16 @@
     overflow: visible;
 }
 
+.aurora-step-navigation {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.aurora-step-navigation-next,
+.aurora-step-navigation-back {
+    display: inline-block;
+}
+
+.aurora-step.first .aurora-step-navigation-back { display: none; }
+.aurora-step.last  .aurora-step-navigation-next { display: none; }
+.aurora-step.middle .aurora-step-navigation-back { margin-left: .5em; }

@@ -2,4 +2,24 @@
   ~ Copyright (c) 2021.
   -->
 
-<span aurora-slot="main"></span>
+<div class="aurora-step {{= it.classes}}">
+    <span aurora-slot="main"></span>
+
+    {{? it.usedefaultnavigation}}
+        <div class="aurora-step-navigation">
+            <div class="aurora-step-navigation-next">
+                <aurora-button
+                        stepper-action="next"
+                        label="weiter"
+                ></aurora-button>
+            </div>
+            <div class="aurora-step-navigation-back">
+                <aurora-button
+                        flat="true"
+                        stepper-action="back"
+                        label="zurück"
+                ></aurora-button>
+            </div>
+        </div>
+    {{?}}
+</div>

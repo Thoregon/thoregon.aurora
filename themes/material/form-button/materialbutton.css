@@ -52,6 +52,30 @@
 /*    height: 36px; */
 }
 
+.aurora-button.flat:not(:disabled) {
+    color: var(--secondaryColor, #1a75d2);
+    box-shadow: none;
+    background-color: #fff;
+}
+.aurora-button-focus-helper {
+    border-radius: inherit;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: background-color .3s cubic-bezier(.25,.8,.5,1),opacity .4s cubic-bezier(.25,.8,.5,1);
+    width: 100%;
+}
+.aurora-button.flat .aurora-button-label:not(:disabled) {
+    color: var( --secondaryColor ,#1a75d2 );
+}
+
+.aurora-button.flat:hover .aurora-button-focus-helper:not(:disabled) {
+    background: currentColor;
+    opacity: .15;
+}
 
 .aurora-button.fullwidth {
     width: 100%;

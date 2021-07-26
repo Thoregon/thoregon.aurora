@@ -223,6 +223,7 @@
     outline: none;
 }
 
+.aurora-text-field.aurora-floating-label-stacked .aurora-floating-label,
 .aurora-text-field .aurora-floating-label--float-above {
     transform: translateY(-106%) scale(0.75);
 }
@@ -262,6 +263,7 @@
 .aurora-text-field .aurora-text-field-input {
     caret-color: var(--aurora-focused-col, #1a75d2);
 }
+
 .aurora-text-field:not(.disabled) .aurora-floating-label { color: rgba(0,0,0,.6); }
 .error .aurora-text-field:not(.disabled) .aurora-floating-label { color: var(--aurora-error-col, #cc0b0f) }
 

@@ -24,5 +24,9 @@ export default class Materialstepper extends ThemeBehavior {
 
         new Ripple( this.container.querySelector('.aurora-button-ripple'));
     }
-
+    actionNextbtn() {
+        alert("hab dich...");
+        //throw "Fehler";
+        console.log("actionNextbtn");
+    }
 }
