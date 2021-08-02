@@ -2,117 +2,96 @@
  * Copyright (c) 2021.
  */
 
-/*
- */
+.aurora-table-actions { display: inline-block; }
 
-.aurora-listitem {
+.aurora-table-actions-trigger {
+    float: right;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
     display: flex;
     flex-direction: row;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-right: 16px;
-    outline: none;
-}
-
-.aurora-listitem:hover {
-    background-color: #f5f5f5;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    transition: background-color .1s linear;
+    user-select: none;
 }
 
-.aurora-listitem.focused {
-    background-color: #e1e1e1;
+.aurora-table-actions-trigger:hover {
+    background-color: rgba(var(--secondaryColorRGB), .12);
 }
 
-.aurora-listitem.thumbnail {
-    padding-top: 8px;
-    padding-bottom: 8px;
+.aurora-sort-icon-wrapper {
+    display: inline-block;
+    opacity: 0;
 }
 
-.aurora-listitem-middle {
-    flex-grow: 1;
+th.sortable:hover .aurora-sort-icon-wrapper {
+    opacity: .64;
 }
 
-.aurora-listitem-graphictype {
-
-}
-
-.icon-avatar .aurora-listitem-left,
-.image-avatar .aurora-listitem-left { min-width: 48px; }
-.thumbnail .aurora-listitem-left { min-width: 100px; }
-
-.aurora-listitem.image-avatar,
-.aurora-listitem.icon-avatar {
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-.aurora-listitem-graphictype.image-avatar,
-.aurora-listitem-graphictype.icon-avatar {
-    width: 40px;
-    height: 40px;
-    background-color: #9e9e9e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 8px;
-}
-
-.aurora-listitem-graphictype.icon {
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 16px;
-}
-
-.aurora-listitem-graphictype.image-avatar {
-    background-size: cover;
-}
-
-.aurora-listitem-graphictype.thumbnail {
-    width: 100px;
-    height: 56px;
-    background-size: cover;
-}
-
-.aurora-listitem-graphictype.round { border-radius: 50%;}
-.aurora-listitem-graphictype.rounded { border-radius: 4px;}
-
-
-.aurora-listitem-graphictype.icon-avatar i {
-    color: rgba(255, 255, 255, .85);
-}
-
-.aurora-listitem-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 16px;
-    color: #464e60;
-    height: 100%;
-
-}
-
-.aurora-listitem-primary-text {
-    font-weight: 200 /*bold*/;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    line-height: 1.1em;
+.aurora-sort-icon {
     overflow: hidden;
+    margin-left: 4px;
+    font-size: 120%;
+    height: 1em;
+    transition: transform .3s cubic-bezier(.25,.8,.5,1);
+    vertical-align: middle;
 }
 
-.aurora-listitem-separation-line {
-    border-bottom: 1px solid #ebebeb;
-    width: 100%;
-    float: right;
+.aurora-table-wrapper th.left,
+.aurora-table-wrapper td.left { text-align: left;}
+
+.aurora-table-wrapper th.right,
+.aurora-table-wrapper td.right { text-align: right;}
+
+.aurora-table-wrapper th.center,
+.aurora-table-wrapper td.center { text-align: center;}
+
+
+table { border-collapse: collapse; }
+table.fullwidth { width: 100%; }
+
+
+td, th {
+    white-space: nowrap;
+    border-bottom: 1px solid #0000001f;
+    padding: .4em .5em;
 }
 
-.aurora-listitem-separation-line.thumbnail {
-    width: calc( 100% - 100px - 16px );
+.dense td,
+.dense th {
+    padding: .3em .5em;
 }
 
-.aurora-listitem-right {
-    display: flex;
-    align-items: center;
+.dense .aurora-table-actions-trigger {
+    width: initial;
+    height: initial;
 }
+
+th {
+    user-select: none;
+}
+
+th.sortable { cursor: pointer; }
+
+th.sortable.sort-asc .aurora-sort-icon-wrapper,
+th.sortable.sort-desc .aurora-sort-icon-wrapper {
+    opacity: 1;
+}
+
+th.sortable.sort-desc .aurora-sort-icon-wrapper {
+    transform: rotate(180deg);
+}
+
+.aurora-sort-icon-wrapper {
+    width: 1em;
+    height: 1em;
+    margin-left: 4px;
+    vertical-align: middle;
+    transition: transform .3s cubic-bezier(.25,.8,.5,1);
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  <path    fill="black" d="M 13 20 H 11 V 8 L 5.5 13.5 L 4.1 12.1 L 12 4.2 L 19.9 12.1 L 18.5 13.5 L 13 8 V 20 Z"/></svg>');
+}
+
