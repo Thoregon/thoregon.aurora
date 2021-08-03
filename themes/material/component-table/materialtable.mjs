@@ -14,19 +14,34 @@ import Ripple                   from '../ripple.mjs';
 
 export default class MaterialTable extends ThemeBehavior {
 
-    rootElement = '';
+    rootElement  = '';
+    _pos_wrapper = {};
+    _columns     = {};
 
     attach(jar) {
         this.jar = jar;
         this.container = this.jar.container;
 
-        let rowheaders = this.container.querySelectorAll("th.sortable");
+        this._pos_wrapper = this.container.getBoundingClientRect();
 
-        for ( let th = 0; th < rowheaders.length; th++ ) {
-            rowheaders[th].addEventListener('click', (event) => this.callbackClickRowHeader(event, rowheaders[th]), false);
+        let rowheaders = this.container.querySelectorAll("th.sortable");
+        let actiontriggers = this.container.querySelectorAll(".aurora-table-actions-trigger");
+
+        for ( let i = 0; i < rowheaders.length; i++ ) {
+            rowheaders[i].addEventListener('click', (event) => this.callbackClickRowHeader(event, rowheaders[i]), false);
         }
 
+        for ( let i = 0; i < actiontriggers.length; i++ ) {
+            actiontriggers[i].addEventListener('click', (event) => this.callbackClickActionTrigger(event, actiontriggers[i]), false);
+        }
+
+
         new Ripple( this.container.querySelector('.aurora-listitem-ripple'));
+    }
+
+    callbackClickActionTrigger( event, trigger ) {
+        trigger.parentElement.getElementsByClassName('aurora-table-actions-menu')[0].classList.toggle('hidden');
+        //trigger.classList.toggle('hidden');
     }
 
     callbackClickRowHeader( event, th ) {
@@ -36,7 +51,7 @@ export default class MaterialTable extends ThemeBehavior {
 
         for (let i = 0; i < headers.length; i++) {
             if (headers[i] != th) {
-                headers[i].classList.remove('sort-asc', 'sort-dsc');
+                headers[i].classList.remove('sort-asc', 'sort-desc');
             }
         }
 
