@@ -1,6 +1,16 @@
 ToDo
 ====
 
+- link triggers multiple views to be displayed
+
+- breadcrumbs context sensitive
+    - 'active' path/view defines current breadcrumbs
+    - maintain selected items
+
+- state machine
+    - elements which can be displayed immed (necessary?)
+    - views/elements referencing data from model 
+
 - top level apps as dynamic custom elements
     - placeholder not app: <thoregon-app/> -> <thoregon/>
     - <my-app> create dynamically if it has no implementation
