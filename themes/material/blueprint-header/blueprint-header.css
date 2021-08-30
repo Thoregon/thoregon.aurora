@@ -6,11 +6,19 @@
     z-index: 2000;
 }
 
-.aurora-header.position-top {
-    position: absolute;
+.aurora-header.absolute-top,
+.aurora-header.fixed-top {
     top: 0;
     left: 0;
     right: 0;
+}
+
+.aurora-header.absolute-top {
+    position: absolute;
+}
+
+.aurora-header.fixed-top {
+    position: fixed;
 }
 
 .aurora-header.bordered {

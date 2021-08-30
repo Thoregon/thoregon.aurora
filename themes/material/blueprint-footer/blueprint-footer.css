@@ -6,12 +6,14 @@
     z-index: 2000;
 }
 
-.aurora-footer {
-    position: absolute;
+.aurora-footer.absolute-bottom,
+.aurora-footer.fixed-bottom {
     bottom: 0;
     left: 0;
     right: 0;
 }
+.aurora-footer.absolute-bottom { position: absolute; }
+.aurora-footer.fixed-bottom    { position: fixed; }
 
 .aurora-footer.bordered {
     border-bottom: 1px solid rgba(0,0,0,0.3);
