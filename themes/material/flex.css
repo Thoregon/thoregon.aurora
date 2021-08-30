@@ -1,6 +1,7 @@
 /*! aurora-row CSS | MIT License | aurora-rowcss.com */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
+.txt-col-white { color: #fff !important; }
 
 code {
     font-family: monospace, monospace;
@@ -2419,3 +2420,5 @@ code {
     white-space: nowrap !important;
     border: 0 !important;
 }
+
+

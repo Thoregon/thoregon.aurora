@@ -1,8 +1,10 @@
 <button class="aurora-button aurora-button-raised aurora-button-container {{= it.classes}}" >
     <span class="aurora-button-focus-helper"></span>
-    {{? it.usesleadingicon }}
-        <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.leading_icon}}<!----></i>
+    <span class="aurora-button-content">
+    {{? it.useicon }}
+        <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.icon}}<!----></i>
     {{?}}
     <span class="aurora-button-label">{{=it.label}}</span>
+    </span>
     <div class="aurora-button-ripple"></div>
 </button>

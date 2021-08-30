@@ -36,13 +36,15 @@ export { default as AuroraLink }                from './lib/routes/auroralink.mj
 
 export { default as AuroraTable }               from './lib/table/auroratable.mjs';
 
-
-export { default as AuroraCard}                 from './lib/formcomponents/auroracard.mjs';
+export { default as AuroraAvatar }              from './lib/formcomponents/auroraavatar.mjs';
+export { default as AuroraCard }                from './lib/formcomponents/auroracard.mjs';
 
 export { default as AuroraQRScanner }           from './lib/cameracomponents/auroraqrscanner.mjs';
 
 export { default as AuroraBlueprint }           from './lib/blueprint/layout/aurorablueprint.mjs';
 export { default as AuroraHeader }              from './lib/blueprint/layout/auroraheader.mjs';
+export { default as AuroraFooter }              from './lib/blueprint/layout/aurorafooter.mjs';
+
 export { default as AuroraDrawer }              from './lib/blueprint/layout/auroradrawer.mjs';
 export { default as AuroraContainer }           from './lib/blueprint/layout/auroracontainer.mjs';
 export { default as AuroraSectionSticky }       from './lib/blueprint/layout/aurorasectionsticky.mjs';
@@ -50,6 +52,7 @@ export { default as AuroraView }                from './lib/blueprint/layout/aur
 export { default as AuroraSection }             from './lib/blueprint/layout/aurorasection.mjs';
 
 export { default as AuroraToolbar }             from './lib/formcomponents/auroratoolbar.mjs';
+export { default as AuroraToolbarTitle }        from './lib/formcomponents/auroratoolbartitle.mjs';
 
 // App Classes
 export { default as AuroraApp }                 from './lib/blueprint/auroraapp.mjs';

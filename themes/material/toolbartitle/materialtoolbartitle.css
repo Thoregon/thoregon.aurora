@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+.aurora-toolbar-title {
+    flex: 1 1 0%;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    max-width: 100%;
+    min-width: 1px;
+    padding: 0 12px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+

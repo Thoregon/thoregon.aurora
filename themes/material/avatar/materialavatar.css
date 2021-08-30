@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+.aurora-avatar {
+    font-size: 38px;
+    display: inline-block;
+    height: 1em;
+    position: relative;
+    vertical-align: middle;
+    width: 1em;
+}
+
+.aurora-avatar img {
+    border-radius: inherit;
+    height: inherit;
+    width: inherit;
+}
+
+

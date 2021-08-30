@@ -11,30 +11,14 @@
 import ThemeBehavior            from "../../themebehavior.mjs";
 import { validationLevel }      from "../../../lib/common.mjs";
 
-export default class MaterialDrawer extends ThemeBehavior {
-
+export default class MaterialFooter extends ThemeBehavior {
 
     attach(jar) {
         this.jar = jar;
         this.container = this.jar.container;
 
-        this.drawer = this.container.querySelectorAll('.aurora-drawer')[0];
-
-        this.isDragging = false;
-        this.prev_x     = 0;
-        this.width      = 0;
-
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
-
-        let dragHandle = this.container.querySelectorAll('.drawer-drag-handle');
-   //     dragHandle[0].onmousedown = this.callbackDrag();
-
-        dragHandle[0].addEventListener('mousedown', ( event ) => this.callbackDrag( event, this.container ), false);
-        document.addEventListener('mousemove', ( event ) => this.callbackMove( event, this.container ), false);
-        document.addEventListener('mouseup',   ( event ) => this.callbackDrop( event, this.container ), false);
-
-        /*
-
+/*
         var textfield = this.container.getElementsByClassName("aurora-text-field");
         textfield[0].addEventListener('click', this.callbackClicked, false);
 
@@ -53,28 +37,5 @@ export default class MaterialDrawer extends ThemeBehavior {
         // MDC.MDCRipple.attachTo(inputfield);
     }
 
-    callbackDrag( event, container ) {
-        this.isDragging = true;
-        let handle = event.target;
-        this.prev_x = handle.offsetLeft;
 
-        console.log( this.prev_x );
-    }
-    callbackMove( event, container ) {
-        if ( this.isDragging ) {
-
-            if (event.pageX) {
-                this.width = event.pageX;
-            }
-
-            this.drawer.style.width =  this.width + 'px';
-  
-        }
-
-    }
-    callbackDrop( event, container ) {
-        if ( this.isDragging ) {
-            this.isDragging = false;
-        }
-    }
 }

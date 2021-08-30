@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2021.
+ */
+
+.aurora-footer {
+    z-index: 2000;
+}
+
+.aurora-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.aurora-footer.bordered {
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}

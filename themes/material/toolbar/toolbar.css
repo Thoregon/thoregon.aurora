@@ -1,40 +1,14 @@
 .aurora-toolbar {
+    padding-right: 12px;
+    padding-left: 12px;
     color: var( --primaryTextColor );
-}
-
-.aurora-toolbar-top {
-    background-color: var( --primaryDarkColor );
-    height: 22px;
-    display: flex;
-    justify-content: flex-end;
-}
-.aurora-toolbar-top,
-.aurora-toolbar-middle,
-.aurora-toolbar-bottom {
-    padding-right: 1em;
-    padding-left: 1em;
-}
-
-.aurora-toolbar-indicators { display: flex; align-items: center; }
-.aurora-toolbar-indicators i { font-size: 1em; }
-
-.aurora-toolbar-middle,
-.aurora-toolbar-bottom { background-color: var( --primaryColor ); }
-
-.aurora-toolbar-middle {
-    display: flex;
-    height: 57px;
-    align-items: center;
+    background-color: var( --primaryColor );
+    min-height: 50px;
     font-size: 1.2em;
+    display: flex;
+    align-items: center;
 }
 
-.aurora-toolbar-logo {
-    height: 2em;
-    margin-right: .5em;
-    overflow: hidden;
-}
-.aurora-toolbar-logo img {
-    height: 2em;
-    width: auto;
-}
+
+
 
