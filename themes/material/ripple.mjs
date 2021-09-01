@@ -8,6 +8,7 @@
 export default class Ripple {
 
     constructor( rippleElement ) {
+        if (!rippleElement) return;
         rippleElement.addEventListener("click", (event)=>{
             let rect = rippleElement.getBoundingClientRect();
             let X = event.clientX - rect.left;
