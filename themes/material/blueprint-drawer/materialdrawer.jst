@@ -1,10 +1,11 @@
 <!--
   Copyright (c) 2021.
   -->
-<aside class="aurora-drawer {{= it.classes}}  {{? it.dense }} dense {{?}}" aurora-slot="main"
+<aside class="aurora-drawer {{= it.classes}}  {{? it.dense }} dense {{?}}"
      data-width="{{= it.width}}"
      style="width: {{= it.width}};"
 >
+    <div class="aurora-drawer-container" aurora-slot="main"></div>
     <div class="drawer-drag-handle"></div>
 
 </aside>
