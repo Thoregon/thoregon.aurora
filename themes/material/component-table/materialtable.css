@@ -2,7 +2,13 @@
  * Copyright (c) 2021.
  */
 
+
+:host(aurora-table) {
+    overflow: visible;
+}
+
 .hidden { display: none; }
+
 
 .aurora-sort-icon-wrapper {
     display: inline-block;
@@ -41,6 +47,8 @@ td, th {
     border-bottom: 1px solid #0000001f;
     padding: .4em .5em;
 }
+
+tbody tr:hover { background-color: #f5f5f5; }
 
 .dense td,
 .dense th {

@@ -28,10 +28,6 @@
     flex-grow: 1;
 }
 
-.aurora-listitem-graphictype {
-
-}
-
 .icon-avatar .aurora-listitem-left,
 .image-avatar .aurora-listitem-left { min-width: 48px; }
 .thumbnail .aurora-listitem-left { min-width: 100px; }
@@ -51,6 +47,10 @@
     align-items: center;
     justify-content: center;
     margin-left: 8px;
+}
+
+.aurora-listitem-graphictype.image-avatar {
+    background-color: transparent;
 }
 
 .aurora-listitem-graphictype.icon {

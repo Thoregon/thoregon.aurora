@@ -7,7 +7,6 @@
     padding-left: 1em;
     padding-top: .5em;
     padding-right: .5em;
-    min-height: calc(100vh - 79px);
     box-shadow: 0 1px 1px 0 rgb(66 66 66 / 8%), 0 1px 3px 1px rgb(66 66 66 / 16%);
 }
 
@@ -16,11 +15,20 @@
     padding-right: 0px;
 }
 
-.aurora-drawer {
+.aurora-drawer.fixed-left,
+.aurora-drawer.fixed-right {
+    position: fixed;
+}
+
+.aurora-drawer.absolute-left,
+.aurora-drawer.absolute-right {
     position: absolute;
+}
+
+.aurora-drawer {
     background: #fff;
-    top: 50px;
-    bottom: 50px;
+    top: 0px;
+    bottom: 0px;
     transform: translateX(0px);
 }
 .drawer-drag-handle {
