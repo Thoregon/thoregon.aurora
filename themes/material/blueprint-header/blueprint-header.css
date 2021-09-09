@@ -4,7 +4,10 @@
 
 .aurora-header {
     z-index: 2000;
-    transition: left .12s, right .12s!important;
+}
+
+.aurora-drawer.animate {
+    transition: left 2s, right 2s !important;
 }
 
 .aurora-header.absolute-top,
