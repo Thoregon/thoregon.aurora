@@ -73,5 +73,8 @@ export { default as View }                      from './lib/viewspec/view.mjs';
 
 export { default as UIRouter }                  from './lib/routes/uirouter.mjs';
 
+// Editor
+export { default as EditorJS }                  from './lib/editor/editor.mjs';
+
 // aurora service
 export default new Aurora();
