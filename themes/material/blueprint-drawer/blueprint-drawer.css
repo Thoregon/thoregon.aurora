@@ -11,7 +11,7 @@
 }
 
 .aurora-drawer.animate {
-    transition: transform 2s !important;
+    transition: transform var(--animation-duration, .12s) !important;
 }
 
 .aurora-drawer.dense {
@@ -43,13 +43,13 @@
 
 .drawer-drag-handle {
     height: 100%;
-    width: 2px;
+    width: 3px;
     background-color: transparent;
     position: fixed;
-    right: 0px;
     top: 0px;
-
 }
+.left  .drawer-drag-handle { right: 0px; }
+.right .drawer-drag-handle { left: 0px; }
 
 .drawer-drag-handle:hover {
     cursor: ew-resize;

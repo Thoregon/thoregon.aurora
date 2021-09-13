@@ -6,8 +6,9 @@
     z-index: 2000;
 }
 
-.aurora-drawer.animate {
-    transition: left 2s, right 2s !important;
+.aurora-header.animate {
+    transition: left  var(--animation-duration, .12s),
+                right var(--animation-duration, .12s) !important;
 }
 
 .aurora-header.absolute-top,

@@ -12,3 +12,10 @@
     height: auto;
     padding-left: 30%;
 }
+
+.aurora-blueprint-container.animate {
+    transition: padding-left  var(--animation-duration, .12s),
+                padding-right var(--animation-duration, .12s) !important;
+
+}
+

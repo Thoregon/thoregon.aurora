@@ -58,7 +58,6 @@ export default class MaterialDrawer extends ThemeBehavior {
         let handle = event.target;
         this.prev_x = handle.offsetLeft;
 
-        console.log( this.prev_x );
     }
     callbackMove( event, container ) {
         if ( this.isDragging ) {
@@ -67,8 +66,17 @@ export default class MaterialDrawer extends ThemeBehavior {
                 this.width = event.pageX;
             }
 
-            this.drawer.style.width =  this.width + 'px';
-  
+            let newWidth = this.width;
+            if ( this.drawer.classList.contains('right') ) {
+                  newWidth = window.outerWidth - this.width;
+//                let temp = this.drawer.outerWidth();
+//                debugger;
+            }
+
+            this.drawer.style.width =  newWidth + 'px';
+            this.drawer.setAttribute('data-width', newWidth + 'px');
+
+            this.container.getAuroraBlueprint().adjustBlueprint();
         }
 
     }

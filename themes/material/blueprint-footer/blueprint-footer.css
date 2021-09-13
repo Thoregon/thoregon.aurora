@@ -6,6 +6,11 @@
     z-index: 2000;
 }
 
+.aurora-footer.animate {
+    transition: left  var(--animation-duration, .12s),
+                right var(--animation-duration, .12s) !important;
+}
+
 .aurora-footer.absolute-bottom,
 .aurora-footer.fixed-bottom {
     bottom: 0;
