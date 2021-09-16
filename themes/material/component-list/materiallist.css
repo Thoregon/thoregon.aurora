@@ -3,12 +3,11 @@
  */
 
 
-:host(aurora-table) {
+:host(aurora-list) {
     overflow: visible;
 }
 
 .hidden { display: none; }
-
 
 .aurora-sort-icon-wrapper {
     display: inline-block;
@@ -28,14 +27,14 @@ th.sortable:hover .aurora-sort-icon-wrapper {
     vertical-align: middle;
 }
 
-.aurora-table-wrapper th.left,
-.aurora-table-wrapper td.left { text-align: left;}
+.aurora-list-wrapper th.left,
+.aurora-list-wrapper td.left { text-align: left;}
 
-.aurora-table-wrapper th.right,
-.aurora-table-wrapper td.right { text-align: right;}
+.aurora-list-wrapper th.right,
+.aurora-list-wrapper td.right { text-align: right;}
 
-.aurora-table-wrapper th.center,
-.aurora-table-wrapper td.center { text-align: center;}
+.aurora-list-wrapper th.center,
+.aurora-list-wrapper td.center { text-align: center;}
 
 
 table { border-collapse: collapse; }
@@ -189,4 +188,21 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
 .aurora-table-actions-menu>ul>li:focus,
 .aurora-table-actions-menu>ul>li:hover {
     background-color: #f5f5f5;
+}
+
+/*  GRID  */
+
+.aurora-list-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    padding: 2px;
+}
+
+.aurora-grid-element {
+    overflow: visible;
+    overflow: visible;
+    width: 50%;
+    padding: 4px;
+    box-sizing: border-box;
 }

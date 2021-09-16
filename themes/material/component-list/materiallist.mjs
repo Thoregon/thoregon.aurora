@@ -12,7 +12,7 @@ import ThemeBehavior            from "../../themebehavior.mjs";
 
 import Ripple                   from '../ripple.mjs';
 
-export default class MaterialTable extends ThemeBehavior {
+export default class MaterialList extends ThemeBehavior {
 
     rootElement  = '';
     _pos_wrapper = {};
