@@ -1,0 +1,12 @@
+<!--
+  ~ Copyright (c) 2021.
+  -->
+
+<div class="aurora-tab">
+    {{? it.useiconurl }}
+        <img src="{{=it.icon}}">
+    {{??}}
+        <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.icon}}<!----></i>
+    {{?}}
+    <div>{{=it.label}}</div>
+</div>
