@@ -3,10 +3,14 @@
   -->
 
 <div class="aurora-tab">
-    {{? it.useiconurl }}
-        <img src="{{=it.icon}}">
-    {{??}}
-        <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.icon}}<!----></i>
-    {{?}}
-    <div>{{=it.label}}</div>
+    <div class="aurora-tab-focus-helper"></div>
+    <div class="aurora-tab-content" aurora-slot="main">
+
+        {{? it.useiconurl }}
+            <img src="{{=it.icon}}">
+        {{??}}
+            <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.icon}}<!----></i>
+        {{?}}
+        <div>{{=it.label}}</div>
+    </div>
 </div>
