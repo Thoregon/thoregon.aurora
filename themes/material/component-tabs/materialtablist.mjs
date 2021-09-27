@@ -42,7 +42,7 @@ export default class MaterialTabList extends ThemeBehavior {
 
         let left  = tab.offsetLeft;
         let width = tab.offsetWidth;
-        let height = tab.offsetHeight;
+        let height = tablistwrapper.offsetHeight;
 
         tabindicator.style.top = height + margintop + 'px';
         tabindicator.style.marginLeft = left + 'px';
