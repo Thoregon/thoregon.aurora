@@ -83,7 +83,10 @@ export default Aurora.withElements({
                                         'aurora-tab-container'       : [
                                             './lib/component-tabs/auroratabcontainer.mjs',
                                             './lib/component-tabs/auroratablist.mjs',
-                                            './lib/component-tabs/auroratab.mjs'
+                                            './lib/component-tabs/auroratab.mjs',
+                                            './lib/component-tabs/auroratabpanellist.mjs',
+                                            './lib/component-tabs/auroratabpanel.mjs'
+
                                         ],
                                    });
 // todo [REFACTOR]: AuroraTable doesn't work when dynamically loaded. fix it

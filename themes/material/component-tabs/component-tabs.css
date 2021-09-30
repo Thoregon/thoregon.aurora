@@ -11,22 +11,29 @@
 .aurora-tab.active .logo_thatsmeplus_gloss { fill: #B40E0B;}
 
 /*---- TEST --------*/
+
 .aurora-tab-content svg { width: 3em; }
 .aurora-tab-container-wrapper {
     position: relative;
 }
+.aurora-tab-container {
+    box-shadow: 0 1px 5px rgb(0 0 0 / 20%), 0 2px 2px rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    margin: 5px;
+}
 
 .aurora-tab-list {
     display: flex;
-    margin: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     list-style-type: none;
     -webkit-padding-start: 0;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+ /*   box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%); */
+    border-bottom: 1px solid grey;
     align-items: center;
     padding: .5em 0px;
+    position: relative;
 }
 
 .aurora-tab-list.orientation-horizontal { flex-direction: row; }
@@ -90,4 +97,19 @@ aurora-tab[align="justify"] { flex: 1 1 auto; }
     background: #2196F3;
     -webkit-transition: margin 0.5s ease;
     transition: margin 0.5s ease;
+}
+
+
+.aurora-tab-panel-list {
+    margin: 3px;
+}
+
+.aurora-tab-panel {
+    display: none;
+    padding: 1em;
+    width: 100%;
+    height: 100%;
+}
+.aurora-tab-panel.active {
+    display: block;
 }
