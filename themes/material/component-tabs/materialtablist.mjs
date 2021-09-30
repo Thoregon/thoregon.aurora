@@ -31,11 +31,11 @@ export default class MaterialTabList extends ThemeBehavior {
     }
 
     callbackTabAdded(event, tablist) {
-        event.detail.addEventListener('mousedown', () => this.callbackTabOnMouseDown( this, event.detail ), false);
+        event.detail.addEventListener('mousedown', () => this.callbackTabOnMouseDown( event.detail ), false);
     }
-    callbackTabOnMouseDown( tablist, tab ) {
-        let tabindicator   = tablist.container.querySelector('.aurora-tab-list-indicator');
-        let tablistwrapper = tablist.container.querySelector('.aurora-tab-list');
+    callbackTabOnMouseDown( tab ) {
+        let tabindicator   = this.container.querySelector('.aurora-tab-list-indicator');
+        let tablistwrapper = this.container.querySelector('.aurora-tab-list');
 
         let tabstyle       = getComputedStyle(tablistwrapper);
         let margintop      = parseInt(tabstyle.marginTop);
@@ -48,4 +48,5 @@ export default class MaterialTabList extends ThemeBehavior {
         tabindicator.style.marginLeft = left + 'px';
         tabindicator.style.width = width + 'px';
     }
+
 }

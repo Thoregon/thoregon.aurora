@@ -1,7 +1,12 @@
 ToDo
 ====
 
+- runtime dynamic
+    - add/remove style 
+    - modify content (in slots)
+
 - link triggers multiple views to be displayed
+    - routes.mjs
 
 - breadcrumbs context sensitive
     - 'active' path/view defines current breadcrumbs
