@@ -10,7 +10,9 @@
 .aurora-tab.active .logo_thatsmeplus_bg { fill: #E20613;}
 .aurora-tab.active .logo_thatsmeplus_gloss { fill: #B40E0B;}
 .aurora-tab.active .logo_instagram_bg { fill: #ee1377; }
-
+.aurora-tab.active .logo_signal_bg { fill: #3a76f0; }
+.aurora-tab.active .logo_twitter_bg { fill: #1d9bf0; }
+.aurora-tab.active .logo_sms_bg { fill: #1a8bcc; }
 /*---- TEST --------*/
 
 .aurora-tab-content svg { width: 3em; }
@@ -32,7 +34,7 @@
     list-style-type: none;
     -webkit-padding-start: 0;
  /*   box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%); */
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #aeaeae;
     align-items: center;
     padding: .5em 0px;
     position: relative;
