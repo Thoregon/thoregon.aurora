@@ -37,14 +37,18 @@ export default class MaterialTabList extends ThemeBehavior {
         let tabindicator   = this.container.querySelector('.aurora-tab-list-indicator');
         let tablistwrapper = this.container.querySelector('.aurora-tab-list');
 
-        let tabstyle       = getComputedStyle(tablistwrapper);
-        let margintop      = parseInt(tabstyle.marginTop);
+        let tabstyle        = getComputedStyle(tablistwrapper);
+        let indicatorstyle  = getComputedStyle(tabindicator);
+        let margintop       = parseInt(tabstyle.marginTop);
+        let indicatorheight = parseInt(indicatorstyle.height);
 
-        let left  = tab.offsetLeft;
+        let heightcorrection = parseInt( ( indicatorheight + 1 ) /2 );
+
+                let left  = tab.offsetLeft;
         let width = tab.offsetWidth;
         let height = tablistwrapper.offsetHeight;
 
-        tabindicator.style.top = height + margintop + 'px';
+        tabindicator.style.top = height + margintop - heightcorrection + 'px';
         tabindicator.style.marginLeft = left + 'px';
         tabindicator.style.width = width + 'px';
     }

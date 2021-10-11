@@ -3,18 +3,6 @@
  */
 
 
-/*---- TEST --------*/
-.aurora-tab.active .logo_telegram_bg { fill: #0088cc;}
-.aurora-tab.active .logo_whatsapp_bg { fill: #25d366;}
-.aurora-tab.active .logo_facebook-messenger_bg { fill: url(#radialGradient-1) }
-.aurora-tab.active .logo_thatsmeplus_bg { fill: #E20613;}
-.aurora-tab.active .logo_thatsmeplus_gloss { fill: #B40E0B;}
-.aurora-tab.active .logo_instagram_bg { fill: #ee1377; }
-.aurora-tab.active .logo_signal_bg { fill: #3a76f0; }
-.aurora-tab.active .logo_twitter_bg { fill: #1d9bf0; }
-.aurora-tab.active .logo_sms_bg { fill: #1a8bcc; }
-/*---- TEST --------*/
-
 .aurora-tab-content svg { width: 3em; }
 .aurora-tab-container-wrapper {
     position: relative;
