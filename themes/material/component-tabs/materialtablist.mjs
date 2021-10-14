@@ -34,6 +34,9 @@ export default class MaterialTabList extends ThemeBehavior {
         event.detail.addEventListener('mousedown', () => this.callbackTabOnMouseDown( event.detail ), false);
     }
     callbackTabOnMouseDown( tab ) {
+
+        if ( tab.hasAttribute('disabled') ) return;
+
         let tabindicator   = this.container.querySelector('.aurora-tab-list-indicator');
         let tablistwrapper = this.container.querySelector('.aurora-tab-list');
 

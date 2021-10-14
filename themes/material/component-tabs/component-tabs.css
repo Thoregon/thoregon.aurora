@@ -82,6 +82,10 @@ aurora-tab[align="justify"] { flex: 1 1 auto; }
   //  background-color: red;
 }
 
+.aurora-tab.disabled {
+    pointer-events: none;
+}
+
 .aurora-tab-list-indicator {
     position: absolute;
     bottom: 0px;
