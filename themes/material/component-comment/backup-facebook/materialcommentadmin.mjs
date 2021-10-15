@@ -164,7 +164,7 @@ export default class MaterialcommentAdmin extends MaterialComment01 {
     visElemContReactions() {
 
         let reactions     = this.jar.viewModel.reactions;
-        let givenreaction = this.jar.viewModel.containsReaction(universe.identity, 'like');
+        let givenreaction = this.jar.viewModel.containsReaction(me, 'like');
         let elements      = this.container.querySelectorAll(".aurora-comment-feedback-likes");
         let visible       = reactions.length > 0;
 

@@ -186,7 +186,7 @@ export default class MaterialComment01 extends ThemeBehavior {
     visElemContReactions() {
 
         let reactions     = this.jar.hasReactions();
-        let givenreaction = this.jar.viewModel.containsReaction(universe.identity, 'like');
+        let givenreaction = this.jar.viewModel.containsReaction(me, 'like');
         let elements      = this.container.querySelectorAll(".aurora-comment-feedback-likes");
         let visible       = reactions;
 
@@ -278,7 +278,7 @@ export default class MaterialComment01 extends ThemeBehavior {
     }
 
     isAdministrator() {
-        return universe.identity && universe.identity.alias === 'Theresa / Pioneers of Change';
+        return me && me.alias === 'Theresa / Pioneers of Change';
     }
 
 }
