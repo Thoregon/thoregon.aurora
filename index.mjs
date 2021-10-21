@@ -60,6 +60,7 @@ export default Aurora.withElements({
                                         'aurora-avatar'              : './lib/formcomponents/auroraavatar.mjs',
                                         'aurora-button'              : './lib/formcomponents/aurorabutton.mjs',
                                         'aurora-card'                : './lib/formcomponents/auroracard.mjs',
+                                        'aurora-qrcode'              : './lib/qrcode/auroraqrcode.mjs',
                                         'aurora-chatentrybox'        : './lib/formcomponents/aurorachatentrybox.mjs',
                                         'aurora-chatmessage'         : './lib/formcomponents/aurorachatmessage.mjs',
                                         'aurora-checkbox'            : './lib/formcomponents/auroracheckbox.mjs',

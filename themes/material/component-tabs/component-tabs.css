@@ -12,7 +12,13 @@
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
     box-sizing: border-box;
     margin: 5px;
+    display: flex;
 }
+
+.aurora-tab-container.orientation-top { flex-direction: column; }
+.aurora-tab-container.orientation-bottom { flex-direction: column-reverse; }
+.aurora-tab-container.orientation-left { flex-direction: row; }
+.aurora-tab-container.orientation-right { flex-direction: row-reverse; }
 
 .aurora-tab-list {
     display: flex;
@@ -28,8 +34,11 @@
     position: relative;
 }
 
-.aurora-tab-list.orientation-horizontal { flex-direction: row; }
-.aurora-tab-list.orientation-vertical { flex-direction: column; }
+.aurora-tab-list.orientation-top    .aurora-tab-list-tabs,
+.aurora-tab-list.orientation-bottom .aurora-tab-list-tabs { display: flex; flex-direction: row; }
+
+.aurora-tab-list.orientation-left  .aurora-tab-list-tabs,
+.aurora-tab-list.orientation-right .aurora-tab-list-tabs  { display: flex; flex-direction: column; }
 
 
 .aurora-tab-list.align-center { justify-content: center; }
@@ -95,6 +104,12 @@ aurora-tab[align="justify"] { flex: 1 1 auto; }
     transition: margin 0.5s ease;
 }
 
+.aurora-tab-list.orientation-left .aurora-tab-list-indicator,
+.aurora-tab-list.orientation-right .aurora-tab-list-indicator  {
+    width: 3px;
+    -webkit-transition: top 0.5s ease;
+    transition: top 0.5s ease;
+}
 
 .aurora-tab-panel-list {
     margin: 3px;
