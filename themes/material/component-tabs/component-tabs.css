@@ -2,6 +2,10 @@
  * Copyright (c) 2021.
  */
 
+aurora-tab-panel-list {
+    width: 100%;
+}
+
 
 .aurora-tab-content svg { width: 3em; }
 .aurora-tab-container-wrapper {
