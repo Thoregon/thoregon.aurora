@@ -190,6 +190,30 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     background-color: #f5f5f5;
 }
 
+.aurora-table-actions-container {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 1px solid red;
+    height: 1em;
+    width: 2em;
+
+    position: absolute;
+    right: 0px;
+    top: -14px;
+    padding: 3px 6px;
+    border-radius: 6px;
+    border: 1px solid #DFE5EB;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.12);
+    background: white;
+
+}
+
+tbody tr:hover .aurora-table-actions-container {
+    display: initial;
+}
+
 /*  GRID  */
 
 .aurora-list-grid {
