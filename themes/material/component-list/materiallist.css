@@ -91,6 +91,7 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     display: inline-block;
     position: relative;
     margin-right: 1em;
+    min-height: 1em;
 }
 
 .aurora-table-actions-trigger {
@@ -196,9 +197,7 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     top: 0px;
     right: 0px;
     border: 1px solid red;
-    height: 1em;
-    width: 2em;
-
+    font-size: 1em;
     position: absolute;
     right: 0px;
     top: -14px;
@@ -207,7 +206,39 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     border: 1px solid #DFE5EB;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.12);
     background: white;
+}
 
+.aurora-table-actions-container ul {
+    display: flex;
+    list-style: none;
+}
+
+.aurora-table-actions-container ul li {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #a0a4a8;
+}
+
+.aurora-table-actions-container ul li .material-icons {
+    font-size: 1em;
+}
+
+.aurora-table-actions-container ul li .material-icons:hover {
+    color:  var( --secondaryColor ,#1a75d2 );
+    cursor: pointer;
+}
+
+.aurora-table-actions-container .aurora-table-action:after {
+    content: '|';
+    margin-left: 6px;
+    margin-right: 6px;
+    font-weight: 200;
+}
+
+.aurora-table-actions-container .aurora-table-action:last-of-type::after  {
+    content: '';
+    margin: 0px;
 }
 
 tbody tr:hover .aurora-table-actions-container {
