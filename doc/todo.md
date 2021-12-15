@@ -1,6 +1,11 @@
 ToDo
 ====
 
+- view for function with parameters (API)
+    - Generic Object containing params (with defaults)
+    - or Instance from specified Class
+    - actions: run, verify, reserve?
+
 - runtime dynamic
     - add/remove style 
     - modify content (in slots)
