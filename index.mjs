@@ -30,9 +30,11 @@ export { ValidationMethodEmpty }                from './lib/validation/validatio
 export { ValidationMethodRequired }             from './lib/validation/validation.mjs'
 
 // Views
-export { default as ViewModel }                 from './lib/viewmodel/viewmodel.mjs';
-export { default as CollectionViewModel }       from './lib/viewmodel/collectionviewmodel.mjs';
 export { default as View }                      from './lib/viewspec/view.mjs';
+export { default as ViewModel }                 from './lib/viewmodel/viewmodel.mjs';
+export { default as ListItemViewModel }         from './lib/viewmodel/listitemviewmodel.mjs';
+
+// export { default as CollectionViewModel }       from './lib/viewmodel/collectionviewmodel.mjs';
 
 export { default as UIRouter }                  from './lib/routes/uirouter.mjs';
 
