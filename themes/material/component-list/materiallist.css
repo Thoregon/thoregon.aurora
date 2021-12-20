@@ -74,6 +74,10 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     transform: rotate(180deg);
 }
 
+tr.active {
+    background: red;
+}
+
 .aurora-sort-icon-wrapper {
     width: 1em;
     height: 1em;
@@ -83,9 +87,8 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  <path    fill="black" d="M 13 20 H 11 V 8 L 5.5 13.5 L 4.1 12.1 L 12 4.2 L 19.9 12.1 L 18.5 13.5 L 13 8 V 20 Z"/></svg>');
 }
 
-/*  ACTIONS */
-
-
+/*
+!*  ACTIONS *!
 
 .aurora-table-actions {
     display: inline-block;
@@ -129,7 +132,7 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     border: 1px solid #e2e4e7;
-    /* border: 1px solid rgba(0, 0, 0, .15); */
+    !* border: 1px solid rgba(0, 0, 0, .15); *!
     border-radius: 8px;
     -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
     box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
@@ -244,6 +247,7 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
 tbody tr:hover .aurora-table-actions-container {
     display: initial;
 }
+*/
 
 /*  GRID  */
 

@@ -25,4 +25,13 @@ export default class MaterialActions extends ThemeBehavior {
         new Ripple( this.container.querySelector('.aurora-listitem-ripple'));
     }
 
+    connectActions() {
+        let trigger = this.container.querySelector('.aurora-table-actions-trigger');
+        trigger.addEventListener('click', (event) => this.callbackClickActionMenuTrigger(event, trigger ), false);
+    }
+
+    callbackClickActionMenuTrigger() {
+        let trigger = this.container.querySelector('.aurora-table-actions-menu');
+        trigger.classList.toggle('active');
+    }
 }
