@@ -58,7 +58,7 @@ export default Aurora.withElements({
                                         'aurora-section'             : './lib/blueprint/layout/aurorasection.mjs',
                                         'aurora-section-sticky'      : './lib/blueprint/layout/aurorasectionsticky.mjs',
                                         'aurora-qrscanner'           : './lib/cameracomponents/auroraqrscanner.mjs',
-                                        'aurora-actions'             : './lib/component-actions/auroraactions.mjs',
+                                        //'aurora-actions'             : './lib/component-actions/auroraactions.mjs',
                                         'aurora-collectionitem'      : './lib/collection/auroracollectionitem.mjs',
                                         'aurora-avatar'              : './lib/formcomponents/auroraavatar.mjs',
                                         'aurora-button'              : './lib/formcomponents/aurorabutton.mjs',
@@ -95,6 +95,7 @@ export default Aurora.withElements({
                                    });
 // todo [REFACTOR]: AuroraTable doesn't work when dynamically loaded. fix it
 export { default as AuroraList }               from './lib/component-list/auroralist.mjs';
+export { default as AuroraActions }            from './lib/component-actions/auroraactions.mjs';
 
 /*
 export { default as AuroraTextField }           from './lib/formcomponents/auroratextfield.mjs';

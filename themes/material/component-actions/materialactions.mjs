@@ -27,7 +27,7 @@ export default class MaterialActions extends ThemeBehavior {
 
     connectActions() {
         let trigger = this.container.querySelector('.aurora-table-actions-trigger');
-        trigger.addEventListener('click', (event) => this.callbackClickActionMenuTrigger(event, trigger ), false);
+        trigger?.addEventListener('click', (event) => this.callbackClickActionMenuTrigger(event, trigger ), false);
     }
 
     callbackClickActionMenuTrigger() {
