@@ -166,6 +166,6 @@
     margin: 0px;
 }
 
-tbody tr:hover .aurora-table-actions-container {
+.visible-on .aurora-table-actions-container {
     display: initial;
 }

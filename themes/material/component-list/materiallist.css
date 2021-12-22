@@ -74,8 +74,9 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
     transform: rotate(180deg);
 }
 
-tr.active {
-    background: red;
+tr.active,
+tr:hover.active {
+    background: #e3e1e1;
 }
 
 .aurora-sort-icon-wrapper {
