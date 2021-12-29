@@ -76,7 +76,7 @@ th.sortable.sort-desc .aurora-sort-icon-wrapper {
 
 tr.active,
 tr:hover.active {
-    background: #e3e1e1;
+    background: rgba(0,0,0,.06);
 }
 
 .aurora-sort-icon-wrapper {

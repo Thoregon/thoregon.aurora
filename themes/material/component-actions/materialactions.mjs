@@ -26,12 +26,12 @@ export default class MaterialActions extends ThemeBehavior {
     }
 
     connectActions() {
-        let trigger = this.container.querySelector('.aurora-table-actions-trigger');
+        let trigger = this.container.querySelector('.aurora-actions-trigger');
         trigger?.addEventListener('click', (event) => this.callbackClickActionMenuTrigger(event, trigger ), false);
     }
 
     callbackClickActionMenuTrigger() {
-        let trigger = this.container.querySelector('.aurora-table-actions-menu');
+        let trigger = this.container.querySelector('.aurora-actions-menu');
         trigger.classList.toggle('active');
     }
 }
