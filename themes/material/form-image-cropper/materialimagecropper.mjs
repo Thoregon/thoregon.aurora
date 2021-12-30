@@ -82,6 +82,7 @@ export default class MaterialImageCropper {
     }
 
     showFileDialog() {
+        if (this.slim.data?.input?.name) return ;
         return this.slim._openFileDialog();
     }
 
