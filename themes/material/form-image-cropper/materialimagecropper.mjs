@@ -64,6 +64,25 @@ export default class MaterialImageCropper {
                 userId:'1234'
             }
         });
+
+/*
+        this.observer = new IntersectionObserver((entries, observer) => {
+            if (entries.length === 0) return ;
+            const entry = entries[0];
+            if (!entry.isIntersecting) return ;
+            // console.log("cropper visible");
+        }, {
+            root: this.container,
+            rootMargin: '0px',
+            threshold: 1.0
+        } );
+
+        this.observer.observe(elem);
+*/
+    }
+
+    showFileDialog() {
+        return this.slim._openFileDialog();
     }
 
     valueChanged( value ) {
