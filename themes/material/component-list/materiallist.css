@@ -259,6 +259,10 @@ tbody tr:hover .aurora-table-actions-container {
     padding: 2px;
 }
 
+.aurora-list-grid.fullwidth div {
+    width: 100%;
+}
+
 .aurora-grid-element {
     overflow: visible;
     overflow: visible;

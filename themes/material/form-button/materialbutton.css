@@ -31,7 +31,6 @@
     letter-spacing:.0892857143em;
     text-decoration:none;
     text-transform:uppercase;
-    padding:0 8px 0 8px;
     display:inline-flex;
     position:relative;
     align-items:center;
@@ -84,6 +83,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    padding:0 8px 0 8px;
 }
 
 .aurora-button.round {
