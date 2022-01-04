@@ -12,11 +12,6 @@ export default class MaterialFloatingActionButton extends ThemeBehavior {
 
     rootElement = '';
 
-    triggerTest() {
-        alert('Habe dich!');
-    }
-
-
     attach(jar) {
         this.jar = jar;
         this.container = this.jar.container;
