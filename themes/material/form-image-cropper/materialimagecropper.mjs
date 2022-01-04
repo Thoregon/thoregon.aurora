@@ -65,6 +65,8 @@ export default class MaterialImageCropper {
             }
         });
 
+        this.slim.delegate = this;
+
 /*
         this.observer = new IntersectionObserver((entries, observer) => {
             if (entries.length === 0) return ;
@@ -81,9 +83,21 @@ export default class MaterialImageCropper {
 */
     }
 
+    imageLoaded() {
+        this.jar.imageLoaded();
+    }
+
     showFileDialog() {
         if (this.slim.data?.input?.name) return ;
         return this.slim._openFileDialog();
+    }
+
+    get imageDescriptor() {
+        return this.slim.dataBase64?.output;
+    }
+
+    set imageDescriptor(imageDescriptor) {
+
     }
 
     valueChanged( value ) {
