@@ -50,4 +50,8 @@ export default class MaterialPinCode extends ThemeBehavior {
             console.log("code filled");
         }
     }
+
+    actionnext() {
+        alert('hab dich...');
+    }
 }
