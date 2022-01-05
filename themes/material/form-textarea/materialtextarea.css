@@ -23,7 +23,7 @@
     box-sizing: border-box;
     overflow: hidden;
     will-change: opacity,transform,color;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .aurora-floating-label {
@@ -167,7 +167,7 @@
 .aurora-textarea .aurora-floating-label {
     left: 16px;
     right: initial;
-    top: 40px;
+    top: 30px;
     transform: translateY(-50%);
     pointer-events: none;
 }

@@ -154,7 +154,7 @@
 }
 
 .aurora-text-field-container:not(.disabled) .aurora-text-field .aurora-text-field-input:focus {
-    border-bottom-color: var(--aurora-focused-col, #1a75d2);
+    border-bottom-color: var(--secondaryColor, #1a75d2);
 }
 
 .aurora-text-field-container:not(.disabled).error .aurora-text-field .aurora-text-field-input {
@@ -162,7 +162,7 @@
 }
 
 .aurora-text-field .aurora-text-field-input {
-    caret-color: var(--aurora-focused-col, #1a75d2);
+    caret-color: var(--secondaryColor, #1a75d2);
 }
 
 .aurora-text-field .aurora-floating-label {
@@ -199,7 +199,7 @@
 
 .aurora-text-field.focused .aurora-line-ripple {
     opacity: 1;
-    background-color: var(--aurora-focused-col, #1a75d2);
+    background-color: var( --secondaryColor ,#1a75d2 );
 }
 
 .aurora-line-ripple {
@@ -261,14 +261,14 @@
 
 .focused .aurora-text-field-input,
 .aurora-text-field .aurora-text-field-input {
-    caret-color: var(--aurora-focused-col, #1a75d2);
+    caret-color: var(--secondaryColor, #1a75d2);
 }
 
 .aurora-text-field:not(.disabled) .aurora-floating-label { color: rgba(0,0,0,.6); }
 .error .aurora-text-field:not(.disabled) .aurora-floating-label { color: var(--aurora-error-col, #cc0b0f) }
 
 .aurora-text-field.focused:not(.disabled) .aurora-floating-label {
-    color: var(--aurora-focused-col, #1a75d2);
+    color: var(--secondaryColor, #1a75d2);
 }
 
 .error .aurora-text-field.focused:not(.disabled) .aurora-floating-label {

@@ -40,7 +40,7 @@
 .aurora-actions-menu {
     position: absolute;
     top: 2em;
-    right: -1em;
+    right: -0.5em;
     z-index: 1000;
     float: left;
     min-width: 160px;
@@ -65,7 +65,7 @@
     content: "";
     display: block;
     position: absolute;
-    right: 21px;
+    right: 15px;
     top: 9px;
     border-top: 1px solid rgba(0, 0, 0, .15);
     border-right: 1px solid rgba(0, 0, 0, .15);
