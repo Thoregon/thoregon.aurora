@@ -34,7 +34,7 @@
     border-right: transparent !important;
     border-left: transparent !important;
     border-top: transparent !important;
-    border-color: var(--p);
+    border-color: var( --secondaryColor );
     animation: border-pulsate 1.5s infinite;
     -webkit-tap-highlight-color: transparent;
 }
