@@ -12,11 +12,13 @@ import Ripple                   from '../ripple.mjs';
 
 export default class MaterialPinCode extends ThemeBehavior {
 
-    rootElement = '';
+
+
 
     attach(jar) {
         this.jar = jar;
         this.container = this.jar.container;
+        this._code = '';
 
         const inputElements = [...this.container.querySelectorAll('input.aurora-pin-digit')];
 
@@ -41,17 +43,19 @@ export default class MaterialPinCode extends ThemeBehavior {
         new Ripple( this.container.querySelector('.aurora-button-ripple'));
     }
 
+    get code() {
+        return this._code;
+    }
+    set code( code ) {}
+
     checkAndNotify( inputElements ) {
-        let code = inputElements
+        this._code = inputElements
             .map(({value})=>value)
             .join('');
 
-        if ( code.length === inputElements.length ) {
-            console.log("code filled");
+        if ( this._code.length === inputElements.length ) {
+            this.jar.codeFilled();
         }
     }
 
-    actionnext() {
-        alert('hab dich...');
-    }
 }
