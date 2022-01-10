@@ -12,9 +12,6 @@ import Ripple                   from '../ripple.mjs';
 
 export default class MaterialPinCode extends ThemeBehavior {
 
-
-
-
     attach(jar) {
         this.jar = jar;
         this.container = this.jar.container;
@@ -46,7 +43,9 @@ export default class MaterialPinCode extends ThemeBehavior {
     get code() {
         return this._code;
     }
-    set code( code ) {}
+    set code( code ) {
+        this._code = code;
+    }
 
     checkAndNotify( inputElements ) {
         this._code = inputElements
