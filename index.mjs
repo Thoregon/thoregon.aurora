@@ -60,6 +60,7 @@ export default Aurora.withElements({
                                         'aurora-qrscanner'           : './lib/cameracomponents/auroraqrscanner.mjs',
                                         //'aurora-actions'             : './lib/component-actions/auroraactions.mjs',
                                         'aurora-collectionitem'      : './lib/collection/auroracollectionitem.mjs',
+                                        'aurora-alert'               : './lib/component-alert/auroraalert.mjs',
                                         'aurora-avatar'              : './lib/formcomponents/auroraavatar.mjs',
                                         'aurora-button'              : './lib/formcomponents/aurorabutton.mjs',
                                         'aurora-card'                : './lib/formcomponents/auroracard.mjs',
