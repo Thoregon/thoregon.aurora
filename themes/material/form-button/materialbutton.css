@@ -195,3 +195,7 @@
     vertical-align: top;
 }
 
+.aurora-button:not(:disabled).color-negative {
+    background-color: var( --errorColor ,#1a75d2 );
+    color: var( --errorTextColor ,#fff );
+}

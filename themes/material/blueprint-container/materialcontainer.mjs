@@ -13,6 +13,7 @@ export default class MaterialContainer extends ThemeBehavior {
     attach(jar) {
         this.jar       = jar;
         this.container = this.jar.container;
+       // window.addEventListener('resize',   ( event ) => this.callbackResize( event, this.container ), false);
     }
 
 }
