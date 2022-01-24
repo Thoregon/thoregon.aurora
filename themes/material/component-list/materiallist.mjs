@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021.
+ * Copyright (c) 2022.
  */
 
 /**
@@ -23,6 +23,7 @@ export default class MaterialList extends ThemeBehavior {
         this.container = this.jar.container;
 
         this._pos_wrapper = this.container.getBoundingClientRect();
+        //---
 
         let rowheaders = this.container.querySelectorAll("th.sortable");
         let actiontriggers = this.container.querySelectorAll(".aurora-table-actions-trigger");
