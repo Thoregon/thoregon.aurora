@@ -51,17 +51,19 @@ export default class MaterialImageCropper {
                 width:  dimension[0] || 100,
                 height: dimension[1] || 100
             },
-            service: async () => await this.jar.save(),
-            fetcher: async () => await this.jar.fetch(),
+            service: async (...args) => await this.jar.save(...args),
+            fetcher: async (...args) => await this.jar.fetch(...args),
             download: false,
-     //       push: true,
+            push: true,
             willSave: function(data, ready) {
                 ready(data);
             },
+        //    willRemove: async ( data, ready ) => await this.jar.remove( data, ready ),
             label: label,
             buttonConfirmLabel: 'Ok',
             meta: {
-                userId:'1234'
+                userId:'1234',
+                ufd: 'martin'
             }
         });
 
@@ -82,6 +84,11 @@ export default class MaterialImageCropper {
         this.observer.observe(elem);
 */
     }
+
+    testEvents() {
+        alert('hab dich...');
+    }
+
 
     imageLoaded() {
         this.jar.imageLoaded();
