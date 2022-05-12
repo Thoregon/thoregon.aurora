@@ -10,7 +10,7 @@
 }
 
 .aurora-textarea-container:not(.disabled) .aurora-textarea {
-    background-color: #f5f5f5;
+    background-color: var( --md-sys-color-surface );
 }
 
 
@@ -72,6 +72,7 @@
     -moz-appearance: none;
     appearance: none;
     resize: vertical;
+    color: var( --md-sys-color-on-surface );
 }
 
 .aurora-textarea-container:not(.disabled) .aurora-textarea .aurora-textarea-input:hover {
@@ -153,7 +154,7 @@
 }
 
 .aurora-textarea-container:not(.disabled) .aurora-textarea .aurora-textarea-input:focus {
-    background-bottom-color: var( --secondaryColor ,#1a75d2 );
+    background-bottom-color: var( --md-sys-color-primary );
 }
 
 .aurora-textarea-container:not(.disabled).error .aurora-textarea .aurora-textarea-input {
@@ -207,7 +208,7 @@
     transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     z-index: 2;
-    background-color: var( --secondaryColor ,#1a75d2 );
+    background-color: var( --md-sys-color-primary );
 
 }
 
@@ -257,13 +258,15 @@
 
 .focused .aurora-textarea-input,
 .aurora-textarea .aurora-textarea-input {
-    caret-color: var( --secondaryColor ,#1a75d2 );
+    caret-color: var( --md-sys-color-primary );
 }
-.aurora-textarea:not(.disabled) .aurora-floating-label { color: rgba(0,0,0,.6); }
+.aurora-text-field:not(.disabled) .aurora-floating-label {
+    color: var( --md-sys-color-on-surface );
+}
 .error .aurora-textarea:not(.disabled) .aurora-floating-label { color: var(--aurora-error-col, #cc0b0f) }
 
 .aurora-textarea.focused:not(.disabled) .aurora-floating-label {
-    color: var( --secondaryColor ,#1a75d2 );
+    color: var( --md-sys-color-primary );
 }
 
 .error .aurora-textarea.focused:not(.disabled) .aurora-floating-label {
@@ -398,8 +401,25 @@
 
 .aurora-textarea.focused .aurora-line-ripple {
     opacity: 1;
-    background-color: var( --secondaryColor ,#1a75d2 );
+    background-color: var( --md-sys-color-primary );
 }
+
+/* elevation level */
+
+.elevation {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    background: var( --md-sys-color-primary );
+    z-index: -1;
+}
+
+.elevation.level1 { opacity: .05; }
+.elevation.level2 { opacity: .08; }
+.elevation.level3 { opacity: .11; }
+.elevation.level4 { opacity: .12; }
+.elevation.level5 { opacity: .14; }
 
 
 /*

@@ -86,13 +86,13 @@
 /* Checked, Indeterminate */
 .aurora-checkbox > input:checked,
 .aurora-checkbox > input:indeterminate {
-    background-color: var(--secondaryColor);
+    background-color: var( --md-sys-color-primary );
 }
 
 .aurora-checkbox > input:checked + span::before,
 .aurora-checkbox > input:indeterminate + span::before {
-    border-color: var( --secondaryColor );
-    background-color: var( --secondaryColor );
+    border-color: var(  --md-sys-color-primary  );
+    background-color: var(  --md-sys-color-primary  );
 }
 
 .aurora-checkbox > input:checked + span::after,

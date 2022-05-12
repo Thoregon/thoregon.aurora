@@ -1,0 +1,77 @@
+
+/**
+   BUTTON
+ */
+
+:host(aurora-button) {
+    overflow: visible;
+}
+
+.aurora-buttongroup-wrapper { position: relative; }
+
+.aurora-buttongroup {
+    display: flex;
+}
+
+.aurora-buttongroup input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.aurora-buttongroup.orientation-horizontal { flex-direction: row; }
+.aurora-buttongroup.orientation-vertical   { flex-direction: column; }
+
+.aurora-buttongroup.align-left    { justify-content: left; }
+.aurora-buttongroup.align-right   { justify-content: right; }
+.aurora-buttongroup.align-justify { justify-content: space-around; }
+.aurora-buttongroup.align-center  { justify-content: center; }
+
+
+.aurora-buttongroup-button label {
+    height: 40px;
+    border: 1px solid red;
+    padding: 0 24px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0 24px;
+    transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+    border: 1px solid var( --md-sys-color-outline );
+    background: white;
+    cursor: pointer;
+    display: flex;
+}
+
+.aurora-buttongroup-button label i {
+    line-height: 40px;
+    margin-right: 8px;
+    font-size: 18px;
+    vertical-align: middle;
+    display: none;
+}
+
+.aurora-buttongroup input[type="radio"]:checked+label .material-icons {
+    display: block;
+}
+
+.aurora-buttongroup input[type="radio"]:checked+label {
+    background-color: var( --md-sys-color-secondary-container );
+    color: var( --md-sys-color-on-secondary-container );
+}
+
+.aurora-buttongroup:hover input[type="radio"]:checked+label,
+.aurora-buttongroup:focus input[type="radio"]:checked+label {
+    /* hover and focus selector */
+}
+
+
+.aurora-buttongroup .aurora-buttongroup-button:last-child label {
+    margin-left: -1px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.aurora-buttongroup .aurora-buttongroup-button:first-child label {
+    margin-right: -1px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
