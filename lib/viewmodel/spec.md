@@ -57,6 +57,11 @@ Arbitrary properties can be defined and accessed to use it for view control.
         eval to get a value
     - aurora-value
         eval to get a value
+    - aurora-intersect
+        - :enter, :leave 
+        - .once, .half, .full, .when:<percentage>, 
+    - aurora-mask
+        define a mask for the input field e.g. phonenumber, IBAN, ...
     - aurora-if
         eval to get a result, lazy init -> first add to dom only when true  (should remove from DOM?)
     - aurora-ifnot 
