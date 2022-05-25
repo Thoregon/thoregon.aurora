@@ -1,3 +1,13 @@
+Refactorings
+============
+
+- reusable styles
+    - chrome: adoptedStyleSheets    -> https://web.dev/constructable-stylesheets/
+
+- remove viewmodel from AuroraElement
+- introdice viewmodel on View (lib/blueprint/layout/view.mjs)
+
+
 ToDo
 ====
 
