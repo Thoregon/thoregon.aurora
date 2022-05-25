@@ -1,8 +1,8 @@
 .aurora-toolbar {
     padding-right: 12px;
     padding-left: 12px;
-    color: var( --primaryTextColor );
-    background-color: var( --primaryColor );
+    color: var( --md-sys-color-on-surface );
+    background-color: var( --md-sys-color-surface );
     min-height: 50px;
     font-size: 1.2em;
     display: flex;
@@ -11,6 +11,24 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/* elevation level */
+
+.elevation {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background: var( --md-sys-color-primary );
+ /*   z-index: -1; */
+}
+
+.elevation.level1 { opacity: .05; }
+.elevation.level2 { opacity: .08; }
+.elevation.level3 { opacity: .11; }
+.elevation.level4 { opacity: .12; }
+.elevation.level5 { opacity: .14; }
 
 
 

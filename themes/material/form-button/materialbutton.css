@@ -55,7 +55,7 @@
 }
 
 .aurora-button.flat:not(:disabled) {
-    color: var(--secondaryColor, #1a75d2);
+    color: var(--md-sys-color-primary, #1a75d2);
     box-shadow: none;
     background-color: transparent;
 }
@@ -71,7 +71,7 @@
     width: 100%;
 }
 .aurora-button.flat .aurora-button-label:not(:disabled) {
-    color: var( --secondaryColor ,#1a75d2 );
+    color: var( --md-sys-color-primary ,#1a75d2 );
 }
 
 .aurora-button.flat:hover .aurora-button-focus-helper:not(:disabled) {
@@ -128,8 +128,8 @@
 }
 
 .aurora-button:not(:disabled) {
-    background-color: var( --secondaryColor ,#1a75d2 );
-    color: var( --secondaryTextColor ,#fff );
+    background-color: var( --md-sys-color-primary ,#1a75d2 );
+    color: var( --md-sys-color-on-primary ,#fff );
 }
 
 .aurora-button .aurora-button-ripple {

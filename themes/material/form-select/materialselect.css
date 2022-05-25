@@ -400,6 +400,25 @@
 }
 
 
+/* elevation level */
+
+.elevation {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    background: var( --md-sys-color-primary );
+    z-index: -1;
+}
+
+.elevation.level1 { opacity: .05; }
+.elevation.level2 { opacity: .08; }
+.elevation.level3 { opacity: .11; }
+.elevation.level4 { opacity: .12; }
+.elevation.level5 { opacity: .14; }
+
+.aurora-text-field:hover .elevation { opacity: .08; }
+
 
 /*
  RIPPLE effect
