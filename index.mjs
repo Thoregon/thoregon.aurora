@@ -10,14 +10,20 @@ import ModelObject                          from "./lib/viewmodel/delegate/model
 import ModelCollection                      from "./lib/viewmodel/delegate/modelcollection.mjs";
 
 // UI Elements always needed
-export { default as ThemeBehavior }             from './themes/themebehavior.mjs';
 export { default as AuroraElement }             from './lib/auroraelement.mjs';
+export { default as ThemeBehavior }             from './themes/themebehavior.mjs';
 export { default as AuroraBlueprint }           from './lib/blueprint/layout/aurorablueprint.mjs';
 export { default as AuroraHeader }              from './lib/blueprint/layout/auroraheader.mjs';
 export { default as AuroraFooter }              from './lib/blueprint/layout/aurorafooter.mjs';
 export { default as AuroraDrawer }              from './lib/blueprint/layout/auroradrawer.mjs';
 export { default as AuroraContainer }           from './lib/blueprint/layout/auroracontainer.mjs';
 export { default as AuroraView }                from './lib/blueprint/layout/auroraview.mjs';
+
+// aurora attributes
+export { default as AuroraAttribute }           from './lib/auroraattributes/auroraattribute.mjs';
+export { default as AuroraAttributeName }       from './lib/auroraattributes/auroraattributename.mjs';
+export { default as AuroraAttributeAction   }   from './lib/auroraattributes/auroraattributeaction.mjs';
+export { default as AuroraAttributeBind   }     from './lib/auroraattributes/auroraattributebind.mjs';
 
 // App Classes
 export { default as AuroraApp }                 from './lib/blueprint/auroraapp.mjs';
