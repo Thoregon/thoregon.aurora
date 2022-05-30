@@ -444,7 +444,9 @@
     overflow: visible;
 }
 .q-outlined .focused .aurora-select-input { padding: 19px 15px 5px; }
-.q-outlined .focused .aurora-floating-label { left: 15px; }
+.with-leading-icon.q-outlined .focused .aurora-floating-label { left: 47px; }
+.with-leading-icon.q-outlined .focused .aurora-leading-icon { left: 15px; }
+.with-leading-icon.q-outlined .focused .aurora-select-select { padding-left: 47px; }
 
 .with-trailing-icon.q-outlined .aurora-select.focused .aurora-trailing-icon { right: 11px; }
 .q-outlined .focused .aurora-floating-label::after {}
