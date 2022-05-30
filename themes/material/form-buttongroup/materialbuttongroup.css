@@ -13,6 +13,10 @@
     display: flex;
 }
 
+.aurora-buttongroup-button {
+    display: inline-flex;
+    height: 40px;
+}
 .aurora-buttongroup input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
@@ -28,7 +32,6 @@
 
 
 .aurora-buttongroup-button label {
-    height: 40px;
     border: 1px solid red;
     padding: 0 24px;
     line-height: 40px;
@@ -38,8 +41,18 @@
     border: 1px solid var( --md-sys-color-outline );
     background: white;
     cursor: pointer;
+
+    align-items: center;
     display: flex;
+    justify-content: center;
+
+    font-family: var( --md-sys-typescale-button-font );
+    font-size: var( --md-sys-typescale-button-size );
+    line-height: var( --md-sys-typescale-button-line-height );
+    font-weight: var( --md-sys-typescale-button-weight );
+    letter-spacing: var( --md-sys-typescale-button-tracking );
 }
+
 
 .aurora-buttongroup-button label i {
     line-height: 40px;
@@ -54,8 +67,8 @@
 }
 
 .aurora-buttongroup input[type="radio"]:checked+label {
-    background-color: var( --md-sys-color-secondary-container );
-    color: var( --md-sys-color-on-secondary-container );
+    background-color: var( --md-sys-color-primary-container );
+    color: var( --md-sys-color-on-primary-container );
 }
 
 .aurora-buttongroup:hover input[type="radio"]:checked+label,
@@ -66,12 +79,12 @@
 
 .aurora-buttongroup .aurora-buttongroup-button:last-child label {
     margin-left: -1px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .aurora-buttongroup .aurora-buttongroup-button:first-child label {
     margin-right: -1px;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }

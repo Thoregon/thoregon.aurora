@@ -1,7 +1,11 @@
 
 .hidden { display: none; }
 
-.aurora-textfield-wrapper { display: inline-block; width: 300px; }
+:host(aurora-inputtext) {
+    overflow: visible;
+}
+
+.aurora-textfield-wrapper { display: inline-block; width: 300px; overflow: visible;}
 
 .aurora-text-field-container {
     display: flex;
@@ -12,7 +16,6 @@
 }
 
 .aurora-text-field-container:not(.disabled) .aurora-text-field {
-    background-color: #f5f5f5;
     background-color: var( --md-sys-color-surface-variant );
 }
 
@@ -30,13 +33,9 @@
 }
 
 .aurora-floating-label {
-    font-family: Roboto, sans-serif;
+
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-size: 1rem;
-    line-height: 1.75rem;
-    font-weight: 400;
-    letter-spacing: .009375em;
     text-decoration: inherit;
     text-transform: inherit;
     position: absolute;
@@ -50,6 +49,12 @@
     cursor: text;
     overflow: hidden;
     will-change: transform;
+
+    font-family: var(--md-sys-typescale-body1-font);
+    font-weight: var(--md-sys-typescale-body1-weight);
+    font-size: var(--md-sys-typescale-body1-size);
+    letter-spacing: var(--md-sys-typescale-body1-tracking);
+
 }
 
 .aurora-text-field-input {
@@ -308,6 +313,7 @@
 
 .mdc-text-field-helper-line {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
 }
@@ -420,11 +426,30 @@
 .elevation.level4 { opacity: .12; }
 .elevation.level5 { opacity: .14; }
 
-
-
-
 .aurora-text-field:hover .elevation { opacity: .08; }
 
+/* STYLE: q-outlinded */
+
+.q-outlined .aurora-text-field {
+    border-radius: 4px;
+    background-color: transparent !important;
+    border: 1px solid var( --md-sys-color-outline );
+}
+
+.q-outlined .aurora-text-field-input { border-bottom: 0px; }
+.q-outlined .aurora-line-ripple { display: none; }
+
+.q-outlined .aurora-text-field.focused {
+    border: 2px solid var(--md-sys-color-primary);
+    overflow: visible;
+}
+.q-outlined .focused .aurora-text-field-input { padding: 19px 15px 5px; }
+.q-outlined .focused .aurora-floating-label { left: 15px; }
+
+.with-trailing-icon.q-outlined .aurora-text-field.focused .aurora-trailing-icon { right: 11px; }
+.q-outlined .focused .aurora-floating-label::after {}
+.q-outlined .aurora-text-field:hover::before { opacity: 0 !important; }
+.q-outlined .aurora-text-field:hover .elevation { opacity: 0; }
 
 /*
 RIPPLE effect

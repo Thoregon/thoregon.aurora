@@ -53,6 +53,12 @@
     cursor: text;
     overflow: hidden;
     will-change: transform;
+
+    font-family: var(--md-sys-typescale-body1-font);
+    font-weight: var(--md-sys-typescale-body1-weight);
+    font-size: var(--md-sys-typescale-body1-size);
+    letter-spacing: var(--md-sys-typescale-body1-tracking);
+
 }
 
 .aurora-select-select {
@@ -266,7 +272,9 @@
 .aurora-select .aurora-select-select {
     caret-color: var(--aurora-focused-col, #1a75d2);
 }
-.aurora-select:not(.disabled) .aurora-floating-label { color: rgba(0,0,0,.6); }
+.aurora-select:not(.disabled) .aurora-floating-label {
+    color: var( --md-sys-color-on-surface );
+}
 .error .aurora-select:not(.disabled) .aurora-floating-label { color: var(--aurora-error-col, #cc0b0f) }
 
 .aurora-select.focused:not(.disabled) .aurora-floating-label {
@@ -411,13 +419,41 @@
     z-index: -1;
 }
 
+.elevation.level0 { opacity:   0; }
 .elevation.level1 { opacity: .05; }
 .elevation.level2 { opacity: .08; }
 .elevation.level3 { opacity: .11; }
 .elevation.level4 { opacity: .12; }
 .elevation.level5 { opacity: .14; }
 
-.aurora-text-field:hover .elevation { opacity: .08; }
+.aurora-select:hover .elevation { opacity: .08; }
+
+/* STYLE: q-outlinded */
+
+.q-outlined .aurora-select {
+    border-radius: 4px;
+    background-color: transparent !important;
+    border: 1px solid var( --md-sys-color-outline );
+}
+
+.q-outlined .aurora-select-input { border-bottom: 0px; }
+.q-outlined .aurora-line-ripple { display: none; }
+
+.q-outlined .aurora-select.focused {
+    border: 2px solid var(--md-sys-color-primary);
+    overflow: visible;
+}
+.q-outlined .focused .aurora-select-input { padding: 19px 15px 5px; }
+.q-outlined .focused .aurora-floating-label { left: 15px; }
+
+.with-trailing-icon.q-outlined .aurora-select.focused .aurora-trailing-icon { right: 11px; }
+.q-outlined .focused .aurora-floating-label::after {}
+.q-outlined .aurora-select:hover::before { opacity: 0 !important; }
+
+.q-outlined .aurora-select:hover .elevation { opacity: 0; }
+.q-outlined .aurora-select .elevation { opacity: 0; }
+.q-outlined .aurora-select-select { border-bottom: 0px;}
+
 
 
 /*

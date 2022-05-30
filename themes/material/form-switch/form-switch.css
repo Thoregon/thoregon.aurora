@@ -13,19 +13,11 @@
     margin-bottom: .4em;
 }
 
-label.aurora-switch {
-    font-weight: bolder;
-}
-
-
 .aurora-switch {
     z-index: 0;
     position: relative;
     display: inline-block;
-    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
-    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
-    font-size: 16px;
-    line-height: 1.5;
+    line-height: 42px;
 }
 
 .fullwidth .aurora-switch { width: 100%; }
@@ -36,71 +28,127 @@ label.aurora-switch {
     -moz-appearance: none;
     -webkit-appearance: none;
     z-index: -1;
+    display: none;
+    /*
     position: absolute;
-    right: 6px;
-    top: -8px;
+    right: 17px;
+    top: 2px;
     display: block;
     margin: 0;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: rgba( 0, 0, 0, 0.38);
+    width: 38px;
+    height: 38px;
+    background-color: var( --md-sys-color-outline );
     outline: none;
     opacity: 0;
     transform: scale(1);
     pointer-events: none;
     transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
+     */
 }
 
 /* Span */
-.aurora-switch > span {
+.aurora-switch > .label-text {
     display: inline-block;
-    width: 100%;
     cursor: pointer;
+    max-width: calc( 100% - 65px );
+    line-height: 1.2em;
 }
 
 /* Track */
+/*
 .aurora-switch > span::before {
     content: "";
     float: right;
     display: inline-block;
     margin: 5px 0 5px 10px;
-    border-radius: 7px;
-    width: 36px;
-    height: 14px;
-    background-color: rgba( 0, 0, 0, 0.38);
+    border-radius: 52px;
+    width: 48px;
+    height: 28px;
+    border: 2px solid var( --md-sys-color-outline );
+    background-color: var( --md-sys-color-surface-variant );
     vertical-align: top;
     transition: background-color 0.2s, opacity 0.2s;
 }
+*/
 
-/* Thumb */
-.aurora-switch > span::after {
-    content: "";
+.switch { position: relative; }
+.track {
+    float: right;
+    display: inline-block;
+    margin: 5px 0 5px 10px;
+    border-radius: 52px;
+    width: 52px;
+    height: 32px;
+    border: 2px solid var( --md-sys-color-outline );
+    background-color: var( --md-sys-color-surface-variant );
+    vertical-align: top;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+.thumb {
     position: absolute;
-    top: 2px;
-    right: 16px;
+    top: 13px;
+    right: 28px;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    background-color: rgb( 255, 255, 255);
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    width: 16px;
+    height: 16px;
+    background-color: var( --md-sys-color-outline );
     transition: background-color 0.2s, transform 0.2s;
 }
 
+/* Thumb */
+/*
+.aurora-switch > span::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    right: 28px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: var( --md-sys-color-outline );
+    transition: background-color 0.2s, transform 0.2s;
+}
+*/
+
 /* Checked */
+/*
 .aurora-switch > input:checked {
-    right: -10px;
-    background-color: var(--secondaryColor, 33, 150, 243);
+    right: -2px;
+    background-color: var( --md-sys-color-primary );
+}
+*/
+.aurora-switch input:checked + div.switch .track {
+    border: 2px solid var( --md-sys-color-primary );
+    background-color: var( --md-sys-color-primary );
 }
 
+.aurora-switch input:checked + div.switch .thumb {
+    background-color: var( --md-sys-color-on-primary );
+    transform: translateX(19px) scale(1.5);
+}
+
+
+.thumb i { opacity: 0; }
+.aurora-switch input:checked + div.switch .thumb i {
+    position: absolute;
+    color: var( --md-sys-color-primary );
+    font-size: 11px;
+    top: 3px;
+    left: 3px;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+
 .aurora-switch > input:checked + span::before {
-    background-color: var(--secondaryColor, 33, 150, 243);
-    opacity: .5;
+    border: 2px solid var( --md-sys-color-primary );
+    background-color: var( --md-sys-color-primary );
 }
 
 .aurora-switch > input:checked + span::after {
-    background-color: var(--secondaryColor, 33, 150, 243);
-    transform: translateX(16px);
+    background-color: var( --md-sys-color-on-primary );
+    transform: translateX(19px) scale(1.5);
 }
 
 /* Hover, Focus */
@@ -125,6 +173,7 @@ label.aurora-switch {
 
 .aurora-switch > input:active + span::before {
     background-color: var(--secondaryColor, 33, 150, 243);
+    border: 2px solid;
     opacity: .6;
 }
 
@@ -150,4 +199,31 @@ label.aurora-switch {
 .aurora-switch > input:checked:disabled + span::before {
     background-color: var(--secondaryColor, 33, 150, 243);
     opacity: .6;
+}
+
+.aurora-switch input + div.switch .track::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    right: 17px;
+    top: 2px;
+    display: block;
+    margin: 0;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    background-color: var( --md-sys-color-outline );
+    outline: none;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
+}
+.aurora-switch input:checked + div.switch .track::after {
+    right: -3px;
+    background-color: var( --md-sys-color-primary );
+}
+
+.aurora-switch > input:focus + div.switch .track::after {
+    opacity: 0.12;
 }

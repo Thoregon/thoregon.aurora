@@ -1,3 +1,4 @@
+<!--
 <div class="aurora-switch-container {{= it.classes}}">
     <label class="aurora-switch">
         <input type="checkbox"
@@ -7,3 +8,23 @@
         <span>{{= it.label}}</span>
     </label>
 </div>
+-->
+<div class="aurora-switch-container {{= it.classes}}">
+    <label class="aurora-switch">
+        <input type="checkbox"
+               name="{{= it.name}}"
+               {{? it.isdisabled}} disabled {{?}}
+        >
+        <div class="switch">
+            <div class="track"></div>
+            <div class="thumb">
+                <i aria-hidden="true" class="material-icons"> check </i>
+            </div>
+        </div>
+        <span class="label-text">{{= it.label}}</span>
+    </label>
+</div>
+
+
+
+

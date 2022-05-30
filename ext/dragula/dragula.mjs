@@ -124,6 +124,7 @@ define.amd = true;
                     if (o.direction === void 0) { o.direction = 'vertical'; }
                     if (o.ignoreInputTextSelection === void 0) { o.ignoreInputTextSelection = true; }
                     if (o.mirrorContainer === void 0) { o.mirrorContainer = doc.body; }
+                    if (o.documentElement !== undefined) documentElement = o.documentElement;
 
                     var drake = emitter({
                                             containers: o.containers,
@@ -795,7 +796,10 @@ define.amd = true;
                 }
 
                 module.exports = {
-                    add      : addEvent,
+                    add      : function(...args) {
+                        debugger;
+                        addEvent(...args);
+                    },
                     remove   : removeEvent,
                     fabricate: fabricateEvent
                 };
