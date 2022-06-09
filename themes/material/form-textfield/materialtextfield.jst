@@ -3,11 +3,15 @@
     <div  class="aurora-text-field  {{? it.usestackedlabel}} aurora-floating-label-stacked {{?}} ">
 
         {{? it.usesleadingicon }}
-            <i aria-hidden="true" class="material-icons aurora-leading-icon"> {{= it.leading_icon}} </i>
+            <span class="aurora-icon aurora-leading-icon">
+                {{= it.leading_icon_html}}
+            </span>
         {{?}}
 
         {{? it.usestrailingicon }}
-            <i aria-hidden="true" class="material-icons aurora-trailing-icon"> {{= it.trailing_icon}} </i>
+            <span class="aurora-icon aurora-trailing-icon">
+                {{= it.trailing_icon_html}}
+            </span>
         {{?}}
         <input type="{{=it.type}}"
                id="{{=it.name}}"
@@ -24,12 +28,12 @@
 
         <div class="aurora-line-ripple" style="transform-origin: 145px center;"></div>
 
-        <label for="{{=it.name}}" class="aurora-floating-label"> {{=it.label}} </label>
+        <label for="{{=it.name}}" class="aurora-label aurora-floating-label"> {{=it.label}} </label>
         <div class="elevation level{{=it.elevation}}"></div>
     </div>
     <div class="mdc-text-field-helper-line">
         {{? it.hashint}}
-        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent aurora-text-field-helper-text">{{= it.hint}}</div>
+        <div class="aurora-hint mdc-text-field-helper-text mdc-text-field-helper-text--persistent aurora-text-field-helper-text">{{= it.hint}}</div>
         {{?}}
         <div class="mdc-text-field-helper-text aurora-text-field-error-text" role="alert">
             <!--Error message-->

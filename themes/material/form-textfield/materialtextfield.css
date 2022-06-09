@@ -95,6 +95,14 @@
 
 /*  Icons ------ */
 
+.aurora-icon {
+    display: flex;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -444,9 +452,19 @@
     overflow: visible;
 }
 .q-outlined .focused .aurora-text-field-input { padding: 19px 15px 5px; }
+
+
+.with-trailing-icon.q-outlined .focused .aurora-text-field-input { padding-right: 47px !important; }
+
+
 .q-outlined .focused .aurora-floating-label { left: 15px; }
 
 .with-trailing-icon.q-outlined .aurora-text-field.focused .aurora-trailing-icon { right: 11px; }
+.with-leading-icon.q-outlined  .aurora-text-field.focused .aurora-leading-icon { left: 15px; }
+
+.with-leading-icon.q-outlined  .aurora-text-field.focused .aurora-floating-label { padding-left: 43px; }
+.with-leading-icon.q-outlined  .aurora-text-field.focused .aurora-text-field-input { padding-left: 47px; }
+
 .q-outlined .focused .aurora-floating-label::after {}
 .q-outlined .aurora-text-field:hover::before { opacity: 0 !important; }
 .q-outlined .aurora-text-field:hover .elevation { opacity: 0; }

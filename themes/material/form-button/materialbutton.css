@@ -71,6 +71,7 @@
     transition: background-color .3s cubic-bezier(.25,.8,.5,1),opacity .4s cubic-bezier(.25,.8,.5,1);
     width: 100%;
 }
+
 .aurora-button.flat .aurora-button-label:not(:disabled) {
     color: var( --md-sys-color-primary ,#1a75d2 );
 }
@@ -84,7 +85,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    padding:0 8px 0 8px;
+    padding:0 24px 0 24px;
 }
 
 .aurora-button.round {
