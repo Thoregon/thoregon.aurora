@@ -6,8 +6,8 @@
 
 import Aurora                               from "./lib/aurora.mjs";
 
-import ModelObject                          from "./lib/viewmodel/delegate/modelobject.mjs";
-import ModelCollection                      from "./lib/viewmodel/delegate/modelcollection.mjs";
+// import ModelObject                          from "./lib/viewmodel/delegate/modelobject.mjs";
+// import ModelCollection                      from "./lib/viewmodel/delegate/modelcollection.mjs";
 
 // UI Elements always needed
 export { default as AuroraElement }             from './lib/auroraelement.mjs';

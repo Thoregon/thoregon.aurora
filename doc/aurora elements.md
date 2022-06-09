@@ -4,6 +4,20 @@ AuroraElement
 
 ## Features
 
+### Forwared Attributes
+- forwared attribute content from the surrounding AuroraElement to element attributes(s) in the container
+
+### Exposed Events 
+- propagate events from elements inside the container to listeners on the AuroraElement
+
+
+AuroraElement ChildElements
+- Elements inside an AuroraElement 
+- only if auroraelement.applyChildNodes is true
+- move to a 'slot' in the container (template) -> container.querySelector('*[aurora-slot="main"]')
+    - or move to the container if nothing found
+- todo: process as definitions
+
 Reactive
 - event driven
     - handle user input non modal

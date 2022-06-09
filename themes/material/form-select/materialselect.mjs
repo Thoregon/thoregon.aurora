@@ -56,8 +56,8 @@ export default class MaterialSelect extends ThemeBehavior {
     }
 
     callbackClicked ( event ) {
-        this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
-        this.parentElement.querySelectorAll(".aurora-select")[0].classList.add('focused');
+        this.parentElement.querySelectorAll("label")[0]?.classList.add('aurora-floating-label--float-above');
+        this.parentElement.querySelectorAll(".aurora-select")[0]?.classList.add('focused');
 
         event.stopPropagation();
     }

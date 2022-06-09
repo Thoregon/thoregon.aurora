@@ -5,11 +5,19 @@ Refactorings
     - chrome: adoptedStyleSheets    -> https://web.dev/constructable-stylesheets/
 
 - remove viewmodel from AuroraElement
-- introdice viewmodel on View (lib/blueprint/layout/view.mjs)
+- introduce viewmodel on View/BlueprintElement (lib/blueprint/layout/view.mjs)
 
+- refactor await view states to event driven or processing queues
+    - untilExists
+- reduce lifecycle hook methods
+    - connect, existsConnect, ...
+- get rid of all 'await doAsync();' in view init
 
 ToDo
 ====
+
+- embedded view with one (select specified item) of a query
+- auroralist filter selected item for embedded view
 
 - view for function with parameters (API)
     - Generic Object containing params (with defaults)
