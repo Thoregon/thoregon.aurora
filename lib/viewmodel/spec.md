@@ -29,15 +29,19 @@ Kinds
 
 Evaluate (restricted) a JS
 Context Variables:
-    - '$' is the model  (wish: all properties of the model are top level vars) 
+    - '$' | '$model' is the model  (wish: all properties of the model are top level vars) 
     - '$meta' is the meta model
     - '$vm' | '$viewmodel' is the view model
-    - '$view' is the view
     - '$viewmeta' is the meta view model
-    - '$app' is the app (if defined)
-    - 'me' is the SSI
     - '$interface' | '$i' is are the properties from the app interface settings
-    ? 'universe' | '$u' is are the properties from the universe
+Available globals:
+    - 'app' is the app (if defined)
+    - 'me' is the SSI
+    - 'universe' | '$u' is are the properties from the universe
+    - 'thoregon'
+    - 'dorifer'
+    - 'device'
+    - 'mediathek'
     thoregon, mediathek, dorifer, puls -> available as globals
 All evaluations will be reavaluated on every mutation of the model 
 Arbitrary properties can be defined and accessed to use it for view control (aurora-data).  
@@ -50,11 +54,6 @@ View Context Variables
     - $emit  emit an event with name and params   
 
 - element attributes
-    - aurora-transaction
-        define a transaction context for the view
-        implement on view model what to do at 'commit' e.g. sync/create model
-        sync e.g. with an OK button
-        if no tx -> immed update
     - aurora-name       (alpine -> x-model)
         bind property from model or the viewmodel (if not defined on the model) to the elements value or innerText. only property name of model or view model, no evaluate
         keep in sync with the specified property
@@ -69,38 +68,48 @@ View Context Variables
         - .<eventname>  
             specify the 'change' event  
         - for 'input only' fields implement on the view model a get method which does not deliver anything  
+    - aurora-bind:<attribute-name>    (alpine -> x-bind)
+        <input aurora-bind:placeholder="$.extratext">
+        bind an attribute e.g. class to a JS 
+        - if the attribute-name is a function, it will be invoked with the value
+        - if the attribute-name is a property of the element, it will be set
+        - otherwise the element html-attribute will be set
+        evaluates JS to get a value, value will be assigned to the element attribute
+        bind shorthand -> :<attribute-name>
+        bind w/o element attribute sets the 'innerText' of for input elements the 'value' property
+        .i18n  subselector will translate
     - aurora-i18n
         get translation for token, replace 'innerText' or 'placeholder' if available
         aurora-i18n:<element-attribute>
-    - aurora-action:<what>  (alpine -> x-on)
-        only the name of an action, will be fired on <what>: click, change, focus, blur ...
-        --> see @open and @toggle at AuroraButton 
-        evaluates JS to handle the event
-        should hover, active also be supported?  
-        action shorthand -> @<what>
-    - aurora-data  (maybe later)
-        define local variables as JSON with a default value, will be mapped to the view model if available
-        <... aurora-data="{ myvar: 1 }">
     - aurora-show
         evaluates JS to get a value, if true element will be shown
     - aurora-enabled
         evaluates JS to get a value, if true element is enabled
-    - aurora-bind:<element-attribute>    (alpine -> x-bind)
-        <input aurora-bind:placeholder="$.extratext">
-        bind an attribute e.g. class to a JS 
-        evaluates JS to get a value, value will be assigned to the element attribute
-        bind shorthand -> :<element-attribute>
-        bind w/o element attribute sets the 'innerText' of for input elements the 'value' property
-        .i18n  subselector will translate
+    - aurora-action:<what>  (alpine -> x-on)
+        will be fired on <what>: click (default), click, change, focus, blur ...
+        --> see @open and @toggle at AuroraButton 
+        evaluates JS to handle the event
+        should hover, active also be supported?  
+        action shorthand -> @<what>
+    - aurora-mask
+        define a mask for the input field e.g. phonenumber, IBAN, ...
+
+    - aurora-transaction
+        define a transaction context for the view
+        implement on view model what to do at 'commit' e.g. sync/create model
+        sync e.g. with an OK button
+        if no tx -> immed update
+
     - aurora-intersect (later)
         - :enter, :leave 
         - .once, .half, .full, .when:<percentage>, 
         evaluates JS
-    - aurora-mask
-        define a mask for the input field e.g. phonenumber, IBAN, ...
-    - aurora-if
+    - aurora-data  (maybe later)
+         define local variables as JSON with a default value, will be mapped to the view model if available
+         <... aurora-data="{ myvar: 1 }">
+    - aurora-if (later)
         evaluates JS to get a result, lazy init -> first add to dom only when true  (should remove from DOM?)
-    - aurora-ifnot (?)
+    - aurora-ifnot (later)
         evaluates JS to get a result, lazy init -> first add to dom only when false (should remove from DOM?)
     - aurora-ref (later)
         give elements a name to reference it elsewhere
