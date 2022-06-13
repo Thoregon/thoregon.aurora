@@ -36,7 +36,6 @@ export default class ThemeBehavior {
         return this.container.querySelectorAll(selector);
     }
 
-    asColorCSS(colorDefs) {}
 
     switchElementVisibility ( elements, visible, displayValue = 'block' ) {
         elements.forEach( (element) => element.style.display = (visible) ? displayValue: "none" );

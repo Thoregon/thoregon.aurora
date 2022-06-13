@@ -8,7 +8,7 @@ Aurora Component
  ui root: {theme root}
  component path: {uiroot}/{theme}/{component}
 
- {uiroot}/{theme}/app/colors.xml
+ {uiroot}/{theme}/app/material.css   // old: colors.xml
  {uiroot}/{theme}/app/{theme}app.css
  {themeRoot}/{theme}/flex.css
  {themeRoot}/{theme}/skeleton.css
@@ -23,7 +23,7 @@ App Component
  ui root: {theme root} || {appname}/ui/components
  component path: {uiroot}/themes/{theme}/{component}
 
- {uiroot}/{theme}/app/colors.xml
+ {uiroot}/{theme}/app/material.css  //old: colors.xml
  {uiroot}/{theme}/app/{theme}app.css
  {themeRoot}/{theme}/flex.css
  {themeRoot}/{theme}/skeleton.css
