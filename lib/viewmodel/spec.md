@@ -77,7 +77,10 @@ View Context Variables
         evaluates JS to get a value, value will be assigned to the element attribute
         bind shorthand -> :<attribute-name>
         bind w/o element attribute sets the 'innerText' of for input elements the 'value' property
-        .i18n  subselector will translate
+        
+        [todo] .once subselector defined this bind will only be evaluated once per view model (when the viewmodel is set or changed)
+            take selector in account (model or viewmodel)
+            !caution: first it may be evaluated when the is only the viewmodel, but not the model available
     - aurora-i18n
         get translation for token, replace 'innerText' or 'placeholder' if available
         aurora-i18n:<element-attribute>
