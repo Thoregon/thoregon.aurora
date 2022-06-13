@@ -29,6 +29,7 @@ Kinds
 
 Evaluate (restricted) a JS
 Context Variables:
+    - 'this' is the current HTML element the aurora attribute is bound to
     - '$' | '$model' is the model  (wish: all properties of the model are top level vars) 
     - '$meta' is the meta model
     - '$vm' | '$viewmodel' is the view model
