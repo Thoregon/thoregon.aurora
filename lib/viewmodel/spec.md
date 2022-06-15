@@ -141,6 +141,13 @@ View Context Variables
 ## Processing
 
 
+## Embedded View
+
+- view model will get the parent model and view model
+
+- model-property=<property-name>
+    - model can be passed to the embedded view model by specifying
+    - a '.' (dot) passes the current model
 
 
 ## AuroraTemplate   
@@ -154,3 +161,4 @@ View
 ====
 
 directly reference an entity
+
