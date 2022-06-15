@@ -144,10 +144,10 @@ View Context Variables
 ## Embedded View
 
 - view model will get the parent model and view model
-
+- with attribute 'set-parent-viewmodel' 
 - model-property=<property-name>
-    - model can be passed to the embedded view model by specifying
-    - a '.' (dot) passes the current model
+    - a property from the model can be passed to the embedded view as model
+    - you have to know what to do when it's used together with 'set-parent-viewmodel'
 
 
 ## AuroraTemplate   
