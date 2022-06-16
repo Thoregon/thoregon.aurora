@@ -95,7 +95,8 @@ View Context Variables
         evaluates JS to handle the event
         should hover, active also be supported?  
         action shorthand -> @<what>
-    - aurora-mask
+        
+    - aurora-mask -> attribute of form elements?
         define a mask for the input field e.g. phonenumber, IBAN, ...
 
     - aurora-transaction
@@ -145,6 +146,7 @@ View Context Variables
 
 - view model will get the parent model and view model
 - with attribute 'set-parent-viewmodel' 
+- ? 'set-parent-model'
 - model-property=<property-name>
     - a property from the model can be passed to the embedded view as model
     - you have to know what to do when it's used together with 'set-parent-viewmodel'
