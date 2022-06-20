@@ -28,6 +28,7 @@ export default class MaterialList extends ThemeBehavior {
         //---
 
         let rowheaders = this.container.querySelectorAll("th.sortable");
+
         let actiontriggers = this.container.querySelectorAll(".aurora-table-actions-trigger");
 
         for ( let i = 0; i < rowheaders.length; i++ ) {
@@ -76,6 +77,7 @@ export default class MaterialList extends ThemeBehavior {
         //trigger.classList.toggle('hidden');
         event.stopPropagation();
     }
+
 
     callbackClickRowHeader( event, th ) {
 
