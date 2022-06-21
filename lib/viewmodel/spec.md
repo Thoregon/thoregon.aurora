@@ -29,6 +29,7 @@ Kinds
 
 Evaluate (restricted) a JS
 Context Variables:
+    - all properties and functions from the viewmodel are available top level (w/o referencing the viewmodel e.g. '$vm.myprop'  is the same as 'myprop')  
     - 'this' is the current HTML element the aurora attribute is bound to
     - '$' | '$model' is the model  (wish: all properties of the model are top level vars) 
     - '$meta' is the meta model
