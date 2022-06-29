@@ -21,11 +21,11 @@ export { default as AuroraView }                from './lib/blueprint/layout/aur
 
 // aurora attributes
 export { default as AuroraAttribute }           from './lib/auroraattributes/auroraattribute.mjs';
-export { default as AuroraAttributeName }       from './lib/auroraattributes/auroraattributename.mjs';
 export { default as AuroraAttributeAction   }   from './lib/auroraattributes/auroraattributeaction.mjs';
 export { default as AuroraAttributeBind   }     from './lib/auroraattributes/auroraattributebind.mjs';
 export { default as AuroraAttributeShow   }     from './lib/auroraattributes/auroraattributeshow.mjs';
 export { default as AuroraAttributeEnabled }    from './lib/auroraattributes/auroraattributeenabled.mjs';
+export { default as AuroraAttributeI18N }       from './lib/auroraattributes/auroraattributei18n.mjs';
 
 // App Classes
 export { default as AuroraApp }                 from './lib/blueprint/auroraapp.mjs';
