@@ -3,4 +3,43 @@
  */
 
 
-.navigation-item { border: 1px solid red }
+.navigation-item {
+    min-height: 56px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+
+.navigation-item .icon {  font-size: 24px; }
+.navigation-item .label { font-size: 1rem; }
+
+.navigation-item.mode-icon-label .icon-label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+.navigation-item.mode-icon-label .icon i {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    width: 64px;
+    border-radius: 16px;
+}
+
+.navigation-item.mode-icon-label .label {
+    margin-top: 4px;
+}
+.navigation-item.mode-icon-label .badge {
+    font-size: 10px;
+    background: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+    border-radius: 8px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 16px;
+    position: absolute;
+    right: 16px;
+}
