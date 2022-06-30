@@ -75,6 +75,7 @@ export default Aurora.withElements({
                                         'aurora-buttongroup'         : './lib/formcomponents/aurorabuttongroup.mjs',
                                         'aurora-card'                : './lib/formcomponents/auroracard.mjs',
                                         'aurora-qrcode'              : './lib/component-qrcode/auroraqrcode.mjs',
+                                        'aurora-navigation-item'     : './lib/component-navigationitem/auroranavigationitem.mjs',
                                         'aurora-chatentrybox'        : './lib/formcomponents/aurorachatentrybox.mjs',
                                         'aurora-chatmessage'         : './lib/formcomponents/aurorachatmessage.mjs',
                                         'aurora-checkbox'            : './lib/formcomponents/auroracheckbox.mjs',
