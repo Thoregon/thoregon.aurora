@@ -5,12 +5,15 @@
 
 .navigation-item {
     min-height: 56px;
-    margin-top: 12px;
-    margin-bottom: 16px;
+    margin: 12px 8px 16px 8px;
 }
 
 .navigation-item .icon {  font-size: 24px; }
-.navigation-item .label { font-size: 1rem; }
+.navigation-item .label {
+    font-size: 1rem;
+    line-height: 1rem;
+    color: var( --md-sys-color-on-surface );
+}
 
 .navigation-item.mode-icon-label .icon-label {
     display: flex;
@@ -21,8 +24,6 @@
 .navigation-item.mode-icon-label .icon i {
     padding-top: 4px;
     padding-bottom: 4px;
-    background: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
     width: 64px;
     border-radius: 16px;
 }
@@ -30,7 +31,7 @@
 .navigation-item.mode-icon-label .label {
     margin-top: 4px;
 }
-.navigation-item.mode-icon-label .badge {
+.navigation-item.mode-icon-label .badge:not(:empty) {
     font-size: 10px;
     background: var(--md-sys-color-error);
     color: var(--md-sys-color-on-error);
@@ -41,5 +42,15 @@
     vertical-align: middle;
     line-height: 16px;
     position: absolute;
-    right: 16px;
+    right: calc( 50% - 16px );
+}
+
+.navigation-item.mode-icon-label.active .icon i {
+    background: var( --md-sys-color-secondary-container );
+    color: var( --md-sys-color-on-secondary-container );
+}
+
+.navigation-item.mode-icon-label:hover .icon i {
+    background: var( --md-sys-color-surface-variant );
+    color: var( --md-sys-color-on-surface-variant );
 }
