@@ -3,6 +3,15 @@
  */
 /*  ACTIONS */
 
+
+open-down-left,
+open-down-right,
+open-up-left,
+open-up-right {
+
+}
+
+
 :host(aurora-actions) {
     overflow: visible;
 }
@@ -29,7 +38,8 @@
 }
 
 .aurora-actions-trigger:hover {
-    background-color: rgba(var(--secondaryColorRGB), .12);
+    background-color: var(--md-sys-color-primary-container);
+    color:  var(--md-sys-color-on-primary-container);
 }
 
 
@@ -40,7 +50,7 @@
 .aurora-actions-menu {
     position: absolute;
     top: 2em;
-    right: -0.5em;
+/*    right: -0.5em; */
     z-index: 1000;
     float: left;
     min-width: 160px;
@@ -53,13 +63,19 @@
     background-clip: padding-box;
     border: 1px solid #e2e4e7;
     /* border: 1px solid rgba(0, 0, 0, .15); */
-    border-radius: 8px;
+/*    border-radius: 8px; */
+    border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
     box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
     margin-top: 8px;
     overflow: visible;
     display: none;
 }
+
+.aurora-actions-menu.open-down-left { right: -0.5em; }
+.aurora-actions-menu.open-down-right { left: -0.5em; }
+.aurora-actions-menu.open-down-right:before { left: 15px;}
+.aurora-actions-menu.open-down-left:before  { right: 15px;}
 
 .aurora-actions-menu:before {
     content: "";

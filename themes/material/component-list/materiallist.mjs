@@ -74,7 +74,7 @@ export default class MaterialList extends ThemeBehavior {
 
     callbackClickActionTrigger( event, trigger ) {
         trigger.parentElement.getElementsByClassName('aurora-table-actions-menu')[0].classList.toggle('hidden');
-        //trigger.classList.toggle('hidden');
+        trigger.classList.toggle('hidden');
         event.stopPropagation();
     }
 

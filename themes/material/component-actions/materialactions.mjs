@@ -30,8 +30,11 @@ export default class MaterialActions extends ThemeBehavior {
         trigger?.addEventListener('click', (event) => this.callbackClickActionMenuTrigger(event, trigger ), false);
     }
 
-    callbackClickActionMenuTrigger() {
-        let trigger = this.container.querySelector('.aurora-actions-menu');
-        trigger.classList.toggle('active');
+    callbackClickActionMenuTrigger( event ) {
+        event.stopPropagation();
+        let menu = this.container.querySelector('.aurora-actions-menu');
+        menu.classList.toggle('active');
+        menu.classList.add('open-down-right');
+
     }
 }
