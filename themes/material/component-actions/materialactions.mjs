@@ -25,9 +25,19 @@ export default class MaterialActions extends ThemeBehavior {
         new Ripple( this.container.querySelector('.aurora-listitem-ripple'));
     }
 
-    connectActions() {
+    connectActions( actions ) {
         let trigger = this.container.querySelector('.aurora-actions-trigger');
         trigger?.addEventListener('click', (event) => this.callbackClickActionMenuTrigger(event, trigger ), false);
+
+        for (let i = 0; i < actions['all'].length; i++) {
+            let action = actions['all'][i];
+            if ( action.isAvailable() &&
+                !action.isDisabled() ) {
+                const element = this.container.querySelector('[aurora-action-name="'+ action.name +'"]');
+                element?.addEventListener('click', (event) => action.apply( event ), false );
+            }
+        }
+
     }
 
     callbackClickActionMenuTrigger( event ) {
