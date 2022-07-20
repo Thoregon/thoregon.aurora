@@ -57,7 +57,8 @@ export default class MaterialTextarea extends ThemeBehavior {
 
     callbackClicked ( event ) {
         this.parentElement.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
-        this.parentElement.querySelectorAll(".aurora-textarea")[0].classList.add('focused');
+        this.parentElement.classList.add('focused');
+        // this.parentElement.querySelectorAll(".aurora-textarea")[0].classList.add('focused');
         event.stopPropagation();
     }
     callbackKeyup( event ) {
