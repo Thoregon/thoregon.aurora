@@ -38,14 +38,8 @@ export default class MaterialSelect extends ThemeBehavior {
     }
 
     valueChanged( event ) {
-        let charactercounter = this.container.querySelectorAll(".mdc-select-character-counter");
-        let value            = this.container.getElementsByClassName("aurora-select-select")[0].value
-        if (charactercounter.length > 0 && charactercounter[0].length > 0 ) {
-            this.container.querySelectorAll(".mdc-select-character-counter")[0].innerHTML = this.jar.value.length;
-        }
-        if ( value.length > 0 ) {
-            this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
-        }
+        let label = this.container.querySelector(".aurora-floating-label");
+        label.classList.add("aurora-floating-label--float-above");
     }
 
 

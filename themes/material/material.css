@@ -38,28 +38,7 @@
     100% {transform:scale(100); opacity:0;}
 }
 
-/*  CSS only Buttons  */
 
-.aurora-button-css-secondary.aurora-button-css-hover:hover,
-.aurora-button-css-secondary.aurora-button-css-hover:hover a {
-    background-color: ;
-    color: ;
-    border-color: ;
-}
-.aurora-button-css-secondary.aurora-button-css-hover:hover:hover,
-.aurora-button-css-secondary.aurora-button-css-hover:hover a:hover {
-    color: ;
-}
-.aurora-button-css-primary.aurora-button-css-hover:hover,
-.aurora-button-css-primary.aurora-button-css-hover:hover a {
-    background-color: ;
-    color: ;
-    border-color: ;
-}
-.aurora-button-css-primary.aurora-button-css-hover:hover:hover,
-.aurora-button-css-primary.aurora-button-css-hover:hover a:hover {
-    color: ;
-}
 .aurora-button-css {
     border: 1px solid transparent;
     background-image: none;
@@ -93,71 +72,6 @@
 .aurora-button-css a {
     text-decoration: none;
 }
-.aurora-button-css-shaddow {
-    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
-    0px 6px 10px 0px rgb(0 0 0 / 14%),
-    0px 1px 18px 0px rgb(0 0 0 / 12%);
-}
-.aurora-button-css-block {
-    width: 100%;
-}
-.aurora-button-css-lg {
-    font-size: 1.5em;
-}
-.aurora-button-css-sm {
-    font-size: 1em;
-    padding: 4px 8px;
-}
-.aurora-button-css-xs {
-    font-size: .8em;
-    padding: 1px 7px;
-}
-
-.aurora-button-css.aurora-button-css-primary,
-.aurora-button-css.aurora-button-css-primary a {
-    background-color: var( --secondaryColor );
-    color: var( --secondaryTextColor );
-    border-color: ;
-}
-.aurora-button-css-primary:hover,
-.aurora-button-css-primary a:hover {
-
-}
-.aurora-button-css-secondary,
-.aurora-button-css-secondary a {
-    color: var( --secondaryColor );
-    background-color:  transparent;
-}
-.aurora-button-css-secondary:hover,
-.aurora-button-css-secondary a:hover {
-    background-color:  rgba(var(--secondaryColorRGB), .12 );
-}
-
-.aurora-button-css-secondary:focus{
-    background-color:  rgba(var(--secondaryColorRGB), .3 );
-    outline: none;
-}
-
-.aurora-button-css-neutral,
-.aurora-button-css-neutral a {
-    background-color: ;
-    color: ;
-    border-color: ;
-}
-.aurora-button-css-neutral:hover,
-.aurora-button-css-neutral a:hover {
-    color: ;
-}
-.aurora-button-css-negative,
-.aurora-button-css-negative a {
-    background-color: ;
-    color: ;
-    border-color: ;
-}
-.aurora-button-css-negative:hover,
-.aurora-button-css-negative a:hover {
-    color: ;
-}
 
 
 /*  ROW and Columns */
@@ -173,6 +87,15 @@ code {
 
 [hidden] {
     display: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
 
