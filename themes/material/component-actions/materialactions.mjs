@@ -34,7 +34,10 @@ export default class MaterialActions extends ThemeBehavior {
             if ( action.isAvailable() &&
                 !action.isDisabled() ) {
                 const element = this.container.querySelector('[aurora-action-name="'+ action.name +'"]');
-                element?.addEventListener('click', (event) => action.apply( event ), false );
+                element?.addEventListener('click', (event) => {
+                    action.apply(event);
+                    event.stopPropagation();
+                }, false );
             }
         }
 
