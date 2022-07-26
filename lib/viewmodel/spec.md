@@ -103,6 +103,7 @@ View Context Variables
         - specify variables with JS expression -> ${js}: aurora-route="/my/item/${itemid}"
         - control with 'aurora-show' and 'aurora-enabled' if the route can be called
         - can only invoke routes which are defined in 'routes.mjs'
+        - aurora-route="@back" returns to the view before. this enables 'selection' views 
     - aurora-mask -> attribute of form elements?
         - define a mask for the input field e.g. phonenumber, IBAN, ...
 
