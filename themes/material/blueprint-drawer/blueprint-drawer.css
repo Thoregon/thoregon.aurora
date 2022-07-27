@@ -22,6 +22,7 @@
 .aurora-drawer.fixed-left,
 .aurora-drawer.fixed-right {
     position: fixed;
+    overflow-y: scroll;
 }
 
 .aurora-drawer.absolute-left,

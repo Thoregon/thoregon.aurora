@@ -457,6 +457,7 @@
 .with-trailing-icon.q-outlined .focused .aurora-text-field-input { padding-right: 47px !important; }
 
 
+.q-outlined .aurora-floating-label--float-above { font-weight: bold;}
 .q-outlined .focused .aurora-floating-label { left: 15px; }
 
 .with-trailing-icon.q-outlined .aurora-text-field.focused .aurora-trailing-icon { right: 11px; }

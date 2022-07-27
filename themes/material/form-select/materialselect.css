@@ -449,13 +449,20 @@
     border: 2px solid var(--md-sys-color-primary);
     overflow: visible;
 }
+
+.q-outlined .focused .aurora-floating-label { left: 15px; }
+.q-outlined .focused .aurora-select-select { padding-left: 15px; }
+
 .q-outlined .focused .aurora-select-input { padding: 19px 15px 5px; }
-.with-leading-icon.q-outlined .focused .aurora-floating-label { left: 47px; }
+.with-leading-icon.q-outlined .focused .aurora-floating-label { left: 45px; }
 .with-leading-icon.q-outlined .focused .aurora-leading-icon { left: 15px; }
 .with-leading-icon.q-outlined .focused .aurora-select-select { padding-left: 47px; }
 
 .with-trailing-icon.q-outlined .aurora-select.focused .aurora-trailing-icon { right: 11px; }
+
 .q-outlined .focused .aurora-floating-label::after {}
+.q-outlined .aurora-floating-label--float-above { font-weight: bold;}
+
 .q-outlined .aurora-select:hover::before { opacity: 0 !important; }
 
 .q-outlined .aurora-select:hover .elevation { opacity: 0; }

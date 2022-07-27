@@ -440,6 +440,7 @@
 }
 .q-outlined .focused .aurora-textarea-input {  padding: 0px 15px 15px;  }
 .q-outlined .focused .aurora-floating-label { left: 15px; top: 29px;}
+.q-outlined .aurora-floating-label--float-above { font-weight: bold;}
 
 .with-trailing-icon.q-outlined .aurora-textarea.focused .aurora-trailing-icon { right: 11px; }
 .q-outlined .focused .aurora-floating-label::after {}

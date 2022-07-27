@@ -24,6 +24,7 @@
     opacity: 0;
 }
 
+th.sortable { display: flex; }
 th.sortable:hover .aurora-sort-icon-wrapper {
     opacity: .64;
 }
