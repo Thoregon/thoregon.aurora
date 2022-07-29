@@ -24,6 +24,11 @@
     background: #fff;
 }
 
+.mode-outlined {
+    border: 1px solid var( --md-sys-color-outline );
+    background: var(  --md-sys-color-surface );
+}
+
 .aurora-card-media {
     background-position: top;
     background-size: cover;
@@ -50,4 +55,11 @@
 
 .aurora-card-action {
     margin-right: .5em;
+}
+
+
+.mediasize-contain .aurora-card-media{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }

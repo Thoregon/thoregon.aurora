@@ -2,7 +2,6 @@
  * Copyright (c) 2022.
  */
 
-
 .navigation-item {
     min-height: 56px;
     margin: 12px 8px 16px 8px;
@@ -15,7 +14,7 @@
     color: var( --md-sys-color-on-surface );
 }
 
-.navigation-item.mode-icon-label .icon-label {
+.navigation-item.mode-icon-label .navigation-item-wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -53,4 +52,21 @@
 .navigation-item.mode-icon-label:hover .icon i {
     background: var( --md-sys-color-surface-variant );
     color: var( --md-sys-color-on-surface-variant );
+}
+
+/* mode-bar */
+
+.navigation-item.mode-bar .navigation-item-wrapper {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    position: relative;
+}
+
+.navigation-item.mode-bar .label {
+    min-width: 0;
+    max-width: 100%;
+    flex: 10000 1 0%;
+    justify-content: flex-start;
+    display: flex;
 }
