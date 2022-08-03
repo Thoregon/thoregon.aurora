@@ -10,6 +10,8 @@
     box-shadow: 0 1px 1px 0 rgb(66 66 66 / 8%), 0 1px 3px 1px rgb(66 66 66 / 16%);
 }
 
+.aurora-drawer.overlay { z-index: 3000;}
+
 .aurora-drawer.animate {
     transition: transform var(--animation-duration, .12s) !important;
 }

@@ -8,6 +8,10 @@
 }
 
 
+.float-right {
+    float: right;
+}
+
 .stage-transition-container-variant--show {
     opacity: 1;
     visibility: visible;
@@ -201,3 +205,4 @@
     background-color: var( --errorColor ,#1a75d2 );
     color: var( --errorTextColor ,#fff );
 }
+
