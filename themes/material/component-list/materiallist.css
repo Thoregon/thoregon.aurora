@@ -105,10 +105,10 @@ tr:hover.active {
     display: flex;
     flex-wrap: wrap;
     flex: 1 1 auto;
-    gap: 1em;
+    gap: 1em 1%;
 }
 
-.aurora-list-grid.fullwidth div {
+.aurora-list-grid.fullwidth {
     width: 100%;
 }
 
