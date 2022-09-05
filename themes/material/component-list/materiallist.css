@@ -70,6 +70,16 @@ th { padding: .4em .5em; }
     height: 100%;
 }
 
+.drag-handle { cursor: grab; }
+
+tr.is-dragging {
+    background: #f1c40f;
+}
+
+tr.aurora-dragging {
+    opacity: 0.2;
+}
+
 
 .presentation-list td,
 .presentation-list th  { border-bottom: 1px solid #0000001f; }
