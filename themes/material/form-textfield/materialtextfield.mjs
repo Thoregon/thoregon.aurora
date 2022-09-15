@@ -65,7 +65,7 @@ export default class MaterialTextField extends ThemeBehavior {
         if ( charactercounter.length > 0 ) {
             container.querySelectorAll(".mdc-text-field-character-counter")[0].innerHTML = event.target.value.length;
         }
-        event.stopPropagation();
+        // event.stopPropagation();
     }
 
     callbackFocusIn ( event ) {

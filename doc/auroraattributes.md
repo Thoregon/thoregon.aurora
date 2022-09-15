@@ -16,7 +16,7 @@ Aurora Attributes
         - specify the 'change' event  
     - for 'input only' fields implement on the view model a get method which does not deliver anything  
 - aurora-bind:<attribute-name>    (alpine -> x-bind)
-    - <input aurora-bind:placeholder="$.extratext">
+    - input aurora-bind:placeholder="$.extratext"
     - bind an attribute e.g. class to a JS 
         - if the attribute-name is a function, it will be invoked with the value
         - if the attribute-name is a property of the element, it will be set
