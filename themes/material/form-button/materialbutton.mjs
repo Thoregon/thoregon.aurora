@@ -19,4 +19,6 @@ export default class MaterialButton extends ThemeBehavior {
         new Ripple( this.container.querySelector('.aurora-button-ripple'));
     }
 
+    focus()  { this.container.querySelector('button').focus() }
+    select() { this.container.querySelector('button').select() }
 }

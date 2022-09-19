@@ -5,6 +5,8 @@
 
 :host(aurora-button) {
     overflow: visible;
+    width: max-content;
+    display: inline-block;
 }
 
 
@@ -90,6 +92,7 @@
     display: flex;
     justify-content: center;
     padding:0 24px 0 24px;
+    z-index: +1;
 }
 
 .aurora-button.round {
@@ -133,10 +136,66 @@
 /*    padding: 0 16px 0 16px; */
 }
 
-.aurora-button:not(:disabled) {
-    background-color: var( --md-sys-color-primary ,#1a75d2 );
-    color: var( --md-sys-color-on-primary ,#fff );
+.statelayer {
+    border-radius: inherit;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
+
+/* ---  MODE ------------------------------------------ */
+
+/* ---  mode-filled ----------------------------------- */
+.aurora-button:not(:disabled).mode-filled.color-primary {
+    background-color: var( --md-sys-color-primary );
+    color: var( --md-sys-color-on-primary );
+}
+
+.aurora-button:not(:disabled).mode-filled.color-secondary {
+    background-color: var( --md-sys-color-secondary );
+    color: var( --md-sys-color-on-secondary );
+}
+
+.aurora-button:not(:disabled).mode-filled.color-negative {
+    background-color: var( --md-sys-color-error  );
+    color: var( --md-sys-color-on-error );
+}
+
+/* ---  mode-text ------------------------------------- */
+.aurora-button:not(:disabled).mode-text {
+    background-color: transparent;
+}
+
+.aurora-button:not(:disabled).mode-text:focus,
+.aurora-button:not(:disabled).mode-text:hover { box-shadow: none; }
+.aurora-button:not(:disabled).mode-text:hover .statelayer {
+    background-color: var(--md-sys-color-primary);
+    opacity: .08;
+}
+
+.aurora-button:not(:disabled).mode-text:focus .statelayer {
+    background-color: var(--md-sys-color-primary);
+    opacity: .12;
+}
+
+
+.aurora-button:not(:disabled).mode-text.color-primary {
+    color: var( --md-sys-color-primary );
+}
+
+.aurora-button:not(:disabled).mode-text.color-secondary {
+    color: var( --md-sys-color-secondary );
+}
+
+.aurora-button:not(:disabled).mode-text.color-negative {
+    color: var( --md-sys-color-error );
+}
+
+
 
 .aurora-button .aurora-button-ripple {
     position: absolute;
@@ -201,8 +260,4 @@
     vertical-align: top;
 }
 
-.aurora-button:not(:disabled).color-negative {
-    background-color: var( --errorColor ,#1a75d2 );
-    color: var( --errorTextColor ,#fff );
-}
 

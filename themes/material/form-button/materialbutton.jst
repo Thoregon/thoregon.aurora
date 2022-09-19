@@ -1,10 +1,16 @@
-<button class="aurora-button _aurora-button-raised aurora-button-container {{= it.classes}}" >
+<button
+        class="aurora-button _aurora-button-raised aurora-button-container {{= it.classes}}"
+        {{? it.hasvalue }}
+            value="{{=it.value}}"
+        {{?}}
+>
     <span class="aurora-button-focus-helper"></span>
+    <span class="statelayer"></span>
     <span class="aurora-button-content">
-    {{? it.useicon }}
-        <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.icon}}<!----></i>
-    {{?}}
-    <span class="aurora-button-label">{{=it.label}}</span>
+        {{? it.useicon }}
+            <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.icon}}<!----></i>
+        {{?}}
+        <span class="aurora-button-label">{{=it.label}}</span>
     </span>
     <div class="aurora-button-ripple"></div>
 </button>
