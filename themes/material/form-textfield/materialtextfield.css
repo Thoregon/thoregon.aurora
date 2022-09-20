@@ -470,9 +470,14 @@
 .q-outlined .aurora-text-field:hover::before { opacity: 0 !important; }
 .q-outlined .aurora-text-field:hover .elevation { opacity: 0; }
 
-/*
-RIPPLE effect
-*/
+.q-outlined.disabled {
+    color: var(--md-sys-color-on-surface);
+    opacity: .38;
+}
+
+    /*
+    RIPPLE effect
+    */
 
 .ripple{
     position:absolute;
