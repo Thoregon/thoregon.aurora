@@ -475,6 +475,9 @@
     opacity: .38;
 }
 
+.q-outlined .aurora-text-field[readonly] { border: 1px dashed; }
+.q-outlined .aurora-text-field.focused[readonly] input { padding-left: 16px; padding-top: 19px }
+
     /*
     RIPPLE effect
     */
