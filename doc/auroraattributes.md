@@ -32,12 +32,17 @@ Aurora Attributes
     - get translation for token, replace 'innerText' or 'placeholder' if available
     - aurora-i18n:<element-attribute>
     - specify variables with JS expression -> ${js}: aurora-i18n="text4(param1: '${paramA}', param2: 'PARAM2', param3: '${sub()}')"
+- aurora-class:<class>
+    - evaluates JS and sets or removes a class on an element
+    - div aurora-class:hightlight="$.isImportant()"
 - aurora-show
     - evaluates JS to get a value, if true element will be shown
+    - div aurora-show="$.isImportant()"
 - aurora-enabled
     - evaluates JS to get a value, if true element is enabled
+    - div aurora-enabled="$.isImportant()"
 - aurora-action:<what>  (alpine -> x-on)
-    - will be fired on <what>: click (default), click, change, focus, blur ...
+    - will be fired on <what>: click (default), change, focus, blur ...
     - --> see @open and @toggle at AuroraButton 
     - evaluates JS to handle the event
     - should hover, active also be supported?  

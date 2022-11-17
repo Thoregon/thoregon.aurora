@@ -24,6 +24,7 @@ export { default as AuroraAttribute }           from './lib/auroraattributes/aur
 export { default as AuroraAttributeName }       from './lib/auroraattributes/auroraattributename.mjs';
 export { default as AuroraAttributeAction   }   from './lib/auroraattributes/auroraattributeaction.mjs';
 export { default as AuroraAttributeBind   }     from './lib/auroraattributes/auroraattributebind.mjs';
+export { default as AuroraAttributeClass   }    from './lib/auroraattributes/auroraattributeclass.mjs';
 export { default as AuroraAttributeShow   }     from './lib/auroraattributes/auroraattributeshow.mjs';
 export { default as AuroraAttributeEnabled }    from './lib/auroraattributes/auroraattributeenabled.mjs';
 export { default as AuroraAttributeReadonly }   from './lib/auroraattributes/auroraattributereadonly.mjs';
