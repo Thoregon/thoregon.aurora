@@ -19,9 +19,14 @@ all attributes can be abbreviated with a-<attrname>
     - bind meta property from model to the elements value or innerText.only property name of meta model or meta view model, no evaluate
 - aurora-name:viewmeta | aurora-name:vmeta
     - bind meta property from view model to the elements value or innerText.only property name of meta model or meta view model, no evaluate
-- .<eventname>  
+- .'eventname'  
     - specify the 'change' event  
 - for 'input only' fields implement on the view model a get method which does not deliver anything
+
+````html
+// 
+<div > ... </div>
+````
 
 ## unidirectional to view
 
@@ -40,26 +45,51 @@ all attributes can be abbreviated with a-<attrname>
     - take selector in account (model or viewmodel)
     - !caution: first it may be evaluated when the is only the viewmodel, but not the model available
 
+````html
+// 
+<div > ... </div>
+````
+
 ### aurora-i18n
 
 - get translation for token, replace 'innerText' or 'placeholder' if available
 - aurora-i18n:<element-attribute>
-- specify variables with JS expression -> ${js}: aurora-i18n="text4(param1: '${paramA}', param2: 'PARAM2', param3: '${sub()}')"
+- specify variables with JS expression -> aurora-i18n="text4(param1: '${paramA}', param2: 'PARAM2', param3: '${sub()}')"
+
+````html
+// 
+<div > ... </div>
+````
 
 ### aurora-class:<class>
 
 - evaluates JS and sets or removes a class on an element
 - div aurora-class:hightlight="$.isImportant()"
 
+````html
+// 
+<div > ... </div>
+````
+
 ### aurora-show
 
 - evaluates JS to get a value, if true element will be shown
 - div aurora-show="$.isImportant()"
 
+````html
+// 
+<div > ... </div>
+````
+
 ### aurora-enabled
 
 - evaluates JS to get a value, if true element is enabled
 - div aurora-enabled="$.isImportant()"
+
+````html
+// 
+<div > ... </div>
+````
 
 ## actions
 
@@ -71,6 +101,11 @@ all attributes can be abbreviated with a-<attrname>
 - should hover, active also be supported?  
 - action shorthand -> @<what>
 
+````html
+// 
+<div > ... </div>
+````
+
 ### aurora-route:<what>   
 
 - specify a UI route to be displayed
@@ -80,19 +115,52 @@ all attributes can be abbreviated with a-<attrname>
 - can only invoke routes which are defined in 'routes.mjs'
 - aurora-route="@back" returns to the view before. this enables 'selection' views 
 
-### aurora-intersect (later)
+````html
+// 
+<div > ... </div>
+````
+
+### aurora-intersect
+
+- initial state (enter/leave) will be executed
+- evaluates JS
+
+#### work with ratios
+- ratios:  'ratio1':'ratio2' ... e.g. 0:100 
+  - any muber of ratios can be specified
+  - invoked when a ratio is exceeded or fallen below
+  - available parameters
+    - $intersecting: boolean, tells if element intersects
+    - $ratio: float (0 .. 100), current intersection ratio
 
 ````html
-// invoke method 'elemVisible' on viewmodel when the element is full visible  
-<div aurora-intersect:enter.full="elemVisible()"> ... </div>
+// invoke elemIsVisible(true) when the element becomes visible,
+// and elemIsVisible(false) when the element becomes invisible
+<div aurora-intersect="elemIsVisible($intersecting)"></div>
+
+// invoke elemIntersects() on view model everytime the specified ratio is exceeded or fallen below
+<div aurora-intersect:0:50:100="elemIntersects($intersecting, $ratio)"></div>
+````
+
+#### work with state
+- :enter, :leave
+- :enter-once, :leave-once
+- .full, .partial:'percentage'
+  - if partially w/o percentage, 50 (%) is used 
+
+````html
+// invoke method 'elemVisible' on viewmodel when the element is visible just with one pixel
+<div aurora-intersect:enter="elemVisible()"> ... </div>
+
+// invoke method 'elemVisible' on viewmodel when the element is 50% visible  
+<div aurora-intersect:enter.partial="elemVisible()"> ... </div>
+
+// invoke method 'elemVisible' on viewmodel when the element is 30% visible
+<div aurora-intersect:enter.partial:30="elemVisible()"> ... </div>
 
 // invoke method 'elemNotVisible' on viewmodel when the element is full invisible
 <div aurora-intersect:leave.full="elemNotVisible()"> ... </div>
 ````
-- initial state (enter/leave) will be executed
-- :enter, :leave
-- .once, .half, .full, .when:<percentage>,
-- evaluates JS
 
 ## Add
 
@@ -100,13 +168,31 @@ all attributes can be abbreviated with a-<attrname>
 
 - define a mask for the input field e.g. phonenumber, IBAN, ...
 
+````html
+// 
+<div > ... </div>
+````
+
+### aurora-connect
+
+- handle an element by the view model
+- full control by the view model
+- can attach arbitrary event listeners or observers
+- can be combined with other aurora-attributes
+- the element will be supplied by the variable `${element}`
+
+````html
+// 
+<div aurora-connect="connectElement(${element})"> ... </div>
+````
+
 
 ## JS evaluation in aurora attributes
 
 Evaluate (restricted) a JS
 
 - Context Variables:
-    - all properties and functions from the viewmodel are available top level (w/o referencing the viewmodel e.g. '$vm.myprop'  is the same as 'myprop')  
+    - the viewmodel is the scope, all properties and functions from the viewmodel are available top level (w/o referencing the viewmodel e.g. '$vm.myprop'  is the same as 'myprop')  
     - 'this' is the current HTML element the aurora attribute is bound to
     - '$' | '$model' is the model  (wish: all properties of the model are top level vars) 
     - '$meta' is the meta model
@@ -138,6 +224,8 @@ Bind fn to the element (this)
 - if no tx -> immed update
 
 ### aurora-data  (maybe later)
+
+? this should be mapped to the view model ?
 
 - define local variables as JSON with a default value, will be mapped to the view model if available
 - <... aurora-data="{ myvar: 1 }">

@@ -30,6 +30,7 @@ export { default as AuroraAttributeEnabled }    from './lib/auroraattributes/aur
 export { default as AuroraAttributeReadonly }   from './lib/auroraattributes/auroraattributereadonly.mjs';
 export { default as AuroraAttributeI18N }       from './lib/auroraattributes/auroraattributei18n.mjs';
 export { default as AuroraAttributeRoute }      from './lib/auroraattributes/auroraattributeroute.mjs';
+export { default as AuroraAttributeIntersect }  from './lib/auroraattributes/auroraattributeintersect.mjs';
 
 // App Classes
 export { default as AuroraApp }                 from './lib/blueprint/auroraapp.mjs';
