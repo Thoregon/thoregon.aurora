@@ -162,6 +162,21 @@ all attributes can be abbreviated with a-<attrname>
 <div aurora-intersect:leave.full="elemNotVisible()"> ... </div>
 ````
 
+### aurora-connect
+
+- only once when element and view model are available
+- handle an element by the view model
+  - full control by the view model
+  - can attach arbitrary event listeners or observers
+- can be combined with other aurora-attributes
+- the element will be available with the variable `$element`
+
+````html
+// pass element to viewmodel
+<div aurora-connect="connectElement($element)"> ... </div>
+````
+
+
 ## Add
 
 ### aurora-mask -> attribute of form elements?
@@ -171,19 +186,6 @@ all attributes can be abbreviated with a-<attrname>
 ````html
 // 
 <div > ... </div>
-````
-
-### aurora-connect
-
-- handle an element by the view model
-- full control by the view model
-- can attach arbitrary event listeners or observers
-- can be combined with other aurora-attributes
-- the element will be supplied by the variable `$element`
-
-````html
-// 
-<div aurora-connect="connectElement($element)"> ... </div>
 ````
 
 
