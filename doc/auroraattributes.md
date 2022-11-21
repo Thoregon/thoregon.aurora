@@ -179,11 +179,11 @@ all attributes can be abbreviated with a-<attrname>
 - full control by the view model
 - can attach arbitrary event listeners or observers
 - can be combined with other aurora-attributes
-- the element will be supplied by the variable `${element}`
+- the element will be supplied by the variable `$element`
 
 ````html
 // 
-<div aurora-connect="connectElement(${element})"> ... </div>
+<div aurora-connect="connectElement($element)"> ... </div>
 ````
 
 
