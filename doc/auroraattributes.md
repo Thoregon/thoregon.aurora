@@ -200,6 +200,7 @@ Evaluate (restricted) a JS
     - '$meta' is the meta model
     - '$vm' | '$viewmodel' is the view model
     - '$viewmeta' is the meta view model
+    - '$element' is the current element
     - '$interface' | '$i' is are the properties from the app interface settings
     - '$router' is the uirouter
 - Available globals:

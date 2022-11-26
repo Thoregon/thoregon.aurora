@@ -54,7 +54,9 @@ Component Behavior only:
 
 
 ## Embedded View
+--> use 'aurora-include'
 
+Not valid anymore 
 - view model will get the parent model and view model
 - with attribute 'set-parent-viewmodel' 
 - ? 'set-parent-model'
