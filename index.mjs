@@ -18,6 +18,7 @@ export { default as AuroraFooter }              from './lib/blueprint/layout/aur
 export { default as AuroraDrawer }              from './lib/blueprint/layout/auroradrawer.mjs';
 export { default as AuroraContainer }           from './lib/blueprint/layout/auroracontainer.mjs';
 export { default as AuroraView }                from './lib/blueprint/layout/auroraview.mjs';
+export { default as AuroraInclude }             from './lib/blueprint/layout/aurorainclude.mjs';
 
 // aurora attributes
 export { default as AuroraAttribute }           from './lib/auroraattributes/auroraattribute.mjs';
