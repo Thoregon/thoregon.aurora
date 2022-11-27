@@ -201,6 +201,7 @@ Evaluate (restricted) a JS
     - '$vm' | '$viewmodel' is the view model
     - '$viewmeta' is the meta view model
     - '$element' is the current element
+    - '$viewContext' is the view context for this dom tree (if there is one)
     - '$interface' | '$i' is are the properties from the app interface settings
     - '$router' is the uirouter
 - Available globals:
