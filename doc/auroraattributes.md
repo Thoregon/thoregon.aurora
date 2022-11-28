@@ -204,6 +204,8 @@ Evaluate (restricted) a JS
     - '$viewContext' is the view context for this dom tree (if there is one)
     - '$interface' | '$i' is are the properties from the app interface settings
     - '$router' is the uirouter
+- Context Variables for user triggered events (only aurora-action and aurora-route)
+    - $event is the original browser event
 - Available globals:
     - 'app' is the app (if defined)
     - 'me' is the SSI
@@ -218,7 +220,27 @@ Arbitrary properties can be defined and accessed to use it for view control (aur
 Bind fn to the element (this)
 
 
-## Later
+# TODO (Later)
+
+## Formating Functions
+
+### $dateformat
+
+
+### $numformat
+
+### Provided formats
+- browser locale settings
+- SSI locale settngs
+- app locale settings
+
+### $map
+
+
+### $translate
+
+
+## Attributes
 
 ### aurora-transaction
 
