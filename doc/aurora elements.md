@@ -10,6 +10,20 @@ AuroraElement
 ### Exposed Events 
 - propagate events from elements inside the container to listeners on the AuroraElement
 
+### Template Variables
+
+template variables can be defined where the element is used, and will be replaced by the template engine.
+this is not reactive and will only happen when once the template is used.
+variables can either be defined explicit with an `<arg>` tag or by an attribute on the aurora element.
+note that the attributes can only have lowercase letters
+````HTML
+<aurora-element>
+  <var name="varname">value</var>
+</aurora-element>
+````
+````HTML
+<aurora-element varname="value"></aurora-element>
+````
 
 AuroraElement ChildElements
 - Elements inside an AuroraElement 
