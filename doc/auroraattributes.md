@@ -188,7 +188,6 @@ all attributes can be abbreviated with a-<attrname>
 <div > ... </div>
 ````
 
-
 ## JS evaluation in aurora attributes
 
 Evaluate (restricted) a JS
@@ -202,6 +201,7 @@ Evaluate (restricted) a JS
     - '$viewmeta' is the meta view model
     - '$element' is the current element
     - '$viewContext' is the view context for this dom tree (if there is one)
+    - '$listvm' is the view model of the list if the aurora-attribute is attached to a list item
     - '$interface' | '$i' is are the properties from the app interface settings
     - '$router' is the uirouter
 - Context Variables for user triggered events (only aurora-action and aurora-route)
@@ -209,11 +209,17 @@ Evaluate (restricted) a JS
 - Available globals:
     - 'app' is the app (if defined)
     - 'me' is the SSI
-    - 'universe' | '$u' is are the properties from the universe
+    - 'universe' | '$u' are the properties from the universe
     - 'thoregon'
     - 'dorifer'
     - 'device'
     - 'mediathek'
+
+Context in an auroralist:
+
+- aurora-attributes on the list e.g. `<aurora-list aurora-bind... >`: $ (model) and $vm (viewmodel) from the view containing the list
+- aurora-attributes on list headers `<<column><header ...></column>>` and filters `<filter-definition ...>`: $ (model) and $vm (viewmodel) from the view containing the list
+- aurora-attributes on a list item `<grid-definition ...>` or `<column><view ...></column>` : $ (model) and $vm (viewmodel) from the list item, $listvm is the viewmodel from the view containing the list
   
 All evaluations will be reavaluated on every mutation of the model 
 Arbitrary properties can be defined and accessed to use it for view control (aurora-data).  
