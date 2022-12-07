@@ -214,6 +214,11 @@ Evaluate (restricted) a JS
     - 'dorifer'
     - 'device'
     - 'mediathek'
+- Functions
+  - formatdate($.created, 'fmt')
+  - formatint()
+  - formatfloat()
+  - formatamount()
 
 Context in an auroralist:
 
