@@ -13,6 +13,7 @@ all attributes can be abbreviated with a-<attrname>
 - keep in sync with the specified property
 - all names are relative path, start with 'root:' to use an absolute path. 
 - long form aurora-name:model 
+- name shorthand -> $<attribute-name>
 - aurora-name:viewmodel | aurora-name:vm
     - bind property from view model to the elements value or innerText.only property name of meta model or meta view model, no evaluate
 - aurora-name:meta
@@ -23,9 +24,21 @@ all attributes can be abbreviated with a-<attrname>
     - specify the 'change' event  
 - for 'input only' fields implement on the view model a get method which does not deliver anything
 
+- mask for output
+  - specify the mask type or the pattern after the name separated by '|' 
+  - interactive formating for input fields
+  - formats output for display
+  - patterns
+    - use '9' for digit
+    - use 'A' for letter
+    - use 'S' for alphanumeric
+    - all other characters will be displayed in the formatted string 
+
 ````html
-// 
-<div > ... </div>
+<input $="description">     // syncs property 'description' from the model with the input value
+<input aurora-name="amount|money"/>
+<input aurora-name="date|99.99.9999"/>
+<input aurora-name="card|9999 9999 9999 9999"/>   // -> 
 ````
 
 ## unidirectional to view
@@ -64,11 +77,14 @@ all attributes can be abbreviated with a-<attrname>
 ### aurora-class:<class>
 
 - evaluates JS and sets or removes a class on an element
-- div aurora-class:hightlight="$.isImportant()"
+- allows true and false setting separated by ':'
+- allows multiple classes separated by '.' 
 
 ````html
-// 
-<div > ... </div>
+//
+<div aurora-class:hightlight="$.isImportant()"></div>
+<div aurora-class:hightlight:dimm="$.isImportant()"></div>
+<div aurora-class:hightlight.red:dimm.blue="$.isImportant()"></div>
 ````
 
 ### aurora-show
