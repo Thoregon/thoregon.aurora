@@ -7,13 +7,13 @@ all attributes can be abbreviated with a-<attrname>
 
 ## bidirectional binding model <-> view
 
-### aurora-name       (alpine -> x-model)
+### aurora-name, $, $$       (alpine -> x-model)
 
 - bind property from model or the viewmodel (if not defined on the model) to the elements value or innerText. only property name of model or view model, no evaluate
 - keep in sync with the specified property
 - all names are relative path, start with 'root:' to use an absolute path. 
 - long form aurora-name:model 
-- name shorthand -> $<attribute-name>
+- name shorthand -> $<attribute-name>, todo: $$<attribute-name> for view model attributes
 - aurora-name:viewmodel | aurora-name:vm
     - bind property from view model to the elements value or innerText.only property name of meta model or meta view model, no evaluate
 - aurora-name:meta
@@ -43,7 +43,7 @@ all attributes can be abbreviated with a-<attrname>
 
 ## unidirectional to view
 
-### aurora-bind:<attribute-name>    (alpine -> x-bind)
+### aurora-bind:<attribute-name>, :<attribute-name>   (alpine -> x-bind)
 
 - input aurora-bind:placeholder="$.extratext"
 - bind an attribute e.g. class to a JS 
@@ -109,7 +109,7 @@ all attributes can be abbreviated with a-<attrname>
 
 ## actions
 
-### aurora-action:<what>  (alpine -> x-on)
+### aurora-action:<what>, @<what>  (alpine -> x-on)
 
 - will be fired on <what>: click (default), change, focus, blur ...
 - --> see @open and @toggle at AuroraButton 
@@ -231,7 +231,8 @@ Evaluate (restricted) a JS
     - 'device'
     - 'mediathek'
 - Functions
-  - formatdate($.created, 'fmt')
+  - formatamount( amount, locale, currency ) e.g. `<span :="formatamount($.total, $vm.locale)"></span>`
+  - formatdate( date , format)
   - formatint()
   - formatfloat()
   - formatamount()
