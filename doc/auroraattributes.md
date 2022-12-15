@@ -214,6 +214,7 @@ Evaluate (restricted) a JS
     - '$' | '$model' is the model  (wish: all properties of the model are top level vars) 
     - '$meta' is the meta model
     - '$vm' | '$viewmodel' is the view model
+    - '$REF' is the reference (key) from the route
     - '$viewmeta' is the meta view model
     - '$element' is the current element
     - '$viewContext' is the view context for this dom tree (if there is one)
