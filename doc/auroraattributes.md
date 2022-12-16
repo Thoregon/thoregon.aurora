@@ -9,6 +9,8 @@ all attributes can be abbreviated with a-<attrname>
 
 ### aurora-name, $, $$       (alpine -> x-model)
 
+todo: add 'aurora-model', 'aurora-viewmodel' and 'aurora-vm' as synonymes 
+
 - bind property from model or the viewmodel (if not defined on the model) to the elements value or innerText. only property name of model or view model, no evaluate
 - keep in sync with the specified property
 - all names are relative path, start with 'root:' to use an absolute path. 
@@ -24,6 +26,23 @@ all attributes can be abbreviated with a-<attrname>
     - specify the 'change' event  
 - for 'input only' fields implement on the view model a get method which does not deliver anything
 
+- works for all `<input>` fields, also for radio
+  - todo: checkbox
+- works for all `<select>`
+- works for all aurora form elements
+
+````html
+<input $="description">                // syncs property 'description' from the model with the input value
+<input aurora-name="name"/>            // model property 'name' will be synced
+
+<input $vm="description">              // syncs property 'description' from the view model with the input value
+<input aurora-name:vm="description">   // syncs property 'description' from the view model with the input value
+
+<input aurora-name:vm="name"/>         // view model property 'name' will be synced
+<input $vm="name"/>                    // view model property 'name' will be synced
+````
+
+Planned:
 - mask for output
   - specify the mask type or the pattern after the name separated by '|' 
   - interactive formating for input fields
@@ -35,7 +54,7 @@ all attributes can be abbreviated with a-<attrname>
     - all other characters will be displayed in the formatted string 
 
 ````html
-<input $="description">     // syncs property 'description' from the model with the input value
+<input $="description">       // syncs property 'description' from the model with the input value
 <input aurora-name="amount|money"/>
 <input aurora-name="date|99.99.9999"/>
 <input aurora-name="card|9999 9999 9999 9999"/>   // -> 
@@ -44,6 +63,8 @@ all attributes can be abbreviated with a-<attrname>
 ## unidirectional to view
 
 ### aurora-bind:<attribute-name>, :<attribute-name>   (alpine -> x-bind)
+
+bind a value, which wi
 
 - input aurora-bind:placeholder="$.extratext"
 - bind an attribute e.g. class to a JS 
@@ -58,9 +79,69 @@ all attributes can be abbreviated with a-<attrname>
     - take selector in account (model or viewmodel)
     - !caution: first it may be evaluated when the is only the viewmodel, but not the model available
 
+note: the value of the attribute will be evaluated as JS. for functions and params see in [JS evaluation](#JS evaluation in aurora attributes)
+
 ````html
-// 
-<div > ... </div>
+<span :="name"></span>                    // binds the property 'name' from the view model to the 'innerHTML' of the span
+<span aurora-bind="name"></span>          // binds the property 'name' from the view model to the 'innerHTML' of the span
+
+<span :="$.name"></span>                  // binds the property 'name' from the model to the 'innerHTML' of the span
+<span aurora-bind="$.name"></span>        // binds the property 'name' from the model to the 'innerHTML' of the span
+
+<span :class="getClass()"></span>               // sets the result from viewmodel.getClass() as attribute 'class'. see [aurora-class] for add/remove classes
+<span aurora-bind:class="getClass()"></span>    // sets the result from viewmodel.getClass() as attribute 'class'. see [aurora-class] for add/remove classes
+````
+
+special handling of JS result for `<select>`:
+(applies only when not element attribute is specified) 
+- if the result is an array, the options will be generated with the array elements
+- if the result is an object, the options will be generated with property name and value from the object
+- if a string is returned, it is assumed it contains html code to create the options. it will directly be used for innerHTML
+
+Examples:
+````html
+<select :="includeOptionsArray()">  // generates the options below
+  <option value="Option 1">Option 1</option>
+  <option value="Option 2">Option 2</option>
+  <option value="Option 3">Option 3</option>
+</select>
+````
+````javascript
+includeOptionsArray() {
+    return ["Option 1", "Option 2", "Option 3"];
+}
+````
+````html
+<select :="includeOptionsObject()">  // generates the options below
+  <option value="A">Option A</option>
+  <option value="B">Option B</option>
+  <option value="C">Option C</option>
+</select>
+````
+````javascript
+includeOptionsObject() {
+    return {
+      "A": "Option A", 
+      "B": "Option B", 
+      "C": "Option C"
+    }
+}
+````
+````html
+<select :="includeOptionsString()">  // generates the options below
+  <option value="A">Option A</option>
+  <option value="B">Option B</option>
+  <option value="C">Option C</option>
+</select>
+````
+````javascript
+includeOptionsString() {
+    return `
+    <option value="A">Option A</option>
+    <option value="B">Option B</option>
+    <option value="C">Option C</option>
+`;
+}
 ````
 
 ### aurora-i18n
