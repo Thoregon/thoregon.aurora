@@ -143,6 +143,27 @@ includeOptionsString() {
 `;
 }
 ````
+with translate function
+````html
+<select :="translate(optionTokens())">
+    <option value="opt1">Option A</option>
+    <option value="opt2">Option B</option>
+    <option value="opt3">Option C</option>
+</select>
+````
+i18n translation for app:
+````json
+{
+  "opt1": "Option A",
+  "opt2": "Option B",
+  "opt3": "Option C"
+}
+````
+````javascript
+optionTokens() {
+    return ['opt1', 'opt2', 'opt3']
+}
+````
 
 ### aurora-i18n
 
@@ -273,18 +294,6 @@ includeOptionsString() {
 <div aurora-connect="connectElement($element)"> ... </div>
 ````
 
-
-## Add
-
-### aurora-mask -> attribute of form elements?
-
-- define a mask for the input field e.g. phonenumber, IBAN, ...
-
-````html
-// 
-<div > ... </div>
-````
-
 ## JS evaluation in aurora attributes
 
 Evaluate (restricted) a JS
@@ -315,9 +324,14 @@ Evaluate (restricted) a JS
 - Functions
   - formatamount( amount, locale, currency ) e.g. `<span :="formatamount($.total, $vm.locale)"></span>`
   - formatdate( date , format)
-  - formatint()
-  - formatfloat()
-  - formatamount()
+  - formatint(number)
+  - formatnumber(number)
+  - todo: formatpattern(...)
+todo:
+  - map()
+  - translate(token, params) (i18n)
+    - token can have a subkey: 'token.subkey'
+    - if token is an array, a map (object) with translations is returned. can be used for dropdown (select) fields
 
 Context in an auroralist:
 
@@ -327,28 +341,9 @@ Context in an auroralist:
   
 All evaluations will be reavaluated on every mutation of the model 
 Arbitrary properties can be defined and accessed to use it for view control (aurora-data).  
-Bind fn to the element (this)
+'this' is bound to the element on which the aurora attribute is defined
 
-
-# TODO (Later)
-
-## Formating Functions
-
-### $dateformat
-
-
-### $numformat
-
-### Provided formats
-- browser locale settings
-- SSI locale settngs
-- app locale settings
-
-### $map
-
-
-### $translate
-
+# TODO (maybe later)
 
 ## Attributes
 
