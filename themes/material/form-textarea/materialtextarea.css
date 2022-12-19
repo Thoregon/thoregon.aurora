@@ -222,6 +222,7 @@
     outline: none;
 }
 
+.aurora-floating-label-stacked .aurora-floating-label,
 .aurora-textarea .aurora-floating-label--float-above {
     transform: translateY(-106%) scale(0.75);
 }
@@ -253,6 +254,8 @@
     color: transparent;
     transition: color 0.2s ease;
 }
+
+.aurora-floating-label-stacked .aurora-textarea-input::placeholder,
 .aurora-textarea-input:focus::placeholder {
     color: rgba(0,0,0,.42);
 }

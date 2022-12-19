@@ -44,7 +44,7 @@ export default class MaterialTextarea extends ThemeBehavior {
         if (charactercounter.length > 0 && charactercounter[0].length > 0 ) {
             this.container.querySelectorAll(".mdc-textarea-field-character-counter")[0].innerHTML = this.jar.value.length;
         }
-        if ( value.length > 0 ) {
+        if ( value.length > 0 || true ) {
             this.container.querySelectorAll("label")[0].classList.add('aurora-floating-label--float-above');
         }
     }
