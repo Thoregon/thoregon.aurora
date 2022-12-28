@@ -271,6 +271,8 @@
     color: transparent;
     transition: color 0.2s ease;
 }
+
+.aurora-floating-label-stacked .aurora-text-field-input::placeholder,
 .aurora-text-field-input:focus::placeholder {
     color: rgba(0,0,0,.42);
 }
