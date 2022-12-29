@@ -191,12 +191,24 @@ optionTokens() {
 
 ### aurora-show
 
+conditionally show an element
+
 - evaluates JS to get a value, if true element will be shown
-- div aurora-show="$.isImportant()"
 
 ````html
 // 
-<div > ... </div>
+<div aurora-show="$.isImportant()"> ... </div>
+````
+
+### aurora-hide
+
+opposite of aurora-show for convenience.
+
+- evaluates JS to get a value, if true element will be hidden
+
+````html
+// hide 'activate' button is already active
+<button aurora-hide="isActive">Activate</button>
 ````
 
 ### aurora-enabled
