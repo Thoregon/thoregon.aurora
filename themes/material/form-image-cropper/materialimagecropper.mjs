@@ -51,8 +51,8 @@ export default class MaterialImageCropper {
                 width:  dimension[0] || 100,
                 height: dimension[1] || 100
             },
-            service: async (...args) => await this.jar.save(...args),
-            fetcher: async (...args) => await this.jar.fetch(...args),
+            service: async (...args) => await this.jar.saveImage(...args),
+            fetcher: async (...args) => await this.jar.fetchImage(...args),
             download: false,
             push: true,
             willSave: function(data, ready) {
@@ -95,7 +95,7 @@ export default class MaterialImageCropper {
     }
 
     showFileDialog() {
-        if (this.slim.data?.input?.name) return ;
+        if (this.slim.data?.input?.name) return;
         return this.slim._openFileDialog();
     }
 
@@ -103,15 +103,20 @@ export default class MaterialImageCropper {
         return this.slim.dataBase64?.output;
     }
 
-    set imageDescriptor(imageDescriptor) {
+    set imageDescriptor(ufd) {
+        debugger;
+        this.loadCropper(ufd);
+    }
 
+    async loadCropper(ufd) {
+        const value = await ufd.getDataUrl();
+        if (!value || !this.slim) return ;
+        this.slim.load(value, (error, data) => {
+            if (error) console.log("Slim Image Cropper: load", error);
+        });
     }
 
     valueChanged( value ) {
-        if (!value || !this.slim) return ;
-        this.slim.load(value, (error, data) => {
-
-        });
         /*
          this.destroy();
 
