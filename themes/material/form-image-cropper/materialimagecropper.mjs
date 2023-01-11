@@ -104,7 +104,6 @@ export default class MaterialImageCropper {
     }
 
     set imageDescriptor(ufd) {
-        debugger;
         this.loadCropper(ufd);
     }
 
