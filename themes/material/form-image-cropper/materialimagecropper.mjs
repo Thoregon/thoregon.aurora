@@ -51,8 +51,8 @@ export default class MaterialImageCropper {
                 width:  dimension[0] || 100,
                 height: dimension[1] || 100
             },
-            service: async (...args) => await this.jar.saveImage(...args),
-            fetcher: async (...args) => await this.jar.fetchImage(...args),
+            service: async (...args) => await this.saveImage(...args),
+            fetcher: async (...args) => await this.fetchImage(...args),
             download: false,
             push: true,
             willSave: function(data, ready) {
@@ -108,11 +108,27 @@ export default class MaterialImageCropper {
     }
 
     async loadCropper(ufd) {
-        const value = await ufd.getDataUrl();
-        if (!value || !this.slim) return ;
-        this.slim.load(value, (error, data) => {
-            if (error) console.log("Slim Image Cropper: load", error);
-        });
+        this._loading = true;
+        try {
+            const value = await ufd.getDataUrl();
+            if (!value || !this.slim) return;
+            this.slim.load(value, (error, data) => {
+                this._loading = false;
+                if (error) console.log("Slim Image Cropper: load", error);
+            });
+        } catch(e) {
+            this._loading = false;
+        }
+    }
+
+    async saveImage(...args) {
+        if (this._loading) return;
+        return await this.jar.saveImage(...args);
+    }
+
+    async fetchImage(...args) {
+        if (this._loading) return;
+        return await this.jar.fetchImage(...args);
     }
 
     valueChanged( value ) {
