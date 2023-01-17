@@ -67,6 +67,7 @@ export default class MaterialImageCropper {
             }
         });
 
+        this.slim.size = { width: dimension[0], height: dimension[1] };
         this.slim.delegate = this;
 
 /*
