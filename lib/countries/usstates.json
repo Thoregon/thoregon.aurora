@@ -1,0 +1,257 @@
+[
+  {
+    "name" : "Alabama",
+    "abbrev": "Ala.",
+    "code"  : "AL"
+  },
+  {
+    "name" : "Alaska",
+    "abbrev": "Alaska",
+    "code"  : "AK"
+  },
+  {
+    "name" : "Arizona",
+    "abbrev": "Ariz.",
+    "code"  : "AZ"
+  },
+  {
+    "name" : "Arkansas",
+    "abbrev": "Ark.",
+    "code"  : "AR"
+  },
+  {
+    "name" : "California",
+    "abbrev": "Calif.",
+    "code"  : "CA"
+  },
+  {
+    "name" : "Colorado",
+    "abbrev": "Colo.",
+    "code"  : "CO"
+  },
+  {
+    "name" : "Connecticut",
+    "abbrev": "Conn.",
+    "code"  : "CT"
+  },
+  {
+    "name" : "Delaware",
+    "abbrev": "Del.",
+    "code"  : "DE"
+  },
+  {
+    "name" : "District of Columbia",
+    "abbrev": "D.C.",
+    "code"  : "DC"
+  },
+  {
+    "name" : "Florida",
+    "abbrev": "Fla.",
+    "code"  : "FL"
+  },
+  {
+    "name" : "Georgia",
+    "abbrev": "Ga.",
+    "code"  : "GA"
+  },
+  {
+    "name" : "Hawaii",
+    "abbrev": "Hawaii",
+    "code"  : "HI"
+  },
+  {
+    "name" : "Idaho",
+    "abbrev": "Idaho",
+    "code"  : "ID"
+  },
+  {
+    "name" : "Illinois",
+    "abbrev": "Ill.",
+    "code"  : "IL"
+  },
+  {
+    "name" : "Indiana",
+    "abbrev": "Ind.",
+    "code"  : "IN"
+  },
+  {
+    "name" : "Iowa",
+    "abbrev": "Iowa",
+    "code"  : "IA"
+  },
+  {
+    "name" : "Kansas",
+    "abbrev": "Kans.",
+    "code"  : "KS"
+  },
+  {
+    "name" : "Kentucky",
+    "abbrev": "Ky.",
+    "code"  : "KY"
+  },
+  {
+    "name" : "Louisiana",
+    "abbrev": "La.",
+    "code"  : "LA"
+  },
+  {
+    "name" : "Maine",
+    "abbrev": "Maine",
+    "code"  : "ME"
+  },
+  {
+    "name" : "Maryland",
+    "abbrev": "Md.",
+    "code"  : "MD"
+  },
+  {
+    "name" : "Massachusetts",
+    "abbrev": "Mass.",
+    "code"  : "MA"
+  },
+  {
+    "name" : "Michigan",
+    "abbrev": "Mich.",
+    "code"  : "MI"
+  },
+  {
+    "name" : "Minnesota",
+    "abbrev": "Minn.",
+    "code"  : "MN"
+  },
+  {
+    "name" : "Mississippi",
+    "abbrev": "Miss.",
+    "code"  : "MS"
+  },
+  {
+    "name" : "Missouri",
+    "abbrev": "Mo.",
+    "code"  : "MO"
+  },
+  {
+    "name" : "Montana",
+    "abbrev": "Mont.",
+    "code"  : "MT"
+  },
+  {
+    "name" : "Nebraska",
+    "abbrev": "Nebr.",
+    "code"  : "NE"
+  },
+  {
+    "name" : "Nevada",
+    "abbrev": "Nev.",
+    "code"  : "NV"
+  },
+  {
+    "name" : "New Hampshire",
+    "abbrev": "N.H.",
+    "code"  : "NH"
+  },
+  {
+    "name" : "New Jersey",
+    "abbrev": "N.J.",
+    "code"  : "NJ"
+  },
+  {
+    "name" : "New Mexico",
+    "abbrev": "N.M.",
+    "code"  : "NM"
+  },
+  {
+    "name" : "New York",
+    "abbrev": "N.Y.",
+    "code"  : "NY"
+  },
+  {
+    "name" : "North Carolina",
+    "abbrev": "N.C.",
+    "code"  : "NC"
+  },
+  {
+    "name" : "North Dakota",
+    "abbrev": "N.D.",
+    "code"  : "ND"
+  },
+  {
+    "name" : "Ohio",
+    "abbrev": "Ohio",
+    "code"  : "OH"
+  },
+  {
+    "name" : "Oklahoma",
+    "abbrev": "Okla.",
+    "code"  : "OK"
+  },
+  {
+    "name" : "Oregon",
+    "abbrev": "Ore.",
+    "code"  : "OR"
+  },
+  {
+    "name" : "Pennsylvania",
+    "abbrev": "Pa.",
+    "code"  : "PA"
+  },
+  {
+    "name" : "Rhode Island",
+    "abbrev": "R.I.",
+    "code"  : "RI"
+  },
+  {
+    "name" : "South Carolina",
+    "abbrev": "S.C.",
+    "code"  : "SC"
+  },
+  {
+    "name" : "South Dakota",
+    "abbrev": "S.D.",
+    "code"  : "SD"
+  },
+  {
+    "name" : "Tennessee",
+    "abbrev": "Tenn.",
+    "code"  : "TN"
+  },
+  {
+    "name" : "Texas",
+    "abbrev": "Tex.",
+    "code"  : "TX"
+  },
+  {
+    "name" : "Utah",
+    "abbrev": "Utah",
+    "code"  : "UT"
+  },
+  {
+    "name" : "Vermont",
+    "abbrev": "Vt.",
+    "code"  : "VT"
+  },
+  {
+    "name" : "Virginia",
+    "abbrev": "Va.",
+    "code"  : "VA"
+  },
+  {
+    "name" : "Washington",
+    "abbrev": "Wash.",
+    "code"  : "WA"
+  },
+  {
+    "name" : "West Virginia",
+    "abbrev": "W.Va.",
+    "code"  : "WV"
+  },
+  {
+    "name" : "Wisconsin",
+    "abbrev": "Wis.",
+    "code"  : "WI"
+  },
+  {
+    "name" : "Wyoming",
+    "abbrev": "Wyo.",
+    "code"  : "WY"
+  }
+]

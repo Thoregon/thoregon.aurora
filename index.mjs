@@ -98,6 +98,7 @@ export default Aurora.withElements({
                                         'aurora-step'                : './lib/formcomponents/aurorastep.mjs',
                                         'aurora-stepper'             : './lib/formcomponents/aurorastepper.mjs',
                                         'aurora-switch'              : './lib/formcomponents/auroraswitch.mjs',
+                                        'aurora-colorpicker'         : './lib/formcomponents/auroracolorpicker.mjs',
                                         'aurora-textarea'            : './lib/formcomponents/auroratextarea.mjs',
                                         'aurora-inputtext'           : './lib/formcomponents/auroratextfield.mjs',
                                         'aurora-toolbar'             : './lib/formcomponents/auroratoolbar.mjs',
