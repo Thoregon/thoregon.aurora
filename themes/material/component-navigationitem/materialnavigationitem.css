@@ -30,19 +30,25 @@
 .navigation-item.mode-icon-label .label {
     margin-top: 4px;
 }
-.navigation-item.mode-icon-label .badge:not(:empty) {
+
+.badge:not(:empty) {
     font-size: 10px;
     background: var(--md-sys-color-error);
     color: var(--md-sys-color-on-error);
     border-radius: 8px;
-    width: 16px;
+    padding-left: .5em;
+    padding-right: .5em;
     height: 16px;
     text-align: center;
     vertical-align: middle;
     line-height: 16px;
-    position: absolute;
-    right: calc( 50% - 16px );
 }
+
+.navigation-item.mode-icon-label .badge {
+    position: absolute;
+    left: 50%;
+}
+.navigation-item.mode-menu-bar .badge {}
 
 .navigation-item.mode-icon-label.active .icon i {
     background: var( --md-sys-color-secondary-container );
@@ -89,7 +95,7 @@
 .navigation-item.mode-bar { margin-left: 12px; margin-right: 12px; }
 
 .navigation-item.mode-menu-bar .icon,
-.navigation-item.mode-bar .icon { margin-left: 16px; margin-right: 12px; }
+.navigation-item.mode-bar .icon { margin-left: 16px; margin-right: 12px; display: flex; }
 
 .navigation-item.mode-menu-bar .badge,
 .navigation-item.mode-bar .badge { margin-left: 12px; margin-right: 24px; }
@@ -106,7 +112,7 @@
 /* mode-menu-bar*/
 
 .navigation-item.mode-menu-bar {
-    border-radius: 0px 50px 50px 0px;
+    border-radius: 50px 50px 50px 50px;
 }
 
 .navigation-item.mode-menu-bar {
