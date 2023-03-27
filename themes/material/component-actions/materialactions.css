@@ -14,7 +14,12 @@ open-up-right {
 
 :host(aurora-actions) {
     overflow: visible;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+:host(.footer) {}
 
 .aurora-actions {
     display: inline-block;
@@ -43,19 +48,21 @@ open-up-right {
 }
 
 
+/*
+    MENU - Action
+ */
+
 .aurora-actions-menu.active {
-    display: initial;
+    display: initial !important;
 }
 
 .aurora-actions-menu {
     position: absolute;
-    top: 2em;
-/*    right: -0.5em; */
     z-index: 1000;
     float: left;
     min-width: 160px;
     padding: 5px 0;
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     list-style: none;
     background-color: #fff;
@@ -72,55 +79,86 @@ open-up-right {
     display: none;
 }
 
-.aurora-actions-menu.open-down-left { right: -0.5em; }
-.aurora-actions-menu.open-down-right { left: -0.5em; }
-.aurora-actions-menu.open-down-right:before { left: 15px;}
-.aurora-actions-menu.open-down-left:before  { right: 15px;}
+.aurora-actions-menu .aurora-menu-icon {
+    margin-right: 12px;
+    font-size: 24px;
+}
+
+/*
+  open-down
+  align-horizontal-right
+ */
+
+.align-left .aurora-actions-menu.open-down  { top: 2em; right: -0.5em; }
+.align-right .aurora-actions-menu.open-down { left: -0.5em;  top: 2em;}
+
+.align-left .aurora-actions-menu.open-up {  left: -0.5em; bottom: 2em; }
+.align-right .aurora-actions-menu.open-up { left: -0.5em; bottom: 2em; }
+
+.align-right .aurora-actions-menu.open-down:before { left: 15px;  top: 9px;}
+.align-left .aurora-actions-menu.open-down:before  { right: 15px; top: 9px;}
+
+.align-right .aurora-actions-menu.open-up:before   { left: 15px;  bottom: -9px;}
 
 .aurora-actions-menu:before {
     content: "";
     display: block;
     position: absolute;
     right: 15px;
-    top: 9px;
-    border-top: 1px solid rgba(0, 0, 0, .15);
-    border-right: 1px solid rgba(0, 0, 0, .15);
+    border-top: 1px solid #e2e4e7;
+    border-right: 1px solid #e2e4e7;
     margin-top: -17px;
     width: 15px;
     height: 15px;
     background: #fff;
+
+    /*
+    background: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 51%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(
+            45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 51%, rgba(255, 255, 255, 1) 100%);
+    */
+}
+
+.aurora-actions-menu.open-down:before {
     transform: rotate( 45deg );
     -webkit-transform: rotate( -45deg );
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
-    background: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 51%, rgba(255, 255, 255, 1) 100%);
-    background: -webkit-linear-gradient(
-            45deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 51%, rgba(255, 255, 255, 1) 100%);
+}
+.aurora-actions-menu.open-up:before {
+    transform: rotate( 134deg );
+    -webkit-transform: rotate( 134deg );
+    -moz-transform: rotate(134deg);
+    -ms-transform: rotate(134deg);
 }
 
+
+
 .aurora-actions-menu ul {
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     list-style: none;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    margin-block-start: 4px;
+    margin-block-end: 4px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
 
 .aurora-actions-menu ul li {
-    display: block;
+    display: flex;
     white-space: nowrap;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 12px;
+    padding-right: 12px;
     position: relative;
     cursor: pointer;
+    flex-direction: row;
+    align-items: center;
 }
 
 .aurora-actions-menu ul li span {
     font-size: 1em;
     line-height: 28px;
-    padding: 10px 60px 10px 0px;
+    padding: 10px 0px 10px 0px;
     cursor: pointer;
     white-space: nowrap;
     color: #444 !important;
@@ -223,5 +261,10 @@ open-up-right {
 .aurora-actions-iconlist ul li .material-icons:hover {
     color:  var( --secondaryColor ,#1a75d2 );
     cursor: pointer;
+}
+
+.forceVisible {
+    display: block !important;
+    position: absolute !important;
 }
 

@@ -8,4 +8,9 @@
 
 }
 
-.aurora-link {}
+
+div:empty {
+    outline: 2px solid deeppink;
+    height: 1em;
+}
+

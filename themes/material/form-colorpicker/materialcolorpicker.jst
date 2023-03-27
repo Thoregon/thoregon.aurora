@@ -1,11 +1,15 @@
 
 <div class="aurora-colorpicker-container {{= it.classes}} noselect">
     <label class="aurora-colorpicker">
-        <input type="color"
-               name="{{= it.name}}"
-               {{? it.isdisabled}} disabled {{?}}
-        >
-        <span class="label-text aurora-label">{{= it.label}}</span>
+        <span class="label-text aurora-label">{{= it.label}}</span><br>
+        <div class="aurora-color-wrapper">
+            <dev class="aurora-color-value"></dev>
+            <dev class="aurora-color-preview"></dev>
+            <input type="color"
+                   name="{{= it.name}}"
+                   {{? it.isdisabled}} disabled {{?}}
+            >
+        </div>
     </label>
 </div>
 

@@ -14,20 +14,21 @@ export default class Materialcolorpicker extends ThemeBehavior {
         this.container = this.jar.container;
         this._value = '';
 
-        let field  = this.container.querySelector(".aurora-switch input");
+        let field  = this.container.querySelector(".aurora-colorpicker-container input");
  //       field.addEventListener('click', this.callbackClicked, false);
 
-        field.addEventListener('click', (e)=>{
-            this.callbackClicked( field );
+        field.addEventListener('input', (e)=>{
+            this.valueChanged( field );
         });
     }
 
-    callbackClicked( field ) {
-        this.value = field.checked;
-        this.jar.switchToggled();
-    }
-
-
     valueChanged( event ) {
+        const field        = this.container.querySelector(".aurora-colorpicker-container input");
+        const value        = field.value;
+        const valueField   = this.container.querySelector(".aurora-color-value");
+        const previewField = this.container.querySelector(".aurora-color-preview");
+
+        valueField.innerHTML = value;
+        previewField.style.backgroundColor = value;
     }
 }

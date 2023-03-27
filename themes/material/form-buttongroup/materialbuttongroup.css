@@ -79,12 +79,12 @@
 
 .aurora-buttongroup .aurora-buttongroup-button:last-child label {
     margin-left: -1px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .aurora-buttongroup .aurora-buttongroup-button:first-child label {
     margin-right: -1px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }

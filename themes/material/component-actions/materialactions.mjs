@@ -45,9 +45,17 @@ export default class MaterialActions extends ThemeBehavior {
 
     callbackClickActionMenuTrigger( event ) {
         event.stopPropagation();
-        let menu = this.container.querySelector('.aurora-actions-menu');
+        const menu      = this.container.querySelector('.aurora-actions-menu');
+        const uirouter  = universe.uirouter;
+        const blueprint = uirouter.appelement.getBlueprint();
+
+        const elementInformation = blueprint.analyzeElementPlacement(menu);
+        const openDirection      = elementInformation.clipping.bottom ? 'open-up' : 'open-down';
+
+        menu.classList.remove('open-up', 'open-down');
+
         menu.classList.toggle('active');
-        menu.classList.add('open-down-right');
+        menu.classList.add( openDirection );
 
     }
 }
