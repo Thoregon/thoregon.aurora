@@ -82,16 +82,18 @@ tr.aurora-dragging {
 
 
 .presentation-list td,
-.presentation-list th  { border-bottom: 1px solid #0000001f; }
+.presentation-list th  { border-bottom: 1px solid var(--md-sys-color-surface-variant);}
 
 .presentation-data-sheet td,
-.presentation-data-sheet th { border: 1px solid #0000001f; }
+.presentation-data-sheet th { border-bottom: 1px solid var(--md-sys-color-surface-variant); }
 
 .presentation-data-sheet tr:hover td.action-edit-inline {
     border: 1px double #00000050;
 }
 
+/*
 tbody tr:hover { background-color: #f5f5f5; }
+*/
 
 .dense td,
 .dense th {
