@@ -169,7 +169,8 @@ optionTokens() {
 
 - get translation for token, replace 'innerText' or 'placeholder' if available
 - aurora-i18n:<element-attribute>
-- specify variables with JS expression -> aurora-i18n="text4(param1: '${paramA}', param2: 'PARAM2', param3: '${sub()}')"
+- specify variables with JS expression -> `aurora-i18n="text4(param1: '${paramA}', param2: 'PARAM2', param3: '${sub()}')"`
+- add replacements with `${` js code `}` 
 
 ````html
 // 
@@ -240,7 +241,7 @@ opposite of aurora-show for convenience.
 
 - specify a UI route to be displayed
 - will be fired on <what>: click (default), click, change, focus, blur ...
-- specify variables with JS expression -> ${js}: aurora-route="/my/item/${itemid}"
+- specify variables with JS expression -> `${` js code `}` e.g. `aurora-route="/my/item/${itemid}"`
 - control with 'aurora-show' and 'aurora-enabled' if the route can be called
 - can only invoke routes which are defined in 'routes.mjs'
 - aurora-route="@back" returns to the view before. this enables 'selection' views 
@@ -320,9 +321,10 @@ Evaluate (restricted) a JS
     - '$viewmeta' is the meta view model
     - '$element' is the current element
     - '$viewContext' is the view context for this dom tree (if there is one)
-    - '$listvm' is the view model of the list if the aurora-attribute is attached to a list item
     - '$interface' | '$i' is are the properties from the app interface settings
     - '$router' is the uirouter
+- Context Variables for List Items
+  - '$listvm' is the view model of the list if the aurora-attribute is attached to a list item
 - Context Variables for user triggered events (only aurora-action and aurora-route)
     - $event is the original browser event
 - Available globals:
