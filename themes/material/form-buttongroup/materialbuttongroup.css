@@ -39,7 +39,10 @@
     padding: 0 24px;
     transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 250ms;
     border: 1px solid var( --md-sys-color-outline );
-    background: white;
+
+    background: var( --md-sys-color-surface );
+    color: var( --md-sys-color-on-surface );
+
     cursor: pointer;
 
     align-items: center;
@@ -51,6 +54,7 @@
     line-height: var( --md-sys-typescale-button-line-height );
     font-weight: var( --md-sys-typescale-button-weight );
     letter-spacing: var( --md-sys-typescale-button-tracking );
+
 }
 
 

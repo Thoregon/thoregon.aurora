@@ -19,6 +19,7 @@
     width: 100%;
     min-height: 100vh;
     height: auto;
+    background: var(--md-sys-color-surface);
 }
 
 .aurora-blueprint-container.animate {
