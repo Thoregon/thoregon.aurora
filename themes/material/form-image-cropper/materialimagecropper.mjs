@@ -112,7 +112,10 @@ export default class MaterialImageCropper {
         this._loading = true;
         try {
             const value = await ufd.getDataUrl();
-            if (!value || !this.slim) return;
+            if (!value || !this.slim) {
+                this._loading = false;
+                return;
+            }
             this.slim.load(value, (error, data) => {
                 this._loading = false;
                 if (error) console.log("Slim Image Cropper: load", error);
