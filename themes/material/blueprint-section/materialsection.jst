@@ -3,5 +3,7 @@
   -->
 
 <div class="aurora-section {{= it.classes}}" aurora-slot="main">
-
+    {{? it.haslabel}}
+        <h4>{{= it.label}}</h4>
+    {{?}}
 </div>

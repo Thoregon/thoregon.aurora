@@ -11,11 +11,11 @@
     position: relative;
     padding: 1.5em;
     border-radius: 24px;
-    background-color: var( --md-sys-color-surface );
+    background-color: var( --md-sys-color-surface-container-low );
 }
 
 .aurora-section.type-outlined {
-    border: 1px solid var( --md-sys-color-outline );
+    border: 0px solid var( --md-sys-color-outline );
 }
 
 .aurora-section.center {
