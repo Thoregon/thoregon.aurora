@@ -5,14 +5,38 @@
 
 :host,
 .aurora-section-wrapper,
-.aurora-section { overflow: visible !important;}
 
 .aurora-section {
+    overflow: hidden;
     position: relative;
-    padding: 1.5em;
-    border-radius: 24px;
+    border-radius: var( --md-sys-shape-corner-medium );
     background-color: var( --md-sys-color-surface-container-low );
 }
+
+.legend-wrapper {
+    min-height: 1.5em;
+    background: var( --md-sys-color-surface-container-high );
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+legend::after {
+    content: attr(label);
+    font-weight: bold;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1.5em;
+    display: block;
+}
+
+.section-content {
+    padding: 0 1.5em 1.5em 1.5em;
+}
+
+legend:not(:empty) {
+    /* Styles applied only if the element is not empty */
+    background-color: yellow !important;
+}
+
 
 .aurora-section.type-outlined {
     border: 0px solid var( --md-sys-color-outline );

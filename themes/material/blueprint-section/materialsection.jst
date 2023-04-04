@@ -2,8 +2,9 @@
   ~ Copyright (c) 2021.
   -->
 
-<div class="aurora-section {{= it.classes}}" aurora-slot="main">
-    {{? it.haslabel}}
-        <h4>{{= it.label}}</h4>
-    {{?}}
+<div class="aurora-section {{= it.classes}}">
+     <div class="legend-wrapper">
+          <legend></legend>
+     </div>
+     <div class="section-content"  aurora-slot="main" ></div>
 </div>
