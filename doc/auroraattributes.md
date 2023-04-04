@@ -323,7 +323,7 @@ Evaluate (restricted) a JS
     - '$viewContext' is the view context for this dom tree (if there is one)
     - '$interface' | '$i' is are the properties from the app interface settings
     - '$router' is the uirouter
-    - '$blueprint' is the blueprint from the app
+    - '$blueprint' | '$bp' is the blueprint from the app
 - Context Variables for List Items
   - '$listvm' is the view model of the list if the aurora-attribute is attached to a list item
 - Context Variables for user triggered events (only aurora-action and aurora-route)
