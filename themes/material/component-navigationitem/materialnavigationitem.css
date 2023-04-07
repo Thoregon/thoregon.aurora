@@ -112,7 +112,7 @@
 /* mode-menu-bar*/
 
 .navigation-item.mode-menu-bar {
-    border-radius: 50px 50px 50px 50px;
+    border-radius: var(--md-sys-shape-corner-full);
 }
 
 .navigation-item.mode-menu-bar {

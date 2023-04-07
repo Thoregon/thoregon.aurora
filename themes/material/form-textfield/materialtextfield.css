@@ -274,7 +274,8 @@
 
 .aurora-floating-label-stacked .aurora-text-field-input::placeholder,
 .aurora-text-field-input:focus::placeholder {
-    color: rgba(0,0,0,.42);
+    color: var(--md-sys-color-on-surface);
+    opacity: .7;
 }
 
 .focused .aurora-text-field-input,
