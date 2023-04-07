@@ -338,15 +338,17 @@ Evaluate (restricted) a JS
     - 'mediathek'
 - Functions
   - formatamount( amount, locale, currency ) e.g. `<span :="formatamount($.total, $vm.locale)"></span>`
-  - formatdate( date , format)
-  - formatint(number)
-  - formatnumber(number)
-  - todo: formatpattern(...)
-todo:
-  - map()
+  - formatdate( date, options )  ... options see https://devhints.io/wip/intl-datetime
+  - formatdatetime( date, options ) ... options see https://devhints.io/wip/intl-datetime
+  - formatint( number, options ) ... options see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+  - formatnumber( number, options ) ... options see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
   - translate(token, params) (i18n)
     - token can have a subkey: 'token.subkey'
     - if token is an array, a map (object) with translations is returned. can be used for dropdown (select) fields
+  - routeActive(route1, route2, ...)  ... true if the active route matches on of the provided routes. routes can be absolute by starting with '/' or relative
+todo:
+  - map()
+  - formatpattern(...)
 
 Context in an auroralist:
 
