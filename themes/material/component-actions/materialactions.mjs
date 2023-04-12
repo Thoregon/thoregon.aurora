@@ -57,5 +57,18 @@ export default class MaterialActions extends ThemeBehavior {
         menu.classList.toggle('active');
         menu.classList.add( openDirection );
 
+        if (menu.classList.contains('active')) {
+            //-- add event listener
+        } else {
+            //-- remove listener
+        }
+
+        const clicking  = (event) => this.callbackClicked( event, menu );
+        document.addEventListener('click', clicking, false);
+
+    }
+
+    callbackClicked(event, menu) {
+        menu.classList.remove('active');
     }
 }

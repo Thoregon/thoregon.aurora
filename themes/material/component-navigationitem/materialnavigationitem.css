@@ -91,7 +91,6 @@
     text-align: left;
 }
 
-.navigation-item.mode-menu-bar,
 .navigation-item.mode-bar { margin-left: 12px; margin-right: 12px; }
 
 .navigation-item.mode-menu-bar .icon,
@@ -103,11 +102,17 @@
 .navigation-item.mode-menu-bar .material-icons,
 .navigation-item.mode-bar .material-icons { vertical-align: middle;}
 
+.active .navigation-item.mode-menu-bar {
+    background: var(--md-sys-color-secondary-container );
+    color: var(--md-sys-color-on-secondary-container );
+}
+
 .navigation-item.mode-menu-bar:hover,
 .navigation-item.mode-bar:hover {
     background: var( --md-sys-color-surface-variant );
     color: var( --md-sys-color-on-surface-variant );
 }
+
 
 /* mode-menu-bar*/
 
