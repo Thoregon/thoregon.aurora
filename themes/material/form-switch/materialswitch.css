@@ -32,7 +32,7 @@
 .position-left .thumb { right: 38px; }
 
     /* Input */
-.aurora-switch > input {
+.aurora-switch input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -57,9 +57,8 @@
 }
 
 /* Span */
-.aurora-switch > .label-text {
+.aurora-switch  .label-text {
     display: inline-block;
-    cursor: pointer;
     max-width: calc( 100% - 65px );
     line-height: 1.2em;
 }
@@ -128,12 +127,12 @@
 }
 
 
-.aurora-switch > input:checked + span::before {
+.aurora-switch  input:checked + span::before {
     border: 2px solid var( --md-sys-color-primary );
     background-color: var( --md-sys-color-primary );
 }
 
-.aurora-switch > input:checked + span::after {
+.aurora-switch  input:checked + span::after {
     background-color: var( --md-sys-color-on-primary );
     transform: translateX(19px) scale(1.5);
 }
@@ -143,47 +142,47 @@
     opacity: 0.04;
 }
 
-.aurora-switch > input:focus {
+.aurora-switch  input:focus {
     opacity: 0.12;
 }
 
-.aurora-switch:hover > input:focus {
+.aurora-switch:hover  input:focus {
     opacity: 0.16;
 }
 
 /* Active */
-.aurora-switch > input:active {
+.aurora-switch  input:active {
     opacity: 1;
     transform: scale(0);
     transition: transform 0s, opacity 0s;
 }
 
-.aurora-switch > input:active + span::before {
+.aurora-switch  input:active + span::before {
     background-color: var(--secondaryColor, 33, 150, 243);
     border: 2px solid;
     opacity: .6;
 }
 
-.aurora-switch > input:checked:active + span::before {
+.aurora-switch  input:checked:active + span::before {
     background-color: rgba( 0, 0, 0, 0.38);
 }
 
 /* Disabled */
-.aurora-switch > input:disabled {
+.aurora-switch  input:disabled {
     opacity: 0;
 }
 
-.aurora-switch > input:disabled + span {
+.aurora-switch  input:disabled + span {
     color: rgb(0, 0, 0);
     opacity: 0.38;
     cursor: default;
 }
 
-.aurora-switch > input:disabled + span::before {
+.aurora-switch  input:disabled + span::before {
     background-color: rgba(0, 0, 0, 0.38);
 }
 
-.aurora-switch > input:checked:disabled + span::before {
+.aurora-switch  input:checked:disabled + span::before {
     background-color: var(--secondaryColor, 33, 150, 243);
     opacity: .6;
 }
@@ -211,7 +210,7 @@
     background-color: var( --md-sys-color-primary );
 }
 
-.aurora-switch > input:focus + div.switch .track::after {
+.aurora-switch  input:focus + div.switch .track::after {
     opacity: 0.12;
 }
 

@@ -1,34 +1,26 @@
-<!--
-<div class="aurora-switch-container {{= it.classes}}">
-    <label class="aurora-switch">
-        <input type="checkbox"
-           name="{{= it.name}}"
-           {{? it.isdisabled}} disabled {{?}}
-        >
-        <span>{{= it.label}}</span>
-    </label>
-</div>
--->
+
 <div class="aurora-switch-container {{= it.classes}} noselect">
-    <label class="aurora-switch">
-        <input type="checkbox"
-               name="{{= it.name}}"
-               {{? it.isdisabled}} disabled {{?}}
-        >
-        <div class="switch">
-            <div class="track"></div>
-            <div class="thumb">
-                <i aria-hidden="true" class="material-icons"> check </i>
+    <div class="aurora-switch">
+        <label>
+            <input type="checkbox"
+                   name="{{= it.name}}"
+                   {{? it.isdisabled}} disabled {{?}}
+            >
+            <div class="switch">
+                <div class="track"></div>
+                <div class="thumb">
+                    <i aria-hidden="true" class="material-icons"> check </i>
+                </div>
             </div>
-        </div>
+        </label>
         <span class="label-text aurora-label">{{= it.label}}
             <div class="mdc-text-field-helper-line">
             {{? it.hashint}}
             <div class="aurora-hint mdc-text-field-helper-text mdc-text-field-helper-text--persistent aurora-text-field-helper-text">{{= it.hint}}</div>
             {{?}}
-        </div>
+            </div>
         </span>
-    </label>
+    </div>
 </div>
 
 
