@@ -267,10 +267,10 @@ opposite of aurora-show for convenience.
 ````html
 // invoke elemIsVisible(true) when the element becomes visible,
 // and elemIsVisible(false) when the element becomes invisible
-<div aurora-intersect="elemIsVisible($intersecting)"></div>
+<div aurora-intersect="/*elemIsVisible($intersecting)*/"></div>
 
 // invoke elemIntersects() on view model everytime the specified ratio is exceeded or fallen below
-<div aurora-intersect:0:50:100="elemIntersects($intersecting, $ratio)"></div>
+<div aurora-intersect:0:50:100="/*elemIntersects($intersecting, $ratio)*/"></div>
 ````
 
 #### work with state
