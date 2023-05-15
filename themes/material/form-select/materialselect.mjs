@@ -37,7 +37,7 @@ export default class MaterialSelect extends ThemeBehavior {
         // MDC.MDCRipple.attachTo(inputfield);
     }
 
-    valueChanged( event ) {
+    valueChanged( value ) {
         let label = this.container.querySelector(".aurora-floating-label");
         label.classList.add("aurora-floating-label--float-above");
     }
