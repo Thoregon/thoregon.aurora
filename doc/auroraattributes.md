@@ -234,7 +234,10 @@ opposite of aurora-show for convenience.
 
 ````html
 // 
-<div > ... </div>
+<button aurora-action:click="buy()"> ... </button>
+<button aurora-action="buy()"> ... </button>
+<button @click="buy()"> ... </button>
+
 ````
 
 ### aurora-route:<what>   
