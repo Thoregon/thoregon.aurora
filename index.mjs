@@ -122,6 +122,7 @@ export default Aurora.withElements({
 export { default as AuroraList }               from './lib/component-list/auroralist.mjs';
 export { default as AuroraActions }            from './lib/component-actions/auroraactions.mjs';
 
+export { default as AuroraSelect }              from './lib/formcomponents/auroraselect.mjs';
 /*
 export { default as AuroraTextField }           from './lib/formcomponents/auroratextfield.mjs';
 export { default as AuroraTextarea }            from './lib/formcomponents/auroratextarea.mjs';
