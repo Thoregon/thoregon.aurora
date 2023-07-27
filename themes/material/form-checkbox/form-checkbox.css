@@ -97,7 +97,7 @@
 
 .aurora-checkbox > input:checked + span::after,
 .aurora-checkbox > input:indeterminate + span::after {
-    border-color: var( --secondaryTextColor );
+    border-color: var( --md-sys-color-on-primary );
 }
 
 .aurora-checkbox > input:indeterminate + span::after {
