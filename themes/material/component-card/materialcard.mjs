@@ -15,7 +15,7 @@ export default class MaterialCard extends ThemeBehavior {
     attach(jar) {
         this.jar = jar;
         this.container = this.jar.container;
-
+debugger;
   //      new Ripple( this.container.querySelector('.aurora-listitem-ripple'));
     }
 
