@@ -36,13 +36,10 @@ todo: add 'aurora-model', 'aurora-viewmodel' and 'aurora-vm' as synonymes
 <input aurora-name="name"/>            // model property 'name' will be synced
 
 <input $vm="description">              // syncs property 'description' from the view model with the input value
-<input aurora-name:vm="description">   // syncs property 'description' from the view model with the input value
+<input aurora-name:vm="name">          // syncs property 'name' from the view model with the input value
 
-<input aurora-name:vm="name"/>         // view model property 'name' will be synced
-<input $vm="name"/>                    // view model property 'name' will be synced
-
-<input aurora-name:vm="name"/>         // view model property 'name' will be synced
-<input $vm="name"/>                    // view model property 'name' will be synced
+<input aurora-name.keyup="name"/>      // on event 'keyup', model property 'name' will be synced
+<input aurora-name:vm.keyup="name"/>   // on event 'keyup', view model property 'name' will be synced
 ````
 
 Planned:
