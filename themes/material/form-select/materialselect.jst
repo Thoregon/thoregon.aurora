@@ -12,14 +12,14 @@
 
         <i aria-hidden="true" class="material-icons aurora-trailing-icon"><span class="material-icons-outlined">arrow_drop_down</span></i>
         <select id="{{=it.name}}"
-               name="{{=it.name}}"
-               class="aurora-select-select"
-               autocorrect="off"
-               autocomplete="off"
-               spellcheck="false"
+                name="{{=it.name}}"
+                class="aurora-select-select"
+                autocorrect="off"
+                autocomplete="off"
+                spellcheck="false"
                 {{? it.readonly}} readonly="readonly" {{?}}
-               {{? it.isrequired}} required {{?}}
-               placeholder="{{=it.placeholder}}"
+                {{? it.isrequired}} required {{?}}
+                placeholder="{{=it.placeholder}}"
         >
             <option value="" disabled selected></option>
         </select>
