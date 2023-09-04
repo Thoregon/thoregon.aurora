@@ -109,6 +109,8 @@ export default Aurora.withElements({
                                         'aurora-chart'               : './lib/component-chart/aurorachart.mjs',
                                         'aurora-video'               : './lib/component-video/auroravideo.mjs',
 
+                                        'aurora-stripe'              : './lib/stripe/stripe.mjs',
+
                                         'aurora-tab-container'       : [
                                             './lib/component-tabs/auroratabcontainer.mjs',
                                             './lib/component-tabs/auroratablist.mjs',
