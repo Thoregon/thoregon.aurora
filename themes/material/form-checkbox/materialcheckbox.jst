@@ -2,8 +2,12 @@
     <label class="aurora-checkbox">
         <input type="checkbox"
                name="{{= it.name}}"
+               val="{{= it.val}}"
                {{? it.isdisabled}} disabled {{?}}
         >
-        <span>{{= it.label}}</span>
+        <span>{{= it.label}}
+            <span class="aurora-checkbox-hint">{{=it.hint}}</span>
+        </span>
     </label>
+
 </div>

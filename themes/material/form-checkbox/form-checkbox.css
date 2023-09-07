@@ -153,3 +153,16 @@
     border-color: transparent;
     background-color: currentColor;
 }
+
+.aurora-checkbox-hint {
+    font-size: .7em;
+    line-height: .7em;
+    font-weight: normal;
+    margin-left: 30px;
+    display: flex;
+}
+
+.aurora-checkbox-hint:not(:empty)::before {
+    content: "\a";
+    white-space: pre;
+}

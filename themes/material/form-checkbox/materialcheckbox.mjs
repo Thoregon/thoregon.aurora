@@ -35,18 +35,50 @@ export default class Materialcheckbox extends ThemeBehavior {
 
     getValue () {
         let checkbox = this.container.querySelectorAll("input")[0];
-        return checkbox.checked;
+
+        if ( checkbox.multivalue ) {
+            const checkboxValue = checkbox.getAttribute('val');
+            const values        = checkbox.multivalue;
+            if (checkbox.checked) {
+                if (! values.includes(checkboxValue)) {
+                    values.push(checkboxValue);
+                }
+            } else {
+                const index = values.indexOf(checkboxValue);
+                if (index !== -1) {
+                    values.splice(index, 1);
+                }
+            }
+            return checkbox.multivalue;
+        } else {
+            return checkbox.checked;
+        }
     }
 
     valueChanged( value ) {
-        let checkbox = this.container.querySelectorAll("input")[0];
-        checkbox.value = value;
+        let checkbox      = this.container.querySelectorAll("input")[0];
 
-        if ( value ) {
-            checkbox.checked = true;
-        } else {
-            checkbox.checked = false;
+        switch ( typeof value ) {
+            case 'object':
+                let checkboxValue = checkbox.getAttribute('val');
+                if (value.includes(checkboxValue)) {
+                    checkbox.checked = true;
+                } else {
+                    checkbox.checked = false;
+                }
+                checkbox.multivalue = value;
+                break;
+            default:
+                if ( value ) {
+                    checkbox.checked = true;
+                } else {
+                    checkbox.checked = false;
+                }
+                checkbox.value = value;
+                break;
         }
+
+
     }
 
     cleanErrors() {
