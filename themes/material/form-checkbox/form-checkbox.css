@@ -16,8 +16,8 @@
     z-index: 0;
     position: relative;
     display: inline-block;
-    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
-    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    color: var(--md-sys-color-on-surface);
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -36,7 +36,7 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    background-color: var(--md-sys-color-on-surface);
     box-shadow: none;
     outline: none;
     opacity: 0;
@@ -60,7 +60,7 @@
     box-sizing: border-box;
     margin: 3px 11px 3px 1px;
     border: solid 2px; /* Safari */
-    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    border-color: var(--md-sys-color-outline );
     border-radius: 2px;
     width: 18px;
     height: 18px;
@@ -115,7 +115,7 @@
 }
 
 .aurora-checkbox:hover > input:focus {
-    opacity: 0.16;
+    opacity: 0.18;
 }
 
 /* Active */
