@@ -37,7 +37,11 @@ export default class Materialcheckbox extends ThemeBehavior {
         let checkbox = this.container.querySelectorAll("input")[0];
 
         if ( checkbox.multivalue ) {
-            const checkboxValue = checkbox.getAttribute('val');
+            let checkboxValue = checkbox.getAttribute('val');
+            const valueType   = checkbox.getAttribute('valtype');
+
+            checkboxValue = this._typeConvert( checkboxValue, valueType );
+
             const values        = checkbox.multivalue;
             if (checkbox.checked) {
                 if (! values.includes(checkboxValue)) {
@@ -61,6 +65,10 @@ export default class Materialcheckbox extends ThemeBehavior {
         switch ( typeof value ) {
             case 'object':
                 let checkboxValue = checkbox.getAttribute('val');
+                const valueType   = checkbox.getAttribute('valtype');
+
+                checkboxValue = this._typeConvert( checkboxValue, valueType );
+
                 if (value.includes(checkboxValue)) {
                     checkbox.checked = true;
                 } else {
@@ -79,6 +87,16 @@ export default class Materialcheckbox extends ThemeBehavior {
         }
 
 
+    }
+
+    _typeConvert( value, convertTo = 'string' ) {
+
+        switch ( convertTo ) {
+            case 'number':
+                return Number(value);
+        }
+
+        return value;
     }
 
     cleanErrors() {
