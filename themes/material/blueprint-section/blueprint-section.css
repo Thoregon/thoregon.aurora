@@ -19,13 +19,17 @@
     padding-left: 1.5em;
     padding-right: 1.5em;
 }
-legend::after {
+legend:empty::after {
     content: attr(label);
     font-weight: bold;
     padding-top: 1em;
     padding-bottom: 1em;
     margin-bottom: 1.5em;
     display: block;
+}
+
+.legend-wrapper legend:not(:empty) {
+    background-color: var( --md-sys-color-surface-container-high )!important;
 }
 
 .section-content {
