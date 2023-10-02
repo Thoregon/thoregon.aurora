@@ -96,6 +96,7 @@ export default Aurora.withElements({
                                         'aurora-listitem'            : './lib/formcomponents/auroralistitem.mjs',
                                         'aurora-pincode'             : './lib/formcomponents/aurorapincode.mjs',
                                         'aurora-select'              : './lib/formcomponents/auroraselect.mjs',
+                                        'aurora-multiselect'         : './lib/formcomponents/auroramultiselect.mjs',
                                         'aurora-step'                : './lib/formcomponents/aurorastep.mjs',
                                         'aurora-stepper'             : './lib/formcomponents/aurorastepper.mjs',
                                         'aurora-switch'              : './lib/formcomponents/auroraswitch.mjs',
