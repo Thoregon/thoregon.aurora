@@ -310,7 +310,7 @@ opposite of aurora-show for convenience.
 <div aurora-connect="connectElement($element)"> ... </div>
 ````
 
-## JS evaluation in aurora attributes
+## Params for JS evaluation in aurora attributes
 
 Evaluate (restricted) a JS
 
@@ -397,3 +397,7 @@ Arbitrary properties can be defined and accessed to use it for view control (aur
 
 - define a variable (like in aurora-name) to listen to.
 - execute a js from the attribute content
+
+## Params
+
+- parent: parent view model, ui structure not class hierarchy
