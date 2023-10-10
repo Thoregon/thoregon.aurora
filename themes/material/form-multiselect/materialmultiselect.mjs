@@ -22,11 +22,12 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
     attach(jar) {
         this.jar = jar;
-        debugger;
+
         this.container = this.jar.container;
 
         this._inputField = this.container.querySelector("#multiSelectInput");
         this._options    = this.container.querySelector("#multiselect-options");
+        this._selected   = this.container.querySelector("#selected-values");
 
         //--- CLICK - remove all elements
         const triggerRemoveAll = this.container.querySelector("#act-remove-all");
@@ -40,11 +41,16 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         const inputWrapper = this.container.querySelector(".selected-input-wrapper");
         inputWrapper.addEventListener('click', () => this.focusInput(), false);
 
-        //--- CLICK - remove sinlgle value
+        //--- CLICK - remove single value
         const selectedValues = this.container.querySelector("#selected-values");
         selectedValues.addEventListener('click', (event) => this.removeValue(event), false );
 
-        //--- Resize on typing
+        //--- CLICK - select single option
+        const options = this.container.querySelector("#multiselect-options");
+        options.addEventListener('click', (event) => this.selectOption(event), false );
+
+
+        //--- Resize input field on typing
         this._inputField.addEventListener('input', (event) => this.resizeInputField(event), false );
         //--- Filter on typing
         this._inputField.addEventListener('input', (event) => this.filterOptions(event), false );
@@ -72,6 +78,13 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         this.setTestValues();
     }
 
+    set options( options ) {
+        for (const key in options) {
+            const value = options[key];
+            this.addOption(key,value);
+        }
+    }
+
 
     removeAll() {debugger;}
     toggleMenu() {debugger;}
@@ -79,8 +92,36 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         this.container.querySelector("#multiSelectInput").focus();
     }
 
+    addOption(key, value) {
+        const search = value.toLowerCase();
+        const newElement = `
+                <div class="multiselect-option" tabindex="-1" data-value="${key}" data-search="${search}" data-label="${value}">${value}</div>
+            `;
+
+
+
+        let newOption = document.createElement("div");
+        newOption.innerHTML = newElement;
+        newOption = newOption.querySelector(".multiselect-option");
+
+        const optionsContainer     = this.container.querySelector("#multiselect-options");
+        optionsContainer.appendChild(newOption);
+
+        //--- check if element is in values
+        const valueSelector = `[data-value="${key}"]`;
+        const selected = this._selected.querySelector(valueSelector);
+        if (selected) { newOption.classList.add("selected");}
+    }
+
     addValue(key, value) {
         const search = value.toLowerCase();
+
+        //--- check if value is already selected
+        const valueContainer = this.container.querySelector("#selected-values");
+        let   selector       = `.multivalue[data-value='${key}']`;
+
+        const isAlreadyIncluded  = valueContainer.querySelector(selector);
+        if (isAlreadyIncluded) return;
 
         const newElement = `
                 <span class="multivalue"
@@ -95,8 +136,27 @@ export default class MaterialMultiSelect extends ThemeBehavior {
                 </span>
             `;
 
-        const valueContainer     = this.container.querySelector("#selected-values");
-        valueContainer.innerHTML = valueContainer.innerHTML + newElement;
+        let newValue = document.createElement("div");
+        newValue.innerHTML = newElement;
+        newValue = newValue.querySelector(".multivalue");
+        valueContainer.appendChild(newValue);
+
+        //--- mark option as selected ----
+        const optionsContainer = this.container.querySelector("#multiselect-options");
+        selector = `.multiselect-option[data-value="${key}"]`;
+        const option = optionsContainer.querySelector(selector);
+
+        if ( option ) { option.classList.add('selected'); }
+
+    }
+
+    selectOption(event) {
+        //element.classList.contains(className)
+        if ( ! event.target.classList.contains('multiselect-option')) return;
+        const option = event.target;
+        const key    = option.getAttribute('data-value');
+        const value  = option.getAttribute('data-label');
+        this.addValue(key,value);
     }
 
     removeValue(event) {
@@ -178,33 +238,10 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         for (const key in data) {
              const value  = data[key];
              const search = value.toLowerCase();
-/*
-            const templateSelected = `
-                <span class="multivalue"
-                      data-value="${key}">
-                    <span class="multival-label" data-label="${value}"></span>
-                    <span class="multival-remove" 
-                          data-action="actremtri">
-                          <i class="multival-trigger material-icons" 
-                             data-action="actremtri">close
-                          </i>
-                    </span>
-                </span>
-            `;
-*/
 
             this.addValue(key,value);
-            const templateAvailable = `
-                <div class="multiselect-option" data-value="${key}" data-search="${search}">${value}</div>
-            `;
-
-//            displaySelected  += templateSelected;
-            displayAvailable += templateAvailable;
 
         }
-
-
-        availableContainer.innerHTML = displayAvailable;
     }
 
     valueChanged( value ) {

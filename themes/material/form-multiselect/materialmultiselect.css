@@ -14,6 +14,7 @@
     border-radius: 4px;
     background-color: transparent !important;
     border: 1px solid var(--md-sys-color-outline);
+    position: relative;
 }
 
 label {
@@ -147,3 +148,23 @@ label {
     color: var(--md-sys-color-outline);
 }
 
+.multiselect-options {
+    background: #f0f1f0;
+    padding: 0.3em;
+    border-radius: 5px;
+    position: absolute;
+    width: 100%;
+    z-index: +1;
+    top: 55px;
+}
+.multiselect-option {
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 5px;
+}
+.multiselect-option:hover {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    cursor: pointer;
+}
