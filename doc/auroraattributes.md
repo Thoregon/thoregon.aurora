@@ -363,6 +363,12 @@ All evaluations will be reavaluated on every mutation of the model
 Arbitrary properties can be defined and accessed to use it for view control (aurora-data).  
 'this' is bound to the element on which the aurora attribute is defined
 
+# TODO
+
+## aurora-name
+
+allow binding to another element attribute than 'value' (and ufd, checkbox) 
+
 # TODO (maybe later)
 
 ## Attributes
