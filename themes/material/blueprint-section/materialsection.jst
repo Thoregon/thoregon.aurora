@@ -5,6 +5,11 @@
 <div class="aurora-section {{= it.classes}}">
      <div class="legend-wrapper">
           <legend label="{{= it.label}}"></legend>
+          {{? it.isAccordion }}
+          <div class="accordion-trigger">
+               <span class="material-icons">expand_all</span>
+          </div>
+          {{?}}
      </div>
      <div class="section-content"  aurora-slot="main" ></div>
 </div>
