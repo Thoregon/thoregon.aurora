@@ -2,12 +2,12 @@
   ~ Copyright (c) 2021.
   -->
 
-<div class="aurora-section {{= it.classes}}">
+<div class="aurora-section {{= it.classes}} ">
      <div class="legend-wrapper">
-          <legend label="{{= it.label}}"></legend>
+          <div class="legend" label="{{= it.label}}"></div>
           {{? it.isAccordion }}
           <div class="accordion-trigger">
-               <span class="material-icons">expand_all</span>
+               <i class="material-icons">expand_more</i>
           </div>
           {{?}}
      </div>

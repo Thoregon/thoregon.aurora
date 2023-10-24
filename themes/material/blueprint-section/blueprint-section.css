@@ -18,29 +18,49 @@
     background: var( --md-sys-color-surface-container-high );
     padding-left: 1.5em;
     padding-right: 1.5em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
 }
-legend:empty::after {
+.legend:empty::after {
     content: attr(label);
     font-weight: bold;
     padding-top: 1em;
     padding-bottom: 1em;
-    margin-bottom: 1.5em;
+    /* margin-bottom: 1.5em; */
     display: block;
 }
 
-.legend-wrapper legend:not(:empty) {
+.legend-wrapper .legend:not(:empty) {
     background-color: var( --md-sys-color-surface-container-high )!important;
 }
 
 .section-content {
-    padding: 0 1.5em 1.5em 1.5em;
+    padding: 1.5em;
+    transition: max-height 0.2s ease-out;
+    max-height: fit-content;
+    overflow: hidden;
 }
 
-legend:not(:empty) {
+.collapsed .section-content {
+    padding: 0px;
+    max-height: 0px
+}
+
+.legend:not(:empty) {
     /* Styles applied only if the element is not empty */
     background-color: yellow !important;
 }
 
+.accordion-trigger {
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    user-select: none;
+}
 
 .aurora-section.type-outlined {
     border: 0px solid var( --md-sys-color-outline );
