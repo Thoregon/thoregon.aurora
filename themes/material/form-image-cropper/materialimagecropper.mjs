@@ -39,12 +39,6 @@ export default class MaterialImageCropper {
 
         this.slim = new Slim(elem, {
             ratio: ratio,
-            /*
-                        minSize: {
-                            width: 480,
-                            height: 480,
-                        },
-            */
             crop: {
                 x: 0,
                 y: 0,
