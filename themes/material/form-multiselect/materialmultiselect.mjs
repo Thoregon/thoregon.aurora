@@ -74,8 +74,10 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         // MDC.MDCRipple.attachTo(inputfield);
 
          */
-        //------ ----- ----
-        this.setTestValues();
+    }
+
+    getValue() {
+        debugger;
     }
 
     set options( options ) {
@@ -218,30 +220,6 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         //--- If search is in options but not already selected -> can not be added again + can not created
 
-    }
-
-    setTestValues() {
-        const data = {
-            '1' : 'Banane',
-            '2' : 'Gurke',
-            '3' : 'Kivi',
-            '4' : 'Kokusnuss',
-        }
-
-        const valueContainer     = this.container.querySelector("#selected-values");
-        const availableContainer = this.container.querySelector("#multiselect-options");
-
-        valueContainer.innerHTML = '';
-        let displaySelected  = '';
-        let displayAvailable = '';
-
-        for (const key in data) {
-             const value  = data[key];
-             const search = value.toLowerCase();
-
-            this.addValue(key,value);
-
-        }
     }
 
     valueChanged( value ) {

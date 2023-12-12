@@ -156,6 +156,7 @@ label {
     width: 100%;
     z-index: +1;
     top: 55px;
+    border: 1px solid var(--md-sys-color-outline);
 }
 .multiselect-option {
     padding-left: 1em;
