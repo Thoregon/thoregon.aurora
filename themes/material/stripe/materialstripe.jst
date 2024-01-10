@@ -1,10 +1,83 @@
 <!-- script src="https://js.stripe.com/v3/"></script -->
 
-<div>
+<div class="{{= it.classes}}">
     <div id="paymentelement" class="paymentelement">
         <!-- slot id="stripe-element-slot" name="{{= it.slotname}}"></slot -->
         <slot id="stripe-element-slot" style="border: 1px solid red;"></slot>
-        <i><svg class="p-CardCvcIcons-svg" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="var(--colorIconCardCvc)" role="img" aria-labelledby="cvcDesc"><path opacity=".2" fill-rule="evenodd" clip-rule="evenodd" d="M15.337 4A5.493 5.493 0 0013 8.5c0 1.33.472 2.55 1.257 3.5H4a1 1 0 00-1 1v1a1 1 0 001 1h16a1 1 0 001-1v-.6a5.526 5.526 0 002-1.737V18a2 2 0 01-2 2H3a2 2 0 01-2-2V6a2 2 0 012-2h12.337zm6.707.293c.239.202.46.424.662.663a2.01 2.01 0 00-.662-.663z"></path><path opacity=".4" fill-rule="evenodd" clip-rule="evenodd" d="M13.6 6a5.477 5.477 0 00-.578 3H1V6h12.6z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 14a5.5 5.5 0 110-11 5.5 5.5 0 010 11zm-2.184-7.779h-.621l-1.516.77v.786l1.202-.628v3.63h.943V6.22h-.008zm1.807.629c.448 0 .762.251.762.613 0 .393-.37.668-.904.668h-.235v.668h.283c.565 0 .95.282.95.691 0 .393-.377.66-.911.66-.393 0-.786-.126-1.194-.37v.786c.44.189.88.291 1.312.291 1.029 0 1.736-.526 1.736-1.288 0-.535-.33-.967-.88-1.14.472-.157.778-.573.778-1.045 0-.738-.652-1.241-1.595-1.241a3.143 3.143 0 00-1.234.267v.77c.378-.212.763-.33 1.132-.33zm3.394 1.713c.574 0 .974.338.974.778 0 .463-.4.785-.974.785-.346 0-.707-.11-1.076-.337v.809c.385.173.778.26 1.163.26.204 0 .392-.032.573-.08a4.313 4.313 0 00.644-2.262l-.015-.33a1.807 1.807 0 00-.967-.252 3 3 0 00-.448.032V6.944h1.132a4.423 4.423 0 00-.362-.723h-1.587v2.475a3.9 3.9 0 01.943-.133z"></path></svg></i>
+
+        <i><svg class="card-icon-csc"  style="width: 28px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219.67 162.78">
+                <defs>
+                    <style>
+                        .cvc {
+                            fill: #6d6e79;
+                        }
+
+                        .cvc, .magstripe, .fields-and-fonts, .card {
+                            stroke-width: 0px;
+                        }
+
+                        .magstripe {
+                            fill: #b3b4b9;
+                        }
+
+                        .fields-and-fonts {
+                            fill: #fff;
+                        }
+
+                        .card {
+                            fill: #e2e2e4;
+                        }
+                    </style>
+                </defs>
+                <g>
+                    <rect class="card" x="0" y="10.07" width="210.25" height="152.71" rx="20.48" ry="20.48"/>
+                    <rect class="magstripe" y="29.08" width="209.98" height="28.52"/>
+                    <rect class="fields-and-fonts" x="14.82" y="86.43" width="180.34" height="29.73" rx="10.31" ry="10.31"/>
+                </g>
+                <g>
+                    <circle class="cvc" cx="166.7" cy="52.96" r="52.96"/>
+                    <g>
+                        <path class="fields-and-fonts" d="M138.31,77.17v-43.49l-7.34,5.4v-7.78l7.34-5.4h7.34v51.26h-7.34Z"/>
+                        <path class="fields-and-fonts"
+                              d="M169.2,77.17v-7.63h-14.62v-6.91l10.58-36.72h7.78l-11.02,36.72h7.27v-14.62h7.34v14.62h3.53v6.91h-3.53v7.63h-7.34Z"/>
+                        <path class="fields-and-fonts"
+                              d="M183.17,77.17v-6.91l13.25-24.98c.67-1.25,1.05-2.34,1.15-3.28.1-.94.14-2.1.14-3.49,0-.62-.01-1.28-.04-1.98-.02-.7-.16-1.31-.4-1.84-.24-.53-.6-.97-1.08-1.33-.48-.36-1.18-.54-2.09-.54-1.1,0-1.98.31-2.63.94-.65.62-.97,1.54-.97,2.74v4.18h-7.34v-4.03c0-1.54.29-2.98.86-4.32.58-1.34,1.37-2.52,2.38-3.53.96-1.01,2.11-1.81,3.46-2.41,1.34-.6,2.78-.9,4.32-.9,1.92,0,3.56.35,4.93,1.04,1.37.7,2.51,1.64,3.42,2.84.86,1.2,1.5,2.57,1.91,4.1.41,1.54.61,3.17.61,4.9,0,1.25-.02,2.29-.07,3.13s-.14,1.64-.29,2.41c-.14.77-.38,1.54-.72,2.3-.34.77-.79,1.7-1.37,2.81l-10.8,20.81h13.25v7.34h-21.89Z"/>
+                    </g>
+                </g>
+            </svg>  <!-- Card-csc --></i>
+        <i><svg class="card-icon-card" style="width: 28px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219.67 162.78">
+            <defs>
+                <style>
+                    .spacer {
+                        fill: none;
+                    }
+
+                    .spacer, .magstripe, .fields-and-fonts, .card {
+                        stroke-width: 0px;
+                    }
+
+                    .magstripe {
+                        fill: #b3b4b9;
+                    }
+
+                    .fields-and-fonts {
+                        fill: #fff;
+                    }
+
+                    .card {
+                        fill: #e2e2e4;
+                    }
+                </style>
+            </defs>
+            <g>
+                <rect class="card" y="10.07" width="210.25" height="152.71" rx="20.48" ry="20.48"/>
+                <rect class="magstripe" y="29.08" width="209.98" height="28.52"/>
+                <rect class="fields-and-fonts" x="14.82" y="86.43" width="34.57" height="20.62" rx="10.31" ry="10.31"/>
+                <rect class="fields-and-fonts" x="62.36" y="86.54" width="111.68" height="20.62" rx="10.31" ry="10.31"/>
+            </g>
+            <circle class="spacer" cx="166.7" cy="52.96" r="52.96"/>
+        </svg>  <!-- Card-card --></i>
+
     </div>
     <div class="progress" style="display: none;">
         <div class="loader">
@@ -33,3 +106,5 @@
     </div>
     <div class="message"  style="display: none;">&#160;</div>
 </div>
+
+

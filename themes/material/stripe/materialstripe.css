@@ -8,3 +8,13 @@ checkout-class {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.card-icon-csc,
+.card-icon-card { display: none; }
+
+.cardCvc .card-icon-csc,
+.cardNumber .card-icon-card { display: block; }
+
+
+.cardCvc .magstripe,
+.cardNumber .magstripe { fill: var(--gpcp-color-action); }
