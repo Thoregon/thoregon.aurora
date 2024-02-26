@@ -26,7 +26,7 @@ export default class MaterialSlider extends ThemeBehavior {
         this._sliderHandle = this.container.querySelector(".slider-handle");
         this._sliderFill   = this.container.querySelector(".slider-fill");
         this._sliderLabel  = this.container.querySelector(".slider-label span");
-        this._range        = this.container.querySelector("input[type='range']");
+        this._range        = this.container.querySelector("input");
 
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
         let sliderHandle = this.container.getElementsByClassName("slider-handle");
@@ -75,12 +75,18 @@ export default class MaterialSlider extends ThemeBehavior {
 
         this._sliderLabel.innerHTML = Math.round(newSliderValue);
 
-        this._range.value( newSliderValue );
+        this._range.value = Math.round(newSliderValue);
+
+        this._range.dispatchEvent(new Event('change'));
     }
 
 
     setLabel( label ) {
         const element = this.container.querySelector('.aurora-slider-label');
         element.innerHTML = label;
+    }
+
+    valueChanged() {
+        console.log("in value changed ( materialslider.mjs)");
     }
 }
