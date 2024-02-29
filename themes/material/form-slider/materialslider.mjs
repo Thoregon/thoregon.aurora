@@ -17,9 +17,6 @@ export default class MaterialSlider extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
-        this._min = 20;
-        this._max = 100;
-
         this._isDragging = false;
 
         this._slider       = this.container.querySelector(".aurora-slider");
@@ -27,6 +24,10 @@ export default class MaterialSlider extends ThemeBehavior {
         this._sliderFill   = this.container.querySelector(".slider-fill");
         this._sliderLabel  = this.container.querySelector(".slider-label span");
         this._range        = this.container.querySelector("input");
+
+        this._min = parseInt(this._range.getAttribute("min"));
+        this._max = parseInt(this._range.getAttribute("max"));
+
 
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
         let sliderHandle = this.container.getElementsByClassName("slider-handle");
@@ -86,7 +87,20 @@ export default class MaterialSlider extends ThemeBehavior {
         element.innerHTML = label;
     }
 
-    valueChanged() {
-        console.log("in value changed ( materialslider.mjs)");
+    setMin( value ) { this._min = value; }
+    setMax( value ) { this._max = value; }
+
+    valueChanged( value ) {
+
+        const handle = this._sliderHandle;
+        const fill   = this._sliderFill;
+        const min    = this._min;
+        const max    = this._max;
+
+        const positionPercentage = ((value - min) / (max - min)) * 100;
+
+        this._range.value = value;
+        handle.style.left = positionPercentage + "%";
+        fill.style.width  = positionPercentage + "%";
     }
 }
