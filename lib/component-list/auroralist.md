@@ -11,3 +11,8 @@ The element is responsible for:
 - isReady  // check if all attributes needed are filled
 - refresh  // re-draw the html
 - activate // 
+
+
+DataGrid
+
+https://handsontable.com/docs/javascript-data-grid/
