@@ -89,7 +89,11 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
 
     removeAll() {debugger;}
-    toggleMenu() {debugger;}
+    toggleMenu() {
+        // get dropdown
+        const dropdown = this.container.querySelector("#multiselect-options");
+        dropdown.classList.toggle('hidden');
+    }
     focusInput() {
         this.container.querySelector("#multiSelectInput").focus();
     }

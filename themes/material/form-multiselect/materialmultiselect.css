@@ -20,7 +20,7 @@
 label {
     right: initial;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-20%);
     pointer-events: none;
     font-size: 13px;
     position: relative;
@@ -38,7 +38,7 @@ label {
     flex-wrap: wrap;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    min-height: 38px;
+    min-height: 56px;
     position: relative;
     transition: all 100ms ease 0s;
     box-sizing: border-box;
@@ -61,6 +61,8 @@ label {
 
 #selected-values {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #addNew {
@@ -155,7 +157,7 @@ label {
     position: absolute;
     width: 100%;
     z-index: +1;
-    top: 55px;
+    top: 100px;
     border: 1px solid var(--md-sys-color-outline);
 }
 .multiselect-option {
