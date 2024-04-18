@@ -24,7 +24,16 @@
     opacity: 0;
 }
 
-th.sortable .header-cell-wrapper { display: flex; }
+th.sortable.left  .header-cell-wrapper {
+    display: flex;
+    justify-content: start;
+    flex-direction: row-reverse;
+}
+th.sortable.right .header-cell-wrapper {
+    display: flex;
+    justify-content: end;
+}
+
 th.sortable:hover .aurora-sort-icon-wrapper {
     opacity: .64;
 }
@@ -128,11 +137,13 @@ tr:hover.active {
 .aurora-sort-icon-wrapper {
     width: 1em;
     height: 1em;
-    margin-left: 4px;
     vertical-align: middle;
     transition: transform .3s cubic-bezier(.25,.8,.5,1);
     background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">  <path    fill="black" d="M 13 20 H 11 V 8 L 5.5 13.5 L 4.1 12.1 L 12 4.2 L 19.9 12.1 L 18.5 13.5 L 13 8 V 20 Z"/></svg>');
 }
+
+.left  .aurora-sort-icon-wrapper { margin-left: 4px; }
+.right .aurora-sort-icon-wrapper { margin-right: 4px; }
 
 /*  GRID  */
 
