@@ -27,17 +27,14 @@ export default class MaterialList extends ThemeBehavior {
         this._pos_wrapper = this.container.getBoundingClientRect();
         //---
 
-        let rowheaders = this.container.querySelectorAll("th.sortable");
 
         let actiontriggers = this.container.querySelectorAll(".aurora-table-actions-trigger");
-
-        for ( let i = 0; i < rowheaders.length; i++ ) {
-            rowheaders[i].addEventListener('click', (event) => this.callbackClickRowHeader(event, rowheaders[i]), false);
-        }
 
         for ( let i = 0; i < actiontriggers.length; i++ ) {
             actiontriggers[i].addEventListener('click', (event) => this.callbackClickActionTrigger(event, actiontriggers[i]), false);
         }
+
+
 /*
         if ( this.jar.propertiesValues()['dragdrop'] ) {
             if (this.container.children.length > 0) {
@@ -72,6 +69,14 @@ export default class MaterialList extends ThemeBehavior {
         new Ripple( this.container.querySelector('.aurora-listitem-ripple'));
     }
 
+    scaffoldedList() {
+        let rowheaders = this.container.querySelectorAll("th.sortable");
+        for ( let i = 0; i < rowheaders.length; i++ ) {
+            rowheaders[i].addEventListener('click', (event) => this.callbackClickRowHeader(event, rowheaders[i]), false);
+        }
+
+    }
+
     callbackClickActionTrigger( event, trigger ) {
         trigger.parentElement.getElementsByClassName('aurora-table-actions-menu')[0].classList.toggle('hidden');
         trigger.classList.toggle('hidden');
@@ -80,11 +85,13 @@ export default class MaterialList extends ThemeBehavior {
 
 
     callbackClickRowHeader( event, th ) {
-
         //--- remove all sortings in case a different column is taken -----
-        let headers = this.container.querySelectorAll("th.sortable");
+
+        const column  = th.getAttribute('data-column');
+        const headers = this.container.querySelectorAll("th.sortable");
 
         for (let i = 0; i < headers.length; i++) {
+            // remove the sorting for all other elements
             if (headers[i] != th) {
                 headers[i].classList.remove('sort-asc', 'sort-desc');
             }
@@ -100,17 +107,18 @@ export default class MaterialList extends ThemeBehavior {
             th.classList.remove('sort-asc');
             th.classList.add('sort-desc');
 
-            // inform query....
+            this.jar.updateSortSequence(column, 'sort-desc');
+
         } else if (classlist.contains('sort-desc')) {
             // remove sort-desc
             th.classList.remove('sort-desc');
 
-            // inform query....
+            this.jar.updateSortSequence(column, 'sort-original');
         } else {
             // add sort-asc
             th.classList.add('sort-asc');
 
-            // inform query....
+            this.jar.updateSortSequence(column, 'sort-asc');
         }
     }
 
