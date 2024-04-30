@@ -15,21 +15,34 @@ export default class MaterialTextField extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
-        //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
-        var textfield = this.container.getElementsByClassName("aurora-text-field");
-        textfield[0].addEventListener('click', this.callbackClicked, false);
+        let leadingIcon = this.container.querySelector('.aurora-leading-icon');
+        if (leadingIcon) {
+            leadingIcon.addEventListener('click', (event) => this.callbackLeadingIconClicked(event));
+        }
 
-        var inputfield = this.container.getElementsByClassName("aurora-text-field-input");
+        let trailingIcon = this.container.querySelector('.aurora-trailing-icon');
+        if (trailingIcon) {
+            trailingIcon.addEventListener('click', (event) => this.callbacktrailingIconClicked(event));
+        }
+
+        //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
+        this._textfield = this.container.querySelector('.aurora-text-field');
+        this._textfield.addEventListener('click', (event) => this.callbackClicked(event), false);
+
 
         //---  KEYUP event for the input field  ------------------------------------------------------------------------
-        var typing     = (event) => this.callbackKeyup( event, this.container );
-        inputfield[0].addEventListener('keyup', this.callbackKeyup, false);
-        inputfield[0].addEventListener('keyup', () => this.cleanErrors(), false);
 
-        var leaving     = (event) => this.callbackFocusout( event, this.container );
-        inputfield[0].addEventListener('focusout', leaving, false);
+        this._inputfield = this.container.querySelector(".aurora-text-field-input");
 
-        inputfield[0].addEventListener( 'focus', this.callbackClicked );
+        // var typing     = (event) => this.callbackKeyup( event, this.container );
+
+        this._inputfield.addEventListener('keyup', (event)=> this.callbackKeyup(event), false);
+        this._inputfield.addEventListener('keyup', (event) => this.cleanErrors(event), false);
+
+        let leaving     = (event) => this.callbackFocusout( event, this.container );
+        this._inputfield.addEventListener('focusout',  leaving, false);
+
+        this._inputfield.addEventListener( 'focus', (event)=>this.callbackClicked(event) );
         // MDC.MDCRipple.attachTo(inputfield);
     }
 
@@ -45,20 +58,31 @@ export default class MaterialTextField extends ThemeBehavior {
     }
 
 
-    cleanErrors() {
+    cleanErrors( event ) {
         this.removeError();
         //--- validation level: immediate
         this.jar.isValid( validationLevel.immediate );
     }
 
     callbackClicked ( event ) {
-        let label = this.parentElement.querySelectorAll("label");
-        if (label && label[0]) label[0].classList.add('aurora-floating-label--float-above');
-        let textfield = this.parentElement.querySelectorAll(".aurora-text-field");
-        if (textfield && textfield[0]) textfield[0].classList.add('focused');
+        const element = event.target;
+        // if (element !== this._textfield) return;
 
-        event.stopPropagation();
+        const textfield = this._textfield;
+        let label = textfield.querySelector("label");
+        if (label && label) label.classList.add('aurora-floating-label--float-above');
+        if (textfield && textfield) textfield.classList.add('focused');
+
+        //event.stopPropagation();
     }
+
+    callbackLeadingIconClicked( event ) {
+        this.jar.leadingIconClicked();
+    }
+    callbacktrailingIconClicked( event ) {
+        this.jar.trailingIconClicked();
+    }
+
     callbackKeyup( event ) {
         let container = event.target.parentElement.parentElement;
         let charactercounter = container.querySelectorAll(".mdc-text-field-character-counter");
@@ -78,12 +102,12 @@ export default class MaterialTextField extends ThemeBehavior {
             event.target.parentElement.querySelectorAll("label")[0].classList.remove('aurora-floating-label--float-above');
         }
         this.container.getElementsByClassName("aurora-text-field")[0].classList.remove('focused');
-        event.stopPropagation();
+  //      event.stopPropagation();
         //--- validation level: CHANGE
         this.jar.isValid( validationLevel.change );
     }
 
-    removeError() {
+    removeError( event ) {
         this.container.classList.remove('error');
         this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = "";
 

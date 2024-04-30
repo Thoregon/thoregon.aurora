@@ -32,6 +32,10 @@
     will-change: opacity,transform,color;
 }
 
+.aurora-input-label-wrapper {
+    border: 3px solid pink;
+}
+
 .aurora-floating-label {
 
     -moz-osx-font-smoothing: grayscale;
@@ -80,6 +84,7 @@
     -moz-appearance: none;
     appearance: none;
     color: var( --md-sys-color-on-surface );
+    z-index: 1;
 }
 
 .aurora-text-field-container:not(.disabled) .aurora-text-field .aurora-text-field-input:hover {
@@ -137,12 +142,12 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    z-index: 10;
 }
 
 .aurora-leading-icon,
 .aurora-trailing-icon {
     cursor: default;
-    pointer-events: none;
 }
 
 /*  leading icons --- */
@@ -464,10 +469,17 @@
 .q-outlined .focused .aurora-floating-label { left: 15px; }
 
 .with-trailing-icon.q-outlined .aurora-text-field.focused .aurora-trailing-icon { right: 11px; }
+.with-trailing-icon.q-outlined .aurora-text-field[readonly].focused .aurora-trailing-icon { right: 12px; }
+
+
 .with-leading-icon.q-outlined  .aurora-text-field.focused .aurora-leading-icon { left: 15px; }
+.with-leading-icon.q-outlined  .aurora-text-field[readonly].focused .aurora-leading-icon { left: 16px; }
 
 .with-leading-icon.q-outlined  .aurora-text-field.focused .aurora-floating-label { padding-left: 43px; }
 .with-leading-icon.q-outlined  .aurora-text-field.focused .aurora-text-field-input { padding-left: 47px; }
+
+.with-leading-icon.q-outlined  .aurora-text-field[readonly].focused .aurora-floating-label { padding-left: 44px; }
+.with-leading-icon.q-outlined  .aurora-text-field[readonly].focused .aurora-text-field-input { padding-left: 48px; }
 
 .q-outlined .focused .aurora-floating-label::after {}
 .q-outlined .aurora-text-field:hover::before { opacity: 0 !important; }
