@@ -112,6 +112,7 @@ export default Aurora.withElements({
                                         'aurora-video'               : './lib/component-video/auroravideo.mjs',
 
                                         'aurora-stripe'              : './lib/stripe/stripe.mjs',
+                                        'aurora-paypal'              : './lib/paypal/paypal.mjs',
 
                                         'aurora-tab-container'       : [
                                             './lib/component-tabs/auroratabcontainer.mjs',
