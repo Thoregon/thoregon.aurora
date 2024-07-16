@@ -5,7 +5,7 @@
  */
 
 import ThemeBehavior            from "../../themebehavior.mjs";
-import { validationLevel }      from "../../../lib/common.mjs";
+import { validationLevel }      from "/thoregon.aurora/lib/validation/validation.mjs";
 
 export default class MaterialTextField extends ThemeBehavior {
 
@@ -61,7 +61,7 @@ export default class MaterialTextField extends ThemeBehavior {
     cleanErrors( event ) {
         this.removeError();
         //--- validation level: immediate
-        this.jar.isValid( validationLevel.immediate );
+        this.jar.isValid(event.target.value, validationLevel.immediate );
     }
 
     callbackClicked ( event ) {
@@ -104,16 +104,17 @@ export default class MaterialTextField extends ThemeBehavior {
         this.container.getElementsByClassName("aurora-text-field")[0].classList.remove('focused');
   //      event.stopPropagation();
         //--- validation level: CHANGE
-        this.jar.isValid( validationLevel.change );
+        this.jar.isValid( event.target.value, validationLevel.change );
     }
 
     removeError( event ) {
-        this.container.classList.remove('error');
+        this.container.classList.remove('in-error');
         this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = "";
 
     }
+
     reportError(errormsg) {
-        this.container.classList.add('error');
+        this.container.classList.add('in-error');
         this.container.getElementsByClassName("aurora-text-field-error-text")[0].innerHTML = errormsg;
 
         console.log(this.jar);

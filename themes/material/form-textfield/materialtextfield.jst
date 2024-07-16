@@ -1,4 +1,4 @@
-<div class="aurora-text-field-container {{= it.classes}} q-outlined">
+<div class="aurora-text-field-container {{= it.classes}}">
 
     <div  class="aurora-text-field  {{? it.usestackedlabel}} aurora-floating-label-stacked {{?}} ">
 
@@ -36,9 +36,7 @@
         <div class="aurora-hint mdc-text-field-helper-text mdc-text-field-helper-text--persistent aurora-text-field-helper-text">{{= it.hint}}</div>
         {{?}}
         <div class="mdc-text-field-helper-text aurora-text-field-error-text" role="alert">
-            <!--Error message-->
-            Föhla
-            <!---->
+            {{=it.errormsg}}
         </div>
         {{? it.usecharactercounter}}
           <div class="mdc-text-field-character-counter">0 / 20</div>
