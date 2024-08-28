@@ -21,6 +21,14 @@ open-up-right {
 
 :host(.footer) {}
 
+.aurora-actions-wrapper {
+    white-space: nowrap;
+}
+
+.aurora-actions-wrapper span {
+    display: flex;
+}
+
 .aurora-actions {
     display: inline-block;
     position: relative;

@@ -168,23 +168,61 @@ tr:hover.active {
 .aurora-grid-element-view,
 aurora-view[gridelement] { height: 100% }
 
-.aurora-data-grid {
-    border: 5px solid pink;
+.presentation-spreadsheet {
+    border: 1px solid #c0c0c0;
 }
-.aurora-data-grid td,
-.aurora-data-grid th {
+.presentation-spreadsheet td,
+.presentation-spreadsheet th {
     background-color: #fff;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e1e1e1;
     border-left-width: 0;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #e1e1e1;
     border-top-width: 0;
     empty-cells: show;
     height: 22px;
     line-height: 21px;
     outline: none;
     outline-width: 0;
-    overflow: hidden;
-    padding: 0 4px;
     vertical-align: top;
     white-space: pre-wrap;
+
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
 }
+
+.presentation-spreadsheet th {
+    padding: .4em .5em;
+    background-color: #fff;
+    border-bottom: 1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+}
+
+
+.presentation-spreadsheet td.edit {
+
+}
+
+.edit .cell-wrapper { display: none;}
+
+.edit input {
+    display: initial;
+    box-sizing: border-box; /* Include padding and border in width and height */
+    padding: .4em .5em;
+    border: none;
+    margin: 0; /* Remove margin to avoid overflow */
+    font-family: inherit;
+    font-size: inherit; /* Adjust font size as needed */
+
+    position: absolute; /* Position input absolutely inside the <td> */
+
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    outline-offset: 0px;
+    outline: 2px solid #0957d0;
+    z-index: +1;
+}
+td input { display: none; }
+
