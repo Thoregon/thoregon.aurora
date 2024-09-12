@@ -22,6 +22,7 @@
     border-radius: var(--md-sys-shape-corner-full);
     vertical-align: top;
     background: #fff;
+    cursor: pointer;
 }
 
 .mode-outlined {
@@ -62,8 +63,16 @@ margin-right: .5em;
 }
 
 
-.mediasize-contain .aurora-card-media{
+.mediasize-contain .aurora-card-media {
 background-position: center;
 background-size: contain;
 background-repeat: no-repeat;
+}
+
+.aurora-card-media { display: none;}
+.image-visible .aurora-card-media { display: block;}
+
+.aurora-card {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
 }

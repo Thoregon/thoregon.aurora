@@ -322,6 +322,10 @@
     will-change: opacity;
 }
 
+.compactspacing .mdc-text-field-helper-line {
+    display: none;
+}
+
 .aurora-text-field+.mdc-text-field-helper-line {
     padding-right: 16px;
     padding-left: 16px;

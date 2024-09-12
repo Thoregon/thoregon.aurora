@@ -13,6 +13,8 @@ import AuroraAttributeHide from "./lib/auroraattributes/auroraattributehide.mjs"
 // UI Elements always needed
 export { default as AuroraElement }             from './lib/auroraelement.mjs';
 export { default as ThemeBehavior }             from './themes/themebehavior.mjs';
+
+
 export { default as AuroraBlueprint }           from './lib/blueprint/layout/aurorablueprint.mjs';
 export { default as AuroraHeader }              from './lib/blueprint/layout/auroraheader.mjs';
 export { default as AuroraFooter }              from './lib/blueprint/layout/aurorafooter.mjs';
@@ -40,6 +42,8 @@ export { default as AuroraAttributeConnect }    from './lib/auroraattributes/aur
 export { default as AuroraApp }                 from './lib/blueprint/auroraapp.mjs';
 export { default as AppWidget }                 from './lib/blueprint/appwidget.mjs';
 export { default as ThoregonApp }               from './lib/blueprint/thoregonapp.mjs';
+
+
 
 // Validations
 export { ValidationMethod }                     from './lib/validation/validation.mjs'
@@ -123,6 +127,9 @@ export default Aurora.withElements({
 
                                         ],
                                    });
+
+export { default as AuroraBlueprintNew }        from './lib/blueprint/layout/aurorablueprintnew.mjs';
+
 // todo [REFACTOR]: AuroraTable doesn't work when dynamically loaded. fix it
 export { default as AuroraList }               from './lib/component-list/auroralist.mjs';
 export { default as AuroraActions }            from './lib/component-actions/auroraactions.mjs';
