@@ -310,6 +310,58 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
     }
     adjustOverlay() {}
 
+    analyzeElementPlacement( element ) {
+        const style    = window.getComputedStyle(element);
+        const display  = style.display;
+        const position = style.position;
+
+        // Temporarily show the element to get its height
+        element.classList.add('forceVisible');
+
+        const rect = element.getBoundingClientRect();
+        const height = element.offsetHeight;
+        const width  = element.offsetWidth;
+
+        const x = rect.left;
+        const y = rect.top;
+        // Hide the element again
+
+        element.classList.remove('forceVisible');
+
+        let clippingBottom;
+        let clippingTop    = false;
+        let clippingLeft   = false;
+        let clippingRight  = false;
+
+        //--- clipping bottom --------
+        let elementBottom = y + rect.height;
+
+        const ftrDef = this.layoutConfiguration.footer;
+        if (ftrDef.fixed ) { elementBottom += this.footer.offsetHeight; }
+        clippingBottom =  elementBottom > window.innerHeight;
+
+        return {
+            window   : {
+                width : window.innerWidth,
+                height: window.innerHeight,
+            },
+            dimension: {
+                width : rect.width,
+                height: rect.height,
+            },
+            position : {
+                left: x,
+                top : y,
+            },
+            clipping : {
+                top: clippingTop,
+                right: clippingRight,
+                bottom: clippingBottom,
+                left: clippingLeft,
+            },
+        };
+    }
+
     replaceClass(element, classToRemove, classToAdd) {
         element.classList.remove(classToRemove);  // Remove the class, if it exists
         element.classList.add(classToAdd);        // Add the new class
