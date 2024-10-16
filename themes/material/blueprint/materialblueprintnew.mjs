@@ -57,6 +57,20 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
         }
     }
 
+    getConfiguration() {
+
+        if (this.layoutConfiguration === undefined ||
+            this.layoutConfiguration === null) {
+            return this.defaultLayoutConfiguration;
+        }
+
+        return this.layoutConfiguration;
+    }
+
+    setDefaultLayoutConfiguration(defaultConfiguration) {
+        this.defaultLayoutConfiguration = defaultConfiguration;
+    }
+
     setLayoutConfiguration(layoutConfiguration) {
         this.layoutConfiguration = layoutConfiguration;
         this.blueprint.style.display = "";
@@ -67,31 +81,6 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
         }
 
         this.adjustBlueprint();
-/*
-        setTimeout(() => {
-            this.closeLeftDrawer();
-        }, 1000);
-
-        setTimeout(() => {
-            this.closeRightDrawer();
-        }, 2000);
-
-        setTimeout(() => {
-            this.openLeftDrawer();
-        }, 3000);
-
-        setTimeout(() => {
-            this.openRightDrawer();
-        }, 4000);
-
-        setTimeout(() => {
-            this.openOverlay();
-        }, 5000);
-
-        setTimeout(() => {
-            this.closeOverlay();
-        }, 10000);
- */
 
     }
 
@@ -127,6 +116,7 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
     }
 
     closeLeftDrawer() {
+
         const drwDef   = this.layoutConfiguration.drawerLeft;
         drwDef.open = false;
         this.blueprint.classList.add('animate');
@@ -195,6 +185,7 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
     }
 
     adjustBlueprint() {
+        debugger;
         this.adjustHeader();
         this.adjustDrawer('left');
         this.adjustDrawer('right');
@@ -204,10 +195,11 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
     };
 
     adjustHeader() {
+        const lc        = this.getConfiguration();
         const hdr       = this.header;
-        const hdrDef    = this.layoutConfiguration.header;
-        const drwLftDef = this.layoutConfiguration.drawerLeft;
-        const drwRgtDef = this.layoutConfiguration.drawerRight;
+        const hdrDef    = lc.header;
+        const drwLftDef = lc.drawerLeft;
+        const drwRgtDef = lc.drawerRight;
 
         hdr.style.display  = hdrDef.enabled ? ''  : 'none';
 
@@ -242,8 +234,8 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
         const drwLftDef = this.layoutConfiguration.drawerLeft;
         const drwRgtDef = this.layoutConfiguration.drawerRight;
 
-        cnt.style.paddingTop    = hdrDef.height;
-        cnt.style.paddingBottom = ftrDef.height;
+        cnt.style.paddingTop    = hdrDef.enabled ?  hdrDef.height : '0px';
+        cnt.style.paddingBottom = ftrDef.enabled ? ftrDef.height  : '0px';
 
         cnt.style.paddingLeft  = drwLftDef.open ? drwLftDef.width : '0px';
         cnt.style.paddingRight = drwRgtDef.open ? drwRgtDef.width : '0px';
