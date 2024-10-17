@@ -185,7 +185,6 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
     }
 
     adjustBlueprint() {
-        debugger;
         this.adjustHeader();
         this.adjustDrawer('left');
         this.adjustDrawer('right');
