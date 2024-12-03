@@ -322,6 +322,8 @@
     will-change: opacity;
 }
 
+.mdc-text-field-helper-text:empty { display: none !important;}
+
 .compactspacing .mdc-text-field-helper-line {
     display: none;
 }
@@ -352,7 +354,7 @@
     display: inline-block;
     width: 0;
     height: 16px;
-    content: '';
+/*    content: ''; */
     vertical-align: 0;
 }
 
