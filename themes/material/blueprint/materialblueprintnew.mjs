@@ -72,6 +72,11 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
     }
 
     setLayoutConfiguration(layoutConfiguration) {
+
+        if ( layoutConfiguration.mode ) {
+            this.container.querySelector('.aurora-blueprint').dataset.mode = layoutConfiguration.mode;
+        }
+
         this.layoutConfiguration = layoutConfiguration;
         this.blueprint.style.display = "";
         this.blueprint.classList.remove('animate');

@@ -74,3 +74,9 @@
 
 .overlay-open .aurora-overlay { display: flex;}
 .overlay-open .aurora-content { position: fixed; }
+
+.aurora-blueprint[data-mode="widget"] { min-height: 0px !important; }
+[data-mode="widget"] .aurora-content{
+    min-height: 0px;
+    height: auto;
+}
