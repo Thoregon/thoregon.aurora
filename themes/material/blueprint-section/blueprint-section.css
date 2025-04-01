@@ -13,6 +13,7 @@
     background-color: var( --md-sys-color-surface-container-low );
 }
 
+
 .legend-wrapper {
     min-height: 1.5em;
     background: var( --md-sys-color-surface-container-high );
