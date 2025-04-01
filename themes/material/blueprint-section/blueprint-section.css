@@ -3,29 +3,33 @@
  */
 
 
+
 :host,
 .aurora-section-wrapper,
-
 .aurora-section {
-    overflow: hidden;
+  /*  overflow: hidden; */
     position: relative;
-    border-radius: var( --md-sys-shape-corner-medium );
     background-color: var( --md-sys-color-surface-container-low );
+    border-radius: var(--md-sys-shape-corner-full);
 }
-
 
 .legend-wrapper {
     min-height: 1.5em;
     background: var( --md-sys-color-surface-container-high );
     padding-left: 1.5em;
     padding-right: 1.5em;
-
+    border-radius: var(--md-sys-shape-corner-full) var(--md-sys-shape-corner-full) 0 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
 }
+
+.collapsed .legend-wrapper {
+    border-radius: var(--md-sys-shape-corner-full);
+}
+
 .legend:empty::after {
     content: attr(label);
     font-weight: bold;
@@ -39,10 +43,23 @@
     background-color: var( --md-sys-color-surface-container-high )!important;
 }
 
+.legend-label {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.legend-label i {
+    font-size: 1.5em;
+}
+
 .section-content {
     padding: 1.5em;
     transition: max-height 0.2s ease-out;
     max-height: fit-content;
+}
+
+.collapsed .section-content {
     overflow: hidden;
 }
 
@@ -57,10 +74,20 @@
 }
 
 .accordion-trigger {
+    cursor: pointer;
+}
+
+.accordion-trigger-icon {
     font-size: 2em;
     cursor: pointer;
     display: flex;
     user-select: none;
+    transition: transform 0.3s ease;
+    transform: rotate(180deg);
+}
+
+.collapsed .accordion-trigger-icon i {
+    rotate: 200grad;
 }
 
 .aurora-section.type-outlined {

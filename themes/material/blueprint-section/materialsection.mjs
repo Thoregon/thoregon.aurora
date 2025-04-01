@@ -11,7 +11,6 @@
 import ThemeBehavior            from "../../themebehavior.mjs";
 import { validationLevel }      from "../../../lib/common.mjs";
 
-
 export default class MaterialSection extends ThemeBehavior {
 
     attach(jar) {
@@ -26,8 +25,13 @@ export default class MaterialSection extends ThemeBehavior {
     }
 
     setLabel( label ) {
-        const legend = this.container.querySelector('.legend');
+        const legend = this.container.querySelector('#label');
         legend.setAttribute('label',  label);
+    }
+
+    setSummary( summary ) {
+        const summaryElement     = this.container.querySelector('.legend-summary');
+        summaryElement.innerHTML = summary;
     }
 
     toggleSection() {
