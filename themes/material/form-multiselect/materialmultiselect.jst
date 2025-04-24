@@ -20,7 +20,13 @@
         <div id="multiselect-options" class="multiselect-options">
             <div id="addNew">NEW OPTION</div>
         </div>
-
+        <div id="input-mirror"></div>
+    </div>
+    <div class="mdc-text-field-helper-line">
+        {{? it.hashint}}
+        <div class="aurora-hint mdc-text-field-helper-text mdc-text-field-helper-text--persistent aurora-text-field-helper-text">{{= it.hint}}</div>
+        {{?}}
     </div>
 </div>
+
 

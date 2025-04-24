@@ -14,6 +14,8 @@
 import ThemeBehavior            from "../../themebehavior.mjs";
 import { validationLevel }      from "../../../lib/common.mjs";
 
+const TRANSLATIONS = {}
+
 const TMPOPTIONS  = ``;
 
 export default class MaterialMultiSelect extends ThemeBehavior {
@@ -25,9 +27,14 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         this.container = this.jar.container;
 
-        this._inputField = this.container.querySelector("#multiSelectInput");
-        this._options    = this.container.querySelector("#multiselect-options");
-        this._selected   = this.container.querySelector("#selected-values");
+        this._inputField  = this.container.querySelector("#multiSelectInput");
+        this._options     = this.container.querySelector("#multiselect-options");
+        this._selected    = this.container.querySelector("#selected-values");
+        this._inputMirror = this.container.querySelector("#input-mirror");
+        this._addNew      = this.container.querySelector("#addNew");
+
+        //--- click add new taxonomy
+        this._addNew.addEventListener('click', (event) => this.addNewTaxonomy(event), false );
 
         //--- CLICK - remove all elements
         const triggerRemoveAll = this.container.querySelector("#act-remove-all");
@@ -35,7 +42,7 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         //--- CLICK - menu handle
         const triggerMenu = this.container.querySelector("#act-menu");
-        triggerMenu.addEventListener('click', () => this.toggleMenu(), false);
+        triggerMenu.addEventListener('click', (event) => this.toggleMenu(event), false);
 
         //--- CLICK - focus the input field
         const inputWrapper = this.container.querySelector(".selected-input-wrapper");
@@ -49,11 +56,13 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         const options = this.container.querySelector("#multiselect-options");
         options.addEventListener('click', (event) => this.selectOption(event), false );
 
-
         //--- Resize input field on typing
         this._inputField.addEventListener('input', (event) => this.resizeInputField(event), false );
         //--- Filter on typing
         this._inputField.addEventListener('input', (event) => this.filterOptions(event), false );
+
+        //--- click outside the input field
+        this._inputField.addEventListener('blur', (event) => this.blurInputField(event), false );
 
         /*
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
@@ -87,14 +96,20 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         }
     }
 
-
-    removeAll() {debugger;}
-    toggleMenu() {
+    addNewTaxonomy() {
+        alert('....add new taxonomy...');
+    }
+    removeAll() {
+        alert("hab dich in removeAll()");
+    }
+    toggleMenu(event) {
         // get dropdown
+        event.stopImmediatePropagation();
         const dropdown = this.container.querySelector("#multiselect-options");
-        dropdown.classList.toggle('hidden');
+        dropdown.classList.toggle('open');
     }
     focusInput() {
+        this._options.classList.add('open');
         this.container.querySelector("#multiSelectInput").focus();
     }
 
@@ -111,7 +126,8 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         newOption = newOption.querySelector(".multiselect-option");
 
         const optionsContainer     = this.container.querySelector("#multiselect-options");
-        optionsContainer.appendChild(newOption);
+        optionsContainer.insertBefore(newOption, this._addNew);
+       // optionsContainer.appendChild(newOption);
 
         //--- check if element is in values
         const valueSelector = `[data-value="${key}"]`;
@@ -154,6 +170,8 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         if ( option ) { option.classList.add('selected'); }
 
+        this._options.classList.remove('open');
+        this._inputField.focus();
     }
 
     selectOption(event) {
@@ -178,10 +196,24 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         const option = options.querySelector(optionSelector);
 
         option.classList.remove('selected');
+        this._options.classList.remove('open');
+        this._inputField.focus();
+        event.stopPropagation();
     }
 
     resizeInputField() {
-        this._inputField.style.width = (this._inputField.value.length + 1) + 'ch'; // Set width based on content length
+        const mirror     = this._inputMirror;
+        mirror.innerHTML = this._inputField.value;
+        const width      = mirror.offsetWidth;
+        this._inputField.style.width = width + 'px'; // Set width based on content length
+    }
+
+    blurInputField() {
+        this._inputField.value = '';
+        this._inputMirror.value = '';
+        this.resizeInputField();
+        this.filterOptions();
+        // this._options.classList.remove('open');
     }
 
     filterOptions() {
@@ -198,7 +230,6 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         const resultArray = [...result];
         const noResult = ( resultArray.length === 0 );
-
 
         options.forEach((option) => {
             if(resultArray.includes(option) || emptySearch) {
@@ -220,6 +251,12 @@ export default class MaterialMultiSelect extends ThemeBehavior {
             newOption.classList.add('showNewOption');
         } else {
             newOption.classList.remove('showNewOption');
+        }
+
+        if (value) {
+            this._options.classList.add('open');
+        } else {
+            // this._options.classList.remove('open');
         }
 
         //--- If search is in options but not already selected -> can not be added again + can not created

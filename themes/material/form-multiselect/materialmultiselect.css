@@ -157,17 +157,35 @@ label {
     position: absolute;
     width: 100%;
     z-index: +1;
-    top: 100px;
+    top: 100%;
+    margin-top: 3px;
     border: 1px solid var(--md-sys-color-outline);
+    display: none
 }
+
+.multiselect-options.open {
+    display: initial;
+}
+
+#addNew,
 .multiselect-option {
     padding-left: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-radius: 5px;
 }
+
+#addNew,
 .multiselect-option:hover {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
     cursor: pointer;
+}
+
+#input-mirror {
+    visibility: hidden;
+    position: absolute;
+    white-space: pre; /* Preserve spaces */
+    font: 16px Arial; /* Match your input's styles! */
+    padding: 0; /* Match input if needed */
 }

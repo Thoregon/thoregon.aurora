@@ -79,17 +79,19 @@ open-up-right {
     border: 1px solid var(--md-sys-color-outline-variant);
     /* border: 1px solid rgba(0, 0, 0, .15); */
 /*    border-radius: 8px; */
-    border-radius: 4px;
+/*    border-radius: 4px; */
+    border-radius: var(--md-sys-shape-corner-full);
     -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
     box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0px 0px 0px 1px rgba(64, 87, 109, .04), 0px 6px 20px -4px rgba(64, 87, 109, .3);
     margin-top: 8px;
     overflow: visible;
     display: none;
 }
 
 .aurora-actions-menu .aurora-menu-icon {
-    margin-right: 12px;
-    font-size: 24px;
+    margin-right: .5em;
+    font-size: 1.2em;
     color: var(--md-sys-color-on-surface);
 }
 
@@ -166,8 +168,9 @@ open-up-right {
 
 .aurora-actions-menu ul li span {
     font-size: 1em;
+    font-weight: 300;
     line-height: 28px;
-    padding: 10px 0px 10px 0px;
+    padding: 6px 0px;
     cursor: pointer;
     white-space: nowrap;
     color: var(--md-sys-color-on-surface);
