@@ -89,11 +89,6 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         document.addEventListener('click', (event) => this.clickedOutsideShadow(event), false);
     }
 
-    getValue() {
-
-        debugger;
-    }
-
     set options( options ) {
         this._optionData    = options;
         this._optionsLoaded = true;
@@ -104,7 +99,7 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         alert('....add new taxonomy...');
     }
     removeAll() {
-        this._values = [];
+        this._values.splice(0,this._values.length);
         this.buildMultiselect();
         this.jar.valueModified();
     }
@@ -140,7 +135,7 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         //--- check if element is in values
 
 
-        if (this._values.includes(key)) {
+        if (this._values.find(elem => elem == key)) {
             newOption.classList.add("selected");
         }
     }
@@ -185,7 +180,7 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         //--- update the the stored values ----
 
-        if (! this._values.includes(key)) {
+        if (!this._values.find(elem => elem == key)) {
             this._values.push(key);
             console.log('✅ need to add value to selected values and propagate data');
         }
@@ -199,7 +194,8 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         multivalue.remove();
 
-        this._values = this._values.filter(val => val != valueID);
+        const i = this._values.findIndex(val => val == valueID);
+        if (i > -1) this._values.splice(i, 1);
 
         const optionSelector = `[data-value="${valueID}"]`;
         const option = options.querySelector(optionSelector);
@@ -371,7 +367,6 @@ export default class MaterialMultiSelect extends ThemeBehavior {
     }
 
     valueChanged( values ) {
-        debugger;
         this._values       = values;
         this._valuesLoaded = true;
         this._maybeBuildMultiselect();
