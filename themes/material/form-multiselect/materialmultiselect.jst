@@ -7,7 +7,7 @@
     <div class="aurora-multiselect">
         <div class="multiselect-control">
             <div class="selected-input-wrapper">   <!-- will become selected values -->
-                <label for="" class="aurora-label aurora-floating-label aurora-floating-label--float-above">Kategorien</label>
+                <label for="" class="aurora-label aurora-floating-label aurora-floating-label--float-above">{{= it.label}}</label>
                 <div id="selected-values"></div>
                 <input type="text" id="multiSelectInput" class="mulitval-input">
             </div>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div id="multiselect-options" class="multiselect-options">
-            <div id="addNew">NEW OPTION</div>
+            <div id="addNew" class="multiselect-new-option" tabindex="0">NEW OPTION</div>
         </div>
         <div id="input-mirror"></div>
     </div>

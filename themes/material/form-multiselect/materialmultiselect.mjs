@@ -9,6 +9,13 @@
  *
  *  options | value | new items
  *
+ *
+ *  - load options
+ *  - load first time values
+ *  - select option
+ *  - remove all options
+ *  - create new option
+ *
  */
 
 import ThemeBehavior            from "../../themebehavior.mjs";
@@ -22,6 +29,17 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
     rootElement = '';
 
+    constructor() {
+        super();
+        //--- her are the values and the option data from the aurora field
+        this._values     = null;
+        this._optionData = null;
+
+        //--- to control that for the first run both values and options are set
+        this._optionsLoaded = false;
+        this._valuesLoaded  = false;
+    }
+
     attach(jar) {
         this.jar = jar;
 
@@ -32,9 +50,6 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         this._selected    = this.container.querySelector("#selected-values");
         this._inputMirror = this.container.querySelector("#input-mirror");
         this._addNew      = this.container.querySelector("#addNew");
-
-        //--- click add new taxonomy
-        this._addNew.addEventListener('click', (event) => this.addNewTaxonomy(event), false );
 
         //--- CLICK - remove all elements
         const triggerRemoveAll = this.container.querySelector("#act-remove-all");
@@ -61,46 +76,37 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         //--- Filter on typing
         this._inputField.addEventListener('input', (event) => this.filterOptions(event), false );
 
+        //--- click add new taxonomy
+        this._addNew.addEventListener('click', (event) => this.addNewTaxonomy(event), false );
+
         //--- click outside the input field
         this._inputField.addEventListener('blur', (event) => this.blurInputField(event), false );
 
-        /*
-        //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
-        var textfield = this.container.getElementsByClassName("aurora-select");
-        textfield[0].addEventListener('click', this.callbackClicked, false);
+        //--- mousover the options container
+        this._options.addEventListener('mouseover',  (event) => this.optionsMouseover(event), false );
 
-        var inputfield = this.container.getElementsByClassName("aurora-select-select");
-
-        //---  KEYUP event for the input field  ------------------------------------------------------------------------
-        var typing     = (event) => this.callbackKeyup( event, this.container );
-        inputfield[0].addEventListener('keyup', this.callbackKeyup, false);
-        inputfield[0].addEventListener('keyup', () => this.cleanErrors(), false);
-
-        var leaving     = (event) => this.callbackFocusout( event, this.container );
-        inputfield[0].addEventListener('focusout', leaving, false);
-
-        inputfield[0].addEventListener( 'focus', this.callbackClicked );
-        // MDC.MDCRipple.attachTo(inputfield);
-
-         */
+        //--- click outside the shadow dom
+        document.addEventListener('click', (event) => this.clickedOutsideShadow(event), false);
     }
 
     getValue() {
+
         debugger;
     }
 
     set options( options ) {
-        for (const key in options) {
-            const value = options[key];
-            this.addOption(key,value);
-        }
+        this._optionData    = options;
+        this._optionsLoaded = true;
+        this._maybeBuildMultiselect();
     }
 
     addNewTaxonomy() {
         alert('....add new taxonomy...');
     }
     removeAll() {
-        alert("hab dich in removeAll()");
+        this._values = [];
+        this.buildMultiselect();
+        this.jar.valueModified();
     }
     toggleMenu(event) {
         // get dropdown
@@ -109,7 +115,12 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         dropdown.classList.toggle('open');
     }
     focusInput() {
-        this._options.classList.add('open');
+
+        const shouldOpenOptions = this.shouldOpenOptions();
+
+        if (shouldOpenOptions) {
+            this.openOptions();
+        }
         this.container.querySelector("#multiSelectInput").focus();
     }
 
@@ -118,9 +129,6 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         const newElement = `
                 <div class="multiselect-option" tabindex="-1" data-value="${key}" data-search="${search}" data-label="${value}">${value}</div>
             `;
-
-
-
         let newOption = document.createElement("div");
         newOption.innerHTML = newElement;
         newOption = newOption.querySelector(".multiselect-option");
@@ -130,9 +138,11 @@ export default class MaterialMultiSelect extends ThemeBehavior {
        // optionsContainer.appendChild(newOption);
 
         //--- check if element is in values
-        const valueSelector = `[data-value="${key}"]`;
-        const selected = this._selected.querySelector(valueSelector);
-        if (selected) { newOption.classList.add("selected");}
+
+
+        if (this._values.includes(key)) {
+            newOption.classList.add("selected");
+        }
     }
 
     addValue(key, value) {
@@ -172,17 +182,14 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         this._options.classList.remove('open');
         this._inputField.focus();
-    }
 
-    selectOption(event) {
-        //element.classList.contains(className)
-        if ( ! event.target.classList.contains('multiselect-option')) return;
-        const option = event.target;
-        const key    = option.getAttribute('data-value');
-        const value  = option.getAttribute('data-label');
-        this.addValue(key,value);
-    }
+        //--- update the the stored values ----
 
+        if (! this._values.includes(key)) {
+            this._values.push(key);
+            console.log('✅ need to add value to selected values and propagate data');
+        }
+    }
     removeValue(event) {
         if ( event.target.getAttribute("data-action") != 'actremtri' ) return
 
@@ -192,6 +199,8 @@ export default class MaterialMultiSelect extends ThemeBehavior {
 
         multivalue.remove();
 
+        this._values = this._values.filter(val => val != valueID);
+
         const optionSelector = `[data-value="${valueID}"]`;
         const option = options.querySelector(optionSelector);
 
@@ -199,22 +208,66 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         this._options.classList.remove('open');
         this._inputField.focus();
         event.stopPropagation();
+        this.jar.valueModified();
     }
+
+    selectOption(event) {
+        //element.classList.contains(className)
+        if ( ! event.target.classList.contains('multiselect-option')) return;
+        const option = event.target;
+        const key    = option.getAttribute('data-value');
+        const value  = option.getAttribute('data-label');
+        this.addValue(key,value);
+
+        this._inputField.value = '';                // clear content
+        this._inputField.style.width = '1px';       // set width to 1px
+        this._inputField.focus();                   // focus input field
+    }
+
 
     resizeInputField() {
         const mirror     = this._inputMirror;
         mirror.innerHTML = this._inputField.value;
-        const width      = mirror.offsetWidth;
+        const width      = mirror.offsetWidth || 1;
         this._inputField.style.width = width + 'px'; // Set width based on content length
     }
 
-    blurInputField() {
+    blurInputField(event) {
+
+        const clickedElement = event.relatedTarget;
+
+        if (clickedElement && clickedElement.id === 'addNew') return;
+        if (clickedElement && clickedElement.classList.contains('multiselect-option')) return;
+
         this._inputField.value = '';
         this._inputMirror.value = '';
         this.resizeInputField();
         this.filterOptions();
         // this._options.classList.remove('open');
     }
+
+    optionsMouseover(event) {
+        const options = this._options;
+        let   option  = event.target;
+        if (option.classList.contains('newElement')) {
+            option = option.closest('.multiselect-new-option');
+        }
+        if (options) {
+            const focusedOptions = options.querySelectorAll('.multiselect-option.focused, .multiselect-new-option.focused');
+            focusedOptions.forEach(opt => opt.classList.remove('focused'));
+            option.classList.add('focused');
+        }
+    }
+
+    clickedOutsideShadow(event) {
+        const path = event.composedPath();
+        const shadowRoot = this.container; // your Shadow DOM root reference
+
+        if (!path.includes(shadowRoot)) {
+            this.closeOptions();
+        }
+    }
+
 
     filterOptions() {
         //--- Filter
@@ -253,19 +306,75 @@ export default class MaterialMultiSelect extends ThemeBehavior {
             newOption.classList.remove('showNewOption');
         }
 
-        if (value) {
-            this._options.classList.add('open');
+        const shouldOpenOptions = this.shouldOpenOptions();
+        if (shouldOpenOptions) {
+            this.openOptions();
         } else {
-            // this._options.classList.remove('open');
+            this.closeOptions();
         }
 
         //--- If search is in options but not already selected -> can not be added again + can not created
 
     }
 
-    valueChanged( value ) {
-        let label = this.container.querySelector(".aurora-floating-label");
-        label.classList.add("aurora-floating-label--float-above");
+    shouldOpenOptions() {
+        const children = Array.from(this._options.children);
+
+        return children.some(option => {
+            // Check for '.multiselect-option'
+            if (option.classList.contains('multiselect-option')) {
+                return !option.classList.contains('selected') &&
+                    !option.classList.contains('filtered-out');
+            }
+
+            // Check for '#addNew' with 'showNewOption' class
+            if (option.id === 'addNew') {
+                return option.classList.contains('showNewOption');
+            }
+
+            // Default: skip any other elements
+            return false;
+        });
+    }
+
+    openOptions() {
+        const children = Array.from(this._options.children);
+
+        // Clear any existing focused elements
+        children.forEach(child => child.classList.remove('focused'));
+
+        // Set the first matching child as focused
+        for (let child of children) {
+            if (child.classList.contains('multiselect-option')) {
+                if (!child.classList.contains('selected') && !child.classList.contains('filtered-out')) {
+                    child.classList.add('focused');
+                    break;
+                }
+            } else if (child.classList.contains('multiselect-new-option')) {
+                if (child.classList.contains('showNewOption')) {
+                    child.classList.add('focused');
+                    break;
+                }
+            }
+        }
+
+
+
+        this._options.classList.add('open');
+    }
+    closeOptions() {
+        this._options.classList.remove('open');
+    }
+
+    getValue() {
+        return this._values;
+    }
+
+    valueChanged( values ) {
+        debugger;
+        this._values       = values;
+        this._valuesLoaded = true;
+        this._maybeBuildMultiselect();
     }
 
 
@@ -303,6 +412,34 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         event.stopPropagation();
         //--- validation level: CHANGE
         this.jar.isValid( validationLevel.change );
+    }
+
+
+    _maybeBuildMultiselect() {
+        if (this._optionsLoaded && this._valuesLoaded) {
+            this.buildMultiselect();
+        }
+    }
+
+    buildMultiselect() {
+
+        const optionsToRemove = this._options.querySelectorAll('.multiselect-option ');
+        optionsToRemove.forEach(el => el.remove());
+
+        const options = this._optionData;
+        for (const key in options) {
+            const value = options[key];
+            this.addOption(key,value);
+        }
+
+        const selectedValuesToRemove = this._selected.querySelectorAll('.multivalue');
+        selectedValuesToRemove.forEach(el => el.remove());
+
+        const values = this._values;
+        values.forEach(key => {
+            const value = options[key];
+            this.addValue(key,value);
+        });
     }
 
     removeError() {
