@@ -128,7 +128,8 @@
 
 .aurora-text-field-container:not(.disabled) .aurora-text-field .aurora-leading-icon  ,
 .aurora-text-field-container:not(.disabled)  .aurora-text-field .aurora-trailing-icon  {
-    color: rgba(0,0,0,.54);
+    color: var(--md-sys-color-on-surface);
+    opacity: .5;
 }
 
 .with-leading-icon .aurora-text-field  .aurora-leading-icon {
@@ -341,7 +342,8 @@
 }
 
 .aurora-text-field:not(.disabled)+.mdc-text-field-helper-line .mdc-text-field-helper-text {
-    color: rgba(0,0,0,.6);
+    color: var(--md-sys-color-on-surface);
+    margin-top: 5px;
 }
 
 .mdc-text-field-helper-text--persistent {

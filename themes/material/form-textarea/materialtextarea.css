@@ -311,7 +311,8 @@
 }
 
 .aurora-textarea:not(.disabled)+.mdc-textarea-helper-line .mdc-textarea-helper-text {
-    color: rgba(0,0,0,.6);
+    color: var(--md-sys-color-on-surface);
+    margin-top: 5px;
 }
 
 .mdc-textarea-helper-text--persistent {
