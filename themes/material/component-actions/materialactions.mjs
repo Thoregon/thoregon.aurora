@@ -45,6 +45,7 @@ export default class MaterialActions extends ThemeBehavior {
 
     callbackClickActionMenuTrigger( event ) {
         event.stopPropagation();
+
         const menu      = this.container.querySelector('.aurora-actions-menu');
         const uirouter  = universe.uirouter;
         const blueprint = uirouter.appelement.getBlueprint();
@@ -70,5 +71,15 @@ export default class MaterialActions extends ThemeBehavior {
 
     callbackClicked(event, menu) {
         menu.classList.remove('active');
+    }
+
+    setAvatar(avatarUrl) {
+
+        const defaultAvatar = '/thoregon.aurora/themes/material/component-actions/default-avatar.svg';
+        const url = (avatarUrl) ? avatarUrl : defaultAvatar
+
+        this._avatar = this.container.querySelector('#avatar');
+
+        this._avatar.setAttribute('src', url);
     }
 }

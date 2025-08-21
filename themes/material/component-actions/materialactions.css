@@ -55,6 +55,10 @@ open-up-right {
     color:  var(--md-sys-color-on-primary-container);
 }
 
+.mode-iconmenu .aurora-actions-trigger .material-icons {
+    font-size: 1em !important;
+}
+
 
 /*
     MENU - Action
@@ -176,11 +180,18 @@ open-up-right {
     color: var(--md-sys-color-on-surface);
 }
 
-.aurora-actions-menu>ul>li:focus,
-.aurora-actions-menu>ul>li:hover {
+
+/* only apply to <li> that has .aurora-action but NOT .disabled */
+.aurora-actions-menu > ul > li.aurora-action:not(.disabled):hover,
+.aurora-actions-menu > ul > li.aurora-action:not(.disabled):focus {
     background-color: var(--md-sys-color-surface-variant);
 }
 
+/* make sure any disabled item never gets a bg */
+.aurora-actions-menu > ul > li.aurora-action.disabled:hover,
+.aurora-actions-menu > ul > li.aurora-action.disabled:focus {
+    background-color: transparent;
+}
 /* Action Container */
 
 .aurora-actions-iconcontainer {
@@ -278,5 +289,39 @@ open-up-right {
 .forceVisible {
     display: block !important;
     position: absolute !important;
+}
+
+.aurora-actions-trigger.avatar {
+    width: 100%;
+    height: 100%;
+    /* make height match width */
+    aspect-ratio: 1 / 1;
+    /* ensure contents fill the box */
+    position: relative;
+}
+
+.aurora-actions-trigger.avatar .action-avatar {
+    position: absolute;
+    inset: 0;               /* top/right/bottom/left = 0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* or ‘contain’ if you prefer letterboxing */
+    border-radius: 50%;
+}
+
+.mode-avatarmenu .aurora-actions {
+    width: 100%;
+    height: 100%;
+    /* display: initial; */
+}
+
+.mode-avatarmenu.align-left .aurora-actions-menu.open-down {
+    top: 120%;
+    /* right: -0.5em; */
+    right: -10%;
+}
+
+.aurora-action.divider {
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 
