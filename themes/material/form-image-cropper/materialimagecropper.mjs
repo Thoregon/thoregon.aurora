@@ -45,7 +45,7 @@ export default class MaterialImageCropper {
                 x: 0,
                 y: 0,
                 width:  dimension[0] || 100,
-                height: dimension[1] || 100
+                height: dimension[1] || 100,
             },
             service: async (...args) => await this.saveImage(...args),
             fetcher: async (...args) => await this.fetchImage(...args),
@@ -57,6 +57,9 @@ export default class MaterialImageCropper {
         //    willRemove: async ( data, ready ) => await this.jar.remove( data, ready ),
             label: label,
             buttonConfirmLabel: 'Ok',
+
+            buttonEdit:   true,   // show the pencil (re-crop) icon
+            buttonRemove: true,   // show the trash (remove) icon
             meta: {
                 userId:'1234',
                 ufd: 'martin'

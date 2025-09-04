@@ -42,10 +42,20 @@
     box-sizing: border-box;
 }
 
+.aurora-card-icon {
+    text-align: center;
+    margin-top: 16px;
+    color: var( --md-sys-color-on-surface );
+}
+.aurora-card-icon i {
+    font-size: 3em;
+}
+
 .aurora-card-primary-title {
-padding-left: 16px;
-padding-right: 16px;
-padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    text-align: center;
 }
 
 .aurora-card-title { font-weight: bolder; }

@@ -95,8 +95,21 @@ export default class MaterialMultiSelect extends ThemeBehavior {
         this._maybeBuildMultiselect();
     }
 
-    addNewTaxonomy() {
-        alert('....add new taxonomy...');
+    async addNewTaxonomy(event) {
+
+        const term = event.target.getAttribute('data-value');
+        const termId = await this.jar.addNewTaxonomyTerm(term);
+
+        this._values.push(termId);
+        this._optionData[termId] = term;
+
+        this.buildMultiselect();
+        this.jar.valueModified();
+
+        this._inputField.value = '';                // clear content
+        this._inputField.style.width = '1px';       // set width to 1px
+        this._inputField.focus();                   // focus input field
+
     }
     removeAll() {
         this._values.splice(0,this._values.length);

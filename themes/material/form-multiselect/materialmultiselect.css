@@ -10,12 +10,26 @@
 .sellect-new-item-list,
 .sellect-origin-list { display: none; }
 
+.aurora-multiselect-container {
+    margin-bottom: 1em;
+}
+
 .aurora-multiselect {
     border-radius: 4px;
     background-color: transparent !important;
     border: 1px solid var(--md-sys-color-outline);
     position: relative;
-    margin-bottom: 1em;
+}
+
+.aurora-multiselect+.mdc-text-field-helper-line {
+    font-family: Roboto, sans-serif;
+    padding-right: 16px;
+    padding-left: 16px;
+    color: var(--md-sys-color-on-surface);
+    font-size: .75rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    margin-top: 5px;
 }
 
 label {

@@ -113,7 +113,10 @@ tr { height: 1px; }
 td, th { white-space: nowrap; height: inherit; }
 th { padding: .4em .5em; }
 
-.header-cell-wrapper {}
+.header-cell-wrapper {
+    display: flex;
+    flex-direction: row;
+}
 
 .cell-wrapper {
     padding: .4em .5em;
@@ -324,6 +327,31 @@ td input { display: none; }
     margin-right: .3em;
 }
 
+.table-empty-content {
+    text-align: center;
+    padding: 1em;
+}
+
+.empty-wrapper {
+    margin-bottom: 0.5rem;
+}
+.empty-icon {
+    font-size: 3em !important;
+    opacity: 0.6;
+}
+
+.empty-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+}
+
+.embedded-table {
+    border-radius: 5px;
+    border-radius: 5px;
+    background: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+}
 
 @media (prefers-color-scheme: dark) {
     :host(aurora-list:not([dense]):is([mode="table"], :not([mode]))) {
@@ -336,6 +364,5 @@ td input { display: none; }
         border-bottom: 1px solid rgba(255, 255, 255, .2);
     }
     .presentation-list th { color: black; }
-
 }
 
