@@ -2,7 +2,7 @@
   "name": "thoregon.aurora",
   "version": "1.0.0",
   "description": "higher level UI components based on evolux.ui",
-  "main": "index.js",
+  "main": "index.mjs",
   "directories": {
     "lib": "lib"
   },
@@ -20,5 +20,11 @@
     "url": "https://github.com/Thoregon/thoregon.ui/issues"
   },
   "homepage": "https://github.com/Thoregon/thoregon.ui#readme",
-  "dependencies": {}
+  "dependencies": {
+    "evolux.supervise": "file:../../evolux.modules/evolux.supervise",
+    "evolux.universe": "file:../../evolux.modules/evolux.universe",
+    "evolux.util": "file:../../evolux.modules/evolux.util",
+    "thoregon.archetim": "file:../thoregon.archetim",
+    "thoregon.truCloud": "file:../thoregon.truCloud"
+  }
 }

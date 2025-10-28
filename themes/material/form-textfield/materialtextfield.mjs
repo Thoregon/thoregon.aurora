@@ -5,7 +5,7 @@
  */
 
 import ThemeBehavior            from "../../themebehavior.mjs";
-import { validationLevel }      from "/thoregon.aurora/lib/validation/validation.mjs";
+import { validationLevel }      from "../../../lib/validation/validation.mjs";
 
 export default class MaterialTextField extends ThemeBehavior {
 
