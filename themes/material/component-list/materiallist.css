@@ -44,6 +44,11 @@ thead.no-header {
     background: #eaebf1;
 }
 
+.attached-top:not(.feature-top-header) thead {
+    border-top: 1em solid #ffff;
+}
+
+
 .feature-header:not(.attached-top):not(.attached-both):not(.feature-top-header)  thead tr:first-child th:last-child {
     border-top-right-radius: var(--md-sys-shape-corner-full);
 }
@@ -323,6 +328,10 @@ td input { display: none; }
     border: 1px solid;
 }
 
+.table-action.big {
+    height: 40px;
+}
+
 .table-action-icon:not(:empty) {
     margin-right: .3em;
 }
@@ -360,6 +369,11 @@ td input { display: none; }
         background: #d4d8db;
         background: #4f4f4f;
     }
+
+    .attached-top:not(.feature-top-header) thead {
+        border-top: 1em solid #4f4f4f;
+    }
+
     .presentation-list td, .presentation-list th {
         border-bottom: 1px solid rgba(255, 255, 255, .2);
     }

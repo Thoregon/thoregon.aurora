@@ -82,6 +82,11 @@
     width: 100%;
 }
 
+
+.aurora-button-label {
+    white-space: nowrap;
+}
+
 .aurora-button.flat .aurora-button-label:not(:disabled) {
     color: var( --md-sys-color-primary ,#1a75d2 );
 }
@@ -240,7 +245,7 @@
 
 .aurora-button .aurora-button-icon {
     margin-left: 0;
-    margin-right: 8px;
+    margin-right: 5px;
     display: inline-block;
     width: 18px;
     height: 18px;
@@ -253,5 +258,9 @@
 }
 .aurora-button.dense .aurora-button-content {
     padding: 0 12px 0 12px;
+}
+
+.with-icon .aurora-button-content {
+    padding-left: 12px;
 }
 
