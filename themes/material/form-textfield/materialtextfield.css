@@ -520,3 +520,26 @@
     100% {transform:scale(100); opacity:0;}
 }
 
+
+.hint-optional {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-left: 6px;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    top: -0.1em;
+    background-color: #d1d5db;
+    color: #374151;
+    border: 1px dashed #374151;
+    border-color: #737b88;
+}
+.hint-optional::after {
+    content: 'optional';
+}
+

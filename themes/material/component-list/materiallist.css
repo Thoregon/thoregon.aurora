@@ -130,6 +130,7 @@ th { padding: .4em .5em; }
     justify-content: space-around;
     flex-direction: column;
     height: 100%;
+    width: 100%;
 }
 
 .drag-handle { cursor: grab; }
