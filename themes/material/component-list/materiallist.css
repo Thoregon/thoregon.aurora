@@ -2,7 +2,6 @@
  * Copyright (c) 2021.
  */
 
-
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -361,6 +360,10 @@ td input { display: none; }
     border-radius: 5px;
     background: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
+}
+
+.cell-wrapper.action-route:hover {
+    text-decoration: underline dotted;
 }
 
 @media (prefers-color-scheme: dark) {
