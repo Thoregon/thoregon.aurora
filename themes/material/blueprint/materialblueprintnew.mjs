@@ -104,6 +104,7 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
     openOverlay() {
         const ovlDef = this.layoutConfiguration.overlay;
         ovlDef.open  = true;
+        ovlDef.closeroute = universe.uirouter.prevroute;
 
         const scrollPosition   = window.pageYOffset || document.documentElement.scrollTop;
         this.content.style.top = `-${scrollPosition}px`;
@@ -116,6 +117,10 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
 
         ovlDef.open  = false;
         this.blueprint.classList.remove('overlay-open');
+
+        if (ovlDef.closeroute) {
+            universe.uirouter.back2route(ovlDef.closeroute);
+        }
 
         window.scrollTo(0, scrollPosition);
     }
