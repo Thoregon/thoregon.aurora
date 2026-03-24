@@ -122,6 +122,12 @@ th { padding: .4em .5em; }
     flex-direction: row;
 }
 
+.center .header-cell-wrapper {
+    justify-content: center;
+}
+.right .header-cell-wrapper {
+    justify-content: right;
+}
 .cell-wrapper {
     padding: .4em .5em;
     transition: border 0.2s ease-in-out;
