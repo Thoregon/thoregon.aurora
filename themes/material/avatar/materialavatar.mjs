@@ -11,6 +11,9 @@
 import ThemeBehavior            from "../../themebehavior.mjs";
 import { validationLevel }      from "../../../lib/common.mjs";
 
+// import css from "./materialavatar.css";
+// import jst from "./materialavatar.jst";
+
 export default class MaterialAvatar extends ThemeBehavior {
 
     attach(jar) {

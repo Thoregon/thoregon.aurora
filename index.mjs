@@ -62,11 +62,59 @@ export { default as UIRouter }                  from './lib/routes/uirouter.mjs'
 // Editor
 // export { default as EditorJS }                  from './lib/editor/editor.mjs';
 
+export { default as AuroraCollection } from "./lib/collection/auroracollection.mjs";
+export { default as AuroraSection } from "./lib/blueprint/layout/aurorasection.mjs";
+export { default as AuroraSectionSticky} from "./lib/blueprint/layout/aurorasectionsticky.mjs";
+export { default as AuroraCodeScanner } from "./lib/cameracomponents/auroracodescanner.mjs";
+export { default as AuroraCollectionItem } from "./lib/collection/auroracollectionitem.mjs";
+export { default as AuroraAlert } from "./lib/component-alert/auroraalert.mjs";
+export { default as AuroraAvatar } from "./lib/formcomponents/auroraavatar.mjs";
+export { default as AuroraButton } from "./lib/formcomponents/aurorabutton.mjs";
+export { default as AuroraButtonGroup } from "./lib/formcomponents/aurorabuttongroup.mjs";
+export { default as AuroraCard } from "./lib/formcomponents/auroracard.mjs";
+export { default as AuroraQRCode } from "./lib/component-qrcode/auroraqrcode.mjs";
+export { default as AuroraNavigationItem } from "./lib/component-navigationitem/auroranavigationitem.mjs";
+export { default as AuroraChatEntryBox } from "./lib/formcomponents/aurorachatentrybox.mjs";
+export { default as AuroraChatMessage } from "./lib/formcomponents/aurorachatmessage.mjs";
+export { default as AuroraCheckbox } from "./lib/formcomponents/auroracheckbox.mjs";
+export { default as AuroraComment } from "./lib/formcomponents/auroracomment.mjs";
+export { default as AuroraCommentMessageBox } from "./lib/formcomponents/auroracommentmessagebox.mjs";
+export { default as AuroraEmptyLine } from "./lib/formcomponents/auroraemptyline.mjs";
+export { default as AuroraFloatingActionButton } from "./lib/formcomponents/aurorafloatingactionbutton.mjs";
+export { default as AuroraImageCropper } from "./lib/formcomponents/auroraimagecropper.mjs";
+export { default as AuroraListItem } from "./lib/formcomponents/auroralistitem.mjs";
+export { default as AuroraPinCode } from "./lib/formcomponents/aurorapincode.mjs";
+export { default as AuroraSelect } from "./lib/formcomponents/auroraselect.mjs";
+export { default as AuroraMultiSelect } from "./lib/formcomponents/auroramultiselect.mjs";
+export { default as AuroraStep } from "./lib/formcomponents/aurorastep.mjs";
+export { default as AuroraStepper } from "./lib/formcomponents/aurorastepper.mjs";
+export { default as AuroraSwitch } from "./lib/formcomponents/auroraswitch.mjs";
+export { default as AuroraSlider } from "./lib/formcomponents/auroraslider.mjs";
+export { default as AuroraColorPicker } from "./lib/formcomponents/auroracolorpicker.mjs";
+export { default as AuroraTextarea } from "./lib/formcomponents/auroratextarea.mjs";
+export { default as AuroraTextField } from "./lib/formcomponents/auroratextfield.mjs";
+export { default as AuroraToolbar } from "./lib/formcomponents/auroratoolbar.mjs";
+export { default as AuroraToolbarTitle } from "./lib/formcomponents/auroratoolbartitle.mjs";
+export { default as AuroraValidationIndicator } from "./lib/indicators/auroravalidationindicator.mjs";
+export { default as AuroraLink } from "./lib/routes/auroralink.mjs";
+export { default as AuroraChart } from "./lib/component-chart/aurorachart.mjs";
+export { default as AuroraVideo } from "./lib/component-video/auroravideo.mjs";
+export { default as Stripe } from "./lib/stripe/stripe.mjs";
+export { default as Paypal } from "./lib/paypal/paypal.mjs";
+export { default as AuroraTabContainer } from "./lib/component-tabs/auroratabcontainer.mjs";
+export { default as AuroraTabList } from "./lib/component-tabs/auroratablist.mjs";
+export { default as AuroraTab } from "./lib/component-tabs/auroratab.mjs";
+export { default as AuroraTabPanelList } from "./lib/component-tabs/auroratabpanellist.mjs";
+export { default as AuroraTabPanel } from "./lib/component-tabs/auroratabpanel.mjs";
+// export { default as } from "";
+
+export default Aurora;
+
 //
 // aurora service
 // define aurora elements to be loaded dynamic
 // export default Aurora.withElements({});
-export default Aurora.withElements({
+/* export default Aurora.withElements({
                                        // 'thoregon-app'               : './lib/blueprint/ThoregonApp',
                                        // 'aurora-blueprint'           : './lib/blueprint/layout/aurorablueprint.mjs',
                                        // 'aurora-container'           : './lib/blueprint/layout/auroracontainer.mjs',
@@ -126,7 +174,7 @@ export default Aurora.withElements({
                                             './lib/component-tabs/auroratabpanel.mjs'
 
                                         ],
-                                   });
+                                   });*/
 
 export { default as AuroraBlueprintNew }        from './lib/blueprint/layout/aurorablueprintnew.mjs';
 
@@ -134,8 +182,8 @@ export { default as AuroraBlueprintNew }        from './lib/blueprint/layout/aur
 export { default as AuroraList }               from './lib/component-list/auroralist.mjs';
 export { default as AuroraActions }            from './lib/component-actions/auroraactions.mjs';
 
-export { default as AuroraSelect }              from './lib/formcomponents/auroraselect.mjs';
 /*
+export { default as AuroraSelect }              from './lib/formcomponents/auroraselect.mjs';
 export { default as AuroraTextField }           from './lib/formcomponents/auroratextfield.mjs';
 export { default as AuroraTextarea }            from './lib/formcomponents/auroratextarea.mjs';
 export { default as AuroraSelect }              from './lib/formcomponents/auroraselect.mjs';
@@ -164,3 +212,59 @@ export { default as AuroraSection }             from './lib/blueprint/layout/aur
 export { default as AuroraToolbar }             from './lib/formcomponents/auroratoolbar.mjs';
 export { default as AuroraToolbarTitle }        from './lib/formcomponents/auroratoolbartitle.mjs';
 */
+
+//
+// material theme
+//
+
+export { default as MaterialThoregonApp } from "./themes/material/app/materialthoregonapp.mjs";
+export { default as MaterialAvatar } from "./themes/material/avatar/materialavatar.mjs";
+// export { default as } from "themes/material/blueprint/materialblueprint.mjs";
+export { default as MaterialBlueprint } from "./themes/material/blueprint/materialblueprintnew.mjs";
+export { default as MaterialCollectionLink } from "./themes/material/blueprint/materialcollectionlink.mjs";
+export { default as MaterialLink } from "./themes/material/blueprint/materiallink.mjs";
+export { default as MaterialContainer } from "./themes/material/blueprint-container/materialcontainer.mjs";
+export { default as MaterialDrawer } from "./themes/material/blueprint-drawer/materialdrawer.mjs";
+export { default as MaterialFooter } from "./themes/material/blueprint-footer/materialfooter.mjs";
+export { default as MaterialView } from "./themes/material/blueprint-view/materialview.mjs";
+export { default as MaterialHeader } from "./themes/material/blueprint-header/materialheader.mjs";
+export { default as MaterialSection } from "./themes/material/blueprint-section/materialsection.mjs";
+export { default as MaterialSectionSticky } from "./themes/material/blueprint-section-sticky/materialsection-sticky.mjs";
+export { default as MaterialCollection } from "./themes/material/collections/materialcollection.mjs";
+export { default as MaterialCollectionItem } from "./themes/material/collections/materialcollectionitem.mjs";
+export { default as MaterialActions } from "./themes/material/component-actions/materialactions.mjs";
+export { default as MaterialAlert } from "./themes/material/component-alert/materialalert.mjs";
+export { default as MaterialCard } from "./themes/material/component-card/materialcard.mjs";
+// export { default as MaterialChart } from "./themes/material/component-chart/materialchart.mjs";
+export { default as MaterialList } from "./themes/material/component-list/materiallist.mjs";
+export { default as Materiallistitem } from "./themes/material/component-listitem/materiallistitem.mjs";
+export { default as MaterialNavigationItem } from "./themes/material/component-navigationitem/materialnavigationitem.mjs";
+export { default as MaterialQRCode } from "./themes/material/component-qrcode/materialqrcode.mjs";
+export { default as Materialstepper } from "./themes/material/component-stepper/materialstepper.mjs";
+export { default as MaterialTab } from "./themes/material/component-tabs/materialtab.mjs";
+export { default as Materialtabcontainer } from "./themes/material/component-tabs/materialtabcontainer.mjs";
+export { default as MaterialTabPanel } from "./themes/material/component-tabs/materialtabpanel.mjs";
+export { default as MaterialTabList } from "./themes/material/component-tabs/materialtablist.mjs";
+export { default as MaterialTabPanelList } from "./themes/material/component-tabs/materialtabpanellist.mjs";
+export { default as MaterialVideo } from "./themes/material/component-video/materialvideo.mjs";
+export { default as MaterialButton } from "./themes/material/form-button/materialbutton.mjs";
+export { default as MaterialbuttonGroup } from "./themes/material/form-buttongroup/materialbuttongroup.mjs";
+export { default as Materialcheckbox } from "./themes/material/form-checkbox/materialcheckbox.mjs";
+export { default as Materialcolorpicker } from "./themes/material/form-colorpicker/materialcolorpicker.mjs";
+export { default as MaterialFloatingActionButton } from "./themes/material/form-floatingactionbutton/materialfloatingactionbutton.mjs";
+export { default as MaterialImageCropper } from "./themes/material/form-image-cropper/materialimagecropper.mjs";
+export { default as MaterialMultiSelect } from "./themes/material/form-multiselect/materialmultiselect.mjs";
+export { default as MaterialPinCode } from "./themes/material/form-pincode/materialpincode.mjs";
+export { default as MaterialSelect } from "./themes/material/form-select/materialselect.mjs";
+export { default as MaterialSlider } from "./themes/material/form-slider/materialslider.mjs";
+export { default as MaterialSwitch } from "./themes/material/form-switch/materialswitch.mjs";
+export { default as MaterialTextarea } from "./themes/material/form-textarea/materialtextarea.mjs";
+export { default as MaterialTextField } from "./themes/material/form-textfield/materialtextfield.mjs";
+// export { default as } from "themes/material/formcomponents/formcomponents.js";
+export { default as MaterialPaypal } from "./themes/material/paypal/materialpaypal.mjs";
+export { default as MaterialStripe } from "./themes/material/stripe/materialstripe.mjs";
+export { default as Materialtoolbar } from "./themes/material/toolbar/materialtoolbar.mjs";
+export { default as MaterialToolbarTitle } from "./themes/material/toolbartitle/materialtoolbartitle.mjs";
+export { default as Ripple } from "./themes/material/ripple.mjs";
+// export { default as } from "themes/material/";
+

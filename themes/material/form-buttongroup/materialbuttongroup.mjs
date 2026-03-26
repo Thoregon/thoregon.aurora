@@ -4,7 +4,7 @@
  * @author: Martin Neitz
  */
 
-import ThemeBehavior            from "../../themebehavior.mjs";
+import ThemeBehavior       from "../../themebehavior.mjs";
 
 import Ripple                   from '../ripple.mjs';
 
