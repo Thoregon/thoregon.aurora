@@ -10,9 +10,8 @@
 }
 
 
-.float-right {
-    float: right;
-}
+.float-right { float: right;}
+.float-full { width: 100%;}
 
 .stage-transition-container-variant--show {
     opacity: 1;
