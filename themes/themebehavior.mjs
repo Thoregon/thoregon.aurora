@@ -4,7 +4,7 @@
  * @author: Bernhard Lukassen
  */
 
-import { className }                from '/evolux.util';
+import { className }                from "/evolux.util/index.mjs";
 import { ErrNotImplemented }        from "../lib/errors.mjs";
 
 export default class ThemeBehavior {
