@@ -58,6 +58,7 @@
     position: relative;
     height: 40px;
     margin-bottom: 5px;
+    overflow: hidden;
 }
 
 .aurora-button.mode-outline {
@@ -84,6 +85,7 @@
 
 .aurora-button-label {
     white-space: nowrap;
+    display: flex;
 }
 
 .aurora-button.flat .aurora-button-label:not(:disabled) {
@@ -263,3 +265,37 @@
     padding-left: 12px;
 }
 
+.aurora-button.endChip_used.dense .aurora-button-content,
+.endChip_used .aurora-button-content {
+    padding-right: 0px;
+}
+.end-chip {
+    color: var(--md-sys-color-on-primary);
+    background: rgba(255,255,255,.3);
+    font-size: .9em;
+    height: 40px;
+    display: flex;
+    padding-right: 12px;
+    padding-left: 12px;
+    align-items: center;
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+.end-badge {
+    font-size: .7em;
+    font-weight: 700;
+    color: var(--md-sys-color-on-primary);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255,255,255,.18);
+    backdrop-filter: blur(4px);
+    margin-left: 1em;
+    padding: 3px 13px;
+    border-radius: 99px;
+}
+
+
+.aurora-button.end_badge_used.dense .aurora-button-content,
+.end_badge_used .aurora-button-content {
+    padding-right: 15px;
+}

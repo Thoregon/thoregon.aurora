@@ -11,6 +11,12 @@
             <i aria-hidden="true" class="material-icons aurora-button-icon"><!---->{{=it.icon}}<!----></i>
         {{?}}
         <span class="aurora-button-label">{{=it.label}}</span>
+        {{? it.end_badge }}
+            <span class="end-badge">{{=it.end_badge}}</span>
+        {{?}}
+        {{? it.end_chip }}
+            <span class="end-chip">{{=it.end_chip}}</span>
+        {{?}}
     </span>
     <div class="aurora-button-ripple"></div>
 </button>
