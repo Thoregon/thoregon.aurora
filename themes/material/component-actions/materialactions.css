@@ -25,6 +25,11 @@ open-up-right {
     white-space: nowrap;
 }
 
+.aurora-actions-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .aurora-actions-wrapper span {
     display: flex;
 }
@@ -58,6 +63,17 @@ open-up-right {
 .mode-iconmenu .aurora-actions-trigger .material-icons {
     font-size: 1em !important;
 }
+
+.mode-iconmenu .dense .aurora-actions-trigger {
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.mode-iconmenu .dense .aurora-actions-trigger .material-icons {
+    font-size: 1em !important;
+}
+
+
 
 
 /*
