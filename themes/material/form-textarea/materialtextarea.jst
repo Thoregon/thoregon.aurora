@@ -33,13 +33,15 @@
         {{? it.hashint}}
         <div class="mdc-textarea-helper-text mdc-textarea-helper-text--persistent aurora-textarea-helper-text">{{= it.hint}}</div>
         {{?}}
+
         <div class="mdc-textarea-helper-text aurora-textarea-error-text" role="alert">
             <!--Error message-->
-            Föhla
+
             <!---->
         </div>
         {{? it.usecharactercounter}}
           <div class="mdc-textarea-character-counter aurora-textarea-character-counter"></div>
         {{?}}
     </div>
+    <div id="suggestions" class="suggestions"></div>
 </div>

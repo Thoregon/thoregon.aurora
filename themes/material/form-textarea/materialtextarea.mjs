@@ -15,6 +15,9 @@ export default class MaterialTextarea extends ThemeBehavior {
         this.jar = jar;
         this.container = this.jar.container;
 
+        this._elemSuggestions =  this.container.querySelector('#suggestions');
+        this._elemTextarea    =  this.container.querySelector(".aurora-textarea textarea");
+
         this.updateCharacterCounter();
 
         //---  CLICK event for the input field wrapper  ----------------------------------------------------------------
@@ -84,6 +87,81 @@ export default class MaterialTextarea extends ThemeBehavior {
             }
             container.querySelectorAll(".mdc-textarea-character-counter")[0].innerHTML = counterDisplay;
         }
+    }
+
+    setSuggestions(suggestions) {
+
+        if (!suggestions?.length) {
+            return;
+        }
+
+        const element = this._elemSuggestions;
+
+        let html = '<div class="suggestions-title">Vorschlag für dieses Feld</div>';
+
+        html += suggestions.map(suggestion => {
+
+            const variantClass = suggestion.variant === 'dense'
+                ? ' aurora-suggestion--dense'
+                : '';
+
+            return `
+            <div class="aurora-suggestion${variantClass}">
+                <div class="aurora-suggestion-header">
+
+                    <div class="aurora-suggestion-title-wrapper">
+                        <span class="aurora-suggestion-title">
+                            ${suggestion.title}
+                        </span>
+                        <span class="aurora-suggestion-badge">
+                            Vorlage
+                        </span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="aurora-suggestion-action"
+                        data-action="suggestion"
+                    >
+                        ${suggestion.actionLabel || 'Übernehmen'}
+                    </button>
+
+                </div>
+
+                <div class="aurora-suggestion-content">
+                    ${suggestion.content}
+                </div>
+
+                ${
+                suggestion.note
+                    ? `
+                        <div class="aurora-suggestion-note">
+                            ${suggestion.note}
+                        </div>
+                        `
+                    : ''
+            }
+
+            </div>
+        `;
+        }).join('');
+
+        element.innerHTML = html;
+
+        const buttons = element.querySelectorAll('.aurora-suggestion-action');
+
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const suggestion = suggestions[index];
+                this.applySuggestion(suggestion);
+            });
+        });
+    }
+
+    applySuggestion(suggestion) {
+        this._elemTextarea.value = suggestion.content;
+        this.jar.value           = suggestion.content;
+        // send event
     }
 
 
