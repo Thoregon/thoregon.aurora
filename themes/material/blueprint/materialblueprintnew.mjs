@@ -265,6 +265,16 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
             drw      = this.drawerLeft;
             hdrInset = hdrDef.insetLeft;
 
+            if (drwDef.open === 'auto') {
+
+                drwDef.width     = drw.style.width;
+                const style      = getComputedStyle(drw);
+                const matrix     = new DOMMatrix(style.transform);
+                const translateX = matrix.m41;
+
+                drwDef.open  = translateX >= 0;
+            }
+
             drwClosePosition ='-' + drwDef.width;
 
         }
@@ -273,6 +283,16 @@ export default class MaterialBlueprintNew extends ThemeBehavior {
             drwDef   = this.layoutConfiguration.drawerRight;
             drw      = this.drawerRight;
             hdrInset = hdrDef.insetRight;
+
+            if (drwDef.open === 'auto') {
+
+                drwDef.width     = drw.style.width;
+                const style      = getComputedStyle(drw);
+                const matrix     = new DOMMatrix(style.transform);
+                const translateX = matrix.m41;
+
+                drwDef.open  = translateX < 0;
+            }
 
             drwClosePosition ='+' + drwDef.width;
         }
