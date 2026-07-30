@@ -161,6 +161,9 @@ export default class MaterialTextarea extends ThemeBehavior {
     applySuggestion(suggestion) {
         this._elemTextarea.value = suggestion.content;
         this.jar.value           = suggestion.content;
+        this.jar.dispatchEvent(new Event("change", {
+            bubbles: true
+        }));
         // send event
     }
 

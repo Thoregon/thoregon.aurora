@@ -2,8 +2,9 @@ Aurora Attributes
 =================
 
 
-all attributes can be abbreviated with a-<attrname>
+All attributes can be abbreviated with a-<attrname>  
 
+**CAUTION**: Don't use aurora attributes with <aurora-include>. There is a bug, it may not work.  
 
 ## bidirectional binding model <-> view
 
