@@ -1,14 +1,9 @@
-<div class="slim aurora-image-cropper {{= it.style}}"
+<div class="aurora-image-cropper"
      data-label="{{= it.label }}"
      data-ratio="{{= it.ratio }}"
-     data-size="{{= it.size}}"
-     data-style="{{= it.layout }}"
+     data-size="{{= it.size }}"
+     data-layout="{{= it.layout }}"
      data-width="{{= it.width }}"
      data-align="{{= it.align }}"
->
-    {{? it.src }}
-    <img src="{{= it.src }}"/>
-    {{?}}
-
-</div>
+></div>
 <div class="aurora-hint aurora-text-field-helper-text">{{= it.hint }}</div>

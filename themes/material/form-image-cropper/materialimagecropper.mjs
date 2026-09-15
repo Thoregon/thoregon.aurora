@@ -1,5 +1,6 @@
 /**
- *
+ * Material behavior for <aurora-image-cropper>, based on the in-house ImageCropper
+ * (replaces the Slim wrapper)
  *
  * @author: Bernhard Lukassen
  * @licence: MIT
@@ -7,147 +8,95 @@
  */
 
 import ThemeBehavior from "../../themebehavior.mjs";
-import Slim          from "../../../lib/slimimagecropper/slimimagecropper.mjs";
+import ImageCropper  from "./imagecropper/imagecropper.mjs";
 
 export default class MaterialImageCropper {
 
     attach(jar) {
         this.jar       = jar;
         this.container = this.jar.container;
-        this.imagecropper = this.container.querySelector('.aurora-image-cropper');
+        this.cropper   = this.container.querySelector('.aurora-image-cropper');
 
-        let elem = this.container.querySelector('.slim');
+        const width = this.cropper.getAttribute('data-width') || '100%';
+        this.cropper.style.width = width;
 
-        let width = elem.getAttribute('data-width') || '100%';
-        this.imagecropper.setAttribute('style', 'width:' + width  );
+        const align = this.cropper.getAttribute('data-align') || 'center';
+        this.container.classList.add(align);
 
-        let align = elem.getAttribute('data-align') || 'center';
-        this.container.classList.add(align );
+        this.attachCropper();
 
-        this.attachSlim();
+        // value may have been set before attach
+        if (this.jar._ufd) this.loadCropper(this.jar._ufd);
     }
 
+    /**
+     * Aurora may call destroy() while the element stays in use (e.g. when it is re-parented during
+     * page setup) and does not attach() again -> don't tear down the DOM, just release resources.
+     */
     destroy() {
-        if (this.slim) this.slim.destroy();
+        this.ic?.release();
     }
 
-    attachSlim() {
-        let elem = this.container.querySelector('.slim');
-        let ratio = elem.getAttribute('data-ratio') || "1:1";
-        let label = elem.getAttribute('data-label');
+    attachCropper() {
+        const elem   = this.cropper;
+        const ratio  = elem.getAttribute('data-ratio') || '1:1';
+        const label  = elem.getAttribute('data-label') || '';
+        const size   = elem.getAttribute('data-size');            // e.g. '300,300', empty = native crop resolution
+        const layout = elem.getAttribute('data-layout') || 'square';
 
-        let size =  elem.getAttribute('data-size') || "100,100";
-        let dimension = size.split(',');
+        elem.classList.add(`ic-${layout}`);
 
-        this.slim = new Slim(elem, {
-            ratio: ratio,
-            crop: {
-                x: 0,
-                y: 0,
-                width:  dimension[0] || 100,
-                height: dimension[1] || 100,
-            },
-            service: async (...args) => await this.saveImage(...args),
-            fetcher: async (...args) => await this.fetchImage(...args),
-            download: false,
-            push: true,
-            willSave: function(data, ready) {
-                ready(data);
-            },
-        //    willRemove: async ( data, ready ) => await this.jar.remove( data, ready ),
-            label: label,
-            buttonConfirmLabel: 'Ok',
-
-            buttonEdit:   true,   // show the pencil (re-crop) icon
-            buttonRemove: true,   // show the trash (remove) icon
-            meta: {
-                userId:'1234',
-                ufd: 'martin'
-            }
+        this.ic = new ImageCropper(elem, {
+            ratio,
+            size    : size ? size.split(',').map(Number) : null,
+            label,
+            onChange: (output) => this.imageChanged(output),
+            onError : (error)  => this.jar.showError(error),
         });
-
-        this.slim.size = { width: dimension[0], height: dimension[1] };
-        this.slim.delegate = this;
-
-/*
-        this.observer = new IntersectionObserver((entries, observer) => {
-            if (entries.length === 0) return ;
-            const entry = entries[0];
-            if (!entry.isIntersecting) return ;
-            // console.log("cropper visible");
-        }, {
-            root: this.container,
-            rootMargin: '0px',
-            threshold: 1.0
-        } );
-
-        this.observer.observe(elem);
-*/
     }
 
-    testEvents() {
-        alert('hab dich...');
-    }
+    /*
+     * value handling
+     */
 
-
-    imageLoaded() {
-        this.jar.imageLoaded();
-    }
-
-    showFileDialog() {
-        if (this.slim.data?.input?.name) return;
-        return this.slim._openFileDialog();
-    }
-
+    /** the last cropped result: { image: dataUrl, name, type, width, height } or null */
     get imageDescriptor() {
-        return this.slim.dataBase64?.output;
+        return this.ic.data;
     }
 
+    /** display an existing image (ufd) without triggering a change */
     set imageDescriptor(ufd) {
         this.loadCropper(ufd);
     }
 
     async loadCropper(ufd) {
-        this._loading = true;
+        if (!ufd || !this.ic) return;
         try {
-            const value = await ufd.getDataUrl();
-            if (!value || !this.slim) {
-                this._loading = false;
-                return;
-            }
-            this.slim.load(value, (error, data) => {
-                this._loading = false;
-                if (error) console.log("Slim Image Cropper: load", error);
-            });
-        } catch(e) {
-            this._loading = false;
+            // getDataUrl() fetches via the storage adapter (may point to another host, e.g. production while developing
+            // on localhost -> 404); fall back to the plain uri, which is what <img> elements in the app use anyway
+            const url = (await ufd.getDataUrl()) || ufd.uri;
+            if (url) await this.ic.load(url, ufd.name);
+        } catch (e) {
+            console.error("[ImageCropper] load failed", e);
         }
     }
 
-    async saveImage(...args) {
-        if (this._loading) return;
-        return await this.jar.saveImage(...args);
+    /** user cropped a new image (output) or removed it (null) */
+    async imageChanged(output) {
+        if (!output) return this.jar.removeImage();
+        this.ic.element.dataset.state = 'busy';
+        try {
+            await this.jar.saveImage(output);
+        } catch (e) {
+            console.error('[ImageCropper] saveImage failed', e);
+            this.jar.showError(e);
+        } finally {
+            this.ic.element.dataset.state = 'preview';
+        }
     }
 
-    async fetchImage(...args) {
-        if (this._loading) return;
-        return await this.jar.fetchImage(...args);
-    }
-
-    valueChanged( value ) {
-        /*
-         this.destroy();
-
-        let slim = this.container.querySelectorAll('.slim.aurora-image-cropper')[0];
-
-        let image = slim.querySelector('img.aurora-image-source') || document.createElement('img');
-
-        image.setAttribute('src', value);
-        image.classList.add('aurora-image-source');
-        // image.setAttribute('name', "aurora-image-source");
-
-        slim.appendChild(image);
-        this.attachSlim();
-         */
+    showFileDialog() {
+        if (!this.ic.isEmpty) return;
+        return this.ic.openFileDialog();
     }
 }
